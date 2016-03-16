@@ -2,6 +2,8 @@
 
 ## The office object
 
+Your organization’s offices.
+
 ```json
 {
   "id": 175,
@@ -17,6 +19,7 @@
 | Attribute | Description |
 |-----------|-------------|
 | id | The office's unique identifier |
+| name | The office's name |
 
 ## List offices
 
@@ -53,7 +56,7 @@ curl 'https://harvest.greenhouse.io/v1/offices' \
 ]
 ```
 
-List all of an organization's offices.
+List all of your organization's offices.
 
 ### HTTP Request
 
@@ -65,6 +68,9 @@ List all of an organization's offices.
 |-----------|-------------|
 | per_page | Return up to this number of objects per response.  Must be an integer between 1 and 100.  Defaults to 100.
 | page | A cursor for use in pagination.  Returns the n-th chunk of `per_page` objects.
+
+<br>
+[See noteworthy response attributes.] (#the-office-object)
 
 
 ## Retrieve an office
@@ -97,3 +103,6 @@ Retrieve an office by its ID.
 Parameter | Description
 --------- | -----------
 id | The ID of the office to retrieve
+
+<br>
+[See noteworthy response attributes.] (#the-office-object)

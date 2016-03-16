@@ -18,13 +18,13 @@ includes:
   - harvest/candidates
   - harvest/departments
   - harvest/email_templates
-  - harvest/interviews
-  - harvest/jobs
   - harvest/job_posts
   - harvest/job_stages
+  - harvest/jobs
   - harvest/offers
   - harvest/offices
   - harvest/rejection_reasons
+  - harvest/scheduled_interviews
   - harvest/scorecards
   - harvest/sources
   - harvest/users

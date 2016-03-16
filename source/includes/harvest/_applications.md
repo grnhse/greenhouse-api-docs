@@ -2,15 +2,15 @@
 
 ## The application object
 
-Applications associate [candidates](#candidates) with [jobs](#jobs).
+Applications associate [candidates](#candidates) with [jobs](#jobs). There are 2 kinds of applications: candidates and prospects. Candidate applications always have exactly 1 job. Prospect applications can have 0 or more jobs.
 
 ```json
 {
   "id": 985314,
   "candidate_id": 978031,
   "prospect": false,
-  "applied_at": "2014-03-26T20:11:39Z",
-  "last_activity_at": "2014-03-27T16:13:15Z",
+  "applied_at": "2014-03-26T20:11:39.000Z",
+  "last_activity_at": "2014-03-27T16:13:15.000Z",
   "source": {
     "id": 1871,
     "public_name": "Happy Hour"
@@ -42,6 +42,8 @@ Applications associate [candidates](#candidates) with [jobs](#jobs).
 | jobs | An array containing the [job](#jobs) that the candidate applied for.
 | candidate_id | The ID of the [candidate](#candidates) who is applying for this job.
 | current_stage | The current [stage](#job-stages) that this application is in.
+| credited_to.id | The ID of the user who will receive credit for this application.
+| answers | The answers provided to the questions in this application. Array contains the text value of the question and answer. Answers are always plaintext strings; booleans are represented with Yes or No.
 
 ## List applications
 
@@ -56,8 +58,8 @@ curl 'https://harvest.greenhouse.io/v1/applications' \
     "id": 4341,
     "candidate_id": 23123,
     "prospect": true,
-    "applied_at": "2014-03-26T18:03:45Z",
-    "last_activity_at": "2014-03-27T16:12:02Z",
+    "applied_at": "2014-03-26T18:03:45.000Z",
+    "last_activity_at": "2014-03-27T16:12:02.000Z",
     "source": null,
     "credited_to": {
       "id": 4080,
@@ -79,12 +81,17 @@ Retreive all of an organization's applications.
 
 `GET https://harvest.greenhouse.io/v1/applications`
 
-### Optional querystring parameters
+### Querystring parameters
 
 | Parameter | Description |
 |-----------|-------------|
 | *per_page | Return up to this number of objects per response.  Must be an integer between 1 and 100.  Defaults to 100.
 | *page | A cursor for use in pagination.  Returns the n-th chunk of `per_page` objects.
+| last_activity_after | Return only applications where 'updated_at' is after this date. (Example '2014-01-05T00:00:00.000Z').
+| job_id | If supplied, only return applications that involve this job. Will return both candidates and prospects.
+
+<br>
+[See noteworthy response attributes.](#the-application-object)
 
 ## Retrieve an application
 
@@ -98,8 +105,8 @@ curl 'https://harvest.greenhouse.io/v1/applications/4341' \
   "id": 4341,
   "candidate_id": 23123,
   "prospect": true,
-  "applied_at": "2014-03-26T18:03:45Z",
-  "last_activity_at": "2014-03-27T16:12:02Z",
+  "applied_at": "2014-03-26T18:03:45.000Z",
+  "last_activity_at": "2014-03-27T16:12:02.000Z",
   "source": null,
   "credited_to": {
     "id": 4080,
@@ -120,13 +127,16 @@ Retrieve an application by its `id`.
 
 `GET https://harvest.greenhouse.io/v1/applications/{id}`
 
-### Query Parameters
+### Querystring parameters
 
 Parameter | Description
 --------- | -----------
 id | ID of the application to retrieve
+last_activity_after | Return only applications where 'updated_at' is after this date. (Example '2014-01-05T00:00:00.000Z').
+job_id | If supplied, only return applications that involve this job. Will return both candidates and prospects.
 
-
+<br>
+[See noteworthy response attributes.] (#the-application-object)
 
 
 ## Advance an application
@@ -142,8 +152,8 @@ curl -X POST 'https://harvest.greenhouse.io/v1/applications/{id}/advance'
   "id": 985314,
   "candidate_id": 978031,
   "prospect": false,
-  "applied_at": "2014-03-26T20:11:39Z",
-  "last_activity_at": "2014-03-27T16:13:15Z",
+  "applied_at": "2014-03-26T20:11:39.000Z",
+  "last_activity_at": "2014-03-27T16:13:15.000Z",
   "source": {
     "id": 1871,
     "public_name": "Happy Hour"
@@ -212,8 +222,8 @@ curl -X POST 'https://harvest.greenhouse.io/v1/applications/{id}/move'
   "id": 985314,
   "candidate_id": 978031,
   "prospect": false,
-  "applied_at": "2014-03-26T20:11:39Z",
-  "last_activity_at": "2014-03-27T16:13:15Z",
+  "applied_at": "2014-03-26T20:11:39.000Z",
+  "last_activity_at": "2014-03-27T16:13:15.000Z",
   "source": {
     "id": 1871,
     "public_name": "Happy Hour"
@@ -257,6 +267,10 @@ id | Yes | integer | ID of the application to retrieve
 from_stage_id | Yes | integer | The ID of the job stage this application is currently in.
 to_stage_id | Yes | integer | The ID of the job stage this application should be moved to.
 
+<br>
+
+[See noteworthy response attributes.] (#the-application-object)
+
 ## Reject an application
 
 ```shell
@@ -285,8 +299,8 @@ curl -X POST 'https://harvest.greenhouse.io/v1/applications/{id}/reject'
   "id": 985314,
   "candidate_id": 978031,
   "prospect": false,
-  "applied_at": "2014-03-26T20:11:39Z",
-  "last_activity_at": "2014-03-27T16:13:15Z",
+  "applied_at": "2014-03-26T20:11:39.000Z",
+  "last_activity_at": "2014-03-27T16:13:15.000Z",
   "source": {
     "id": 1871,
     "public_name": "Happy Hour"

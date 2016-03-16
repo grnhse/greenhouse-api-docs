@@ -1,5 +1,7 @@
 # Job Posts
 
+Describes the online job posts for your jobs (as seen on your Job Board).
+
 ## The job post object 
 
 ```json
@@ -125,6 +127,8 @@
 | internal | If `true`, this job post has been posted (or is *to be posted*) on an internal job board.
 | external | If `true`, this job post has been posted (or is *to be posted*) on an external job board.
 | job_id | The ID of the [job](#jobs) that this job post is for.
+| content | The text of the job post as posted to the external job board.
+| internal_content | The text of the job post if posted to the internal job board, if different than the external job board.
 | questions | An array of questions associated with this job post.
 
 ## List job posts
@@ -169,13 +173,17 @@ All of your organization's job posts.
 
 `GET https://harvest.greenhouse.io/v1/job_posts`
 
-### Optional querystring parameters
+### Querystring parameters
 
 | Parameter | Description |
 |-----------|-------------|
 | per_page | Return up to this number of objects per response.  Must be an integer between 1 and 100.  Defaults to 100.
 | page | A cursor for use in pagination.  Returns the n-th chunk of `per_page` objects.
+| content | If present, will return the text of the job post as posted to the external job board.
+| questions | If present, will return an array of questions associated with this job post.
 
+<br>
+[See noteworthy response attributes.](#the-job-post-object)
 
 ## Retrieve job post for job
 
@@ -217,8 +225,13 @@ Retrieves the coresponding job post for a given Job ID.
 
 `GET https://harvest.greenhouse.io/v1/jobs/{id}/job_post`
 
-### URL Parameters
+### Querystring parameters
 
 Parameter | Description
 --------- | -----------
 id | The ID of the job whose job post you want to retrieve
+content | If present, will return the text of the job post as posted to the external job board.
+questions | If present, will return an array of questions associated with this job post.
+
+<br>
+[See noteworthy response attributes.](#the-job-post-object)

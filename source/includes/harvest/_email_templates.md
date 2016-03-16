@@ -1,5 +1,7 @@
 # Email Templates
 
+Your organization's email templates.
+
 ## The email template object
 
 ```json
@@ -23,7 +25,9 @@
 |-----------|-------------|
 | id | The email template's unique identifier |
 | type | One of: `new_candidate`, `weekly_status`, `daily_recruiting`, `stage_transition`, `new_scorecard`, `new_referral`, `agency_candidate_status`, `agency_candidate_stage`, `take_home_test_email`, `candidate_auto_reply`, `candidate_rejection`, `scorecard_reminder`, `interviewer_invite`, `candidate_email`, `team_email`, `none`, `extending_offer`, `new_agency_submission`, `non_admin_welcome`, `job_admin_welcome`, `site_admin_welcome`, `prospect_referral_receipt`, `candidate_referral_receipt`, `candidate_availability_request`, `candidate_availability_confirmation`
-
+| user |  The user this template belongs to. If null, this is an 'organization wide' template available to everyone.
+| body | The plain text body of the e-mail (may be null).
+| html_body | The body of the e-mail with html styling code (may be null).
 
 ## List email templates
 
@@ -77,6 +81,10 @@ curl 'https://harvest.greenhouse.io/v1/email_templates/' \
 | per_page | Return up to this number of objects per response.  Must be an integer between 1 and 100.  Defaults to 100.
 | page | A cursor for use in pagination.  Returns the n-th chunk of `per_page` objects.
 
+<br>
+
+[See noteworthy response attributes.](#the-email-template-object)
+
 ## Retrieve an email template
 
 ```shell
@@ -112,3 +120,7 @@ Retrieves your organization's email templates.
 Parameter | Description
 --------- | -----------
 id | The ID of the email template to retrieve
+
+<br>
+
+[See noteworthy response attributes.](#the-email-template-object)

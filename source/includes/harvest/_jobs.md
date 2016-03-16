@@ -2,6 +2,8 @@
 
 ## The job object
 
+Your organization's jobs.
+
 ```json
 {
   "id": 6404,
@@ -116,11 +118,12 @@
 | Attribute | Description |
 |-----------|-------------|
 | id | The job's unique identifier |
+| requisition_id | An arbitrary ID provided by an external source; does not map to another entity within Greenhouse.
 | status | One of `open`, `closed`, `draft`.
-| departments | An array containing the [department](#department) which this job belongs to.
+| departments | An array containing the [department](#departments) which this job belongs to.
 | offices | An array containing the [offices](#offices) this job is associated with.
-| custom_fields | Contains any custom job fields which have been defined by your organization.
 | hiring_team | Lists the names and User IDs of the hiring managers, recruiters, coordinators and sourcers associated with this job. For recruiters and coordinators, there is a `responsible` boolean flag which indicates that the user is the responsible recruiter or coordinator for this job.
+| custom_fields | Contains any custom job fields which have been defined by your organization.
 | openings | Lists the openings associated with this job.
 | openings[].id | Custom identifier set by an organization. Can be `null`.
 | openings[].status | One of: `["open", "closed"]`
@@ -222,12 +225,15 @@ List all of your organization's jobs.
 
 `GET https://harvest.greenhouse.io/v1/jobs`
 
-### Optional querystring parameters
+### Querystring parameters
 
 | Parameter | Description |
 |-----------|-------------|
 | per_page | Return up to this number of objects per response.  Must be an integer between 1 and 100.  Defaults to 100.
 | page | A cursor for use in pagination.  Returns the n-th chunk of `per_page` objects.
+
+<br>
+[See noteworthy response attributes.](#the-job-object)
 
 
 ## Retrieve a job
@@ -325,3 +331,6 @@ curl 'https://harvest.greenhouse.io/v1/jobs/{id}' \
 Parameter | Description
 --------- | -----------
 id | The ID of the job to retrieve
+
+<br>
+[See noteworthy response attributes.](#the-job-object)

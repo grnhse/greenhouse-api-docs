@@ -2,14 +2,16 @@
 
 ## The scheduled interview object 
 
+Interviews that have been scheduled for the specified application.
+
 ```json
 {
   "id": 9128481,
   "start": {
-    "date_time": "2014-03-26T22:15:00Z"
+    "date_time": "2014-03-26T22:15:00.000Z"
   },
   "end": {
-    "date_time": "2014-03-26T22:30:00Z"
+    "date_time": "2014-03-26T22:30:00.000Z"
   },
   "location": "Big Conference Room",
   "status": "awaiting_feedback",
@@ -36,9 +38,12 @@
 | Attribute | Description |
 |-----------|-------------|
 | id | The scheduled interview's unique identifier |
-| status | One of: `to_be_scheduled`, `scheduled`, `awaiting_feedback`, `complete`, `skipped`, `collect_feedback`, `to_be_sent`, `sent`, `received`
+| start | A date_time value if this interview has a precise start time, or a date value if this is an all-day event.
+| end | A date_time value if this interview has a precise start time, or a date value if this is an all-day event.
+| location | The location of the interview.
+| status | One of: `to_be_scheduled`, `scheduled`, `awaiting_feedback`, `complete`, `skipped`, `collect_feedback`, `to_be_sent`, `sent`, `received`.
 | organizer | The [user](#users) who is the organizer for this interview
-| interviewers | An array containing the [users](#users) who have interviews with this candidate, including, if applicable, the ID of the scorecard they completed
+| interviewers | An array containing the [users](#users) who have interviews with this candidate, including, if applicable, the ID of the scorecard they completed.
 
 ## List scheduled interviews
 
@@ -53,10 +58,10 @@ curl 'https://harvest.greenhouse.io/v1/applications/{id}/scheduled_interviews' \
   {
     "id": 9128481,
     "start": {
-      "date_time": "2014-03-26T22:15:00Z"
+      "date_time": "2014-03-26T22:15:00.000Z"
     },
     "end": {
-      "date_time": "2014-03-26T22:30:00Z"
+      "date_time": "2014-03-26T22:30:00.000Z"
     },
     "location": "Big Conference Room",
     "status": "awaiting_feedback",
@@ -118,3 +123,6 @@ Interviews that have been scheduled for this application.
 Parameter | Description
 --------- | -----------
 id | ID of the application to retrieve
+
+<br>
+[See noteworthy response attributes.] (#the-scheduled-interview-object)

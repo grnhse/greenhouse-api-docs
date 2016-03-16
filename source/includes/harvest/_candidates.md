@@ -1,5 +1,7 @@
 # Candidates
 
+Your organization's candidates.
+
 ## The candidate object
 
 ```json
@@ -67,11 +69,18 @@
 | Attribute | Description |
 |-----------|-------------|
 | id | The candidate's unique identifier |
-| company | The company the candidate is currently employed at
+| company | The company at which the candidate currently works
 | title | The candidate's current title
 | application_ids | Array of [application](#applications) IDs associated with this candidate. Can contain none, one, or several application IDs.
+| phone_numbers[].type | One of: ["home", "work", "mobile", "skype", "other"]
+| addresses[].type | One of: ["home", "work", "other"]
+| email_addresses[].type | One of: ["personal", "work", "other"]
+| website_addresses[].type | One of: ["personal", "company", "portfolio", "blog", "other"]
 | recruiter | The recruiter [user](#users) who is responsible for this candidate.
 | coordinator | The coordinator [user](#users) who is responsible for this candidate.
+| attachments[].type | One of: ["admin_only", "public", "cover_letter", "offer_packet", "resume", "take_home_test"]
+| attachments[].url | URLs expire in 30 days.
+| custom_fields | Contains a hash of the custom fields configured for this resource. The properties in this hash reflect the active custom fields as of the time this method is called.
 
 ## List candidates
 
@@ -150,12 +159,16 @@ List all of an organization's candidates.
 
 `GET https://harvest.greenhouse.io/v1/candidates`
 
-### Optional querystring parameters
+### Qerystring parameters
 
 | Parameter | Description |
 |-----------|-------------|
 | per_page | Return up to this number of objects per response.  Must be an integer between 1 and 100.  Defaults to 100.
 | page | A cursor for use in pagination.  Returns the n-th chunk of `per_page` objects.
+
+<br>
+
+[See noteworthy response attributes.] (#the-candidate-object)
 
 ## Retrieve a candidate
 
@@ -238,7 +251,9 @@ Parameter | Description
 --------- | -----------
 id | The ID of the candidate to retrieve
 
+<br>
 
+[See noteworthy response attributes.] (#the-candidate-object)
 
 ## Edit a candidate
 
@@ -415,6 +430,10 @@ email_addresses[] | No | email_address | Array of email addresses. Passing an em
 website_addresses[] | No | website_address | Array of website addresses. Passing an empty array will clear all.
 social_media_addresses[] | No | social_media_address | Array of social media addresses. Passing an empty array will clear all.
 tags[] | No | string | Array of tags as strings. Passing an empty array will clear all.
+
+<br>
+
+[See noteworthy response attributes.] (#the-candidate-object)
 
 
 

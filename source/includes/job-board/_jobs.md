@@ -4,15 +4,45 @@
 
 ```json
 {
-  "id":44444,
-  "title":"Product Engineer",
-  "updated_at":"2013-07-02T19:39:23Z",
-  "location":{
-    "name":"San Francisco, CA"
+  "id": 127817,
+  "internal_job_id": 144381,
+  "title": "Bad Cop",
+  "updated_at": "2016-01-14T10:55:28-05:00",
+  "location": {
+    "name": "NYC"
   },
-  "absolute_url":"http://your.co/careers?gh_jid=444444",
-  "internal_job_id":55555,
-  "metadata":[]
+  "absolute_url": "https://boards.greenhouse.io/vaulttec/jobs/127817",
+  "metadata": null
+}
+```
+
+> When `?content=true`:
+
+```json
+{
+  "id": 127817,
+  "internal_job_id": 144381,
+  "title": "Bad Cop",
+  "updated_at": "2016-01-14T10:55:28-05:00",
+  "location": {
+    "name": "NYC"
+  },
+  "absolute_url": "https://boards.greenhouse.io/vaulttec/jobs/127817",
+  "metadata": null,
+  "content": "&lt;p&gt;The Rule Enforcement team is dedicated to keeping all employees in line. &amp;nbsp;Rule enforcers use&amp;nbsp;various tactics such as physical intimidation, awkward pauses, and dramatic coffee sips in order to make sure everyone does what they&#39;re told.",
+  "departments": [
+    {
+      "id": 13585,
+      "name": "Rule Enforcement"
+    }
+  ],
+  "offices": [
+    {
+      "id": 8787,
+      "name": "New York City",
+      "location": "New York, NY, United States"
+    }
+  ]
 }
 ```
 
@@ -37,7 +67,7 @@ board_token | Job Board URL token
 
 Parameter | Description
 --------- | -----------
-content | If set to `true`, include the description of each job post.
+content | If set to `true`, include the description, department and office of each job post.
 
 ## Retrieve a job
 

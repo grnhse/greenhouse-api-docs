@@ -164,4 +164,4 @@ See web hook [common attributes](#common-attributes).
 | Attribute | Note |
 |-----------|------|
 | `application.current_stage.interviews[].interviewers.status` | One of: `needs_action`, `declined`, `tentative`, `accepted`
-| `application.current_stage.interviews[].status` | One of: 'to_be_scheduled', 'scheduled', 'awaiting_feedback', 'complete', 'skipped', 'collect_feedback', 'to_be_sent', 'sent', 'received'
+| `application.current_stage.interviews[].status` | One of: `to_be_scheduled`, `scheduled`, `awaiting_feedback`, `complete`, `skipped`, `collect_feedback`, `to_be_sent`, `sent`, `received`

@@ -2,6 +2,8 @@
 
 ## The department object
 
+Your organization's departments.
+
 ```json
 {
 	"id": 1,
@@ -9,12 +11,16 @@
 }
 ```
 
+### Noteworthy attributes
+
 | Attribute | Description |
 |-----------|-------------|
 | id | The department's unique identifier |
 | name | The department's name
 
 ## List departments
+
+List all of your organization's departments.
 
 ```shell
 curl 'https://harvest.greenhouse.io/v1/departments' \
@@ -47,6 +53,10 @@ curl 'https://harvest.greenhouse.io/v1/departments' \
 | per_page | Return up to this number of objects per response.  Must be an integer between 1 and 100.  Defaults to 100.
 | page | A cursor for use in pagination.  Returns the n-th chunk of `per_page` objects.
 
+
+<br>
+[See noteworthy response attributes.](#the-department-object)
+
 ## Retrieve a department
 
 ```shell
@@ -74,3 +84,6 @@ Retrieves your organization's departments.
 Parameter | Description
 --------- | -----------
 id | The ID of the department to retrieve
+
+<br>
+[See noteworthy response attributes.](#the-department-object)

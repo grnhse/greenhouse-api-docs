@@ -40,17 +40,16 @@ Please keep in mind that the HTTP Basic Auth API token is a secret key.  Any for
 </form>
 ```
 
-Use this endpoint to submit a new application.  Accepts a multipart form POST representing a job application. 
+Use this endpoint to submit a new application. This endpoint accepts a multipart form POST representing a job application. Application forms are job-specific and will be constrcuted via the "questions" array available via the [Job method](#retrieve-a-job). 
 
-A form which correctly represents the data required by this method would be constructed from the "questions" array available via the /job API method, this set of fields is job-specific (more details available in job method documentation).
+Please note that when submitting an application through this method, Greenhouse will not confirm the inclusion of required fields. Validation for required fields must be done on the client side, as Greenhouse will not reject applications that are missing required fields.
 
 <aside class="warning">
-	This method requires HTTP Basic Auth over SSL/TLS: the Basic Auth username is your API key (found on the API Credentials page), no password is required. 
+  This method requires HTTP Basic Auth over SSL/TLS: the Basic Auth username is your API key (found on the API Credentials page). No password is required. 
 </aside>
 
-<aside class="warning">
-	<strong>IF BUILDING YOUR OWN APPLICATION FORM</strong><br>
-	You can submit applications directly using this endpoint and dynamically construct application forms for each job using the List Jobs endpoint. In general, we would encourage customers to make use of the Embedded Job Application before going to the trouble of building their own form. Our application form is well tested, validated, battle hardened, and has built-in spam protection measures--building your own form can introduce a number of challenges which are typically not worth the additional effort.
+<aside class="notice">
+  In general, we would encourage customers to make use of the Embedded Job Application before going to the trouble of building their own form. Our application form is well tested, validated, battle hardened, and has built-in spam protection measures--building your own form can introduce a number of challenges which are typically not worth the additional effort.
 </aside>
 
 ### HTTP Request

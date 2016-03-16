@@ -2,6 +2,9 @@
 
 ## The user object
 
+Your organization's Greenhouse users.
+
+
 ```json
 {
   "id": 112,
@@ -15,10 +18,12 @@
 }
 ```
 
+### Noteworthy Attributes
+
 | Attribute | Description |
 |-----------|-------------|
 | id | The user's unique identifier |
-| site_admin | If `true`, this user is a site admin, which means the user has full permissions on all jobs.
+| site_admin | If `true`, this user is a site admin, which means the user has full permissions on all non-private jobs.
 
 ## List users
 
@@ -64,6 +69,9 @@ List all of an organization's Greenhouse users.
 | per_page | Return up to this number of objects per response.  Must be an integer between 1 and 100.  Defaults to 100.
 | page | A cursor for use in pagination.  Returns the n-th chunk of `per_page` objects.
 
+<br>
+[See noteworthy response attributes.] (#the-user-object)
+
 ## Retrieve a user 
 
 ```shell
@@ -93,3 +101,6 @@ curl 'https://harvest.greenhouse.io/v1/users/{id}' \
 Parameter | Description
 --------- | -----------
 id | The ID of the user to retrieve
+
+<br>
+[See noteworthy response attributes.] (#the-user-object)

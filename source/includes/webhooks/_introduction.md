@@ -62,17 +62,17 @@ Currently, Web Hooks for all event types include these common attributes:
 
 | Attribute | Note |
 |-----------|------|
-| `application.id` | Unique Greenhouse identifier of the application. Information not included in the web hook can be retrieved via [Harvest API - GET Applications](/harvest.html#get-applications)
+| `application.id` | Unique Greenhouse identifier of the application. Information not included in the web hook can be retrieved via [Harvest API - GET Applications](/harvest.html#applications)
 | `application.credited_to` | If populated and a Greenhouse user, the user's Greenhouse ID and e-mail address will be provided. If populated and not a Greenhouse user, just the name will be provided.
 | `application.status` | One of: `rejected`, `hired`, `active`
-| `application.candidate.id` | Unique Greenhouse identifier of the candidate. Information not included in the web hook can be retrieved via [Harvest API - GET Candidates](/harvest.html#get-candidates)
+| `application.candidate.id` | Unique Greenhouse identifier of the candidate. Information not included in the web hook can be retrieved via [Harvest API - GET Candidates](/harvest.html#candidates)
 | `application.candidate.phone_numbers[].type` | One of: `home`, `work`, `mobile`, `skype`, `other`
 | `application.candidate.addresses[].type` | Application Candidate Addresses Type
 | `application.candidate.email_addresses[].type` | One of: `personal`, `work`, `other`
 | `application.candidate.attachments[].type` | One of: `admin_only`, `public`, `cover_letter`, `offer_packet`, `resume`, `take_home_test`, `offer_letter`, `signed_offer_letter`
 | `application.candidate.external_id` | An arbitrary ID provided by an external source; does not map to another entity in Greenhouse.
 | `application.jobs[]` | Candidates will have one job. Prospects will have 0 or more jobs.
-| `application.jobs[].id` | Unique Greenhouse identifier of the job. Information not included in the web hook can be retrieved via [Harvest API - GET Jobs](/harvest.html#get-jobs)
+| `application.jobs[].id` | Unique Greenhouse identifier of the job. Information not included in the web hook can be retrieved via [Harvest API - GET Jobs](/harvest.html#jobs)
 | `application.jobs[].requisition_id` | An arbitrary ID provided by an external source; does not map to another entity in Greenhouse.
 | `application.opening.opening_id` | This is an external opening id that may be defined for an HRIS system. This does not reference anything else in Greenhouse and may be blank.
 | `custom_fields` | Contains a hash map/associative array. The key of the hash map is an immutable key; which is an underscore-slugged version of the custom field's name at creation time. The exported properties reflect the active values of the custom field at the time of the export. All custom fields, public and private, will be exported. If a field exists but does not have a value, it will be exported with a value of null for singular values and empty arrays for multiple values. *Important Note*: If a custom field is created with the name `Salary` the key will be `salary`. If later the name of this custom field is changed to `Wage` or `Bonus`, the key will remain `salary`.

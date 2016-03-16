@@ -1,5 +1,7 @@
 # Scorecards
 
+All submitted scorecards ordered by candidate.
+
 ## The scorecard object
 
 ```json
@@ -92,6 +94,7 @@
 | candidate_id | The ID of the [candidate](#candidates) whom this scorecard was written for.
 | submitted_by | The [user](#users) who submitted this scorecard.
 | overall_recommendation | One of: `definitely_not`, `no`, `yes`, `strong_yes`, `mixed`, `no_decision`
+| attributes | Array containing the attributes of the Scorecard. Describes each attribute's name, type, rating (can be "no_decision"), and an optional note.
 
 ## List scorecards
 
@@ -200,6 +203,8 @@ List all scorecards.
 | per_page | Return up to this number of objects per response.  Must be an integer between 1 and 100.  Defaults to 100.
 | page | A cursor for use in pagination.  Returns the n-th chunk of `per_page` objects.
 
+<br>
+[See noteworthy response attributes.] (#the-scorecard-object)
 
 ## Retrieve a scorecard
 
@@ -301,6 +306,9 @@ curl 'https://harvest.greenhouse.io/v1/scorecards/{id}' \
 Parameter | Description
 --------- | -----------
 id | The ID of the scorecard to retrieve
+
+<br>
+[See noteworthy response attributes.] (#the-scorecard-object)
 
 ## List scorecards for application
 
@@ -405,3 +413,6 @@ List all submitted scorecards for the requested application.
 Parameter | Description
 --------- | -----------
 id | ID of application whose scorecards you want to retrieve.
+
+<br>
+[See noteworthy response attributes.] (#the-scorecard-object)

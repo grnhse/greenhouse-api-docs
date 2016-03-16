@@ -31,7 +31,7 @@
 }
 ```
 
-Returns a list of your organization's departments and jobs
+Returns a list of your organization's departments and jobs.
 
 
 ### HTTP Request

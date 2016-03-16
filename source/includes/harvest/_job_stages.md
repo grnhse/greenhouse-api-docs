@@ -1,5 +1,7 @@
 # Job Stages
 
+Stages for the job specified by the supplied id.
+
 ## The job stage object
 
 ```
@@ -40,6 +42,8 @@
 	]
 }
 ```
+
+### Noteworthy attributes
 
 | Attribute | Description |
 |-----------|-------------|
@@ -125,4 +129,7 @@ Retrieves the stages for the specified job id.
 
 Parameter | Description
 --------- | -----------
-id | The ID of the job whose job stages you want to retrieve
+id | The ID of the job whose job stages you want to retrieve.
+
+<br>
+[See noteworthy response attributes.](#the-job-stage-object)

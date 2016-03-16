@@ -85,8 +85,6 @@ X-RateLimit-Remaining: 49
 
 API requests may be throttled. Check the `X-RateLimit-Limit` and `X-RateLimit-Remaining` headers to see how many requests you are allowed until throttling kicks in. Making too many requests in a short time frame will cause Harvest to return an `HTTP 429` response.
 
-<aside class="warning">If you need to pull data at a rate faster than the rate limit will allow, please contact us!</aside>
-
 ## Pagination
 
 ```

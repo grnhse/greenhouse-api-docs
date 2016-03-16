@@ -3,8 +3,6 @@
 ## The activity feed object
 The activity feed is the list of activities on a candidate's profile, including interviews, notes, and emails.
 
-### Noteworthy attributes
-
 ```json
 {
   "note": [
@@ -49,6 +47,8 @@ The activity feed is the list of activities on a candidate's profile, including 
   ]
 }
 ```
+
+### Noteworthy attributes
 
 | Attribute | Description |
 |-----------|-------------|
@@ -123,4 +123,7 @@ Retrieve a candidate's activity feed.
 
 Parameter | Description
 --------- | -----------
-id | The ID of the candidate whose activity feed you want to retrieve
+id | The ID of the candidate whose activity feed you want to retrieve.
+
+<br>
+[See noteworthy response attributes.](#the-activity-feed-object)
