@@ -27,13 +27,18 @@
           "updated_at":"2013-07-02T19:39:23Z",
           "absolute_url":"http://your.co/careers?gh_jid=55555"
         }
+      ],
+      "parent_id":null,
+      "child_ids":[]
     },
     {
       "id":22222,
       "name":"Account Management",
       "jobs":[
 
-      ]
+      ],
+      "parent_id":null,
+      "child_ids":[]
     },
     // { ... } All departments are listed
   ]
@@ -52,6 +57,19 @@ Returns a list of your organization's departments and jobs.
 Parameter | Description
 --------- | -----------
 board_token | Job Board URL token
+
+### Querystring Parameters
+
+Parameter | Required | Type | Description
+--------- | ----------- | ----------- | -----------
+render_as | No | string | This parameter defines how to represent the list of departments. The default value is 'list'.
+
+Allowed `render_as` values:
+
+| Value | Description |
+|-------|--------------|
+| list | (Default). The departments are returned as a list of objects and they include `parent_id` and `child_ids`. |
+| tree | The departments are returned as a list of trees with `children`. |
 
 ## Retrieve a department
 
@@ -78,7 +96,9 @@ board_token | Job Board URL token
       "updated_at":"2013-07-02T19:39:23Z",
       "absolute_url":"http://your.co/careers?gh_jid=55555"
     }
-  ]
+  ],
+  "parent_id":null,
+  "child_ids":[]
 }
 ```
 
@@ -94,3 +114,16 @@ Parameter | Description
 --------- | -----------
 board_token | Job Board URL token
 department_id | ID of the department to retrieve
+
+### Querystring Parameters
+
+Parameter | Required | Type | Description
+--------- | ----------- | ----------- | -----------
+render_as | No | string | This parameter defines how to represent the list of departments. The default value is 'list'.
+
+Allowed `render_as` values:
+
+| Value | Description |
+|-------|--------------|
+| list | (Default).
+| tree | The children departments are returned as a tree. |

@@ -33,14 +33,18 @@
   "departments": [
     {
       "id": 13585,
-      "name": "Rule Enforcement"
+      "name": "Rule Enforcement",
+      "parent_id":null,
+      "child_ids":[]
     }
   ],
   "offices": [
     {
       "id": 8787,
       "name": "New York City",
-      "location": "New York, NY, United States"
+      "location": "New York, NY, United States",
+      "parent_id":null,
+      "child_ids":[]
     }
   ]
 }
