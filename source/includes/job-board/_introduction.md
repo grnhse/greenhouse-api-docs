@@ -7,7 +7,10 @@ We support JSONP callbacks, and have a POST method which can be used to build yo
 
 ## JSONP
 ```html
-<script type="text/javascript" src="https://api.greenhouse.io/v1/example/method/url?callback="></script>
+<script
+  type="text/javascript"
+  src="https://api.greenhouse.io/v1/example/method/url?callback=">
+</script>
 ```
 
 To call a method via JSONP (http://en.wikipedia.org/wiki/JSONP), insert the script tag below into your HTML document with an appropriate method URL and provide your own method name in the "callback" querystring parameter. NOTE: The callback name may only contain numbers, letters, underscore, and period.

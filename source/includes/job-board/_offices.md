@@ -2,9 +2,20 @@
 
 ## List offices
 
+> With `render_as=list` (default)
+
 ```json
 {
   "offices":[
+    {
+      "id":10201,
+      "name":"West Coast",
+      "departments":[
+      ],
+      "child_ids":[
+        11111
+      ]
+    },
     {
       "id":11111,
       "name":"San Francisco",
@@ -33,7 +44,8 @@
             }
           ],
           "parent_id":null,
-          "child_ids":[]
+          "child_ids":[
+          ]
         },
         {
           "id":22222,
@@ -42,12 +54,75 @@
 
           ],
           "parent_id":null,
-          "child_ids":[]
+          "child_ids":[
+          ]
         },
         // { ... } Each dept is listed for each office
+      ],
+      "parent_id":10201,
+      "child_ids":[
       ]
-      "parent_id":null,
-      "child_ids":[]
+    },
+    // { ... } More offices here
+  ]
+}
+```
+> With `render_as=tree`
+
+```json
+{
+  "offices":[
+    {
+      "id":10201,
+      "name":"West Coast",
+      "departments":[
+      ],
+      "children":[
+        {
+          "id":11111,
+          "name":"San Francisco",
+          "departments":[
+            {
+              "id":33333,
+              "name":"Engineering",
+              "jobs":[
+                {
+                  "id":44444,
+                  "title":"Product Engineer",
+                  "location":{
+                    "name":"San Francisco, CA"
+                  },
+                  "updated_at":"2013-07-02T19:39:23Z",
+                  "absolute_url":"http://your.co/careers?gh_jid=444444"
+                },
+                {
+                  "id":55555,
+                  "title":"Mobile Engineer - iOS",
+                  "location":{
+                    "name":"San Francisco, CA"
+                  },
+                  "updated_at":"2013-07-02T19:39:23Z",
+                  "absolute_url":"http://your.co/careers?gh_jid=55555"
+                }
+              ],
+              "children":[
+              ]
+            },
+            {
+              "id":22222,
+              "name":"Account Management",
+              "jobs":[
+
+              ],
+              "children":[
+              ]
+            },
+            // { ... } Each dept is listed for each office
+          ]
+          "children":[
+          ]
+        },
+      ]
     },
     // { ... } More offices here
   ]
@@ -81,6 +156,8 @@ Allowed `render_as` values:
 
 ## Retrieve an office
 
+> With `render_as=list` (default)
+
 ```json
 {
   "id":11111,
@@ -108,13 +185,58 @@ Allowed `render_as` values:
           "updated_at":"2013-07-02T19:39:23Z",
           "absolute_url":"http://your.co/careers?gh_jid=55555"
         }
-	  ]
+      ]
     },
     {
       "id":22222,
       "name":"Account Management",
       "jobs":[]
     }
+  ],
+  "parent_id":10201,
+  "child_ids":[
+  ]
+}
+```
+
+> With `render_as=tree`
+
+```json
+{
+  "id":11111,
+  "name":"San Francisco",
+  "departments":[
+    {
+      "id":33333,
+      "name":"Engineering",
+      "jobs":[
+        {
+          "id":44444,
+          "title":"Product Engineer",
+          "location":{
+            "name":"San Francisco, CA"
+          },
+          "updated_at":"2013-07-02T19:39:23Z",
+          "absolute_url":"http://your.co/careers?gh_jid=444444"
+        },
+        {
+          "id":55555,
+          "title":"Mobile Engineer - iOS",
+          "location":{
+            "name":"San Francisco, CA"
+          },
+          "updated_at":"2013-07-02T19:39:23Z",
+          "absolute_url":"http://your.co/careers?gh_jid=55555"
+        }
+      ]
+    },
+    {
+      "id":22222,
+      "name":"Account Management",
+      "jobs":[]
+    }
+  ],
+  "children":[
   ]
 }
 ```

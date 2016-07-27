@@ -2,9 +2,21 @@
 
 ## List departments
 
+> With `render_as=list` (default)
+
 ```json
 {
   "departments":[
+    {
+      "id":33332,
+      "name":"R & D",
+      "jobs":[
+      ],
+      "parent_id":null,
+      "child_ids":[
+        3333
+      ]
+    },
     {
       "id":33333,
       "name":"Engineering",
@@ -28,17 +40,70 @@
           "absolute_url":"http://your.co/careers?gh_jid=55555"
         }
       ],
-      "parent_id":null,
-      "child_ids":[]
+      "parent_id":33332,
+      "child_ids":[
+      ]
     },
     {
       "id":22222,
       "name":"Account Management",
       "jobs":[
-
       ],
       "parent_id":null,
-      "child_ids":[]
+      "child_ids":[
+      ]
+    },
+    // { ... } All departments are listed
+  ]
+}
+```
+
+> With `render_as=tree`
+
+```json
+{
+  "departments":[
+    {
+      "id":33332,
+      "name":"R & D",
+      "jobs":[
+      ],
+      "children":[
+        {
+          "id":33333,
+          "name":"Engineering",
+          "jobs":[
+            {
+              "id":44444,
+              "title":"Product Engineer",
+              "location":{
+                "name":"San Francisco, CA"
+              },
+              "updated_at":"2013-07-02T19:39:23Z",
+              "absolute_url":"http://your.co/careers?gh_jid=444444"
+            },
+            {
+              "id":55555,
+              "title":"Mobile Engineer - iOS",
+              "location":{
+                "name":"San Francisco, CA"
+              },
+              "updated_at":"2013-07-02T19:39:23Z",
+              "absolute_url":"http://your.co/careers?gh_jid=55555"
+            }
+          ],
+          "children":[
+          ]
+        },
+      ]
+    },
+    {
+      "id":22222,
+      "name":"Account Management",
+      "jobs":[
+      ],
+      "children":[
+      ]
     },
     // { ... } All departments are listed
   ]
@@ -73,6 +138,8 @@ Allowed `render_as` values:
 
 ## Retrieve a department
 
+> With `render_as=list` (default)
+
 ```json
 {
   "id":33333,
@@ -98,7 +165,48 @@ Allowed `render_as` values:
     }
   ],
   "parent_id":null,
-  "child_ids":[]
+  "child_ids":[
+    33334
+  ]
+}
+```
+
+> With `render_as=tree` (default)
+
+```json
+{
+  "id":33333,
+  "name":"Engineering",
+  "jobs":[
+    {
+      "id":44444,
+      "title":"Product Engineer",
+      "location":{
+        "name":"San Francisco, CA"
+      },
+      "updated_at":"2013-07-02T19:39:23Z",
+      "absolute_url":"http://your.co/careers?gh_jid=444444"
+    },
+    {
+      "id":55555,
+      "title":"Mobile Engineer - iOS",
+      "location":{
+        "name":"San Francisco, CA"
+      },
+      "updated_at":"2013-07-02T19:39:23Z",
+      "absolute_url":"http://your.co/careers?gh_jid=55555"
+    }
+  ],
+  "children":[
+    {
+      "id":33334,
+      "name":"Mobile Development",
+      "jobs":[
+      ],
+      "children":[
+      ]
+    }
+  ]
 }
 ```
 

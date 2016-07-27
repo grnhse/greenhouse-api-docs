@@ -2,8 +2,7 @@
 title: Job Board API
 
 language_tabs:
-  - shell
-  - ruby
+  - json
 
 toc_footers:
   - <a href="/harvest.html" title="Harvest API">Harvest API</a>

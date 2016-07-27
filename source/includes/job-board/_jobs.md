@@ -4,15 +4,15 @@
 
 ```json
 {
-  "id": 127817,
-  "internal_job_id": 144381,
-  "title": "Bad Cop",
-  "updated_at": "2016-01-14T10:55:28-05:00",
-  "location": {
-    "name": "NYC"
+  "id":127817,
+  "internal_job_id":144381,
+  "title":"Bad Cop",
+  "updated_at":"2016-01-14T10:55:28-05:00",
+  "location":{
+    "name":"NYC"
   },
-  "absolute_url": "https://boards.greenhouse.io/vaulttec/jobs/127817",
-  "metadata": null
+  "absolute_url":"https://boards.greenhouse.io/vaulttec/jobs/127817",
+  "metadata":null
 }
 ```
 
@@ -20,31 +20,50 @@
 
 ```json
 {
-  "id": 127817,
-  "internal_job_id": 144381,
-  "title": "Bad Cop",
-  "updated_at": "2016-01-14T10:55:28-05:00",
-  "location": {
-    "name": "NYC"
+  "id":127817,
+  "internal_job_id":144381,
+  "title":"Bad Cop",
+  "updated_at":"2016-01-14T10:55:28-05:00",
+  "location":{
+    "name":"NYC"
   },
-  "absolute_url": "https://boards.greenhouse.io/vaulttec/jobs/127817",
-  "metadata": null,
-  "content": "&lt;p&gt;The Rule Enforcement team is dedicated to keeping all employees in line. &amp;nbsp;Rule enforcers use&amp;nbsp;various tactics such as physical intimidation, awkward pauses, and dramatic coffee sips in order to make sure everyone does what they&#39;re told.",
-  "departments": [
+  "absolute_url":"https://boards.greenhouse.io/vaulttec/jobs/127817",
+  "metadata":null,
+  "content":"&lt;p&gt;The Rule Enforcement team is dedicated to keeping all employees in line. &amp;nbsp;Rule enforcers use&amp;nbsp;various tactics such as physical intimidation, awkward pauses, and dramatic coffee sips in order to make sure everyone does what they&#39;re told.",
+  "departments":[
     {
-      "id": 13585,
-      "name": "Rule Enforcement",
+      "id":13583,
+      "name":"Department of Departments",
       "parent_id":null,
-      "child_ids":[]
+      "child_ids":[
+        13585
+      ]
+    },
+    {
+      "id":13585,
+      "name":"Rule Enforcement",
+      "parent_id":13583,
+      "child_ids":[
+      ]
     }
   ],
-  "offices": [
+  "offices":[
     {
-      "id": 8787,
-      "name": "New York City",
-      "location": "New York, NY, United States",
+      "id":8304,
+      "name":"East Coast",
+      "location":"United States",
       "parent_id":null,
-      "child_ids":[]
+      "child_ids":[
+        8787
+      ]
+    },
+    {
+      "id":8787,
+      "name":"New York City",
+      "location":"New York, NY, United States",
+      "parent_id":8304,
+      "child_ids":[
+      ]
     }
   ]
 }
@@ -85,8 +104,7 @@ content | If set to `true`, include the description, department and office of ea
   },
   "content":"This is the job description. &amp;lt;p&amp;gt;Any HTML included through the hosted job application editor will be automatically converted into corresponding HTML entitites.&amp;lt;/p&amp;gt;",
   "absolute_url":"http://your.co/careers?gh_jid=444444",
-  "internal_job_id": 55555,
-  // NOTE: questions will only appear if "questions" parameter is set to true
+  "internal_job_id":55555,
   "questions":[
     {
       "required":true,
@@ -144,7 +162,9 @@ content | If set to `true`, include the description, department and office of ea
 }
 ```
 
-Returns a job post. Setting the questions querystring parameter to `"true"` will include the list of job application fields; these fields can be used to dynamically construct your own job application form. 
+Returns a job post. Setting the questions querystring parameter to
+`"true"` will include the list of job application fields; these fields
+can be used to dynamically construct your own job application form. 
 
 Any job custom fields you have selected to be exposed in the job board API will be shown in the `metadata` attribute.
 
