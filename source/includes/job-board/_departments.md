@@ -8,13 +8,13 @@
 {
   "departments":[
     {
-      "id":33332,
+      "id":77777,
       "name":"R & D",
       "jobs":[
       ],
       "parent_id":null,
       "child_ids":[
-        3333
+        33333
       ]
     },
     {
@@ -40,7 +40,7 @@
           "absolute_url":"http://your.co/careers?gh_jid=55555"
         }
       ],
-      "parent_id":33332,
+      "parent_id":77777,
       "child_ids":[
       ]
     },
@@ -64,7 +64,7 @@
 {
   "departments":[
     {
-      "id":33332,
+      "id":77777,
       "name":"R & D",
       "jobs":[
       ],
@@ -166,12 +166,12 @@ Allowed `render_as` values:
   ],
   "parent_id":null,
   "child_ids":[
-    33334
+    77777
   ]
 }
 ```
 
-> With `render_as=tree` (default)
+> With `render_as=tree`
 
 ```json
 {
@@ -199,7 +199,7 @@ Allowed `render_as` values:
   ],
   "children":[
     {
-      "id":33334,
+      "id":77777,
       "name":"Mobile Development",
       "jobs":[
       ],
