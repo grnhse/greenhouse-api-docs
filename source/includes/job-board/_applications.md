@@ -130,7 +130,7 @@ email | Applicant's email adress
 *cover_letter_text | Plaintext cover letter body
 *resume | Resume file contents.  *Only allowed in `multipart/form-data` requests*
 *cover_letter | Cover letter file contents.  *Only allowed in `multipart/form-data` requests*
-*educations | An array of education hash. Each education will has five fields. school_name_id, degree_id, discipline_id, start_date with a hash of month and year, end_date with a hash of month and year. You can get the school_name_id, degree_id, discipline_id from our [List Schools](#list-schools), [List Degrees](#list-degrees), [List Disciplines](#list-disciplines) apis.
+*educations | An array of educations. Each education should has five fields. school_name_id, degree_id, discipline_id, start_date with a hash of month and year, end_date with a hash of month and year. You can get the school_name_id, degree_id, discipline_id from our [List Schools](#list-schools), [List Degrees](#list-degrees), [List Disciplines](#list-disciplines) apis.
 
 ### Collecting Applicant Location
 
