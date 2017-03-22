@@ -15,6 +15,9 @@ includes:
   - job-board/jobs
   - job-board/offices
   - job-board/departments
+  - job-board/schools
+  - job-board/degrees
+  - job-board/disciplines
   - job-board/boards
   - job-board/applications
 
