@@ -1,0 +1,78 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Tracking Link",
+  "type": "object",
+  "description": "The tracking link resource is the data used to construct the tracking link from the token, mapping a short link for a job back to a referrer and source.",
+  "properties": {
+    "id": {
+      "description": "The id of the tracking link.",
+      "title": "ID",
+      "type": "integer"
+    },
+    "job_id": {
+      "description": "The id of the job associated with this tracking link.",
+      "title": "Job ID",
+      "type": "integer"
+    },
+    "token": {
+      "description": "The token included in the job board link.",
+      "title": "Token",
+      "type": "string"
+    },
+    "related_post_id": {
+      "description": "The ID of the related post or email for this job token",
+      "title": "Related Post ID",
+      "type": ["integer", "null"]
+    },
+    "related_post_type": {
+      "description": "The type of post associated with this token. For example: SocialMediaPost",
+      "title": "Related Post Type",
+      "type": ["string", "null"]
+    },
+    "credited_to": {
+      "properties": {
+        "id": {
+          "description": "The ID of the referrer this token is credited to.",
+          "title": "ID",
+          "type": ["integer", "null"]
+        },
+        "name": {
+          "description": "The full name of the credited referrer.",
+          "title": "Name",
+          "type": "string"
+        },
+        "employee_id": {
+          "description": "The Referrer's External/Employee ID",
+          "title": "Employee ID",
+          "type": ["string", "null"]
+        }
+      },
+      "type": ["object", "null"]
+    },
+    "source": {
+      "properties": {
+        "id": {
+          "description": "The ID of the source for this token.",
+          "title": "ID",
+          "type": "integer"
+        },
+        "public_name": {
+          "description": "The public name used for this particular source.",
+          "title": "Public Name",
+          "type": "string"
+        }
+      },
+      "type": ["object", "null"]
+    },
+    "created_at": {
+      "description": "The ISO-8601 Timestamp for when this tracking link was created.",
+      "title": "Created at",
+      "type": "string"
+    },
+    "updated_at": {
+      "description": "The ISO-8601 Timestamp for when this tracking link was last updated.",
+      "title": "Updated At",
+      "type": "string"
+    }
+  }
+}

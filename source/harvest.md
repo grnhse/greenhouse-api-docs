@@ -29,6 +29,7 @@ includes:
   - harvest/scorecards
   - harvest/sources
   - harvest/tags
+  - harvest/tracking_links
   - harvest/users
   - harvest/user_roles
 
