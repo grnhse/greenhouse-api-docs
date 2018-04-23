@@ -15,7 +15,7 @@ We made the decision to use GraphQL because it allows us you to:
 
 * Increase throughput by requesting only the data you are interested in.
 * Use introspection to know precisely what our schema looks like.  Tools like 
-[GraphiQL](https://github.com/graphql/graphiql) will allow you to quickly and easily explore our entire API.  It even
+[GraphiQL App](https://github.com/skevy/graphiql-app) will allow you to quickly and easily explore our entire API.  It even
 supports autocomplete!
 * Program against an industry-wide standard supported by a variety of tools and organizations.
 
