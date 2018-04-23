@@ -55,11 +55,20 @@ Argument | Type | Description
 --------- | ----------- | -----------
 after | [String](#string) | Returns the elements in the list that come after the specified global ID.
 before | [String](#string) | Returns the elements in the list that come before the specified global ID.
-date_of_birth | [DateFilter](#datefilter) | 
+customFieldValues | [CustomFieldValuesInput](#customfieldvaluesinput) | 
+dateOfBirth | [DateFilter](#datefilter) | 
+departmentIds | [Int](#int) | 
+email | [String](#string) | 
+employmentStatuses | [EmploymentStatus](#employmentstatus) | 
 first | [Int](#int) | Returns the first _n_ elements from the list.
+hrManagerIds | [Int](#int) | 
 last | [Int](#int) | Returns the last _n_ elements from the list.
-start_date | [DateFilter](#datefilter) | 
-with_custom_field_value | [WithCustomFieldValue](#withcustomfieldvalue) | 
+locationIds | [Int](#int) | 
+managerIds | [Int](#int) | 
+personalEmail | [String](#string) | 
+startDate | [DateFilter](#datefilter) | 
+title | [String](#string) | 
+workCountryCodes | [String](#string) | 
 ## location \([Location](#[Location](#location))\)
 A single location
 
@@ -515,6 +524,14 @@ suffix | [String](#string) |
 title | [String](#string) | 
 workCountryCode | [String](#string) | 
 
+## CustomFieldValuesInput
+Limit employees to those that contain at least one of the specified CustomFieldValues that have been updated in theprovided time range.
+
+Argument | Type | Description
+--------- | ----------- | -----------
+permanentFieldIds | [String](#string) | 
+updated | [DateTimeFilter](#datetimefilter) | 
+
 ## DateFilter
 Specify a range of dates using after (exclusive >), before (exclusive <), or on (exact match)
 
@@ -569,14 +586,6 @@ suffix | [String](#string) |
 title | [String](#string) | 
 workCountryCode | [String](#string) | 
 
-## WithCustomFieldValue
-Limit employees to those that contain at least one of the specified CustomFieldValues that have been updated in theprovided time range.
-
-Argument | Type | Description
---------- | ----------- | -----------
-permanent_field_ids | [String](#string) | 
-updated | [DateTimeFilter](#datetimefilter) | 
-
 # Scalars
 ## Boolean
 Represents `true` or `false` values.
@@ -585,7 +594,7 @@ Represents `true` or `false` values.
 Representation of a date in YYYY-MM-DD format.
 
 ## DateTime
-Representation of datetime in RFC3339.
+Representation of datetime in ISO8661.
 
 ## Float
 Represents signed double-precision fractional values as specified by [IEEE 754](http://en.wikipedia.org/wiki/IEEE_floating_point).
