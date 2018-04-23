@@ -9,8 +9,7 @@ This documentation is open source! Feel free to leave feedback as issues in the
 [GitHub repo](https://github.com/grnhse/greenhouse-api-docs) or fork it and contribute changes!
 
 ## GraphQL
-
-Greenhouse Onboarding only supports [GraphQL]((http://graphql.org/)); we do not have a traditional REST API.  
+Greenhouse Onboarding only supports [GraphQL](http://graphql.org/); we do not have a traditional REST API.
 We made the decision to use GraphQL because it allows us to:
 
 * Increase throughput by requesting only the data you are interested in.
