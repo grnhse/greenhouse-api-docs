@@ -40,6 +40,3 @@ has the line number and column where the error starts.  In this example, it's th
 is the start of the word `salary`.  The `fields` property is a breadcrumb trail of how to get to the problem.  Here,
 we start at the root-level [Query](#queries) object, go into the `employees` connection, and finally encounter the error at the
 `salary` property.
-
-The only exception to this rule are authentication errors.  In these cases, our server will return HTTP status 401.
-This is because the authentication layer sits on top of the GraphQL API layer.
