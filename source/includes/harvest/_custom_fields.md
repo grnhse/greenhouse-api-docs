@@ -20,12 +20,14 @@ An organization's custom_fields.
     {
       "id": 123,
       "name": "Name One",
-      "priority": 1
+      "priority": 1,
+      "external_id": "name-one"
     },
     {
       "id": 234,
       "name": "Name Two",
-      "priority": 2
+      "priority": 2,
+      "external_id": nil
     }
   ]
 }
