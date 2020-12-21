@@ -808,19 +808,9 @@ of the error list.</p>
 <td>workCountryCodes</td><td><a href="#string">[String]</a></td><td>DEPRECATED. Use WorkCountryCodeFilter instead</td><td></td></tr>
 </tbody></table>
 
-<h2 id="employmentstatuses">employmentStatuses</h2>
+<h2 id="employmentstatuses-string">employmentStatuses (<a href="#string">[String]</a>)</h2>
 
-<p>A list of employment status custom field options</p>
-
-<table><thead>
-<tr>
-<td>Argument</td><td>Type</td><td>Description</td><td>Required</td></tr>
-</thead><tbody>
-<tr>
-<td>first</td><td><a href="#int">Int</a></td><td>Returns the first <em>n</em> elements from the list.</td><td></td></tr>
-<tr>
-<td>last</td><td><a href="#int">Int</a></td><td>Returns the last <em>n</em> elements from the list.</td><td></td></tr>
-</tbody></table>
+<p>The list of valid options for Employment Status</p>
 
 <h2 id="location-location">location (<a href="#location">Location</a>)</h2>
 
@@ -1636,7 +1626,7 @@ mutation {
 <tr>
 <td>email</td><td><a href="#string">String</a></td><td>The employee&rsquo;s work email. They need this in order to sign in</td></tr>
 <tr>
-<td>employmentStatus</td><td><a href="#string">String</a></td><td></td></tr>
+<td>employmentStatus</td><td><a href="#string">String</a></td><td><a href="#employmentstatuses-string">Valid options</a></td></tr>
 <tr>
 <td>firstName</td><td><a href="#string">String</a></td><td></td></tr>
 <tr>
@@ -1906,7 +1896,7 @@ mutation {
 <tr>
 <td>email</td><td><a href="#string">String</a></td><td></td></tr>
 <tr>
-<td>employmentStatus</td><td><a href="#string">String</a></td><td></td></tr>
+<td>employmentStatus</td><td><a href="#string">String</a></td><td><a href="#employmentstatuses-string">Valid options</a></td></tr>
 <tr>
 <td>firstName</td><td><a href="#string">String</a></td><td></td></tr>
 <tr>
@@ -2194,7 +2184,7 @@ mutation {
 <tr>
 <td>email</td><td><a href="#string">String</a></td><td></td><td></td></tr>
 <tr>
-<td>employmentStatus</td><td><a href="#string">String</a></td><td></td><td></td></tr>
+<td>employmentStatus</td><td><a href="#string">String</a></td><td><a href="#employmentstatuses-string">Valid options</a></td><td></td></tr>
 <tr>
 <td>firstName</td><td><a href="#string">String!</a></td><td></td><td>Required</td></tr>
 <tr>
@@ -2356,7 +2346,7 @@ mutation {
 <tr>
 <td>anyValue</td><td><a href="#boolean">Boolean</a></td><td></td><td></td></tr>
 <tr>
-<td>employmentStatuses</td><td><a href="#string">[String]</a></td><td></td><td></td></tr>
+<td>employmentStatuses</td><td><a href="#string">[String]</a></td><td><a href="#employmentstatuses-string">Valid options</a></td><td></td></tr>
 <tr>
 <td>noValue</td><td><a href="#boolean">Boolean</a></td><td></td><td></td></tr>
 </tbody></table>
@@ -2512,7 +2502,7 @@ mutation {
 <tr>
 <td>email</td><td><a href="#string">String</a></td><td></td><td></td></tr>
 <tr>
-<td>employmentStatus</td><td><a href="#string">String</a></td><td></td><td></td></tr>
+<td>employmentStatus</td><td><a href="#string">String</a></td><td><a href="#employmentstatuses-string">Valid options</a></td><td></td></tr>
 <tr>
 <td>firstName</td><td><a href="#string">String</a></td><td></td><td></td></tr>
 <tr>
