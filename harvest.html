@@ -6131,7 +6131,8 @@ X-RateLimit-Remaining: 49
       </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"What is your favorite color?"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">],</span><span class="w">
-  </span><span class="nt">"required"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+  </span><span class="nt">"required"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"answer_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"multi_value_multi_select"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -6155,6 +6156,8 @@ X-RateLimit-Remaining: 49
 <td>active</td><td>If <code class="prettyprint">false</code>, the question has been deleted.</td></tr>
 <tr>
 <td>required</td><td>If <code class="prettyprint">true</code>, the question must be filled out by the applicant.</td></tr>
+<tr>
+<td>answer_type</td><td>The type of answer that can be provided for the question. Value will be either <code class="prettyprint">multi_value_single_select</code> or <code class="prettyprint">multi_value_multi_select</code>.</td></tr>
 </tbody></table>
 
 <h2 id="the-demographic-answer-option-object">The Demographic Answer Option object</h2>
