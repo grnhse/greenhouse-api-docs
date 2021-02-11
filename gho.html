@@ -1332,6 +1332,26 @@ mutation {
 }
 
 </code></pre>
+<pre class="highlight plaintext"><code># Terminate an employee. Both employment status and date of termination are required.
+# Date of termination can be in the past for immediate termination or in the future.
+mutation {
+  updateEmployeeProfile(
+    id: 20,
+    employeeUpdates: {
+      employmentStatus: "Terminated"
+      customFieldValues: {
+        customFieldId: "system.date_of_termination"
+        value: "2020-01-01"
+      }
+    }
+  ) {
+    id
+    employmentStatus
+    dateOfTermination
+  }
+}
+
+</code></pre>
 
 <p>Update an employee&rsquo;s profile</p>
 
