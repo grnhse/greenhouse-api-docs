@@ -14960,21 +14960,22 @@ only delete Scheduled Interviews in the following statues: Scheduled, Awaiting F
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test@example.com"</span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-
-</span><span class="err">-</span><span class="w"> </span><span class="err">or</span><span class="w"> </span><span class="err">-</span><span class="w">
-
-</span><span class="p">{</span><span class="w">
-  </span><span class="nt">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">11234</span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-
-</span><span class="err">-</span><span class="w"> </span><span class="err">or</span><span class="w"> </span><span class="err">-</span><span class="w">
-
-</span><span class="p">{</span><span class="w">
-  </span><span class="nt">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">"employee_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user-123"</span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
 </span></code></pre>
 
 <blockquote>
+<p>or
+<code class="prettyprint">json
+{
+  &quot;user&quot;: {&quot;user_id&quot;: 11234}
+}
+</code>
+or
+<code class="prettyprint">json
+{
+  &quot;user&quot;: {&quot;employee_id&quot;: &quot;user-123&quot;}
+}
+</code></p>
+
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
@@ -15023,22 +15024,22 @@ only delete Scheduled Interviews in the following statues: Scheduled, Awaiting F
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test@example.com"</span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-
-</span><span class="err">-</span><span class="w"> </span><span class="err">or</span><span class="w"> </span><span class="err">-</span><span class="w">
-
-</span><span class="p">{</span><span class="w">
-  </span><span class="nt">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">11234</span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-
-</span><span class="err">-</span><span class="w"> </span><span class="err">or</span><span class="w"> </span><span class="err">-</span><span class="w">
-
-</span><span class="p">{</span><span class="w">
-  </span><span class="nt">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">"employee_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user-123"</span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
 </span></code></pre>
 
 <blockquote>
-<p>The above command returns a JSON response, structured like this:</p>
+<p>or
+<code class="prettyprint">json
+{
+  &quot;user&quot;: {&quot;user_id&quot;: 11234}
+}
+</code>
+or
+<code class="prettyprint">json
+{
+  &quot;user&quot;: {&quot;employee_id&quot;: &quot;user-123&quot;}
+}
+</code>
+The above command returns a JSON response, structured like this:</p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">253528</span><span class="p">,</span><span class="w">
@@ -15073,6 +15074,84 @@ only delete Scheduled Interviews in the following statues: Scheduled, Awaiting F
 <tr>
 <td>On-Behalf-Of</td><td>ID of the user issuing this request. Required for auditing purposes.</td></tr>
 </tbody></table>
+
+<h2 id="patch-change-user-permission-level">PATCH: Change user permission level</h2>
+<pre class="highlight shell"><code>curl -X PATCH <span class="s1">'https://harvest.greenhouse.io/v1/users/permission_level'</span>
+-H <span class="s2">"On-Behalf-Of: {greenhouse user ID}"</span>
+-H <span class="s2">"Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"</span>
+</code></pre>
+
+<blockquote>
+<p>The above command takes a JSON request, structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test@example.com"</span><span class="p">},</span><span class="w">
+  </span><span class="nt">"level"</span><span class="p">:</span><span class="w"> </span><span class="s2">"basic"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>or
+<code class="prettyprint">json
+{
+  &quot;user&quot;: {&quot;user_id&quot;: 11234},
+  &quot;level&quot;: &quot;basic&quot;
+}
+</code>
+or
+<code class="prettyprint">json
+{
+  &quot;user&quot;: {&quot;employee_id&quot;: &quot;user-123&quot;},
+  &quot;level&quot;: &quot;basic&quot;
+}
+</code></p>
+
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Changes the permissions user level, i.e. Site Admin, Job Admin, Basic user</p>
+
+<p>This endpoint will only convert the user to a Basic user. Other permission levels are not supported due to security constraints. This means changing the user permission level is not reversible through this endpoint.</p>
+
+<p>When converting a user’s permission level to Basic, any previously assigned job-based, developer, or user-specific permissions will be removed. Note that this will remove the user from assigned roles on any jobs, e.g. Recruiter or Coordinator. This will also remove the user from any outstanding approval flows.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">PATCH https://harvest.greenhouse.io/v1/users/permission_level</code></p>
+
+<h3 id="headers">Headers</h3>
+
+<table><thead>
+<tr>
+<td>Header</td><td>Description</td></tr>
+</thead><tbody>
+<tr>
+<td>On-Behalf-Of</td><td>ID of the user issuing this request. Required for auditing purposes.</td></tr>
+</tbody></table>
+
+<h3 id="json-body-parameters">JSON Body Parameters</h3>
+
+<table><thead>
+<tr>
+<td>Parameter</td><td>Required</td><td>Type</td><td>Description</td></tr>
+</thead><tbody>
+<tr>
+<td>user</td><td>Yes</td><td>object</td><td>An object containing one of email, user_id, or employee_id fields.</td></tr>
+<tr>
+<td>email</td><td>No</td><td>string</td><td>The email address associated with the user. <br> One of email, user_id, or employee_id is required.</td></tr>
+<tr>
+<td>user_id</td><td>No</td><td>string</td><td>The ID of the user. <br> One of email, user_id, or employee_id is required.</td></tr>
+<tr>
+<td>employee_id</td><td>No</td><td>string</td><td>The external employee_id of the user. <br> One of email, user_id, or employee_id is required.</td></tr>
+<tr>
+<td>level</td><td>Yes</td><td>string</td><td>The permission level to be assigned to the user. <br> The only accepted value is “basic”. Other permission levels are not accepted due to security constraints.</td></tr>
+</tbody></table>
+
+<p>Note: This endpoint accepts users with Job Admin or Site Admin permission levels. Basic users will be ignored and will return a 200 response.</p>
 
 <h2 id="post-add-user">POST: Add User</h2>
 <pre class="highlight shell"><code>curl -X POST <span class="s1">'https://harvest.greenhouse.io/v1/users'</span>
