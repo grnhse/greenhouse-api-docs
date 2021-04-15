@@ -279,24 +279,24 @@ These scopes do not apply if you are authenticating via Basic Auth.
 
 <table><thead>
 <tr>
-<td>Property Name</td><td>Type</td><td>Required</td><td>Description</td></tr>
+<td>Property Name</td><td>Type</td><td>Description</td></tr>
 </thead><tbody>
 <tr>
-<td>id</td><td>Integer</td><td>Yes</td><td>The ID of the candidate</td></tr>
+<td>id</td><td>Integer</td><td>The ID of the candidate</td></tr>
 <tr>
-<td>external_id</td><td>String</td><td>No</td><td>The external ID that was provided in your initial candidate creation request. Can be null if you request the status of a candidate not associated with an external entity.</td></tr>
+<td>external_id</td><td>String</td><td>The external ID that was provided in your initial candidate creation request. Can be null if you request the status of a candidate not associated with an external entity.</td></tr>
 <tr>
-<td>applications[]</td><td>Array</td><td>Yes</td><td>An array containing 0 or more applications representing the jobs to which this candidate has applied. Each of the sub-elements are required for each of the applications.</td></tr>
+<td>applications[]</td><td>Array</td><td>An array containing 0 or more applications representing the jobs to which this candidate has applied. Each of the sub-elements are required for each of the applications.</td></tr>
 <tr>
-<td>applications.id</td><td>Integer</td><td>Yes</td><td>The ID of the application.</td></tr>
+<td>applications.id</td><td>Integer</td><td>The ID of the application.</td></tr>
 <tr>
-<td>applications.job</td><td>String</td><td>Yes</td><td>Name of the job this application is for (e.g. &ldquo;Software developer).</td></tr>
+<td>applications.job</td><td>String</td><td>Name of the job this application is for (e.g. &ldquo;Software developer).</td></tr>
 <tr>
-<td>applications.status</td><td>String</td><td>No</td><td>The candidate’s current status. Must be one of &quot;rejected,&rdquo; &ldquo;active,&rdquo; or &ldquo;hired.&rdquo;</td></tr>
+<td>applications.status</td><td>String</td><td>The candidate’s current status. Must be one of &quot;rejected,&rdquo; &ldquo;active,&rdquo; or &ldquo;hired.&rdquo;</td></tr>
 <tr>
-<td>applications.stage</td><td>String</td><td>Yes</td><td>The applicant’s current stage in the interview pipeline (e.g. &ldquo;Recruiter Phone Screen&rdquo;).</td></tr>
+<td>applications.stage</td><td>String</td><td>The applicant’s current stage in the interview pipeline (e.g. &ldquo;Recruiter Phone Screen&rdquo;).</td></tr>
 <tr>
-<td>applications.profile_url</td><td>String</td><td>Yes</td><td>A URL to the candidate’s profile in Greenhouse. You must be signed in to Greenhouse to view the profile.</td></tr>
+<td>applications.profile_url</td><td>String</td><td>A URL to the candidate’s profile in Greenhouse. You must be signed in to Greenhouse to view the profile.</td></tr>
 </tbody></table>
 
 <h2 id="post-candidates">Post Candidates</h2>
@@ -440,16 +440,16 @@ These scopes do not apply if you are authenticating via Basic Auth.
 
 <table><thead>
 <tr>
-<td>Property Name</td><td>Type</td><td>Required</td><td>Description</td></tr>
+<td>Property Name</td><td>Type</td><td>Description</td></tr>
 </thead><tbody>
 <tr>
-<td>id</td><td>Integer</td><td>Yes</td><td>The ID of the newly created candidate in Greenhouse.</td></tr>
+<td>id</td><td>Integer</td><td>The ID of the newly created candidate in Greenhouse.</td></tr>
 <tr>
-<td>application_id</td><td>Integer</td><td>Yes</td><td>The ID of the application implicitly created in Greenhouse.</td></tr>
+<td>application_id</td><td>Integer</td><td>The ID of the application implicitly created in Greenhouse.</td></tr>
 <tr>
-<td>external_id</td><td>String</td><td>Yes</td><td>The external ID that was provided in your request.</td></tr>
+<td>external_id</td><td>String</td><td>The external ID that was provided in your request.</td></tr>
 <tr>
-<td>profile_url</td><td>String</td><td>Yes</td><td>A URL to the candidate’s profile within Greenhouse. The user must be signed into Greenhouse to view the profile.</td></tr>
+<td>profile_url</td><td>String</td><td>A URL to the candidate’s profile within Greenhouse. The user must be signed into Greenhouse to view the profile.</td></tr>
 </tbody></table>
 
           <h1 id="current-user">Current User</h1>
@@ -462,10 +462,12 @@ These scopes do not apply if you are authenticating via Basic Auth.
 <blockquote>
 <p>API Response </p>
 </blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w"> 
-    </span><span class="nt">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ron"</span><span class="p">,</span><span class="w"> 
-    </span><span class="nt">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Weasley"</span><span class="p">,</span><span class="w"> 
-    </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rweasley@hogwarts.edu"</span><span class="w">
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"full_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ron Weasley"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ron"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Weasley"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rweasley@hogwarts.edu"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1234</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -481,14 +483,18 @@ These scopes do not apply if you are authenticating via Basic Auth.
 
 <table><thead>
 <tr>
-<td>Property Name</td><td>Type</td><td>Required</td></tr>
+<td>Property Name</td><td>Type</td><td>Description</td></tr>
 </thead><tbody>
 <tr>
-<td>first_name</td><td>String</td><td>Yes</td></tr>
+<td>full_name</td><td>String</td><td>The current user&rsquo;s full name</td></tr>
 <tr>
-<td>last_name</td><td>String</td><td>Yes</td></tr>
+<td>first_name</td><td>String</td><td>The current user&rsquo;s first name</td></tr>
 <tr>
-<td>email</td><td>String</td><td>Yes</td></tr>
+<td>last_name</td><td>String</td><td>The current user&rsquo;s last name</td></tr>
+<tr>
+<td>email</td><td>String</td><td>The email address associated with the current user</td></tr>
+<tr>
+<td>id</td><td>Integer</td><td>The ID of the current user</td></tr>
 </tbody></table>
 
           <h1 id="jobs">Jobs</h1>
@@ -537,16 +543,16 @@ These scopes do not apply if you are authenticating via Basic Auth.
 
 <table><thead>
 <tr>
-<td>Property Name</td><td>Type</td><td>Required</td><td>Description</td></tr>
+<td>Property Name</td><td>Type</td><td>Description</td></tr>
 </thead><tbody>
 <tr>
-<td>id</td><td>Integer</td><td>Yes</td><td>The ID of the job.</td></tr>
+<td>id</td><td>Integer</td><td>The ID of the job.</td></tr>
 <tr>
-<td>name</td><td>String</td><td>Yes</td><td>The name as it appears in Greenhouse, NOT necessarily how it appears on the public job board.</td></tr>
+<td>name</td><td>String</td><td>The name as it appears in Greenhouse, NOT necessarily how it appears on the public job board.</td></tr>
 <tr>
-<td>status</td><td>String</td><td>Yes</td><td>Always ‘open’.</td></tr>
+<td>status</td><td>String</td><td>Always ‘open’.</td></tr>
 <tr>
-<td>public</td><td>Boolean</td><td>Yes</td><td>True if this job has any job posts that are currently live on any job board.</td></tr>
+<td>public</td><td>Boolean</td><td>True if this job has any job posts that are currently live on any job board.</td></tr>
 </tbody></table>
 
           <h1 id="tracking-link">Tracking Link</h1>
@@ -590,16 +596,16 @@ These scopes do not apply if you are authenticating via Basic Auth.
 
 <table><thead>
 <tr>
-<td>Property Name</td><td>Type</td><td>Required</td><td>Description</td></tr>
+<td>Property Name</td><td>Type</td><td>Description</td></tr>
 </thead><tbody>
 <tr>
-<td>tracking_link</td><td>String</td><td>Yes</td><td>URL for newly created tracking link.</td></tr>
+<td>tracking_link</td><td>String</td><td>URL for newly created tracking link.</td></tr>
 <tr>
-<td>job</td><td>String</td><td>Yes</td><td>The name of the job tied to this tracking link.</td></tr>
+<td>job</td><td>String</td><td>The name of the job tied to this tracking link.</td></tr>
 <tr>
-<td>source</td><td>String</td><td>Yes</td><td>The name of the source tied to this tracking link (e.g. the name of your application).</td></tr>
+<td>source</td><td>String</td><td>The name of the source tied to this tracking link (e.g. the name of your application).</td></tr>
 <tr>
-<td>referrer</td><td>String</td><td>Yes</td><td>The name of the user tied to this tracking link.</td></tr>
+<td>referrer</td><td>String</td><td>The name of the user tied to this tracking link.</td></tr>
 </tbody></table>
 
           <h1 id="prospect-pools">Prospect Pools</h1>
@@ -682,14 +688,14 @@ These scopes do not apply if you are authenticating via Basic Auth.
 
 <table><thead>
 <tr>
-<td>Property Name</td><td>Type</td><td>Required</td><td>Description</td></tr>
+<td>Property Name</td><td>Type</td><td>Description</td></tr>
 </thead><tbody>
 <tr>
-<td>id</td><td>Integer</td><td>Yes</td><td>The ID of the prospect pool.</td></tr>
+<td>id</td><td>Integer</td><td>The ID of the prospect pool.</td></tr>
 <tr>
-<td>name</td><td>String</td><td>Yes</td><td>The name of the prospect pool.</td></tr>
+<td>name</td><td>String</td><td>The name of the prospect pool.</td></tr>
 <tr>
-<td>stages</td><td>Object</td><td>Yes</td><td>The stages that belong to a prospect pool with the id and name of the stage. The list of stages will be ordered the same way that it is configured to be ordered in Greenhouse.</td></tr>
+<td>stages</td><td>Object</td><td>The stages that belong to a prospect pool with the id and name of the stage. The list of stages will be ordered the same way that it is configured to be ordered in Greenhouse.</td></tr>
 </tbody></table>
 
           <h1 id="errors">Errors</h1>
