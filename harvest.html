@@ -263,6 +263,8 @@ X-RateLimit-Remaining: 49
 <td>Date</td><td>Description</td></tr>
 </thead><tbody>
 <tr>
+<td>April 21, 2021 11:00:00AM</td><td>Added ability to change external_id for custom field options.</td></tr>
+<tr>
 <td>April 13, 2021 01:00:00PM</td><td>Added ability to change user permission level to basic.</td></tr>
 <tr>
 <td>September 28, 2020 12:00:00PM</td><td>&ldquo;Required&rdquo; field added to Demographic Questions.</td></tr>
@@ -5916,9 +5918,9 @@ X-RateLimit-Remaining: 49
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"options"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Option A"</span><span class="p">,</span><span class="w"> </span><span class="nt">"priority"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Option B"</span><span class="p">,</span><span class="w"> </span><span class="nt">"priority"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Option C"</span><span class="p">,</span><span class="w"> </span><span class="nt">"priority"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">}</span><span class="w">
+    </span><span class="p">{</span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Option A"</span><span class="p">,</span><span class="w"> </span><span class="nt">"priority"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="nt">"external_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3z84k11"</span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Option B"</span><span class="p">,</span><span class="w"> </span><span class="nt">"priority"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="nt">"external_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bmlpk1"</span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Option C"</span><span class="p">,</span><span class="w"> </span><span class="nt">"priority"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="nt">"external_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"32290"</span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -5959,6 +5961,8 @@ X-RateLimit-Remaining: 49
 <td>name</td><td>Yes</td><td>string</td><td>The name of the new custom field option.  If a new field is added with the same name as an existing custom field option in this custom field, it will be ignored.  No error will be raised in this case.</td></tr>
 <tr>
 <td>priority</td><td>Yes</td><td>integer</td><td>This is used to order the custom fields in Greenhouse.</td></tr>
+<tr>
+<td>external_id</td><td>No</td><td>string</td><td>The external_id for the custom field. Used for integrating with external HRIS.</td></tr>
 </tbody></table>
 
 <p><br></p>
@@ -5980,17 +5984,20 @@ X-RateLimit-Remaining: 49
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="p">,</span><span class="w">
       </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Option A"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"priority"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="w">
+      </span><span class="nt">"priority"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"external_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3z84k11"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">234</span><span class="p">,</span><span class="w">
       </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Option B"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"priority"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="w">
+      </span><span class="nt">"priority"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"external_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">345</span><span class="p">,</span><span class="w">
       </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Option C"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"priority"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="w">
+      </span><span class="nt">"priority"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"external_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"32290"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -6034,6 +6041,8 @@ X-RateLimit-Remaining: 49
 <td>name</td><td>No</td><td>string</td><td>If included, the custom field option with this ID will be updated to this name.  This can not duplicate the name of any other option in this field or any option in this request.</td></tr>
 <tr>
 <td>priority</td><td>No</td><td>integer</td><td>If included, The custom field option with this ID will be updated with this value.</td></tr>
+<tr>
+<td>external_id</td><td>No</td><td>string</td><td>If included, the custom field option will update its external_id with this value. Passing <code class="prettyprint">null</code> will clear the external_id.</td></tr>
 </tbody></table>
 
 <p><br></p>
@@ -7365,7 +7374,7 @@ X-RateLimit-Remaining: 49
   </span><span class="p">},</span><span class="w">
   </span><span class="nt">"disability_status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Yes, I have a disability (or previously had a disability)"</span><span class="w">
+    </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Yes, I have a disability, or have a history/record of having a disability"</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="nt">"submitted_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-01-29T15:09:46.806Z"</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -7454,9 +7463,9 @@ X-RateLimit-Remaining: 49
 <td>description</td></tr>
 </thead><tbody>
 <tr>
-<td>Yes, I have a disability (or previously had a disability)</td></tr>
+<td>Yes, I have a disability, or have a history/record of having a disability</td></tr>
 <tr>
-<td>No, I don&rsquo;t have a disability</td></tr>
+<td>No, I don’t have a disability, or a history/record of having a disability</td></tr>
 <tr>
 <td>I don&rsquo;t wish to answer</td></tr>
 </tbody></table>
@@ -7487,7 +7496,7 @@ X-RateLimit-Remaining: 49
     </span><span class="p">},</span><span class="w">
     </span><span class="nt">"disability_status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Yes, I have a disability (or previously had a disability)"</span><span class="w">
+      </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Yes, I have a disability, or have a history/record of having a disability"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="nt">"submitted_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-01-29T15:09:46.806Z"</span><span class="w">
   </span><span class="p">},</span><span class="w">
@@ -7505,7 +7514,7 @@ X-RateLimit-Remaining: 49
     </span><span class="nt">"veteran_status"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="nt">"disability_status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Yes, I have a disability (or previously had a disability)"</span><span class="w">
+      </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Yes, I have a disability, or have a history/record of having a disability"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="nt">"submitted_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-01-30T17:10:32.432Z"</span><span class="w">
   </span><span class="p">}</span><span class="w">
@@ -7559,7 +7568,7 @@ X-RateLimit-Remaining: 49
   </span><span class="p">},</span><span class="w">
   </span><span class="nt">"disability_status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Yes, I have a disability (or previously had a disability)"</span><span class="w">
+    </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Yes, I have a disability, or have a history/record of having a disability"</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="nt">"submitted_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-01-29T15:09:46.806Z"</span><span class="w">
 </span><span class="p">}</span><span class="w">
