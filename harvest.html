@@ -263,6 +263,10 @@ X-RateLimit-Remaining: 49
 <td>Date</td><td>Description</td></tr>
 </thead><tbody>
 <tr>
+<td>May 3, 2021 05:00:00PM</td><td>Added <code class="prettyprint">priority</code> to Job Stages object.</td></tr>
+<tr>
+<td>May 3, 2021 04:00:00PM</td><td>Added <code class="prettyprint">job_post_id</code> field to application&rsquo;s response object.</td></tr>
+<tr>
 <td>April 21, 2021 11:00:00AM</td><td>Added ability to change external_id for custom field options.</td></tr>
 <tr>
 <td>April 13, 2021 01:00:00PM</td><td>Added ability to change user permission level to basic.</td></tr>
@@ -590,6 +594,7 @@ X-RateLimit-Remaining: 49
             </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Accounting Manager"</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">],</span><span class="w">
+    </span><span class="nt">"job_post_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="p">,</span><span class="w">
     </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rejected"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"current_stage"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">62828</span><span class="p">,</span><span class="w">
@@ -654,6 +659,8 @@ X-RateLimit-Remaining: 49
 <tr>
 <td>jobs</td><td>An array containing the <a href="#jobs">job</a> that the candidate applied for.</td></tr>
 <tr>
+<td>job_post_id</td><td>The ID of the job post through which the candidate applied. This value is null if the application was created through other means, e.g. manually adding candidates or importing candidates through sourcing integrations</td></tr>
+<tr>
 <td>candidate_id</td><td>The ID of the <a href="#candidates">candidate</a> who is applying for this job.</td></tr>
 <tr>
 <td>current_stage</td><td>The current <a href="#job-stages">stage</a> that this application is in.</td></tr>
@@ -707,6 +714,7 @@ X-RateLimit-Remaining: 49
             </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UX Designer - Boston"</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">],</span><span class="w">
+    </span><span class="nt">"job_post_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="p">,</span><span class="w">
     </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"active"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"current_stage"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">767358</span><span class="p">,</span><span class="w">
@@ -778,6 +786,7 @@ X-RateLimit-Remaining: 49
             </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Web Developer "</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">],</span><span class="w">
+    </span><span class="nt">"job_post_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"hired"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"current_stage"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="nt">"answers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -907,6 +916,7 @@ X-RateLimit-Remaining: 49
             </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UX Designer - Boston"</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">],</span><span class="w">
+    </span><span class="nt">"job_post_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="p">,</span><span class="w">
     </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"active"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"current_stage"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">767358</span><span class="p">,</span><span class="w">
@@ -1080,6 +1090,7 @@ X-RateLimit-Remaining: 49
       </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Construction Project Manager"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"job_post_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"active"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"current_stage"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1945557</span><span class="p">,</span><span class="w">
@@ -1221,6 +1232,7 @@ X-RateLimit-Remaining: 49
           </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UX Designer - Boston"</span><span class="w">
       </span><span class="p">}</span><span class="w">
   </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"job_post_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="p">,</span><span class="w">
   </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"active"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"current_stage"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">767358</span><span class="p">,</span><span class="w">
@@ -1348,6 +1360,7 @@ X-RateLimit-Remaining: 49
           </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UX Designer - Boston"</span><span class="w">
       </span><span class="p">}</span><span class="w">
   </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"job_post_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"active"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"current_stage"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">456</span><span class="p">,</span><span class="w">
@@ -1464,6 +1477,7 @@ X-RateLimit-Remaining: 49
           </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UX Designer - Boston"</span><span class="w">
       </span><span class="p">}</span><span class="w">
   </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"job_post_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"active"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"current_stage"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">234567</span><span class="p">,</span><span class="w">
@@ -1580,6 +1594,7 @@ X-RateLimit-Remaining: 49
       </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Community Manager - New York"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"job_post_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="p">,</span><span class="w">
   </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"active"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"current_stage"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1551142</span><span class="p">,</span><span class="w">
@@ -1769,6 +1784,7 @@ X-RateLimit-Remaining: 49
       </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Community Manager - New York"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"job_post_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="p">,</span><span class="w">
   </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"hired"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"current_stage"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="nt">"answers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -1924,6 +1940,7 @@ X-RateLimit-Remaining: 49
       </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Accounting Manager"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"job_post_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">456</span><span class="p">,</span><span class="w">
   </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rejected"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"current_stage"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">62828</span><span class="p">,</span><span class="w">
@@ -2113,6 +2130,7 @@ X-RateLimit-Remaining: 49
       </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UX Designer - Boston"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"job_post_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="p">,</span><span class="w">
   </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"active"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"current_stage"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">767358</span><span class="p">,</span><span class="w">
@@ -2841,6 +2859,7 @@ X-RateLimit-Remaining: 49
                     </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DevOps Engineer"</span><span class="w">
                 </span><span class="p">}</span><span class="w">
             </span><span class="p">],</span><span class="w">
+            </span><span class="nt">"job_post_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="p">,</span><span class="w">
             </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rejected"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"current_stage"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
                 </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1073533</span><span class="p">,</span><span class="w">
@@ -2904,6 +2923,7 @@ X-RateLimit-Remaining: 49
                     </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Data Scientist - BK"</span><span class="w">
                 </span><span class="p">}</span><span class="w">
             </span><span class="p">],</span><span class="w">
+            </span><span class="nt">"job_post_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">456</span><span class="p">,</span><span class="w">
             </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"active"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"current_stage"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
                 </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2966800</span><span class="p">,</span><span class="w">
@@ -3108,6 +3128,7 @@ X-RateLimit-Remaining: 49
                     </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Full Stack Engineer"</span><span class="w">
                 </span><span class="p">}</span><span class="w">
             </span><span class="p">],</span><span class="w">
+            </span><span class="nt">"job_post_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="p">,</span><span class="w">
             </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"active"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"current_stage"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
             </span><span class="nt">"answers"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
@@ -3392,6 +3413,7 @@ X-RateLimit-Remaining: 49
                     </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DevOps Engineer"</span><span class="w">
                 </span><span class="p">}</span><span class="w">
             </span><span class="p">],</span><span class="w">
+            </span><span class="nt">"job_post_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="p">,</span><span class="w">
             </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rejected"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"current_stage"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
                 </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1073533</span><span class="p">,</span><span class="w">
@@ -3455,6 +3477,7 @@ X-RateLimit-Remaining: 49
                     </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Data Scientist - BK"</span><span class="w">
                 </span><span class="p">}</span><span class="w">
             </span><span class="p">],</span><span class="w">
+            </span><span class="nt">"job_post_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">456</span><span class="p">,</span><span class="w">
             </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"active"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"current_stage"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
                 </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2966800</span><span class="p">,</span><span class="w">
@@ -3747,6 +3770,7 @@ X-RateLimit-Remaining: 49
                       </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Data Scientist - BK"</span><span class="w">
                   </span><span class="p">}</span><span class="w">
               </span><span class="p">],</span><span class="w">
+              </span><span class="nt">"job_post_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="p">,</span><span class="w">
               </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"active"</span><span class="p">,</span><span class="w">
               </span><span class="nt">"current_stage"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
                   </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2966800</span><span class="p">,</span><span class="w">
@@ -4113,6 +4137,7 @@ X-RateLimit-Remaining: 49
                     </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Product Specialist"</span><span class="w">
                 </span><span class="p">}</span><span class="w">
             </span><span class="p">],</span><span class="w">
+            </span><span class="nt">"job_post_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="p">,</span><span class="w">
             </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"active"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"current_stage"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
                 </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1355395</span><span class="p">,</span><span class="w">
@@ -4146,6 +4171,7 @@ X-RateLimit-Remaining: 49
                     </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Operations Manger "</span><span class="w">
                 </span><span class="p">}</span><span class="w">
             </span><span class="p">],</span><span class="w">
+            </span><span class="nt">"job_post_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">456</span><span class="p">,</span><span class="w">
             </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"active"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"current_stage"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
                 </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1579673</span><span class="p">,</span><span class="w">
@@ -4783,6 +4809,7 @@ X-RateLimit-Remaining: 49
       </span><span class="nt">"rejection_reason"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
       </span><span class="nt">"rejection_details"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
       </span><span class="nt">"jobs"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+      </span><span class="nt">"job_post_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
       </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"active"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"current_stage"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
       </span><span class="nt">"answers"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
@@ -5024,6 +5051,7 @@ X-RateLimit-Remaining: 49
                     </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Head of Product"</span><span class="w">
                 </span><span class="p">}</span><span class="w">
             </span><span class="p">],</span><span class="w">
+            </span><span class="nt">"job_post_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="p">,</span><span class="w">
             </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"active"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"current_stage"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
                 </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1567309</span><span class="p">,</span><span class="w">
@@ -5203,6 +5231,7 @@ X-RateLimit-Remaining: 49
                     </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Product Manager"</span><span class="w">
                 </span><span class="p">}</span><span class="w">
             </span><span class="p">],</span><span class="w">
+            </span><span class="nt">"job_post_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="p">,</span><span class="w">
             </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"active"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"current_stage"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
                 </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1567309</span><span class="p">,</span><span class="w">
@@ -9319,6 +9348,7 @@ X-RateLimit-Remaining: 49
   </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-10-22T05:31:37.263Z"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-10-22T05:31:37.263Z"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"job_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">98765</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"priority"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
   </span><span class="nt">"interviews"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">6001</span><span class="p">,</span><span class="w">
@@ -9391,6 +9421,8 @@ X-RateLimit-Remaining: 49
 <tr>
 <td>job_id</td><td>The job that this stage belongs to</td></tr>
 <tr>
+<td>priority</td><td>Numeric field used for ordering, with the lowest values ordered first. For example, priority 0 indicates the first stage on a job</td></tr>
+<tr>
 <td>interviews</td><td>An array of interview steps associated with this job stage.<br>Each Step contains:<br><code class="prettyprint">id</code> - The step&rsquo;s unique identifier<br><code class="prettyprint">name</code> - The name of this interview step<br><code class="prettyprint">schedulable</code> - True / False value for whether this step can be scheduled<br><code class="prettyprint">interview_kit</code> - Details about the interview, including unique ID, interview prep content, and custom interview questions</td></tr>
 </tbody></table>
 
@@ -9409,6 +9441,7 @@ X-RateLimit-Remaining: 49
     </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-11-22T05:31:37.263Z"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-11-22T05:31:37.263Z"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"job_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">12345</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"priority"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
     </span><span class="nt">"interviews"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
       </span><span class="p">{</span><span class="w">
         </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">7890</span><span class="p">,</span><span class="w">
@@ -9443,6 +9476,7 @@ X-RateLimit-Remaining: 49
     </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-11-22T05:31:37.263Z"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-11-22T05:31:37.263Z"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"job_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">34567</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"priority"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
     </span><span class="nt">"interviews"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
       </span><span class="p">{</span><span class="w">
         </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">7345</span><span class="p">,</span><span class="w">
@@ -9522,6 +9556,7 @@ X-RateLimit-Remaining: 49
     </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-11-22T05:31:37.263Z"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-11-22T05:31:37.263Z"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"job_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">146218</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"priority"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
     </span><span class="nt">"interviews"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
       </span><span class="p">{</span><span class="w">
         </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">6001</span><span class="p">,</span><span class="w">
@@ -9588,6 +9623,7 @@ X-RateLimit-Remaining: 49
     </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-11-22T05:31:37.263Z"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-11-22T05:31:37.263Z"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"job_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">146220</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"priority"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
     </span><span class="nt">"interviews"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="p">{</span><span class="w">
@@ -9596,6 +9632,7 @@ X-RateLimit-Remaining: 49
     </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-11-22T05:31:37.263Z"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-11-22T05:31:37.263Z"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"job_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">146221</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"priority"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
     </span><span class="nt">"interviews"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
       </span><span class="p">{</span><span class="w">
         </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">8004</span><span class="p">,</span><span class="w">
@@ -9661,6 +9698,7 @@ X-RateLimit-Remaining: 49
   </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-11-22T05:31:37.263Z"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-11-22T05:31:37.263Z"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"job_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">12345</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"priority"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
   </span><span class="nt">"interviews"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">7890</span><span class="p">,</span><span class="w">
