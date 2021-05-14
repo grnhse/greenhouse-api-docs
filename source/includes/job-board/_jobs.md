@@ -230,6 +230,7 @@ content | If set to `true`, include the full post description, department, and o
         "id": 1,
         "label": "Favorite Color",
         "required": false,
+        "type":"multi_value_multi_select",
         "answer_options": [
           {
             "id": 100,
@@ -298,7 +299,12 @@ Please note that it is possible for multiple fields to be aggregated beneath a s
 
 ### Demographic Questions
 
-For organizations using Greenhouse Inclusion, the response may contain demographic questions. Each question contains an array of answer options that may be rendered as checkboxes or a multi-select. The candidate may select zero, one, or more answer options per question. If an answer option is selected that has `free_form` set to `true`, the candidate must be allowed to type a free-form response. The free-form response is optional.
+| Type | How to represent |
+|------|------------------|
+| multi_value_single_select | Can be represented as either a set of radio buttons or a select
+| multi_value_multi_select | Can be represented as either a set of checkboxes or a multi-select
+
+For organizations using Greenhouse Inclusion, the response may contain demographic questions. Each question contains an array of answer options that may be rendered based on the question 'type' defined in the table above. The candidate must select an answer option for questions with `required` set to `true`. If an answer option is selected that has `free_form` set to `true`, the candidate must be allowed to type a free-form response. This free-form response is only required if no other answer options have been selected by the candidate.
 
 ### Data Compliance
 
