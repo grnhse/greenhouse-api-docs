@@ -263,6 +263,8 @@ X-RateLimit-Remaining: 49
 <td>Date</td><td>Description</td></tr>
 </thead><tbody>
 <tr>
+<td>May 18, 2021 12:00:00PM</td><td>Added <code class="prettyprint">video_conferencing_url</code> to Scheduled Interview object.</td></tr>
+<tr>
 <td>May 3, 2021 05:00:00PM</td><td>Added <code class="prettyprint">priority</code> to Job Stages object.</td></tr>
 <tr>
 <td>May 3, 2021 04:00:00PM</td><td>Added <code class="prettyprint">job_post_id</code> field to application&rsquo;s response object.</td></tr>
@@ -12940,6 +12942,7 @@ X-RateLimit-Remaining: 49
     </span><span class="nt">"date_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-03-26T22:30:00.000Z"</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="nt">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Big Conference Room"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"video_conferencing_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://example.com"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"awaiting_feedback"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-02-10T14:31:51.019Z"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-05-23T20:43:11.679Z"</span><span class="p">,</span><span class="w">
@@ -12982,6 +12985,8 @@ X-RateLimit-Remaining: 49
 <tr>
 <td>location</td><td>The location of the interview.</td></tr>
 <tr>
+<td>video_conferencing_url</td><td>The URL used for video interviews, such as Zoom, Google Meets, or Microsoft Teams.</td></tr>
+<tr>
 <td>status</td><td>One of: <code class="prettyprint">scheduled</code>, <code class="prettyprint">awaiting_feedback</code>, <code class="prettyprint">complete</code></td></tr>
 <tr>
 <td>organizer</td><td>The <a href="#users">user</a> who is the organizer for this interview</td></tr>
@@ -13006,6 +13011,7 @@ X-RateLimit-Remaining: 49
       </span><span class="nt">"date_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-03-26T22:30:00.000Z"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="nt">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Big Conference Room"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"video_conferencing_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://example.com"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"awaiting_feedback"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-02-10T14:31:51.019Z"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-05-23T20:43:11.679Z"</span><span class="p">,</span><span class="w">
@@ -13042,6 +13048,7 @@ X-RateLimit-Remaining: 49
       </span><span class="nt">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-08-23"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="nt">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Small Conference Room"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"video_conferencing_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://example.com"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"complete"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"interview"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">7002</span><span class="p">,</span><span class="w">
@@ -13124,6 +13131,7 @@ X-RateLimit-Remaining: 49
       </span><span class="nt">"date_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-03-26T22:30:00.000Z"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="nt">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Big Conference Room"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"video_conferencing_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://example.com"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"awaiting_feedback"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-02-10T14:31:51.019Z"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-05-23T20:43:11.679Z"</span><span class="p">,</span><span class="w">
@@ -13160,6 +13168,7 @@ X-RateLimit-Remaining: 49
       </span><span class="nt">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-08-23"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="nt">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Small Conference Room"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"video_conferencing_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://example.com"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"complete"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"interview"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">7002</span><span class="p">,</span><span class="w">
@@ -13236,6 +13245,7 @@ X-RateLimit-Remaining: 49
     </span><span class="nt">"date_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-03-26T22:30:00.000Z"</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="nt">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Big Conference Room"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"video_conferencing_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://example.com"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"awaiting_feedback"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-02-10T14:31:51.019Z"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-05-23T20:43:11.679Z"</span><span class="p">,</span><span class="w">
@@ -13317,6 +13327,7 @@ X-RateLimit-Remaining: 49
     </span><span class="nt">"date_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-12-12T14:15:00.000Z"</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="nt">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Big Conference Room"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"video_conferencing_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://example.com"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"scheduled"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-10-17T19:22:07.302Z"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-12-03T20:45:14.320Z"</span><span class="p">,</span><span class="w">
@@ -13436,6 +13447,7 @@ X-RateLimit-Remaining: 49
     </span><span class="nt">"date_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-12-12T14:15:00.000Z"</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="nt">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Big Conference Room"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"video_conferencing_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://example.com"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"scheduled"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-10-17T19:22:07.302Z"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-12-03T20:45:14.320Z"</span><span class="p">,</span><span class="w">
