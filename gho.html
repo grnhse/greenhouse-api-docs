@@ -112,7 +112,7 @@ supports autocomplete!</li>
 <tr>
 <td>Mutations</td><td>Mutate data (similar to POST, PUT, PATCH, DELETE). They also return data (type in parentheses). They can also take arguments (listed in table under the Mutation name).</td></tr>
 <tr>
-<td>Type</td><td>Each type describes an object in GHO (e.g. Employee or Department). Each type has its own set of fields which contain the information (e.g. Employee has a first name, Department contains a description).</td></tr>
+<td>Type</td><td>Each type describes an object in GHO (e.g. Employee or Department). Each type has its own set of fields which contain the information (e.g. Employee has a first name, Department contains a name).</td></tr>
 <tr>
 <td>Input Objects</td><td>Queries and Mutations take input objects as arguments. These arguments have names and values. The value will either be a scalar or a more complex structured input.</td></tr>
 <tr>
@@ -530,7 +530,7 @@ of the error list.</p>
 
 <h2 id="employees-employeeconnection">employees (<a href="#employeeconnection">EmployeeConnection</a>)</h2>
 <pre class="highlight plaintext"><code># Request only those employees that have title "Account Manager". For each employee that fits the criteria,
-# return their id and email
+# return their id and work email
 {
   employees(first: 25, titleFilter: { titles: ["Account Manager"] }) {
     pageInfo {
@@ -548,7 +548,7 @@ of the error list.</p>
 
 </code></pre>
 <pre class="highlight plaintext"><code># Request only those employees that have a department set (department is not null). For each employee that fits the criteria,
-# return their id and email
+# return their id and work email
 {
   employees(first: 25, departmentFilter: { anyValue: true }) {
     pageInfo {
@@ -566,7 +566,7 @@ of the error list.</p>
 
 </code></pre>
 <pre class="highlight plaintext"><code># Request only those employees that lack a department (department is null). For each employee that fits the criteria,
-# return their id and email
+# return their id and work email
 {
   employees(first: 25, departmentFilter: { noValue: true }) {
     pageInfo {
@@ -646,7 +646,7 @@ of the error list.</p>
 
 </code></pre>
 <pre class="highlight plaintext"><code># Request only those employees that have a value set for their "favorite_food" Custom Field and "Blue" for their
-# "favorite_color" Custom Field. For each of these employees, return their ID and email address.
+# "favorite_color" Custom Field. For each of these employees, return their ID and work email address.
 {
   employees(
     first: 25,
@@ -720,7 +720,7 @@ of the error list.</p>
 
 </code></pre>
 <pre class="highlight plaintext"><code># Request employees that have Employee 35 or Employee 40 set as the value for the "mentor" Custom Field. For each of
-# these employees, return their id, email address, and "about me" text.
+# these employees, return their id, work email address, and "about me" text.
 {
   employees(
     first: 25,
@@ -1173,7 +1173,7 @@ mutation {
 </tbody></table>
 
 <h2 id="updateemployeeprofile-employee">updateEmployeeProfile (<a href="#employee">Employee</a>)</h2>
-<pre class="highlight plaintext"><code># Update an employee's email address, date of birth, and department. Return these fields to confirm the change.
+<pre class="highlight plaintext"><code># Update an employee's work email address, date of birth, and department. Return these fields to confirm the change.
 mutation {
   updateEmployeeProfile(
     id: 25,
@@ -1558,12 +1558,6 @@ mutation {
 <tr>
 <td>createdAt</td><td><a href="#datetime">DateTime!</a></td><td></td></tr>
 <tr>
-<td>departmentLead</td><td><a href="#employee">Employee</a></td><td></td></tr>
-<tr>
-<td>description</td><td><a href="#string">String</a></td><td></td></tr>
-<tr>
-<td>email</td><td><a href="#string">String</a></td><td></td></tr>
-<tr>
 <td>externalId</td><td><a href="#string">String</a></td><td></td></tr>
 <tr>
 <td>id</td><td><a href="#id">ID!</a></td><td></td></tr>
@@ -1644,7 +1638,7 @@ mutation {
 <tr>
 <td>documents</td><td><a href="#document">[Document!]</a></td><td>These are documents that came over from Greenhouse Recruiting or were attached directly to the employee profile. This does <em>not</em> include E-Signature requests.</td></tr>
 <tr>
-<td>email</td><td><a href="#string">String</a></td><td>The employee&rsquo;s work email. They need this in order to sign in</td></tr>
+<td>email</td><td><a href="#string">String</a></td><td>The employee&rsquo;s work email. They need this in order to sign in.</td></tr>
 <tr>
 <td>employmentStatus</td><td><a href="#string">String</a></td><td><a href="#employmentstatuses-string">Valid options</a></td></tr>
 <tr>
@@ -1764,15 +1758,9 @@ mutation {
 <tr>
 <td>createdAt</td><td><a href="#datetime">DateTime</a></td><td></td></tr>
 <tr>
-<td>description</td><td><a href="#string">String</a></td><td></td></tr>
-<tr>
-<td>email</td><td><a href="#string">String</a></td><td></td></tr>
-<tr>
 <td>externalId</td><td><a href="#string">String</a></td><td></td></tr>
 <tr>
 <td>id</td><td><a href="#id">ID</a></td><td></td></tr>
-<tr>
-<td>locationLead</td><td><a href="#employee">Employee</a></td><td></td></tr>
 <tr>
 <td>name</td><td><a href="#string">String</a></td><td></td></tr>
 <tr>
@@ -2152,12 +2140,6 @@ mutation {
 <td>Argument</td><td>Type</td><td>Description</td><td>Required</td></tr>
 </thead><tbody>
 <tr>
-<td>departmentLead</td><td><a href="#id">ID</a></td><td></td><td></td></tr>
-<tr>
-<td>description</td><td><a href="#string">String</a></td><td></td><td></td></tr>
-<tr>
-<td>email</td><td><a href="#string">String</a></td><td></td><td></td></tr>
-<tr>
 <td>externalId</td><td><a href="#string">String</a></td><td></td><td></td></tr>
 <tr>
 <td>name</td><td><a href="#string">String</a></td><td></td><td></td></tr>
@@ -2174,13 +2156,7 @@ mutation {
 <tr>
 <td>address</td><td><a href="#string">String</a></td><td></td><td></td></tr>
 <tr>
-<td>description</td><td><a href="#string">String</a></td><td></td><td></td></tr>
-<tr>
-<td>email</td><td><a href="#string">String</a></td><td></td><td></td></tr>
-<tr>
 <td>externalId</td><td><a href="#string">String</a></td><td></td><td></td></tr>
-<tr>
-<td>locationLead</td><td><a href="#id">ID</a></td><td></td><td></td></tr>
 <tr>
 <td>name</td><td><a href="#string">String</a></td><td></td><td></td></tr>
 </tbody></table>
@@ -2490,12 +2466,6 @@ mutation {
 <td>Argument</td><td>Type</td><td>Description</td><td>Required</td></tr>
 </thead><tbody>
 <tr>
-<td>departmentLead</td><td><a href="#id">ID</a></td><td></td><td></td></tr>
-<tr>
-<td>description</td><td><a href="#string">String</a></td><td></td><td></td></tr>
-<tr>
-<td>email</td><td><a href="#string">String</a></td><td></td><td></td></tr>
-<tr>
 <td>externalId</td><td><a href="#string">String</a></td><td></td><td></td></tr>
 <tr>
 <td>id</td><td><a href="#id">ID!</a></td><td></td><td>Required</td></tr>
@@ -2520,7 +2490,7 @@ mutation {
 <tr>
 <td>department</td><td><a href="#id">ID</a></td><td></td><td></td></tr>
 <tr>
-<td>email</td><td><a href="#string">String</a></td><td></td><td></td></tr>
+<td>email</td><td><a href="#string">String</a></td><td>The employee&rsquo;s work email. They need this in order to sign in</td><td></td></tr>
 <tr>
 <td>employmentStatus</td><td><a href="#string">String</a></td><td><a href="#employmentstatuses-string">Valid options</a></td><td></td></tr>
 <tr>
@@ -2568,15 +2538,9 @@ mutation {
 <tr>
 <td>address</td><td><a href="#string">String</a></td><td></td><td></td></tr>
 <tr>
-<td>description</td><td><a href="#string">String</a></td><td></td><td></td></tr>
-<tr>
-<td>email</td><td><a href="#string">String</a></td><td></td><td></td></tr>
-<tr>
 <td>externalId</td><td><a href="#string">String</a></td><td></td><td></td></tr>
 <tr>
 <td>id</td><td><a href="#id">ID!</a></td><td></td><td>Required</td></tr>
-<tr>
-<td>locationLead</td><td><a href="#id">ID</a></td><td></td><td></td></tr>
 <tr>
 <td>name</td><td><a href="#string">String</a></td><td></td><td></td></tr>
 </tbody></table>
