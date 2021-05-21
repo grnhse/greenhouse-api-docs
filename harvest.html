@@ -311,6 +311,8 @@ X-RateLimit-Remaining: 49
 <tr>
 <td>Sep 18, 2019 01:00:00PM</td><td>Added ability to create prospect applications for existing candidates/prospects <a href="#post-add-application-to-candidate-prospect">POST: Add Application to Candidate/Prospect</a></td></tr>
 <tr>
+<td>Aug 12, 2019 05:00:00PM</td><td>Prospect post data will return in Job Posts endpoints.</td></tr>
+<tr>
 <td>Jul 31, 2019 01:00:00PM</td><td>Added ability to filter demographic data answers by created_at and updated_at dates <a href="#get-list-demographic-answers">GET: Demographic Answers</a></td></tr>
 <tr>
 <td>Jul 17, 2019 01:00:00PM</td><td>Added ability to update the current offer on an application via <a href="#patch-update-current-offer">PATCH: Update Current Offer</a></td></tr>
@@ -8408,7 +8410,7 @@ X-RateLimit-Remaining: 49
 <tr>
 <td>external</td><td>If <code class="prettyprint">true</code>, this job post has been posted (or is <em>to be posted</em>) on an external job board.</td></tr>
 <tr>
-<td>job_id</td><td>The ID of the <a href="#jobs">job</a> that this job post is for.</td></tr>
+<td>job_id</td><td>The ID of the <a href="#jobs">job</a> that this job post is for. Indicates a prospect post if null.</td></tr>
 <tr>
 <td>content</td><td>The text of the job post as posted to the external job board.</td></tr>
 <tr>
@@ -11330,7 +11332,7 @@ X-RateLimit-Remaining: 49
 
 <h3 id="json-body-parameters">JSON Body Parameters</h3>
 
-<p>There are four types of hiring team members, represented by the four hashes sent in the JSON body. If any of these types are not included, hiring team members of that type will not be changed. If a blank element <code class="prettyprint">{}</code> is included, that part of the hiring team will be cleared.</p>
+<p>There are four types of hiring team members, represented by the four hashes sent in the JSON body. If any of these types are not included, hiring team members of that type will not be changed. If an empty list is provided for any of the four types, all users will be removed.</p>
 
 <p>Note that this PUT method REPLACES the existing members of the hiring team. For each element included in the JSON request body, the existing hiring team members in Greenhouse will be removed and replaced with the current members. <em>This includes the removal of disabled and inactive users, who can never be re-added.</em> For more granular control over additions and removals, use the POST or DELETE methods on this endpoint. Also, this process is transactional: if there is one failure, no elements will be updated. Finally, if you have a Hiring Team Updated web hook configured, you will receive one web hook notification per element, so you may receive up to four web hook notifications when this endpoint is used.</p>
 
@@ -12864,7 +12866,7 @@ X-RateLimit-Remaining: 49
 <tr>
 <td>name</td><td>The rejection reason&rsquo;s name</td></tr>
 <tr>
-<td>type</td><td>One of <code class="prettyprint">{&quot;id&quot;: 1, &quot;name&quot;: &quot;We rejected them&quot;}</code>, <code class="prettyprint">{&quot;id&quot;: 2, &quot;name&quot;: &quot;They rejected us&quot;}</code>, <code class="prettyprint">{&quot;id&quot;: 3, &quot;name&quot;: &quot;None specified&quot;}</code></td></tr>
+<td>type</td><td>An object containing the type ID and the rejection reason type, which will be one of &ldquo;We rejected them&rdquo;, &ldquo;They rejected us&rdquo;, and &ldquo;None Specified&rdquo;. Note that type IDs may vary across organizations.</td></tr>
 </tbody></table>
 
 <h2 id="get-list-rejection-reasons">GET: List Rejection Reasons</h2>
