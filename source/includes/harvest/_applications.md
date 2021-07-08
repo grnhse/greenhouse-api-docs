@@ -108,7 +108,7 @@ Applications associate [candidates](#candidates) with [jobs](#jobs). There are 2
 |-----------|-------------|
 | id | Application ID |
 | prospect | If `true`, this is a prospect application which means that the associated person is a prospect and has not yet applied for this job.
-| status | One of: `active`, `rejected`, `hired`.
+| status | One of: `active`, `rejected`, `hired`, `converted`.
 | jobs | An array containing the [job](#jobs) that the candidate applied for.
 | job_post_id | The ID of the job post through which the candidate applied. This value is null if the application was created through other means, e.g. manually adding candidates or importing candidates through sourcing integrations
 | candidate_id | The ID of the [candidate](#candidates) who is applying for this job.
