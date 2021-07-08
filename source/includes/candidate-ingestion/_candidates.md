@@ -176,9 +176,9 @@ addresses.address | String | Mixed | A free form block of text, which may includ
 addresses.type | String | Mixed | Must be "home", "work", or "other". Only required if addresses are included.
 social_media[] | Array | No
 social_media.url | String | Mixed | Note: Only required if social media urls are included.
-website[] | Array | No
-website.url | String | Mixed | Note: Only required if websites are included.
-website.type | String | Mixed | Must be either “personal”, “company”, “portfolio”, “blog”, or “other”. Only required if websites are included.
+websites[] | Array | No
+websites.url | String | Mixed | Note: Only required if websites are included.
+websites.type | String | Mixed | Must be either “personal”, “company”, “portfolio”, “blog”, or “other”. Only required if websites are included.
 referrer | Object | No | If present, this value will be used to populate the "Who Gets Credit" field for the candidate’s application. If omitted, the "Who Gets Credit" field will be populated with the current user’s information.
 referrer.email | String | Mixed | Used to match this referrer with an existing Greenhouse user, if possible. Only required if referrer is included.
 referrer.first_name | String | Mixed | Used to create a new ‘Referrer’ in Greenhouse if referrer.email does not match an existing user. Only required if referrer is included.
