@@ -269,7 +269,7 @@ analytics.page()
     </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>Custom fields may be attached to several objects within the Greenhouse Recruiting system. These fields may appear on candidates, applications, offers, and other objects in the system. These fields share several properties and are always indicated in web hooks by the &ldquo;custom_fields&rdquo; element. However, the &ldquo;value&rdquo; attribute of custom fields are different depending on the &ldquo;type&rdquo; attribute, so you must check the &ldquo;type&rdquo; attribute in order to predict what will be included in the value &ldquo;attribute&rdquo;. As described in the previous section, the type attribute will be one of short_text, long_text, boolean, single_select, multi_select, currency, currency_range, number, number_range, date, url, or user. An example of each of these fields&rsquo; expected value format are provided. </p>
+<p>Custom fields may be attached to several objects within the Greenhouse Recruiting system. These fields may appear on candidates, applications, offers, and other objects in the system. These fields share several properties and are always indicated in web hooks by the &ldquo;custom_fields&rdquo; element. However, the &ldquo;value&rdquo; attribute of custom fields are different depending on the &ldquo;type&rdquo; attribute, so you must check the &ldquo;type&rdquo; attribute in order to predict what will be included in the value &ldquo;attribute&rdquo;. As described in the previous section, the type attribute will be one of short_text, long_text, boolean, single_select, multi_select, currency, currency_range, number, number_range, date, url, or user. An example of each of these fields&rsquo; expected value format are provided.</p>
 
 <h2 id="disabled-web-hooks">Disabled web hooks</h2>
 
@@ -277,29 +277,42 @@ analytics.page()
 
 <h2 id="retry-policy">Retry policy</h2>
 
-<p>In the event of a failed web hook request (due to timeout, a non HTTP 200 response, or network issues), Greenhouse will attempt a maximum of 24 retries with exponential backoff according to this formula:</p>
+<p>In the event of a failed web hook request (due to timeout, a non HTTP 200 response, or network issues), Greenhouse will attempt a maximum of 12 retries with exponential backoff according to this formula:
+<code class="prettyprint">(retry_count ** 4) + 15 + (rand(30) * (retry_count + 1))</code> (i.e. 15, 16, 31, 96, 271, &hellip; seconds + a random amount of time). It will perform 12 retries over approximately 12 hours.</p>
 
-<p><code class="prettyprint">5 + (retry number) ^ 4</code> seconds relative to the last attempt</p>
+<p>This table contains approximate retry waiting times:</p>
 
 <table><thead>
 <tr>
-<td>Retry number</td><td>Time since last retry</td><td>Time since original attempt</td></tr>
+<td>Retry number</td><td>Next retry backoff</td><td>Total waiting time</td></tr>
 </thead><tbody>
 <tr>
-<td>1</td><td>6 seconds</td><td>6 seconds</td></tr>
+<td>1</td><td>0d  0h  0m 30s</td><td>0d  0h  0m 30s</td></tr>
 <tr>
-<td>2</td><td>21 seconds</td><td>27 seconds</td></tr>
+<td>2</td><td>0d  0h  0m 46s</td><td>0d  0h  1m 16s</td></tr>
 <tr>
-<td>3</td><td>86 seconds</td><td>113 seconds</td></tr>
+<td>3</td><td>0d  0h  1m 16s</td><td>0d  0h  2m 32s</td></tr>
 <tr>
-<td>8</td><td>68.4 minutes</td><td>2.4 hours</td></tr>
+<td>4</td><td>0d  0h  2m 36s</td><td>0d  0h  5m  8s</td></tr>
 <tr>
-<td>12</td><td>5.8 hours</td><td>16.9 hours</td></tr>
+<td>5</td><td>0d  0h  5m 46s</td><td>0d  0h 10m 54s</td></tr>
 <tr>
-<td>20</td><td>44.4 hours</td><td>8.3 days</td></tr>
+<td>6</td><td>0d  0h 12m 10s</td><td>0d  0h 23m  4s</td></tr>
 <tr>
-<td>24</td><td>92.1 hours</td><td>20.4 days</td></tr>
+<td>7</td><td>0d  0h 23m 36s</td><td>0d  0h 46m 40s</td></tr>
+<tr>
+<td>8</td><td>0d  0h 42m 16s</td><td>0d  1h 28m 56s</td></tr>
+<tr>
+<td>9</td><td>0d  1h 10m 46s</td><td>0d  2h 39m 42s</td></tr>
+<tr>
+<td>10</td><td>0d  1h 52m  6s</td><td>0d  4h 31m 48s</td></tr>
+<tr>
+<td>11</td><td>0d  2h 49m 40s</td><td>0d  7h 21m 28s</td></tr>
+<tr>
+<td>12</td><td>0d  4h  7m 16s</td><td>0d 11h 28m 44s</td></tr>
 </tbody></table>
+
+<p>Note: This table was calculated under the assumption that <code class="prettyprint">rand(30)</code> always returns 15.</p>
 
           <h1 id="application-events">Application Events</h1>
 
