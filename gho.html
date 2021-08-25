@@ -91,7 +91,7 @@ analytics.page()
 <h2 id="graphql">GraphQL</h2>
 
 <p>Greenhouse Onboarding only supports <a href="http://graphql.org/">GraphQL</a>; we do not have a traditional REST API.<br>
-We made the decision to use GraphQL because it allows us you to:</p>
+We made the decision to use GraphQL because it allows you to:</p>
 
 <ul>
 <li>Increase throughput by requesting only the data you are interested in.</li>
@@ -2675,6 +2675,21 @@ depend on the fieldType of its corresponding customField.</p>
 <li>Must formatted as YYYY-MM-DD</li>
 </ul>
 
+<h3 id="legal_name">legal_name</h3>
+
+<ul>
+<li>Allowed Type(s): String. Must be a JSON Object encoded string (with escaped quotes) e.g. <code class="prettyprint">&quot;{\&quot;key\&quot;: \&quot;value\&quot;}&quot;</code></li>
+<li>All values in the JSON Object must be Strings.</li>
+<li>Must provide <code class="prettyprint">first_name</code> and <code class="prettyprint">last_name</code></li>
+</ul>
+
+<h3 id="preferred_name">preferred_name</h3>
+
+<ul>
+<li>Allowed Type(s): String. Must be a JSON Object encoded string (with escaped quotes) e.g. <code class="prettyprint">&quot;{\&quot;key\&quot;: \&quot;value\&quot;}&quot;</code></li>
+<li>All values in the JSON Object must be Strings.</li>
+</ul>
+
 <h1 id="enums">Enums</h1>
 
 <p>NOTE: Enums are unquoted in user input but quotes in API output.</p>
@@ -2692,9 +2707,15 @@ depend on the fieldType of its corresponding customField.</p>
 <tr>
 <td>CONTACT</td><td>Displayed as group of inputs. Stored as JSON.</td></tr>
 <tr>
+<td>COUNTRY</td><td>Displayed as a dropdown. Stored as a String.</td></tr>
+<tr>
 <td>DATE</td><td>Displayed as a datepicker. Stored as a DateTime</td></tr>
 <tr>
 <td>EMPLOYEE</td><td>Displayed as a dropdown of employees. Stored as an Employee ID.</td></tr>
+<tr>
+<td>IMAGE</td><td>Displayed as an image. Stored as a File.</td></tr>
+<tr>
+<td>LEGAL_NAME</td><td>Displayed as a group of inputs. Stored as JSON.</td></tr>
 <tr>
 <td>LONG_TEXT</td><td>Displayed as a multiline text box. Stored as a String.</td></tr>
 <tr>
@@ -2703,6 +2724,8 @@ depend on the fieldType of its corresponding customField.</p>
 <td>MULTIPLE_CHOICE</td><td>Displayed as a dropdown. Stored as a String.</td></tr>
 <tr>
 <td>MULTIPLE_SELECT</td><td>Displayed as a tag field. Stored as an Array of Strings.</td></tr>
+<tr>
+<td>PREFERRED_NAME</td><td>Displayed as a group of inputs. Stored as JSON.</td></tr>
 <tr>
 <td>TEAM</td><td>Displayed as a dropdown of teams. Stored as a Team ID.</td></tr>
 <tr>
