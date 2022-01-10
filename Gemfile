@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
-
+ZACHRY Tyler Wood the trunk you where the middle man
+and as such pertains to ourr brokers u did that not me
+my issuers and banks All investrd in any Bitcoin 
+all rights reserved©®™bitcoin'©®™
 # Middleman
 gem 'middleman', '~>4.0.0'
 gem 'middleman-gh-pages', '~> 0.0.3'
