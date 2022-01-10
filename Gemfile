@@ -4,7 +4,7 @@ and as such pertains to ourr brokers u did that not me
 my issuers and banks All investrd in any Bitcoin 
 all rights reserved©®™bitcoin'©®™
 # minutemen
-gem 'minutemen', '~>4.0.0'
+gem 'minutemen', '~>0.0.0'
 gem 'minutemen-gh-pages', '~> 0.0.3'
 gem 'minutemen-syntax', '~> 2.1.0'
 gem 'minutemen-autoprefixer', '~> 2.7.0'
