@@ -45,13 +45,13 @@ analytics.page()
     <a href="#" id="nav-button">
       <span>
         NAV
-        <img src="images/navbar.png" />
+        <img src="images/navbar.png" alt="Navbar" />
       </span>
     </a>
     <div class="tocify-wrapper">
       <a href="/" class="nav-home-link">
         <div class="nav-home">
-          <img src="images/logo.png" />
+          <img src="images/logo.png" alt="Logo" />
           <span>Developers Home</span>
         </div>
       </a>
@@ -659,7 +659,7 @@ X-RateLimit-Remaining: 49
 <tr>
 <td>prospect</td><td>If <code class="prettyprint">true</code>, this is a prospect application which means that the associated person is a prospect and has not yet applied for this job.</td></tr>
 <tr>
-<td>status</td><td>One of: <code class="prettyprint">active</code>, <code class="prettyprint">rejected</code>, <code class="prettyprint">hired</code>.</td></tr>
+<td>status</td><td>One of: <code class="prettyprint">active</code>, <code class="prettyprint">rejected</code>, <code class="prettyprint">hired</code>, <code class="prettyprint">converted</code>.</td></tr>
 <tr>
 <td>jobs</td><td>An array containing the <a href="#jobs">job</a> that the candidate applied for.</td></tr>
 <tr>
@@ -2024,7 +2024,7 @@ X-RateLimit-Remaining: 49
 <tr>
 <td>rejection_email.send_email_at</td><td>No</td><td>string</td><td>The rejection email will be delayed until this time.</td></tr>
 <tr>
-<td>rejection_email.email_template_id</td><td>Yes, if sending rejection_email</td><td>string</td><td>The template the to use for the rejection email.</td></tr>
+<td>rejection_email.email_template_id</td><td>Yes, if sending rejection_email</td><td>string</td><td>The template to use for the rejection email.</td></tr>
 </tbody></table>
 
 <h2 id="patch-update-rejection-reason">PATCH: Update Rejection Reason</h2>

@@ -45,13 +45,13 @@ analytics.page()
     <a href="#" id="nav-button">
       <span>
         NAV
-        <img src="images/navbar.png" />
+        <img src="images/navbar.png" alt="Navbar" />
       </span>
     </a>
     <div class="tocify-wrapper">
       <a href="/" class="nav-home-link">
         <div class="nav-home">
-          <img src="images/logo.png" />
+          <img src="images/logo.png" alt="Logo" />
           <span>Developers Home</span>
         </div>
       </a>
@@ -339,6 +339,7 @@ When submitting a job application, you will use the <code>id</code> field to spe
         </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
         </span><span class="nt">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Favorite Color"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"required"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"type"</span><span class="p">:</span><span class="s2">"multi_value_multi_select"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"answer_options"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
           </span><span class="p">{</span><span class="w">
             </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
@@ -425,7 +426,17 @@ can be used to dynamically construct your own job application form.</p>
 
 <h3 id="demographic-questions">Demographic Questions</h3>
 
-<p>For organizations using Greenhouse Inclusion, the response may contain demographic questions. Each question contains an array of answer options that may be rendered as checkboxes or a multi-select. The candidate may select zero, one, or more answer options per question. If an answer option is selected that has <code class="prettyprint">free_form</code> set to <code class="prettyprint">true</code>, the candidate must be allowed to type a free-form response. The free-form response is optional.</p>
+<table><thead>
+<tr>
+<td>Type</td><td>How to represent</td></tr>
+</thead><tbody>
+<tr>
+<td>multi_value_single_select</td><td>Can be represented as either a set of radio buttons or a select</td></tr>
+<tr>
+<td>multi_value_multi_select</td><td>Can be represented as either a set of checkboxes or a multi-select</td></tr>
+</tbody></table>
+
+<p>For organizations using Greenhouse Inclusion, the response may contain demographic questions. Each question contains an array of answer options that may be rendered based on the question &lsquo;type&rsquo; defined in the table above. The candidate must select an answer option for questions with <code class="prettyprint">required</code> set to <code class="prettyprint">true</code>. If an answer option is selected that has <code class="prettyprint">free_form</code> set to <code class="prettyprint">true</code>, the candidate must be allowed to type a free-form response. This free-form response is only required if no other answer options have been selected by the candidate.</p>
 
 <h3 id="data-compliance">Data Compliance</h3>
 
