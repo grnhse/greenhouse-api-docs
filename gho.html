@@ -398,14 +398,69 @@ of the error list.</p>
           <h1 id="queries">Queries</h1>
 
 <h2 id="complexityinfo-complexityinfo">complexityInfo (<a href="#complexityinfo">ComplexityInfo</a>)</h2>
+<pre class="highlight plaintext"><code># the basic structure of the complexityInfo query
+{
+  complexityInfo {
+    score
+    maximum
+  }
+}
+</code></pre>
+<pre class="highlight plaintext"><code># Example of retriving complexity information from the employee query
+{
+  employee(id: 20) {
+     email
+     lastName
+  }
+  complexityInfo {
+    score
+    maximum
+  }
+}
+</code></pre>
 
-<p>The complexity information for the current query</p>
+<p>The complexity information for the current query. By itself it doesn&rsquo;t tell
+us anything. This really comes in handy when paired with other queries.</p>
 
 <h2 id="contactrelationships-string">contactRelationships (<a href="#string">[String]</a>)</h2>
+<pre class="highlight plaintext"><code>{
+  contactRelationships
+}
+</code></pre>
 
 <p>The list of valid options for the &lsquo;Contact&rsquo; custom field type</p>
 
 <h2 id="countries-country">countries (<a href="#country">[Country]</a>)</h2>
+<pre class="highlight plaintext"><code># Request all country information for North America
+{
+  countries(countryCodes: ["USA", "CAN", "MEX"]) {
+    countryCode
+    name
+    states {
+      name
+      stateCode
+      country {
+        name
+      }
+    }
+  }
+}
+</code></pre>
+<pre class="highlight plaintext"><code># Request all country information for all countries
+{
+  countries {
+    countryCode
+    name
+    states {
+      name
+      stateCode
+      country {
+        name
+      }
+    }
+  }
+}
+</code></pre>
 
 <p>The list of countries</p>
 
@@ -418,8 +473,28 @@ of the error list.</p>
 </tbody></table>
 
 <h2 id="customfield-customfield">customField (<a href="#customfield">CustomField</a>)</h2>
+<pre class="highlight plaintext"><code># Request custom field information for a custom field
+{
+  customField(id: "system.pronouns") {
+    id
+    name
+    fieldType
+    multipleChoiceOptions
+    customFieldGroup {
+      id
+      name
+    }
+    teamCategory {
+      id
+      name
+    }
+    createdAt
+    updatedAt
+  }
+}
+</code></pre>
 
-<p>A custom field</p>
+<p>Information about a custom field. The argument must be the permanent field id of the custom field.</p>
 
 <table><thead>
 <tr>
@@ -430,6 +505,143 @@ of the error list.</p>
 </tbody></table>
 
 <h2 id="customfields-customfieldconnection">customFields (<a href="#customfieldconnection">CustomFieldConnection</a>)</h2>
+<pre class="highlight plaintext"><code># Request the first 5 custom fields after the cursor "NQ=="
+{
+  customFields(first: 5, after: "NQ==") {
+    edges {
+      node {
+        name
+        id
+        teamCategory {
+          id
+          name
+        }
+        fieldType
+        customFieldGroup {
+          id
+          name
+        }
+        multipleChoiceOptions
+      }
+    }
+  }
+}
+</code></pre>
+<pre class="highlight plaintext"><code># Request the first 5 custom fields before the cursor "MTA="
+{
+  customFields(first: 5, before: "MTA=") {
+    edges {
+      node {
+        name
+        id
+        teamCategory {
+          id
+          name
+        }
+        fieldType
+        customFieldGroup {
+          id
+          name
+        }
+        multipleChoiceOptions
+      }
+      cursor
+    }
+  }
+}
+</code></pre>
+<pre class="highlight plaintext"><code># Request the first 10 custom fields with the field type 'text'
+{
+  customFields(first: 10, fieldTypes: [TEXT]) {
+    edges {
+      node {
+        name
+        id
+        teamCategory {
+          id
+          name
+        }
+        fieldType
+        customFieldGroup {
+          id
+          name
+        }
+        multipleChoiceOptions
+      }
+      cursor
+    }
+  }
+}
+</code></pre>
+<pre class="highlight plaintext"><code># Request the first 10 customFields in the list
+{
+  customFields(first: 10) {
+    edges {
+      node {
+        name
+        id
+        teamCategory {
+          id
+          name
+        }
+        fieldType
+        customFieldGroup {
+          id
+          name
+        }
+        multipleChoiceOptions
+      }
+      cursor
+    }
+  }
+}
+</code></pre>
+<pre class="highlight plaintext"><code># Request the last 10 customFields in the list
+{
+  customFields(last: 10) {
+    edges {
+      node {
+        name
+        id
+        teamCategory {
+          id
+          name
+        }
+        fieldType
+        customFieldGroup {
+          id
+          name
+        }
+        multipleChoiceOptions
+      }
+      cursor
+    }
+  }
+}
+</code></pre>
+<pre class="highlight plaintext"><code># Request custom fields with permanent field ids "department" and "location"
+{
+  customFields(first: 2, ids: ["department", "location"]) {
+    edges {
+      node {
+        name
+        id
+        teamCategory {
+          id
+          name
+        }
+        fieldType
+        customFieldGroup {
+          id
+          name
+        }
+        multipleChoiceOptions
+      }
+      cursor
+    }
+  }
+}
+</code></pre>
 
 <p>A collection of custom fields</p>
 
@@ -452,6 +664,14 @@ of the error list.</p>
 </tbody></table>
 
 <h2 id="department-department">department (<a href="#department">Department</a>)</h2>
+<pre class="highlight plaintext"><code>{
+  department(id: 1) {
+    id
+    name
+    externalId
+  }
+}
+</code></pre>
 
 <p>A single department</p>
 
@@ -464,6 +684,62 @@ of the error list.</p>
 </tbody></table>
 
 <h2 id="departments-departmentconnection">departments (<a href="#departmentconnection">DepartmentConnection</a>)</h2>
+<pre class="highlight plaintext"><code># Request for the first 5 departments after cursor "NQ=="
+{
+  departments(first: 5, after: "NQ==") {
+    edges {
+      node {
+       id
+       name
+       externalId
+      }
+      cursor
+    }
+  }
+}
+</code></pre>
+<pre class="highlight plaintext"><code># Request for the first 5 departments before cursor "NQ=="
+{
+  departments(first: 5, before: "NQ==") {
+    edges {
+      node {
+       id
+       name
+       externalId
+      }
+      cursor
+    }
+  }
+}
+</code></pre>
+<pre class="highlight plaintext"><code># Request for first 10 departments in the list
+{
+  departments(first: 10) {
+    edges {
+      node {
+       id
+       name
+       externalId
+      }
+      cursor
+    }
+  }
+}
+</code></pre>
+<pre class="highlight plaintext"><code># Request for the last 10 departments in the list
+{
+  departments(last: 10) {
+    edges {
+      node {
+       id
+       name
+       externalId
+      }
+      cursor
+    }
+  }
+}
+</code></pre>
 
 <p>All departments</p>
 
@@ -482,6 +758,72 @@ of the error list.</p>
 </tbody></table>
 
 <h2 id="employee-employee">employee (<a href="#employee">Employee</a>)</h2>
+<pre class="highlight plaintext"><code># Request for an employee
+{
+  employee(id: 5) {
+    about
+    createdAt
+    dateOfBirth
+    dateOfTermination
+    department {
+      id
+      name
+      externalId
+    }
+    documents {
+      id
+      file {
+        fileUrl
+        fileName
+        fileSize
+      }
+    }
+    email
+    employmentStatus
+    firstName
+    greenhouseRecruitingData {
+      applicationId
+    }
+    hrManager {
+      id
+      email
+    }
+    id
+    lastName
+    location {
+      id
+      name
+      address
+      externalId
+    }
+    manager {
+      id
+      email
+    }
+    middleName
+    otherCriteria {
+      id
+      name
+    }
+    personalEmail
+    phoneNumber
+    preferredFirstName
+    preferredLastName
+    profileImage {
+      fileUrl
+      fileName
+      fileSize
+    }
+    requiredFieldsCompletedAt
+    startDate
+    suffix
+    title
+    updatedAt
+    workCountryCode
+  }
+}
+
+</code></pre>
 <pre class="highlight plaintext"><code># Request an employee but limit their customFieldValues to those of specific customFields.
 # The customFieldIds argument can be used when you are interested in only getting a specific
 # customFieldValues for the employee.
@@ -509,12 +851,18 @@ of the error list.</p>
       file {
         fileUrl
       }
+      status
       signatureRequestTemplate {
         publicName
+        counterSigner {
+          id
+          email
+        }
       }
     }
   }
 }
+
 
 </code></pre>
 
@@ -529,10 +877,9 @@ of the error list.</p>
 </tbody></table>
 
 <h2 id="employees-employeeconnection">employees (<a href="#employeeconnection">EmployeeConnection</a>)</h2>
-<pre class="highlight plaintext"><code># Request only those employees that have title "Account Manager". For each employee that fits the criteria,
-# return their id and work email
+<pre class="highlight plaintext"><code># Request employees after the cursor "NQ=="
 {
-  employees(first: 25, titleFilter: { titles: ["Account Manager"] }) {
+  employees(first: 25, after: "NQ==") {
     pageInfo {
       hasNextPage
       endCursor
@@ -542,33 +889,32 @@ of the error list.</p>
         id
         email
       }
+      cursor
     }
   }
 }
-
 </code></pre>
-<pre class="highlight plaintext"><code># Request only those employees that have a department set (department is not null). For each employee that fits the criteria,
-# return their id and work email
+<pre class="highlight plaintext"><code># Request employees before the cursor "MTM="
 {
-  employees(first: 25, departmentFilter: { anyValue: true }) {
+  employees(first: 25, before: "MTM=") {
     pageInfo {
       hasNextPage
       endCursor
     }
     edges {
-      node {
+      nodes {
         id
         email
       }
+      cursor
     }
   }
 }
-
 </code></pre>
-<pre class="highlight plaintext"><code># Request only those employees that lack a department (department is null). For each employee that fits the criteria,
-# return their id and work email
+<pre class="highlight plaintext"><code># Request only those employees that were createed before 12-13-2021 and after 10-01-2021. For each employee that
+# fits that criteria, return their id and work email
 {
-  employees(first: 25, departmentFilter: { noValue: true }) {
+  employees(first: 25, createdAt: {after: "2021-10-01T00:00:00+00:00", before: "2021-12-31T00:00:00+00:00" }) {
     pageInfo {
       hasNextPage
       endCursor
@@ -577,25 +923,6 @@ of the error list.</p>
       node {
         id
         email
-      }
-    }
-  }
-}
-
-</code></pre>
-<pre class="highlight plaintext"><code># Request only those employees that have a startDate between 2017-03-25 and 2018-03-25.
-# These dates are exclusive (e.g. someone who started on 2017-03-25 or 2018-03-25 would not be included.
-{
-  employees(first: 25, startDateFilter: { dateFilter: { after: "2017-03-25", before: "2018-03-25" } }) {
-    pageInfo {
-      hasNextPage
-      endCursor
-    }
-    edges {
-      node {
-        id
-        email
-        startDate
       }
     }
   }
@@ -660,7 +987,7 @@ of the error list.</p>
       node {
         id
         email
-        }
+      }
     }
   }
 }
@@ -741,6 +1068,286 @@ of the error list.</p>
 }
 
 </code></pre>
+<pre class="highlight plaintext"><code># Request only those employees that have a dateOfBirth between 1989-12-31 and 2000-01-01.
+# These dates are exclusive (e.g. someone who was born on 1989-12-31 or 2000-01-01 would not be included.
+{
+  employees(first: 25, dateOfBirthFilter: { dateFilter: { after: "1989-12-31", before: "2000-01-01" } }) {
+    pageInfo {
+      hasNextPage
+      endCursor
+    }
+    edges {
+      node {
+        id
+        email
+        startDate
+      }
+    }
+  }
+}
+
+</code></pre>
+<pre class="highlight plaintext"><code># Request only those employees that have a department set (department is not null). For each employee that fits the criteria,
+# return their id and work email
+{
+  employees(first: 25, departmentFilter: { anyValue: true }) {
+    pageInfo {
+      hasNextPage
+      endCursor
+    }
+    edges {
+      node {
+        id
+        email
+      }
+    }
+  }
+}
+
+</code></pre>
+<pre class="highlight plaintext"><code># Request only those employees that lack a department (department is null). For each employee that fits the criteria,
+# return their id and work email
+{
+  employees(first: 25, departmentFilter: { noValue: true }) {
+    pageInfo {
+      hasNextPage
+      endCursor
+    }
+    edges {
+      node {
+        id
+        email
+      }
+    }
+  }
+}
+
+</code></pre>
+<pre class="highlight plaintext"><code># Request only those employees that are in specific departments. For each employee that fits the criteria,
+# return their id and work email
+{
+  employees(first: 25, departmentFilter: { departmentIds: [1, 3] }) {
+    pageInfo {
+      hasNextPage
+      endCursor
+    }
+    edges {
+      node {
+        id
+        email
+      }
+    }
+  }
+}
+
+</code></pre>
+<pre class="highlight plaintext"><code># Request only those employees that have specific emails. For each employee that fits the criteria,
+# return their id and work email
+{
+  employees(first: 25, emailFilter: { emails: ["john.doe@example.com"] }) {
+    pageInfo {
+      hasNextPage
+      endCursor
+    }
+    edges {
+      node {
+        id
+        email
+      }
+    }
+  }
+}
+</code></pre>
+<pre class="highlight plaintext"><code># Request only those employees that have specific employment statuses. For each employee that fits the criteria,
+# return their id and work email
+{
+  employees(first: 25, employmentStatusFilter: { employmentStatuses: ["Full-time", "Part-time"] }) {
+    pageInfo {
+      hasNextPage
+      endCursor
+    }
+    edges {
+      node {
+        id
+        email
+      }
+    }
+  }
+}
+</code></pre>
+<pre class="highlight plaintext"><code># Request the first 10 employees in the list, For each employee return their id and work email
+{
+  employees(first: 10) {
+    pageInfo {
+      hasNextPage
+      endCursor
+    }
+    edges {
+      node {
+        id
+        email
+      }
+    }
+  }
+}
+</code></pre>
+<pre class="highlight plaintext"><code># Request only those employees that have a specific hr manager or managers. For each employee that fits the criteria,
+# return their id and work email
+{
+  employees(first: 25, hrManagerFilter: { hrManagerIds: [1, 2] }) {
+    pageInfo {
+      hasNextPage
+      endCursor
+    }
+    edges {
+      node {
+        id
+        email
+      }
+    }
+  }
+}
+</code></pre>
+<pre class="highlight plaintext"><code># Request the last 10 employees in the list, For each employee return their id and work email
+{
+  employees(last: 10) {
+    pageInfo {
+      hasNextPage
+      endCursor
+    }
+    edges {
+      node {
+        id
+        email
+      }
+    }
+  }
+}
+</code></pre>
+<pre class="highlight plaintext"><code># Request only those employees that are in a specific location or locations. For each employee that fits the criteria,
+# return their id and work email
+{
+  employees(first: 25, locationFilter: { locationIds: [1, 2] }) {
+    pageInfo {
+      hasNextPage
+      endCursor
+    }
+    edges {
+      node {
+        id
+        email
+      }
+    }
+  }
+}
+</code></pre>
+<pre class="highlight plaintext"><code># Request only those employees that have a specific manager or managers. For each employee that fits the criteria,
+# return their id and work email
+{
+  employees(first: 25, managerFilter: { managerIds: [1, 2] }) {
+    pageInfo {
+      hasNextPage
+      endCursor
+    }
+    edges {
+      node {
+        id
+        email
+      }
+    }
+  }
+}
+</code></pre>
+<pre class="highlight plaintext"><code># Request only those employees that have a specific personal email or emails. For each employee that fits the criteria,
+# return their id and work email
+{
+  employees(first: 25, personalEmailFilter: { personalEmails: ["john.doe@example.com", "jon.doe2@example.com"] }) {
+    pageInfo {
+      hasNextPage
+      endCursor
+    }
+    edges {
+      node {
+        id
+        email
+      }
+    }
+  }
+}
+</code></pre>
+<pre class="highlight plaintext"><code># Request only those employees that have a startDate between 2017-03-25 and 2018-03-25.
+# These dates are exclusive (e.g. someone who started on 2017-03-25 or 2018-03-25 would not be included.
+{
+  employees(first: 25, startDateFilter: { dateFilter: { after: "2017-03-25", before: "2018-03-25" } }) {
+    pageInfo {
+      hasNextPage
+      endCursor
+    }
+    edges {
+      node {
+        id
+        email
+        startDate
+      }
+    }
+  }
+}
+
+</code></pre>
+<pre class="highlight plaintext"><code># Request only those employees that have title "Account Manager". For each employee that fits the criteria,
+# return their id and work email
+{
+  employees(first: 25, titleFilter: { titles: ["Account Manager"] }) {
+    pageInfo {
+      hasNextPage
+      endCursor
+    }
+    edges {
+      node {
+        id
+        email
+      }
+    }
+  }
+}
+
+</code></pre>
+<pre class="highlight plaintext"><code># Request only those employees in a specific country or countries (using workCountryCode). For each employee that fits the criteria,
+# return their id and work email
+{
+  employees(first: 25, workCountryCodeFilter: { workCountryCodes: ["USA", "CAN"] }) {
+    pageInfo {
+      hasNextPage
+      endCursor
+    }
+    edges {
+      node {
+        id
+        email
+      }
+    }
+  }
+}
+
+</code></pre>
+<pre class="highlight plaintext"><code># Request only those employees that were updated before 12-13-2021 and after 10-01-2021. For each employee that
+# fits that criteria, return their id and work email
+{
+  employees(first: 25, updatedAt: {after: "2021-10-01T00:00:00+00:00", before: "2021-12-31T00:00:00+00:00" }) {
+    pageInfo {
+      hasNextPage
+      endCursor
+    }
+    edges {
+      node {
+        id
+        email
+      }
+    }
+  }
+}
+
+</code></pre>
 
 <p>A collection of Onboarding employee records. The following arguments are depreacated and should be avoided as support for them will be dropped: dateOfBirth, departmentIds, emails, employmentStatuses, hrManagerIds, locationIds, managerIds, personalEmails, startDate, titles, and workCountryCodes. Each of these arguments has a newer, more powerful companion named *Filter. For example, departmentIds has been replaced by the argument departmentFilter - which allows for the specification of department IDs, but also allows for more flexibility (e.g. filtering by lack/presence of a given field - as opposed to filtering by specific values).</p>
 
@@ -787,10 +1394,23 @@ of the error list.</p>
 </tbody></table>
 
 <h2 id="employmentstatuses-string">employmentStatuses (<a href="#string">[String]</a>)</h2>
+<pre class="highlight plaintext"><code>{
+  employmentStatuses
+}
+</code></pre>
 
 <p>The list of valid options for Employment Status</p>
 
 <h2 id="location-location">location (<a href="#location">Location</a>)</h2>
+<pre class="highlight plaintext"><code>{
+  location(id: 1) {
+    id
+    name
+    address
+    externalId
+  }
+}
+</code></pre>
 
 <p>A single location</p>
 
@@ -803,6 +1423,82 @@ of the error list.</p>
 </tbody></table>
 
 <h2 id="locations-locationconnection">locations (<a href="#locationconnection">LocationConnection</a>)</h2>
+<pre class="highlight plaintext"><code># Request for first 10 locations after cursor "NQ=="
+{
+  locations(first: 10, after: "NQ==") {
+    pageInfo {
+      hasNextPage
+      endCursor
+    }
+    edges {
+      node {
+        id
+        name
+        address
+        externalId
+      }
+      cursor
+    }
+  }
+}
+</code></pre>
+<pre class="highlight plaintext"><code># Request for first 10 locations before cursor "NQ=="
+{
+  locations(first: 10, before: "NQ==") {
+    pageInfo {
+      hasNextPage
+      endCursor
+    }
+    edges {
+      node {
+        id
+        name
+        address
+        externalId
+      }
+      cursor
+    }
+  }
+}
+</code></pre>
+<pre class="highlight plaintext"><code># Request for first 10 locations in the list
+{
+  locations(first: 10) {
+    pageInfo {
+      hasNextPage
+      endCursor
+    }
+    edges {
+      node {
+        id
+        name
+        address
+        externalId
+      }
+      cursor
+    }
+  }
+}
+</code></pre>
+<pre class="highlight plaintext"><code># Request for last 10 locations in the list
+{
+  locations(last: 10) {
+    pageInfo {
+      hasNextPage
+      endCursor
+    }
+    edges {
+      node {
+        id
+        name
+        address
+        externalId
+      }
+      cursor
+    }
+  }
+}
+</code></pre>
 
 <p>All locations</p>
 
@@ -821,6 +1517,82 @@ of the error list.</p>
 </tbody></table>
 
 <h2 id="othercriteria-othercriterionconnection">otherCriteria (<a href="#othercriterionconnection">OtherCriterionConnection</a>)</h2>
+<pre class="highlight plaintext"><code># Request for first 10 other criteria after cursor "NQ=="
+{
+  otherCriteria(first: 10, after: "NQ==") {
+    pageInfo {
+      hasNextPage
+      endCursor
+    }
+    edges {
+      node {
+        id
+        name
+        createdAt
+        updatedAt
+      }
+      cursor
+    }
+  }
+}
+</code></pre>
+<pre class="highlight plaintext"><code># Request for first 10 other criteria before cursor "NQ=="
+{
+  otherCriteria(first: 10, before: "NQ==") {
+    pageInfo {
+      hasNextPage
+      endCursor
+    }
+    edges {
+      node {
+        id
+        name
+        createdAt
+        updatedAt
+      }
+      cursor
+    }
+  }
+}
+</code></pre>
+<pre class="highlight plaintext"><code># Request for first 10 other criteria in the list
+{
+  otherCriteria(first: 10) {
+    pageInfo {
+      hasNextPage
+      endCursor
+    }
+    edges {
+      node {
+        id
+        name
+        createdAt
+        updatedAt
+      }
+      cursor
+    }
+  }
+}
+</code></pre>
+<pre class="highlight plaintext"><code># Request for last 10 other criteria in the list
+{
+  otherCriteria(last: 10) {
+    pageInfo {
+      hasNextPage
+      endCursor
+    }
+    edges {
+      node {
+        id
+        name
+        createdAt
+        updatedAt
+      }
+      cursor
+    }
+  }
+}
+</code></pre>
 
 <p>All other criteria</p>
 
@@ -839,6 +1611,15 @@ of the error list.</p>
 </tbody></table>
 
 <h2 id="othercriterion-othercriterion">otherCriterion (<a href="#othercriterion">OtherCriterion</a>)</h2>
+<pre class="highlight plaintext"><code>{
+  otherCriterion(id: 1) {
+    id
+    name
+    createdAt
+    updatedAt
+  }
+}
+</code></pre>
 
 <p>A single other criterion</p>
 
@@ -851,10 +1632,35 @@ of the error list.</p>
 </tbody></table>
 
 <h2 id="ratelimit-ratelimit">rateLimit (<a href="#ratelimit">RateLimit</a>)</h2>
+<pre class="highlight plaintext"><code>{
+  rateLimit {
+    cost
+    limit
+    remaining
+    resetAt
+  }
+}
+</code></pre>
 
 <p>Information about your current API quota</p>
 
 <h2 id="team-team">team (<a href="#team">Team</a>)</h2>
+<pre class="highlight plaintext"><code>{
+  team(id: 1) {
+    id
+    name
+    description
+    email
+    location
+    name
+    teamCategory {
+      id
+      name
+    }
+  }
+}
+
+</code></pre>
 
 <p>A single team</p>
 
@@ -867,6 +1673,74 @@ of the error list.</p>
 </tbody></table>
 
 <h2 id="teamcategories-teamcategoryconnection">teamCategories (<a href="#teamcategoryconnection">TeamCategoryConnection</a>)</h2>
+<pre class="highlight plaintext"><code># Request for first 5 team categories after cursor "NQ=="
+{
+  teamCategories(first: 5, after: "NQ==") {
+    pageInfo {
+      hasNextPage
+      endCursor
+    }
+    edges {
+      node {
+        id
+        name
+      }
+      cursor
+    }
+  }
+}
+</code></pre>
+<pre class="highlight plaintext"><code># Request for first 5 team categories before cursor "NQ=="
+{
+  teamCategories(first: 5, before: "NQ==") {
+    pageInfo {
+      hasNextPage
+      endCursor
+    }
+    edges {
+      node {
+        id
+        name
+      }
+      cursor
+    }
+  }
+}
+</code></pre>
+<pre class="highlight plaintext"><code># Request for first 5 team categories in the list
+{
+  teamCategories(first: 5) {
+    pageInfo {
+      hasNextPage
+      endCursor
+    }
+    edges {
+      node {
+        id
+        name
+      }
+      cursor
+    }
+  }
+}
+</code></pre>
+<pre class="highlight plaintext"><code># Request for last 5 team categories in the list
+{
+  teamCategories(last: 10) {
+    pageInfo {
+      hasNextPage
+      endCursor
+    }
+    edges {
+      node {
+        id
+        name
+      }
+      cursor
+    }
+  }
+}
+</code></pre>
 
 <p>All team categories</p>
 
@@ -885,6 +1759,13 @@ of the error list.</p>
 </tbody></table>
 
 <h2 id="teamcategory-teamcategory">teamCategory (<a href="#teamcategory">TeamCategory</a>)</h2>
+<pre class="highlight plaintext"><code>{
+  teamCategory(id: 1) {
+    id
+    name
+  }
+}
+</code></pre>
 
 <p>A single team category</p>
 
@@ -897,6 +1778,106 @@ of the error list.</p>
 </tbody></table>
 
 <h2 id="teams-teamconnection">teams (<a href="#teamconnection">TeamConnection</a>)</h2>
+<pre class="highlight plaintext"><code># Request for first 10 teams after cursor "NQ=="
+{
+  teams(first: 10, after: "NQ==") {
+    pageInfo {
+      hasNextPage
+      endCursor
+    }
+    edges {
+      node {
+        id
+        name
+        description
+        email
+        location
+        name
+        teamCategory {
+          id
+          name
+        }
+      }
+      cursor
+    }
+  }
+}
+</code></pre>
+<pre class="highlight plaintext"><code># Request for first 10 teams before cursor "NQ=="
+{
+  teams(first: 10, before: "NQ==") {
+    pageInfo {
+      hasNextPage
+      endCursor
+    }
+    edges {
+      node {
+        id
+        name
+        description
+        email
+        location
+        name
+        teamCategory {
+          id
+          name
+        }
+      }
+      cursor
+    }
+  }
+}
+</code></pre>
+<pre class="highlight plaintext"><code># Request for first 10 teams in the list
+{
+  teams(first: 10) {
+    pageInfo {
+      hasNextPage
+      endCursor
+    }
+    edges {
+      node {
+        id
+        name
+        description
+        email
+        location
+        name
+        teamCategory {
+          id
+          name
+        }
+      }
+      cursor
+    }
+  }
+}
+</code></pre>
+<pre class="highlight plaintext"><code># Request for last 10 teams in the list
+{
+  teams(last: 10) {
+    pageInfo {
+      hasNextPage
+      endCursor
+    }
+    edges {
+      node {
+        id
+        name
+        description
+        email
+        location
+        name
+        teamCategory {
+          id
+          name
+        }
+      }
+      cursor
+    }
+  }
+}
+</code></pre>
 
 <p>All teams</p>
 
@@ -917,6 +1898,22 @@ of the error list.</p>
 <h1 id="mutations">Mutations</h1>
 
 <h2 id="adddepartment-adddepartmentpayload">addDepartment (<a href="#adddepartmentpayload">AddDepartmentPayload</a>)</h2>
+<pre class="highlight plaintext"><code># Create a Department
+mutation {
+  addDepartment(
+    addDepartmentInput: {
+      name: "Engineering"
+      externalId: "123"
+    }
+  ) {
+    department {
+      id
+      name
+      externalId
+    }
+  }
+}
+</code></pre>
 
 <p>Add a new Department</p>
 
@@ -929,6 +1926,24 @@ of the error list.</p>
 </tbody></table>
 
 <h2 id="addlocation-addlocationpayload">addLocation (<a href="#addlocationpayload">AddLocationPayload</a>)</h2>
+<pre class="highlight plaintext"><code># Create a Location
+mutation {
+  addLocation(
+    addLocationInput: {
+      name: "Denver, CO"
+      address: "1801 Broadway, 13th Floor, Denver, CO 80202"
+      externalId: "123"
+    }
+  ) {
+    location {
+      id
+      name
+      address
+      externalId
+    }
+  }
+}
+</code></pre>
 
 <p>Add a new Location</p>
 
@@ -1115,6 +2130,13 @@ mutation {
 </tbody></table>
 
 <h2 id="deletedepartment-deletedepartmentpayload">deleteDepartment (<a href="#deletedepartmentpayload">DeleteDepartmentPayload</a>)</h2>
+<pre class="highlight plaintext"><code># Delete a department by the department id
+mutation {
+  deleteDepartment(deleteDepartmentInput: {id: 1}) {
+    deletedDepartmentId
+  }
+}
+</code></pre>
 
 <p>Delete a Department</p>
 
@@ -1127,6 +2149,13 @@ mutation {
 </tbody></table>
 
 <h2 id="deletelocation-deletelocationpayload">deleteLocation (<a href="#deletelocationpayload">DeleteLocationPayload</a>)</h2>
+<pre class="highlight plaintext"><code># Delete a location by the location id
+mutation {
+  deleteLocation(deleteLocationInput: {id: 1}) {
+    deletedLocationId
+  }
+}
+</code></pre>
 
 <p>Delete a Location</p>
 
@@ -1139,6 +2168,23 @@ mutation {
 </tbody></table>
 
 <h2 id="updatedepartment-updatedepartmentpayload">updateDepartment (<a href="#updatedepartmentpayload">UpdateDepartmentPayload</a>)</h2>
+<pre class="highlight plaintext"><code># Update a department's name. Must provide the id of an existing department
+mutation {
+  updateDepartment(
+    updateDepartmentInput: {
+      id: 1
+      name: "Data Science"
+      externalId: "123"
+    }
+  ) {
+    department {
+      id
+      name
+      externalId
+    }
+  }
+}
+</code></pre>
 
 <p>Update a Department</p>
 
@@ -1344,6 +2390,25 @@ mutation {
 </tbody></table>
 
 <h2 id="updatelocation-updatelocationpayload">updateLocation (<a href="#updatelocationpayload">UpdateLocationPayload</a>)</h2>
+<pre class="highlight plaintext"><code># Update a location. Must provide the id of an existing location.
+mutation {
+  updateLocation(
+    updateLocationInput: {
+      id: 22
+      name: "San Francisco, CA"
+      address: "575 Market Street, Suite #1750, San Francisco, CA 94105"
+      externalId: "123"
+    }
+  ) {
+    location {
+      id
+      name
+      address
+      externaId
+    }
+  }
+}
+</code></pre>
 
 <p>Update a Location</p>
 
@@ -2120,7 +3185,7 @@ mutation {
 <tr>
 <td>externalId</td><td><a href="#string">String</a></td><td></td><td></td></tr>
 <tr>
-<td>name</td><td><a href="#string">String</a></td><td></td><td></td></tr>
+<td>name</td><td><a href="#string">String</a></td><td></td><td>Required</td></tr>
 </tbody></table>
 
 <h2 id="addlocationinput">AddLocationInput</h2>
@@ -2136,7 +3201,7 @@ mutation {
 <tr>
 <td>externalId</td><td><a href="#string">String</a></td><td></td><td></td></tr>
 <tr>
-<td>name</td><td><a href="#string">String</a></td><td></td><td></td></tr>
+<td>name</td><td><a href="#string">String</a></td><td></td><td>Required</td></tr>
 </tbody></table>
 
 <h2 id="addpendinghireinput">AddPendingHireInput</h2>
