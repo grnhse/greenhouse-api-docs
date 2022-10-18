@@ -263,6 +263,8 @@ X-RateLimit-Remaining: 49
 <td>Date</td><td>Description</td></tr>
 </thead><tbody>
 <tr>
+<td>October 18, 2022 12:00:00PM</td><td>Added ability to create and update User Attributes to the <a href="#users">Users</a> endpoints</td></tr>
+<tr>
 <td>September 22, 2022 12:00:00PM</td><td>Updated <a href="#delete-destroy-openings">DELETE: Destroy Openings</a> to a v2 endpoint. The v1 endpoint will be deprecated in a future release. Users and partners should switch over to the v2 endpoint as soon as possible to avoid issues with your integration.</td></tr>
 <tr>
 <td>September 12, 2022 12:00:00PM</td><td>Added <code class="prettyprint">created_at</code> field for application&rsquo;s attachments object.</td></tr>
@@ -5539,11 +5541,11 @@ X-RateLimit-Remaining: 49
 <tr>
 <td>active</td><td>Boolean value which is false if the custom field has been deleted, true otherwise.</td></tr>
 <tr>
-<td>field_type</td><td>One of job, candidate, application, offer, opening, rejection_question, referral_question. This is also included in the URL as an argument, which will return only custom fields that match the given type.</td></tr>
+<td>field_type</td><td>One of job, candidate, application, offer, opening, rejection_question, referral_question, or user_attribute. This is also included in the URL as an argument, which will return only custom fields that match the given type.</td></tr>
 <tr>
 <td>priority</td><td>Numeric field used for ordering in Greenhouse.</td></tr>
 <tr>
-<td>value_type</td><td>One of short_text, long_text, yes_no, single_select, multi_select, currency, currency_range, number, number_range, date, url, or user</td></tr>
+<td>value_type</td><td>One of short_text, long_text, yes_no, single_select, multi_select, currency, currency_range, number, number_range, date, url, or user. For the user_attribute field type, only the following value types are supported currently: single_select, multi_select, yes_no, and user</td></tr>
 <tr>
 <td>private</td><td>Boolean value to say if this field is private in Greenhouse.</td></tr>
 <tr>
@@ -5630,7 +5632,7 @@ X-RateLimit-Remaining: 49
 <td>Parameter</td><td>Description</td></tr>
 </thead><tbody>
 <tr>
-<td class="optional">field_type</td><td>Returns only custom fields of this type. For example, if “offer” is included in the URL as the field_type, the endpoint will only return custom fields with the “offer” field type.  One of: <code class="prettyprint">offer</code>, <code class="prettyprint">candidate</code>, <code class="prettyprint">application</code>, <code class="prettyprint">job</code>, <code class="prettyprint">rejection_question</code>, <code class="prettyprint">referral_question</code>.</td></tr>
+<td class="optional">field_type</td><td>Returns only custom fields of this type. For example, if “offer” is included in the URL as the field_type, the endpoint will only return custom fields with the “offer” field type.  One of: <code class="prettyprint">offer</code>, <code class="prettyprint">candidate</code>, <code class="prettyprint">application</code>, <code class="prettyprint">job</code>, <code class="prettyprint">rejection_question</code>, <code class="prettyprint">referral_question</code>, <code class="prettyprint">user_attribute</code>.</td></tr>
 </tbody></table>
 
 <h3 id="querystring-parameters">Querystring parameters</h3>
@@ -5826,9 +5828,9 @@ X-RateLimit-Remaining: 49
 <tr>
 <td>description</td><td>string</td><td>no</td><td>The field&rsquo;s description in Greenhouse</td></tr>
 <tr>
-<td>field_type</td><td>string</td><td>yes</td><td>One of job, candidate, application, offer, opening, rejection_question, referral_question.</td></tr>
+<td>field_type</td><td>string</td><td>yes</td><td>One of job, candidate, application, offer, opening, rejection_question, referral_question, user_attribute.</td></tr>
 <tr>
-<td>value_type</td><td>string</td><td>yes</td><td>One of short_text, long_text, yes_no, single_select, multi_select, currency, currency_range, number, number_range, date, url, or user</td></tr>
+<td>value_type</td><td>string</td><td>yes</td><td>One of short_text, long_text, yes_no, single_select, multi_select, currency, currency_range, number, number_range, date, url, or user. For the user_attribute field type, only the following value types are supported currently: single_select, multi_select, yes_no, and user</td></tr>
 <tr>
 <td>private</td><td>boolean</td><td>no</td><td>Boolean value to say if this field is private in Greenhouse. Defaults to false if not provided for non-offer custom fields. For offer custom fields, private is always true.</td></tr>
 <tr>
@@ -10847,7 +10849,7 @@ X-RateLimit-Remaining: 49
 
 <h3 id="custom-field-parameters">Custom Field Parameters</h3>
 
-<p>The custom field parameter structure is different in the PATCH method then in GET methods and responses. Certain type of custom fields require different elements to be included, while deleting a field requires a specific argument. What follows is the description of each item in a custom field element and what is required depending on the type.</p>
+<p>The custom field parameter structure is different in the PATCH method than in GET methods and responses. Certain type of custom fields require different elements to be included, while deleting a field requires a specific argument. What follows is the description of each item in a custom field element and what is required depending on the type.</p>
 
 <table><thead>
 <tr>
@@ -14903,7 +14905,33 @@ only delete Scheduled Interviews in the following statues: Scheduled, Awaiting F
     </span><span class="s2">"other.woman@example.com"</span><span class="w">
   </span><span class="p">],</span><span class="w">
   </span><span class="nt">"employee_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"221"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"linked_candidate_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">123</span><span class="p">,</span><span class="w"> </span><span class="mi">654</span><span class="p">]</span><span class="w">
+  </span><span class="nt">"linked_candidate_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">123</span><span class="p">,</span><span class="w"> </span><span class="mi">654</span><span class="p">],</span><span class="w">
+  </span><span class="nt">"offices"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">47012</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"New York"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"location"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"New York, United States"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"primary_contact_user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">150893</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"parent_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">50849</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"parent_office_external_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14679"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"child_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">50852</span><span class="p">,</span><span class="w"> </span><span class="mi">50891</span><span class="p">],</span><span class="w">
+      </span><span class="nt">"child_office_external_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"13473"</span><span class="p">,</span><span class="w"> </span><span class="s2">"123473"</span><span class="p">],</span><span class="w">
+      </span><span class="nt">"external_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"15679"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"departments"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">25907</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Second-Level department"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"parent_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">25908</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"parent_department_external_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"13473"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"child_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">50852</span><span class="p">,</span><span class="w"> </span><span class="mi">50891</span><span class="p">],</span><span class="w">
+      </span><span class="nt">"child_department_external_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"13473"</span><span class="p">,</span><span class="w"> </span><span class="s2">"123473"</span><span class="p">],</span><span class="w">
+      </span><span class="nt">"external_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"15679"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -14921,6 +14949,14 @@ only delete Scheduled Interviews in the following statues: Scheduled, Awaiting F
 <td>primary_email_address</td><td>The e-mail address this user has designated as his or her primary e-mail address. This value should always also be in the emails array.</td></tr>
 <tr>
 <td>linked_candidate_ids[]</td><td>Contains the IDs of candidate records containing this user&rsquo;s personal applications. In other words, the records containing this user&rsquo;s personal interview records and information.</td></tr>
+<tr>
+<td>offices</td><td>An array containing the <a href="#offices">offices</a> this user is associated with.</td></tr>
+<tr>
+<td>departments</td><td>An array containing the <a href="#departments">department</a> which this user is associated with.</td></tr>
+<tr>
+<td>custom_fields</td><td>Contains a hash of the custom fields configured for this resource. The properties in this hash reflect the active custom fields as of the time this method is called.</td></tr>
+<tr>
+<td>keyed_custom_fields</td><td>This contains the same information as custom_fields but formatted in a different way that includes more information. This will tell you the type of custom field data to expect, the text name of custom field, and the value. The key of this hash is the custom field’s immutable field key, which will not change even if the name of the custom field is changed in Greenhouse.</td></tr>
 </tbody></table>
 
 <h2 id="get-list-users">GET: List Users</h2>
@@ -14943,7 +14979,33 @@ only delete Scheduled Interviews in the following statues: Scheduled, Awaiting F
       </span><span class="s2">"other.woman@example.com"</span><span class="w">
     </span><span class="p">],</span><span class="w">
     </span><span class="nt">"employee_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"221"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"linked_candidate_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">123</span><span class="p">,</span><span class="w"> </span><span class="mi">654</span><span class="p">]</span><span class="w">
+    </span><span class="nt">"linked_candidate_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">123</span><span class="p">,</span><span class="w"> </span><span class="mi">654</span><span class="p">],</span><span class="w">
+    </span><span class="nt">"offices"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">47012</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"New York"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"location"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"New York, United States"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"primary_contact_user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">150893</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"parent_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">50849</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"parent_office_external_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14679"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"child_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">50852</span><span class="p">,</span><span class="w"> </span><span class="mi">50891</span><span class="p">],</span><span class="w">
+        </span><span class="nt">"child_office_external_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"13473"</span><span class="p">,</span><span class="w"> </span><span class="s2">"123473"</span><span class="p">],</span><span class="w">
+        </span><span class="nt">"external_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"15679"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nt">"departments"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">25907</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Research &amp; Development"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"parent_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">25908</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"parent_department_external_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"13473"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"child_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">50852</span><span class="p">,</span><span class="w"> </span><span class="mi">50891</span><span class="p">],</span><span class="w">
+        </span><span class="nt">"child_department_external_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"13473"</span><span class="p">,</span><span class="w"> </span><span class="s2">"123473"</span><span class="p">],</span><span class="w">
+        </span><span class="nt">"external_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"15679"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">712</span><span class="p">,</span><span class="w">
@@ -14959,12 +15021,38 @@ only delete Scheduled Interviews in the following statues: Scheduled, Awaiting F
       </span><span class="s2">"john.doe@example.com"</span><span class="w">
     </span><span class="p">],</span><span class="w">
     </span><span class="nt">"employee_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"700"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"linked_candidate_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">789</span><span class="p">,</span><span class="w"> </span><span class="mi">1022</span><span class="p">]</span><span class="w">
+    </span><span class="nt">"linked_candidate_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">789</span><span class="p">,</span><span class="w"> </span><span class="mi">1022</span><span class="p">],</span><span class="w">
+    </span><span class="nt">"offices"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">47013</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"San Francisco"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"location"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"San Francisco, California"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"primary_contact_user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">150894</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"parent_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">50850</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"parent_office_external_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14680"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"child_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">50852</span><span class="p">,</span><span class="w"> </span><span class="mi">50891</span><span class="p">],</span><span class="w">
+        </span><span class="nt">"child_office_external_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"13473"</span><span class="p">,</span><span class="w"> </span><span class="s2">"123473"</span><span class="p">],</span><span class="w">
+        </span><span class="nt">"external_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"15679"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nt">"departments"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">25907</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Marketing"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"parent_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">25908</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"parent_department_external_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"13473"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"child_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">50852</span><span class="p">,</span><span class="w"> </span><span class="mi">50891</span><span class="p">],</span><span class="w">
+        </span><span class="nt">"child_department_external_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"13473"</span><span class="p">,</span><span class="w"> </span><span class="s2">"123473"</span><span class="p">],</span><span class="w">
+        </span><span class="nt">"external_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"15679"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
 
-<p>List all of an organization&rsquo;s Greenhouse users.</p>
+<p>List all of an organization&rsquo;s Greenhouse users. If the querystring param <code class="prettyprint">user_attributes=true</code> is passed, the response will also include custom field and keyed custom field values. If the param is not passed, these values will not be displayed.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
@@ -14992,6 +15080,8 @@ only delete Scheduled Interviews in the following statues: Scheduled, Awaiting F
 <td>updated_after</td><td>Return only users that were updated at or after this timestamp. Timestamp must be in in <a href="#general-considerations">ISO-8601</a> format.</td></tr>
 <tr>
 <td>email</td><td>Return a single user who has this e-mail address as their primary e-mail or a secondary e-mail.</td></tr>
+<tr>
+<td>user_attributes</td><td>When <code class="prettyprint">true</code>, include user attributes. Otherwise excludes user attributes. Defaults to <code class="prettyprint">false</code>.</td></tr>
 </tbody></table>
 
 <p><br>
@@ -15016,7 +15106,81 @@ only delete Scheduled Interviews in the following statues: Scheduled, Awaiting F
     </span><span class="s2">"other.woman@example.com"</span><span class="w">
   </span><span class="p">],</span><span class="w">
   </span><span class="nt">"employee_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"221"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"linked_candidate_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">123</span><span class="p">,</span><span class="w"> </span><span class="mi">654</span><span class="p">]</span><span class="w">
+  </span><span class="nt">"linked_candidate_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">123</span><span class="p">,</span><span class="w"> </span><span class="mi">654</span><span class="p">],</span><span class="w">
+  </span><span class="nt">"offices"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">47013</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"San Francisco"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"location"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"San Francisco, California"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"primary_contact_user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">150894</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"parent_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">50850</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"parent_office_external_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14680"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"child_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">50852</span><span class="p">,</span><span class="w"> </span><span class="mi">50891</span><span class="p">],</span><span class="w">
+      </span><span class="nt">"child_office_external_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"13473"</span><span class="p">,</span><span class="w"> </span><span class="s2">"123473"</span><span class="p">],</span><span class="w">
+      </span><span class="nt">"external_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"15679"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"departments"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">25907</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Marketing"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"parent_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">25908</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"parent_department_external_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"13473"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"child_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">50852</span><span class="p">,</span><span class="w"> </span><span class="mi">50891</span><span class="p">],</span><span class="w">
+      </span><span class="nt">"child_department_external_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"13473"</span><span class="p">,</span><span class="w"> </span><span class="s2">"123473"</span><span class="p">],</span><span class="w">
+      </span><span class="nt">"external_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"15679"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"custom_fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"equipment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Laptop"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"shirt_size"</span><span class="p">:</span><span class="w"> </span><span class="s2">"M"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"hiring_specialties"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="s2">"Engineers"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Executives"</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nt">"trained_for_interviews"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"recruiting_partner"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Johnny Recruiter"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"johnny@example.com"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4000000000</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"keyed_custom_fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"equipment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Equipment"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"short_text"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Laptop"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"shirt_size"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Shirt Size"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"single_select"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"M"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"hiring_specialties"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hiring Specialties"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"multi_select"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"Engineers"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Executives"</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"trained_for_interviews"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Trained for interviews"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"recruiting_partner"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Recruiting Partner"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Johnny Recruiter"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"johnny@example.com"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4000000000</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -15064,7 +15228,23 @@ only delete Scheduled Interviews in the following statues: Scheduled, Awaiting F
   </span><span class="nt">"payload"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nt">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bob"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Smith"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"employee_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ABC12345"</span><span class="w">
+    </span><span class="nt">"employee_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ABC12345"</span><span class="p">,</span><span class="w">        
+    </span><span class="nt">"office_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">12345</span><span class="p">,</span><span class="w"> </span><span class="mi">67890</span><span class="p">],</span><span class="w">
+    </span><span class="nt">"department_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">12345</span><span class="p">,</span><span class="w"> </span><span class="mi">67890</span><span class="p">],</span><span class="w">
+    </span><span class="nt">"custom_fields"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1234</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Some new value"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"name_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"custom_field_name_key"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Some new value"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5678</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"delete_value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
   </span><span class="p">}</span><span class="w"> 
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -15107,13 +15287,39 @@ only delete Scheduled Interviews in the following statues: Scheduled, Awaiting F
 <td>last_name</td><td>No</td><td>string</td><td>The user&rsquo;s new last name. If included, this cannot be blank.</td></tr>
 <tr>
 <td>employee_id*</td><td>No</td><td>string</td><td>The user&rsquo;s external employee id. If included, this cannot be blank, nor can it match any other employee-id for a user in this organization.</td></tr>
+<tr>
+<td>office_ids</td><td>No</td><td>Array</td><td>Replace the current offices for this user with new offices. An empty array will remove all offices on this user.</td></tr>
+<tr>
+<td>external_office_ids</td><td>No</td><td>Array</td><td>This may be used instead of <code class="prettyprint">office_ids</code> and represents the ID of the office in an external system. If this is used, <code class="prettyprint">office_ids</code> must be blank and vice versa.</td></tr>
+<tr>
+<td>department_ids</td><td>No</td><td>Array</td><td>Replace the current departments for this user with new departments. An empty array will remove all departments on this user.</td></tr>
+<tr>
+<td>external_department_ids</td><td>No</td><td>Array</td><td>This may be used instead of <code class="prettyprint">department_ids</code> and represents the ID of the department in an external system. If used, <code class="prettyprint">department_ids</code> must be blank and vice versa.</td></tr>
+<tr>
+<td>custom_fields</td><td>No</td><td>custom_field</td><td>Array of hashes containing new custom field values. Passing an empty array does nothing.</td></tr>
 </tbody></table>
 
 <p>* - If the employee_id feature is not enabled for your organization, attempting to edit this field will raise an API Error. The &ldquo;employee_id&rdquo; element exists in both the &ldquo;user&rdquo; element as a look-up mechanism and in the &ldquo;payload&rdquo; element as a patching mechanism.</p>
 
-<h3 id="http-request">HTTP Request</h3>
+<h3 id="custom-field-parameters">Custom Field Parameters</h3>
 
-<p><code class="prettyprint">PATCH https://harvest.greenhouse.io/v2/users/</code></p>
+<p>The custom field parameter structure is different in the PATCH method than in GET methods and responses. Certain type of custom fields require different elements to be included, while deleting a field requires a specific argument. What follows is the description of each item in a custom field element and what is required depending on the type.</p>
+
+<table><thead>
+<tr>
+<td>Parameter</td><td>Required for</td><td>Description</td></tr>
+</thead><tbody>
+<tr>
+<td>id</td><td>all</td><td>The custom field id for this particular custom field. One of this or name_key is required.</td></tr>
+<tr>
+<td>name_key</td><td>all</td><td>The field key for this custom field. This can be found in Greenhouse while editing custom options as &ldquo;Immutable Field Key&rdquo;. This or id is required for all custom field elements.</td></tr>
+<tr>
+<td>value</td><td>all</td><td>The value field contains the new custom field value. In most cases this will be a string or a number. In the case of single-select or multi-select custom fields, this will be a custom field option id or an array of custom field option ids, respectively.</td></tr>
+<tr>
+<td>delete_value</td><td>n/a</td><td>When this element is included with a value of <code class="prettyprint">&quot;true&quot;</code> (note, string true, not boolean true) the custom field value will be removed from Greenhouse. Note that updating a custom field value to nil or a blank string will not work, as validations require these to be non-blank values.</td></tr>
+</tbody></table>
+
+<p>* At this time, user attributes only supports the following field types: single_select, multi_select, yes_no, and user</p>
 
 <h2 id="patch-disable-user">PATCH: Disable User</h2>
 <pre class="highlight shell"><code>curl -X PATCH <span class="s1">'https://harvest.greenhouse.io/v2/users/disable'</span>
@@ -15159,7 +15365,81 @@ or
     </span><span class="s2">"bob@email.org"</span><span class="w">
   </span><span class="p">],</span><span class="w">
   </span><span class="nt">"employee_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user-123"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"linked_candidate_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">123</span><span class="p">,</span><span class="w"> </span><span class="mi">654</span><span class="p">]</span><span class="w">
+  </span><span class="nt">"linked_candidate_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">123</span><span class="p">,</span><span class="w"> </span><span class="mi">654</span><span class="p">],</span><span class="w">
+  </span><span class="nt">"offices"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">47013</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"San Francisco"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"location"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"San Francisco, California"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"primary_contact_user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">150894</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"parent_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">50850</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"parent_office_external_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14680"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"child_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">50852</span><span class="p">,</span><span class="w"> </span><span class="mi">50891</span><span class="p">],</span><span class="w">
+      </span><span class="nt">"child_office_external_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"13473"</span><span class="p">,</span><span class="w"> </span><span class="s2">"123473"</span><span class="p">],</span><span class="w">
+      </span><span class="nt">"external_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"15679"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"departments"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">25907</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Marketing"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"parent_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">25908</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"parent_department_external_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"13473"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"child_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">50852</span><span class="p">,</span><span class="w"> </span><span class="mi">50891</span><span class="p">],</span><span class="w">
+      </span><span class="nt">"child_department_external_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"13473"</span><span class="p">,</span><span class="w"> </span><span class="s2">"123473"</span><span class="p">],</span><span class="w">
+      </span><span class="nt">"external_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"15679"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"custom_fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"equipment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Laptop"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"shirt_size"</span><span class="p">:</span><span class="w"> </span><span class="s2">"M"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"hiring_specialties"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="s2">"Engineers"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Executives"</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nt">"trained_for_interviews"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"recruiting_partner"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Johnny Recruiter"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"johnny@example.com"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4000000000</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"keyed_custom_fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"equipment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Equipment"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"short_text"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Laptop"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"shirt_size"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Shirt Size"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"single_select"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"M"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"hiring_specialties"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hiring Specialties"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"multi_select"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"Engineers"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Executives"</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"trained_for_interviews"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Trained for interviews"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"recruiting_partner"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Recruiting Partner"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Johnny Recruiter"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"johnny@example.com"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4000000000</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -15222,7 +15502,81 @@ The above command returns a JSON response, structured like this:</p>
     </span><span class="s2">"bob@email.org"</span><span class="w">
   </span><span class="p">],</span><span class="w">
   </span><span class="nt">"employee_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"221"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"linked_candidate_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">123</span><span class="p">,</span><span class="w"> </span><span class="mi">654</span><span class="p">]</span><span class="w">
+  </span><span class="nt">"linked_candidate_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">123</span><span class="p">,</span><span class="w"> </span><span class="mi">654</span><span class="p">],</span><span class="w">
+  </span><span class="nt">"offices"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">47013</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"San Francisco"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"location"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"San Francisco, California"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"primary_contact_user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">150894</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"parent_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">50850</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"parent_office_external_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14680"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"child_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">50852</span><span class="p">,</span><span class="w"> </span><span class="mi">50891</span><span class="p">],</span><span class="w">
+      </span><span class="nt">"child_office_external_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"13473"</span><span class="p">,</span><span class="w"> </span><span class="s2">"123473"</span><span class="p">],</span><span class="w">
+      </span><span class="nt">"external_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"15679"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"departments"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">25907</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Marketing"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"parent_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">25908</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"parent_department_external_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"13473"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"child_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">50852</span><span class="p">,</span><span class="w"> </span><span class="mi">50891</span><span class="p">],</span><span class="w">
+      </span><span class="nt">"child_department_external_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"13473"</span><span class="p">,</span><span class="w"> </span><span class="s2">"123473"</span><span class="p">],</span><span class="w">
+      </span><span class="nt">"external_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"15679"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"custom_fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"equipment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Laptop"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"shirt_size"</span><span class="p">:</span><span class="w"> </span><span class="s2">"M"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"hiring_specialties"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="s2">"Engineers"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Executives"</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nt">"trained_for_interviews"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"recruiting_partner"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Johnny Recruiter"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"johnny@example.com"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4000000000</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"keyed_custom_fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"equipment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Equipment"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"short_text"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Laptop"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"shirt_size"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Shirt Size"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"single_select"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"M"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"hiring_specialties"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hiring Specialties"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"multi_select"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"Engineers"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Executives"</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"trained_for_interviews"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Trained for interviews"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"recruiting_partner"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Recruiting Partner"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Johnny Recruiter"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"johnny@example.com"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4000000000</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -15335,7 +15689,19 @@ or
   </span><span class="nt">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Smith"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bob@email.org"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"send_email_invite"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"employee_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ABC12345"</span><span class="w">
+  </span><span class="nt">"employee_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ABC12345"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"office_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">47013</span><span class="p">],</span><span class="w">
+  </span><span class="nt">"department_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">25907</span><span class="p">],</span><span class="w">
+  </span><span class="nt">"custom_fields"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"name_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"shirt_size"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Medium"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">12345</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Laptop"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -15356,7 +15722,49 @@ or
         </span><span class="s2">"bob@email.org"</span><span class="w">
     </span><span class="p">],</span><span class="w">
     </span><span class="nt">"employee_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ABC12345"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"linked_candidate_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">123</span><span class="p">,</span><span class="w"> </span><span class="mi">654</span><span class="p">]</span><span class="w">
+    </span><span class="nt">"linked_candidate_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">123</span><span class="p">,</span><span class="w"> </span><span class="mi">654</span><span class="p">],</span><span class="w">
+    </span><span class="nt">"offices"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">47013</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"San Francisco"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"location"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"San Francisco, California"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"primary_contact_user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">150894</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"parent_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">50850</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"parent_office_external_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14680"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"child_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">50852</span><span class="p">,</span><span class="w"> </span><span class="mi">50891</span><span class="p">],</span><span class="w">
+      </span><span class="nt">"child_office_external_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"13473"</span><span class="p">,</span><span class="w"> </span><span class="s2">"123473"</span><span class="p">],</span><span class="w">
+      </span><span class="nt">"external_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"15679"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nt">"departments"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">25907</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Marketing"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"parent_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">25908</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"parent_department_external_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"13473"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"child_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">50852</span><span class="p">,</span><span class="w"> </span><span class="mi">50891</span><span class="p">],</span><span class="w">
+      </span><span class="nt">"child_department_external_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"13473"</span><span class="p">,</span><span class="w"> </span><span class="s2">"123473"</span><span class="p">],</span><span class="w">
+      </span><span class="nt">"external_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"15679"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nt">"custom_fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"equipment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Laptop"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"shirt_size"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Medium"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"keyed_custom_fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"equipment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Equipment"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"short_text"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Laptop"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"shirt_size"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Shirt Size"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"single_select"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Medium"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -15392,10 +15800,39 @@ or
 <td>send_email_invite*</td><td>No</td><td>boolean</td><td>If true, an email will be sent to the user alerting them of any new job permissions that have been assigned to them. Emails are never sent when permissions are removed. If false, nothing happens. Default is false.</td></tr>
 <tr>
 <td>employee_id</td><td>No</td><td>string</td><td>The user&rsquo;s external employee id.</td></tr>
+<tr>
+<td>office_ids</td><td>No</td><td>Array</td><td>The office value(s) associated with a user. Must be a valid set of office IDs. Passing an empty array does nothing.</td></tr>
+<tr>
+<td>external_office_ids</td><td>No</td><td>Array</td><td>This may be used instead of <code class="prettyprint">office_ids</code> and represents the ID of the office in an external system. If this is used, <code class="prettyprint">office_ids</code> must be blank and vice versa.</td></tr>
+<tr>
+<td>department_ids</td><td>No</td><td>Array</td><td>The department value(s) associated with a user. Must be a valid set of department IDs. Passing an empty array does nothing.</td></tr>
+<tr>
+<td>external_department_ids</td><td>No</td><td>Array</td><td>This may be used instead of <code class="prettyprint">department_ids</code> and represents the ID of the department in an external system. If this is used, <code class="prettyprint">department_ids</code> must be blank and vice versa.</td></tr>
+<tr>
+<td>custom_fields</td><td>No</td><td>custom_field</td><td>Array of hashes containing new custom field values.  Passing an empty array does nothing.</td></tr>
 </tbody></table>
 
-<p>* - A newly created user will not be able to login until they create a password via the invitation link or configured in an SSO system.
-** - The employee_id feature is available only for customers with the Advanced and Expert Greenhouse Recruiting package. Use of this field will return an error for other Greenhouse Recruiting customers.</p>
+<p>* - A newly created user will not be able to login until they create a password via the invitation link or configured in an SSO system.</p>
+
+<p>** - The employee_id feature is available only for customers with the Advanced and Expert Greenhouse Recruiting package. Use of this field will return an error for other Greenhouse Recruiting customers.</p>
+
+<h3 id="custom-field-parameters">Custom Field Parameters</h3>
+
+<p>The custom field parameter structure is different in the POST method than in GET methods and responses. Certain type of custom fields require different elements to be included. What follows is the description of each item in a custom field element and what is required depending on the type.</p>
+
+<table><thead>
+<tr>
+<td>Parameter</td><td>Required for</td><td>Description</td></tr>
+</thead><tbody>
+<tr>
+<td>id</td><td>all</td><td>The custom field id for this particular custom field. One of this or name_key is required.</td></tr>
+<tr>
+<td>name_key</td><td>all</td><td>The field key for this custom field. This can be found in Greenhouse while editing custom options as &ldquo;Immutable Field Key&rdquo;. This or id is required for all custom field elements.</td></tr>
+<tr>
+<td>value</td><td>all</td><td>The value field contains the new custom field value. In most cases this will be a string or a number. In the case of single-select or multi-select custom fields, this will be a custom field option id or an array of custom field option ids, respectively.</td></tr>
+</tbody></table>
+
+<p>* At this time, user attributes only supports the following field types: single_select, multi_select, yes_no, and user</p>
 
 <h2 id="post-add-e-mail-address-to-user">POST: Add E-mail Address To User</h2>
 <pre class="highlight shell"><code>curl -X POST <span class="s1">'https://harvest.greenhouse.io/v1/users/{id}/email_addresses'</span>
