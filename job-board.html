@@ -320,6 +320,15 @@ When submitting a job application, you will use the <code>id</code> field to spe
       </span><span class="nt">"requires_consent"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
       </span><span class="nt">"retention_period"</span><span class="p">:</span><span class="w"> </span><span class="mi">12345</span><span class="w">
     </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"pay_input_ranges"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"min_cents"</span><span class="p">:</span><span class="mi">5000000</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"max_cents"</span><span class="p">:</span><span class="mi">7500000</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"currency_type"</span><span class="p">:</span><span class="s2">"USD"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"title"</span><span class="p">:</span><span class="s2">"NYC Salary Range"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"blurb"</span><span class="p">:</span><span class="s2">"In order to provide transparency..."</span><span class="w">
+    </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -398,6 +407,8 @@ can be used to dynamically construct your own job application form.</p>
 </thead><tbody>
 <tr>
 <td class="optional">questions</td><td>If set to <code class="prettyprint">true</code>, include additional fields in the response:<br><br>- <code class="prettyprint">questions</code>: An array of custom questions defined for this job post<br>- <code class="prettyprint">location_questions</code>: An array of questions used to capture the applicant&rsquo;s location (included only if the job post has the location configured as &ldquo;optional&rdquo; or &ldquo;required&rdquo;)<br>- <code class="prettyprint">compliance</code>: An array of questions used by government contractors to capture applicant information to comply with EEOC regulations (included only if the job post has EEOC questions enabled)<br>- <code class="prettyprint">demographic_questions</code>: An object containing demographic questions and related information (included only if your organization has Greenhouse Inclusion, and the job post has demographic questions enabled)</td></tr>
+<tr>
+<td class="optional">pay_transparency</td><td>If set to <code class="prettyprint">true</code>, include an array of <code class="prettyprint">pay_input_ranges</code> with the pay range information defined for this job post.</td></tr>
 </tbody></table>
 
 <h3 id="questions-location-questions-compliance">Questions / Location Questions / Compliance</h3>
