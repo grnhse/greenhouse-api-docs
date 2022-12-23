@@ -277,12 +277,12 @@ analytics.page()
 
 <h2 id="retry-policy">Retry policy</h2>
 
-<p>In the event of a failed webhook request (due to timeout, a non HTTP 200 response, or network issues), Greenhouse will attempt a maximum of 6 retries according to the formula on the right:</p>
+<p>In the event of a failed webhook request (due to timeout, a non HTTP 200 response, or network issues), Greenhouse will attempt a maximum of 5 retries according to the formula on the right:</p>
 
 <p>This formula increases the amount of time between each retry, while assigning a random number of seconds to avoid consistent failures from overload or contention.</p>
 
-<p>Greenhouse will attempt 6 retries over the course of 15 hours.</p>
-<pre class="highlight plaintext"><code>RETRY_DELAY_MINUTES = [1, 15, 60, 120, 240, 480]
+<p>Greenhouse will attempt 5 retries over the course of 7 hours.</p>
+<pre class="highlight plaintext"><code>RETRY_DELAY_MINUTES = [1, 15, 60, 120, 240]
 
 sidekiq_retry_in do |index, _exception|
   seconds_delay = (RETRY_DELAY_MINUTES[index] || RETRY_DELAY_MINUTES.last) * 60
@@ -308,8 +308,6 @@ end
 <td>4</td><td>120m</td><td>3h 16m</td></tr>
 <tr>
 <td>5</td><td>240m</td><td>7h 16m</td></tr>
-<tr>
-<td>6</td><td>480m</td><td>15h 16m</td></tr>
 </tbody></table>
 
           <h1 id="application-events">Application Events</h1>
