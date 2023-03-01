@@ -31,7 +31,7 @@ Enums | ENUMs are hard-coded values. They are strings that must be a certain val
 
 ## Authentication
 
-```shell
+shell
 $ curl https://onboarding-api.greenhouse.io/graphql \
   -X POST \
   -u your_access_key:your_secret_key \
