@@ -158,7 +158,7 @@ analytics.page()
 <tr>
 <td><code class="prettyprint">application.candidate.email_addresses[].type</code></td><td>One of: <code class="prettyprint">personal</code>, <code class="prettyprint">work</code>, <code class="prettyprint">other</code></td></tr>
 <tr>
-<td><code class="prettyprint">application.candidate.attachments[].type</code></td><td>One of: <code class="prettyprint">cover_letter</code>, <code class="prettyprint">offer_packet</code>, <code class="prettyprint">resume</code>, <code class="prettyprint">take_home_test</code>, <code class="prettyprint">offer_letter</code>, <code class="prettyprint">signed_offer_letter</code> <br/><br/> Note: Attachments expire in 7 days.</td></tr>
+<td><code class="prettyprint">application.candidate.attachments[].type</code></td><td>One of: <code class="prettyprint">admin_only</code>, <code class="prettyprint">public</code>, <code class="prettyprint">cover_letter</code>, <code class="prettyprint">offer_packet</code>, <code class="prettyprint">resume</code>, <code class="prettyprint">take_home_test</code>, <code class="prettyprint">offer_letter</code>, <code class="prettyprint">signed_offer_letter</code> <br/><br/> Note: Attachments expire in 7 days.</td></tr>
 <tr>
 <td><code class="prettyprint">application.candidate.external_id</code></td><td>An arbitrary ID provided by an external source; does not map to another entity in Greenhouse.</td></tr>
 <tr>
@@ -277,12 +277,12 @@ analytics.page()
 
 <h2 id="retry-policy">Retry policy</h2>
 
-<p>In the event of a failed webhook request (due to timeout, a non HTTP 200 response, or network issues), Greenhouse will attempt a maximum of 5 retries according to the formula on the right:</p>
+<p>In the event of a failed webhook request (due to timeout, a non HTTP 200 response, or network issues), Greenhouse will attempt a maximum of 6 retries according to the formula on the right:</p>
 
 <p>This formula increases the amount of time between each retry, while assigning a random number of seconds to avoid consistent failures from overload or contention.</p>
 
-<p>Greenhouse will attempt 5 retries over the course of 7 hours.</p>
-<pre class="highlight plaintext"><code>RETRY_DELAY_MINUTES = [1, 15, 60, 120, 240]
+<p>Greenhouse will attempt 6 retries over the course of 15 hours.</p>
+<pre class="highlight plaintext"><code>RETRY_DELAY_MINUTES = [1, 15, 60, 120, 240, 480]
 
 sidekiq_retry_in do |index, _exception|
   seconds_delay = (RETRY_DELAY_MINUTES[index] || RETRY_DELAY_MINUTES.last) * 60
@@ -308,6 +308,8 @@ end
 <td>4</td><td>120m</td><td>3h 16m</td></tr>
 <tr>
 <td>5</td><td>240m</td><td>7h 16m</td></tr>
+<tr>
+<td>6</td><td>480m</td><td>15h 16m</td></tr>
 </tbody></table>
 
           <h1 id="application-events">Application Events</h1>

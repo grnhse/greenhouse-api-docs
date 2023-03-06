@@ -263,8 +263,6 @@ X-RateLimit-Remaining: 49
 <td>Date</td><td>Description</td></tr>
 </thead><tbody>
 <tr>
-<td>November 21, 2022 12:00:00PM</td><td>Deprecated version 1 of the <a href="#delete-destroy-openings">DELETE: Destroy Openings</a> endpoint. Only v2 is available going forward.</td></tr>
-<tr>
 <td>October 18, 2022 12:00:00PM</td><td>Added ability to create and update User Attributes to the <a href="#users">Users</a> endpoints</td></tr>
 <tr>
 <td>September 22, 2022 12:00:00PM</td><td>Updated <a href="#delete-destroy-openings">DELETE: Destroy Openings</a> to a v2 endpoint. The v1 endpoint will be deprecated in a future release. Users and partners should switch over to the v2 endpoint as soon as possible to avoid issues with your integration.</td></tr>
@@ -2365,7 +2363,7 @@ X-RateLimit-Remaining: 49
 <tr>
 <td>version</td><td>The specific version of this flow.</td></tr>
 <tr>
-<td>approval_type</td><td>One of &lsquo;open_job,&rsquo; &#39;offer_job&rsquo; or &#39;offer_candidate.&rsquo; <code class="prettyprint">open_job</code> refers to approval flows to <a href="https://support.greenhouse.io/hc/en-us/articles/201094534-Request-approval-to-start-recruiting-">start recruiting on a job</a>. <code class="prettyprint">offer_job</code> refers to approval flows to <a href="https://support.greenhouse.io/hc/en-us/articles/360025776391">make offers on a job</a>. <code class="prettyprint">offer_candidate</code> refers to approval flows for a <a href="https://support.greenhouse.io/hc/en-us/articles/360035625832-Offer-approval-overview">candidate offer</a>.</td></tr>
+<td>approval_type</td><td>one of &lsquo;offer_job&rsquo;, &#39;open_job&rsquo;, or &#39;offer_candidate&rsquo;</td></tr>
 <tr>
 <td>approval_status</td><td>one of &#39;pending&rsquo;, &#39;approved&rsquo;, or &#39;rejected&rsquo;</td></tr>
 <tr>
@@ -3101,7 +3099,7 @@ X-RateLimit-Remaining: 49
 <tr>
 <td>coordinator</td><td>The coordinator <a href="#users">user</a> who is responsible for this candidate.</td></tr>
 <tr>
-<td>attachments[].type</td><td>One of: [&ldquo;resume&rdquo;, &ldquo;cover_letter&rdquo;, &ldquo;offer_packet&rdquo;, &ldquo;offer_letter&rdquo;, &ldquo;take_home_test&rdquo;, &ldquo;other&rdquo;]</td></tr>
+<td>attachments[].type</td><td>One of: [&ldquo;resume&rdquo;, &ldquo;cover_letter&rdquo;, &ldquo;admin_only&rdquo;, &ldquo;public&rdquo;, &ldquo;offer_packet&rdquo;, &ldquo;offer_letter&rdquo;, &ldquo;take_home_test&rdquo;, &ldquo;other&rdquo;]</td></tr>
 <tr>
 <td>attachments[].url</td><td>URLs expire in 30 days.</td></tr>
 <tr>
@@ -5736,6 +5734,8 @@ X-RateLimit-Remaining: 49
 </tbody></table>
 
 <h2 id="post-create-custom-field">POST: Create Custom Field</h2>
+
+<p>NOTE: this endpoint currently only supports creating custom fields for applications.</p>
 <pre class="highlight shell"><code>curl -X POST <span class="s1">'https://harvest.greenhouse.io/v1/custom_fields/'</span>
 -H <span class="s2">"Content-Type: application/json"</span>
 -H <span class="s2">"On-Behalf-Of: {greenhouse user ID}"</span>
