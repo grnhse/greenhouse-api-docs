@@ -223,6 +223,17 @@ analytics.page()
                     </span><span class="nt">"unit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USD"</span><span class="w">
                 </span><span class="p">}</span><span class="w">
             </span><span class="p">},</span><span class="w">
+            </span><span class="nt">"compensation_field"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Compensation Field"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"currency"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="nt">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">80000</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"unit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USD"</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="nt">"compensation_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"base"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"frequency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"annually"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"rationale"</span><span class="p">:</span><span class="w"> </span><span class="s2">"base rationale"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
             </span><span class="nt">"currency_range_field"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
                 </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Currency Range Field"</span><span class="p">,</span><span class="w">
                 </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"currency_range"</span><span class="p">,</span><span class="w">
@@ -270,6 +281,8 @@ analytics.page()
 </span></code></pre>
 
 <p>Custom fields may be attached to several objects within the Greenhouse Recruiting system. These fields may appear on candidates, applications, offers, and other objects in the system. These fields share several properties and are always indicated in web hooks by the &ldquo;custom_fields&rdquo; element. However, the &ldquo;value&rdquo; attribute of custom fields are different depending on the &ldquo;type&rdquo; attribute, so you must check the &ldquo;type&rdquo; attribute in order to predict what will be included in the value &ldquo;attribute&rdquo;. As described in the previous section, the type attribute will be one of short_text, long_text, boolean, single_select, multi_select, currency, currency_range, number, number_range, date, url, or user. An example of each of these fields&rsquo; expected value format are provided.</p>
+
+<p>Compensation Field is a special type of <code class="prettyprint">currency</code> custom field. If a currency field is marked as a compensation field, three additional fields will be included: <code class="prettyprint">compensation_type</code>, <code class="prettyprint">rationale</code>, <code class="prettyprint">frequency</code></p>
 
 <h2 id="disabled-web-hooks">Disabled web hooks</h2>
 
