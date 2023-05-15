@@ -263,6 +263,8 @@ X-RateLimit-Remaining: 49
 <td>Date</td><td>Description</td></tr>
 </thead><tbody>
 <tr>
+<td>May 15, 2023 12:00:00PM</td><td>Added ability to update closed openings in the <a href="#patch-edit-openings">Edit Openings Endpoint</a></td></tr>
+<tr>
 <td>April 12, 2023 3:00:00PM</td><td>Modified format of request links for <a href="#post-scheduled-interviews">POST: Scheduled Interviews</a> and <a href="#patch-scheduled-interviews">PATCH: Scheduled Interviews</a>.</td></tr>
 <tr>
 <td>March 7, 2023 10:00:00AM</td><td>Modified <code class="prettyprint">intenal</code> querystring parameter on <a href="#job-posts">job post</a> GET requests to work in the reverse manner. When included in a request and set to <code class="prettyprint">false</code>, the response will only include external job posts.</td></tr>
@@ -8233,7 +8235,7 @@ X-RateLimit-Remaining: 49
 <td>custom_fields</td><td>no</td><td>array</td><td>Array of custom field objects containing updated values for custom fields on the opening. See the &ldquo;Custom Field Object Parameters&rdquo; section below for more details. Note: updating a custom field may reset official job approvals if this option is selected in the custom field settings page.</td></tr>
 </tbody></table>
 
-<p><strong>Note</strong>: Closed openings must first be reopened before they can be patched by this endpoint. If the job is closed at the same time the opening_id is changed, approvals will be ignored in favor of closing the opening.</p>
+<p><strong>Note</strong>: If the job is closed at the same time the opening_id is changed, approvals will be ignored in favor of closing the opening.</p>
 
 <h3 id="custom-field-object-parameters">Custom Field Object Parameters</h3>
 
