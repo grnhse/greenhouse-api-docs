@@ -1,0 +1,334 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="apple-touch-icon" sizes="57x57" href="/images/favicons/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/images/favicons/apple-touch-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/images/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/images/favicons/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/images/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/images/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/images/favicons/apple-touch-icon-144x144.png">
+<link rel="icon" type="image/png" href="/images/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicons/favicon-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/images/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="/images/favicons/manifest.json">
+<link rel="mask-icon" href="/images/favicons/safari-pinned-tab.svg" color="#00b2a9">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="msapplication-TileImage" content="/images/favicons/mstile-144x144.png">
+<meta name="theme-color" content="#00b2a9">
+    <title>Harvest API | Greenhouse</title>
+
+    <link href="stylesheets/print.css" rel="stylesheet" type="text/css" media="print" />
+    <link href="stylesheets/screen_audit-log.css" rel="stylesheet" type="text/css" media="screen" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+      <script src="javascripts/all.js" type="text/javascript"></script>
+
+      <script>
+        $(function() {
+          setupLanguages(["shell","ruby"]);
+        });
+      </script>
+
+    <script type="text/javascript">
+!function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","page","once","off","on"];analytics.factory=function(t){return function(){var e=Array.prototype.slice.call(arguments);e.unshift(t);analytics.push(e);return analytics}};for(var t=0;t<analytics.methods.length;t++){var e=analytics.methods[t];analytics[e]=analytics.factory(e)}analytics.load=function(t){var e=document.createElement("script");e.type="text/javascript";e.async=!0;e.src=("https:"===document.location.protocol?"https://":"http://")+"cdn.segment.com/analytics.js/v1/"+t+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(e,n)};analytics.SNIPPET_VERSION="3.1.0";
+analytics.load("2q7wwCrJormvWKrplqZYR2gXyxLK5Uhx");
+analytics.page()
+}}();
+</script>
+  </head>
+
+  <body class="audit-log">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="images/navbar.png" alt="Navbar" />
+      </span>
+    </a>
+    <div class="tocify-wrapper">
+      <a href="/" class="nav-home-link">
+        <div class="nav-home">
+          <img src="images/logo.png" alt="Logo" />
+          <span>Developers Home</span>
+        </div>
+      </a>
+        <div class="lang-selector">
+              <a href="#" data-language-name="shell">shell</a>
+              <a href="#" data-language-name="ruby">ruby</a>
+        </div>
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <div id="toc">
+      </div>
+      <ul class="toc-appendage">
+        <li id="github_link"><a href="https://github.com/grnhse/greenhouse-api-docs/tree/master/source/includes/audit-log" title="View on Github" target="_blank">View on GitHub</a></li>
+      </ul>
+        <ul class="toc-footer">
+            <li><a href="/job-board.html" title="Job Board API">Job Board API</a></li>
+            <li><a href='/webhooks.html' title="Web Hooks">Web Hooks</a></li>
+            <li><a href='/candidate-ingestion.html' title="Ingestion API">Ingestion API</a></li>
+            <li><a href='/assessment.html' title="Assessment API">Assessment API</a></li>
+        </ul>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        
+          <h1 id="introduction">Introduction</h1>
+
+<p>Audit log offers a record of important events from the prior thirty days, providing insights to who accessed or edited information in Greenhouse Recruiting.</p>
+
+<p>Use audit log to empower your teams to detect and minimize the impact of incidents when they occur, scrutinize configuration edits, and ensure sensitive data is only accessed by the people who truly need it. Learn more about <a href="https://greenhouse.zendesk.com/hc/en-us/articles/15074318933275">what to expect with audit log</a>.</p>
+
+<aside class="success">
+<b>Note</b>: Audit log is in a closed beta and is only available to select customers.
+</aside>
+
+<h2 id="authentication">Authentication</h2>
+
+<p>Audit log uses bearer authorization over HTTPS with a valid access token. You’ll need a Harvest API key to generate an access token, returned through the Harvest endpoint <a href="#post-authenticate-audit-log">POST: Authenticate audit log</a>. Use the access token as your bearer to authenticate audit log API requests.</p>
+
+<p>Note: Harvest API uses basic auth where the username is a (valid Harvest API key with permission to authenticate audit log)[]. Unauthenticated requests will return an <code>HTTP 401</code> response.</p>
+
+<h3 id="the-authenticate-audit-log-object">The authenticate audit log object</h3>
+
+<p>The authenticate audit log object returns an access token that is valid for 24 hours, which can be used to authenticate your requests to <a href="#the-events-object">the events object</a>.</p>
+
+<h3 id="attributes">Attributes</h3>
+
+<table><thead>
+<tr>
+<td>Attribute</td><td>Definition</td></tr>
+</thead><tbody>
+<tr>
+<td>access_token</td><td>A JWT (JSON web token) that’s valid for 24 hours from the time of creation.</td></tr>
+<tr>
+<td>expires</td><td>The exact time the access token will expire in <code class="prettyprint">ISO-8601</code> format, like  <code class="prettyprint">2024-02-03T16:38:46.985Z</code>.</td></tr>
+</tbody></table>
+
+<h3 id="post-authenticate-audit-log">POST: Authenticate audit log</h3>
+<pre class="highlight shell"><code>HTTP request
+
+curl -X POST <span class="s1">'https://harvest.greenhouse.io/auth/jwt_access_token'</span>
+-H <span class="s2">"Content-Type: application/json"</span>
+-H <span class="s2">"On-Behalf-Of: {greenhouse user ID}"</span>
+-H <span class="s2">"Authorization: Basic MGQwMzFmE2MWwNjdlMjQ6"</span>
+
+<span class="o">{</span>
+    <span class="s2">"access_token"</span>: <span class="s2">"MeyJhbGci.eyJhdWQiO"</span>,
+    <span class="s2">"expires"</span>: 2024-02-03T16:38:46.985Z
+<span class="o">}</span>
+</code></pre>
+
+<h4 id="http-request">HTTP request</h4>
+
+<p><code class="prettyprint">POST https://harvest.greenhouse.io/auth/jwt_access_token</code></p>
+
+<aside class="success">
+<b>Note</b>: Use HTTPS for all requests. Requests made over HTTP will return an <code>HTTP 401</code> response.
+</aside>
+
+<h2 id="throttling">Throttling</h2>
+<pre class="highlight shell"><code>Status: 200 OK
+X-RateLimit-Limit: 50
+X-RateLimit-Remaining: 49
+</code></pre>
+
+<p>Audit log API requests are limited to the amount specified in the returned X-RateLimit-Limit header, per 10 seconds. Exceeding the limit will cause audit log to return an <code class="prettyprint">HTTP 429</code> response. Check the <code class="prettyprint">X-RateLimit-Limit</code> and <code class="prettyprint">X-RateLimit-Remaining</code> headers to see how many more requests you’re allowed until throttling kicks in.</p>
+
+<aside class="success">
+<b>Note</b>: An <code>HTTP 429</code> response will exclude the <code>X-RateLimit-Limit</code> and <code>X-RateLimit-Remaining</code> headers.
+</aside>
+
+<h2 id="pagination">Pagination</h2>
+
+<p>Pagination on audit log API allows for retrieving the next page from your query results. To retrieve the next page, use the <code class="prettyprint">paging</code> field of the response body. The <code class="prettyprint">pit_id</code> should be the value of your <code class="prettyprint">Pit-Id</code> header, and the <code class="prettyprint">next_search_after</code> should be the value of your Search-After header. Your query parameters should remain consistent with your original query. Audit log results with only one page will return <code class="prettyprint">null</code> results on the next page.</p>
+
+<h2 id="validation">Validation</h2>
+
+<p>Any methods that take input will validate all parameters. Any parameter that fails validation will trigger an error response with status <code class="prettyprint">HTTP 422</code>. The response body will be a JSON object that includes a message as well as a list of fields that failed validation.</p>
+
+<h2 id="general-considerations">General considerations</h2>
+
+<p>Unless otherwise specified, audit log API methods generally conform to the following standards:</p>
+
+<ul>
+<li>Properties without a value will use <code class="prettyprint">null</code> instead of being undefined.</li>
+<li>“Snake case” is used for attributes and headers, like <code class="prettyprint">first_name</code>.</li>
+<li>Timestamps are rendered in <code class="prettyprint">ISO-8601</code> format, like <code class="prettyprint">2024-02-03T16:38:46.985Z</code>.</li>
+<li>URLs to external resources are valid for thirty days.</li>
+<li>Resumes, cover letters, and other document attachments are hosted on Amazon Web Services and are provided via signed, temporary URLs. Due to the temporary nature of these resources, you should download the documents immediately after your request is made. You shouldn’t rely on these URLs to be available in future requests. In the event AWS is experiencing issues, document attachments won’t be available in audit log.</li>
+</ul>
+
+<h2 id="errors">Errors</h2>
+
+<table><thead>
+<tr>
+<td>Error Code</td><td>Meaning</td></tr>
+</thead><tbody>
+<tr>
+<td>401</td><td>Unauthorized &ndash; Your access token is invalid or has expired. Access tokens expire 24 hours after generation. Ensure you’re sharing a <a href="#authentication">valid access token</a> in the authorization header.</td></tr>
+<tr>
+<td>403</td><td>Forbidden &ndash; You do not have access to that record.</td></tr>
+<tr>
+<td>404</td><td>Not Found &ndash; Resource not found</td></tr>
+<tr>
+<td>422</td><td>Not processed &ndash; We’re not able to process your request. Validate your parameters.</td></tr>
+<tr>
+<td>429</td><td>Rate limit exceeded &ndash; You’re being <a href="#throttling">throttled</a> for exceeding our rate limit.</td></tr>
+<tr>
+<td>500</td><td>Server Error &ndash; We’re having a problem with our server. Give us a few minutes and try again, or check <a href="https://status.greenhouse.io/">our status page</a>.</td></tr>
+</tbody></table>
+
+<h2 id="audit-log-change-log">Audit Log Change Log</h2>
+
+<p>[No changes.]</p>
+
+          <h1 id="events">Events</h1>
+
+<h2 id="the-events-object">The events object</h2>
+
+<p>The events object is the audit log’s collected record of important events in Greenhouse Recruiting from the previous thirty days. A single event may return multiple results. For instance, an event and its resulting changes will return individual results that can be linked by <code class="prettyprint">request.id</code>.</p>
+
+<h3 id="attributes">Attributes</h3>
+
+<table><thead>
+<tr>
+<td>Attribute</td><td>Definition</td></tr>
+</thead><tbody>
+<tr>
+<td>organization_id</td><td>Your organization’s unique Greenhouse Recruiting ID</td></tr>
+<tr>
+<td>event_time</td><td>The exact time of the event, represented in <code class="prettyprint">ISO-8601</code> format like <code class="prettyprint">2024-02-03T16:38:46.985Z</code></td></tr>
+<tr>
+<td>request.id</td><td>The ID of the request</td></tr>
+<tr>
+<td>request.type</td><td>The name of the action taken in Greenhouse Recruiting, or the request URL if from Harvest API</td></tr>
+<tr>
+<td>performer.id</td><td>The Greenhouse Recruiting user ID of the person who performed the change or the API key if performed via <a href="http://developers.greenhouse.io">Greenhouse API</a></td></tr>
+<tr>
+<td>performer.type</td><td>One of the following values: <code class="prettyprint">user</code>, <code class="prettyprint">api_key</code>, or <code class="prettyprint">greenhouse_internal</code></td></tr>
+<tr>
+<td>performer.meta</td><td>The Greenhouse Recruiting email address of the person who performed the change or the exact type of API key that performed the change</td></tr>
+<tr>
+<td>performer.ip_address</td><td>The IP address of the person or integration that performed the change</td></tr>
+<tr>
+<td>event.type</td><td>One of the following values: <code class="prettyprint">data_change_update</code>, <code class="prettyprint">data_change_create</code>, <code class="prettyprint">data_change_destroy</code>, <code class="prettyprint">harvest_access</code>, or <code class="prettyprint">action</code></td></tr>
+<tr>
+<td>event.target_id</td><td>The ID of the element that was edited or accessed; this may be blank if the action does not target one particular ID</td></tr>
+<tr>
+<td>event.target_type</td><td>The resource name for data changes, Harvest access, or the event action type for other actions</td></tr>
+<tr>
+<td>event.meta</td><td>The before and after values from data change events, or other relevant data for the event such as the title of a report</td></tr>
+</tbody></table>
+
+<h3 id="get-retrieve-events">GET: Retrieve events</h3>
+<pre class="highlight shell"><code>HTTP request
+
+curl -X GET <span class="s1">'https://auditlog.greenhouse.io/events'</span>
+-H <span class="s2">"Content-Type: application/json"</span>
+-H <span class="s2">"On-Behalf-Of: {greenhouse user ID}"</span>
+-H <span class="s2">"Authorization: Bearer MeyJhbGci.eyJhdWQiO"</span>
+
+<span class="o">{</span>
+    <span class="s2">"paging"</span>: <span class="o">{</span>
+        <span class="s2">"pit_id"</span>: <span class="s2">"cmFuZG9tX3ZhbHVl"</span>,
+        <span class="s2">"search_after"</span>: null,
+        <span class="s2">"size"</span>: <span class="s2">"100"</span>,
+        <span class="s2">"next_search_after"</span>: <span class="s2">"1685989175"</span>
+    <span class="o">}</span>,
+    <span class="s2">"hits"</span>: 2,
+    <span class="s2">"results"</span>: <span class="o">[</span>
+        <span class="o">{</span>
+            <span class="s2">"request"</span>: <span class="o">{</span>
+                <span class="s2">"id"</span>: <span class="s2">"1234zID"</span>,
+                <span class="s2">"type"</span>: <span class="s2">"email_settings#create_organization_email"</span>
+            <span class="o">}</span>,
+            <span class="s2">"performer"</span>: <span class="o">{</span>
+                <span class="s2">"meta"</span>: <span class="o">{</span>
+                    <span class="s2">"name"</span>: <span class="s2">"Allison Jamie"</span>,
+                    <span class="s2">"username"</span>: <span class="s2">"allison.j@omniva-corp.com"</span>
+                <span class="o">}</span>,
+                <span class="s2">"id"</span>: 12345,
+                <span class="s2">"ip_address"</span>: <span class="s2">"192.168.0.1"</span>,
+                <span class="s2">"type"</span>: <span class="s2">"user"</span>
+            <span class="o">}</span>,
+            <span class="s2">"organization_id"</span>: 123,
+            <span class="s2">"event"</span>: <span class="o">{</span>
+                <span class="s2">"meta"</span>: null,
+                <span class="s2">"target_type"</span>: <span class="s2">"Global Email Added"</span>,
+                <span class="s2">"type"</span>: <span class="s2">"action"</span>
+            <span class="o">}</span>,
+            <span class="s2">"event_time"</span>: <span class="s2">"2023-06-02T16:06:19.217Z"</span>
+        <span class="o">}</span>,
+        <span class="o">{</span>
+            <span class="s2">"request"</span>: <span class="o">{</span>
+                <span class="s2">"id"</span>: <span class="s2">"1234zID"</span>,
+                <span class="s2">"type"</span>: <span class="s2">"email_settings#create_organization_email"</span>
+            <span class="o">}</span>,
+            <span class="s2">"performer"</span>: <span class="o">{</span>
+                <span class="s2">"meta"</span>: <span class="o">{</span>
+                    <span class="s2">"name"</span>: <span class="s2">"Allison Jamie"</span>,
+                    <span class="s2">"username"</span>: <span class="s2">"allison.j@omniva-corp.com"</span>
+                <span class="o">}</span>,
+                <span class="s2">"id"</span>: 12345,
+                <span class="s2">"ip_address"</span>: <span class="s2">"192.168.0.1"</span>,
+                <span class="s2">"type"</span>: <span class="s2">"user"</span>
+            <span class="o">}</span>,
+            <span class="s2">"organization_id"</span>: 123,
+            <span class="s2">"event"</span>: <span class="o">{</span>
+                <span class="s2">"meta"</span>: <span class="o">{</span>
+                    <span class="s2">"id"</span>: <span class="o">[</span>
+                        null,
+                        1234
+                    <span class="o">]</span>,
+                    <span class="s2">"value"</span>: <span class="o">[</span>
+                        null,
+                        <span class="s2">"johnny.c@omniva-corp.com"</span>
+                    <span class="o">]</span>
+                <span class="o">}</span>,
+                <span class="s2">"target_type"</span>: <span class="s2">"OrganizationEmail"</span>,
+                <span class="s2">"target_id"</span>: 1234,
+                <span class="s2">"type"</span>: <span class="s2">"data_change_create"</span>
+            <span class="o">}</span>,
+            <span class="s2">"event_time"</span>: <span class="s2">"2023-06-02T16:06:19.137Z"</span>
+        <span class="o">}</span>
+    <span class="o">]</span>
+<span class="o">}</span>
+</code></pre>
+
+<h4 id="http-request">HTTP request</h4>
+
+<p><code class="prettyprint">GET https://auditlog.greenhouse.io/events/</code></p>
+
+<h4 id="url-parameters">URL Parameters</h4>
+
+<table><thead>
+<tr>
+<td>Parameter</td><td>Definition</td></tr>
+</thead><tbody>
+<tr>
+<td>before_time (optional)</td><td>Use this parameter to retrieve audit log before a certain point in time, represented in <code class="prettyprint">ISO-8601</code> format like <code class="prettyprint">2024-02-03T16:38:46.985Z</code>. This parameter can be combined with after_time for a date range.</td></tr>
+<tr>
+<td>after_time (optional)</td><td>Use this parameter to retrieve audit log after a certain point in time, represented in <code class="prettyprint">ISO-8601</code> format like <code class="prettyprint">2024-02-03T16:38:46.985Z</code>. This parameter can be combined with before_time for a date range.</td></tr>
+<tr>
+<td>date (optional)</td><td>Use this parameter to retrieve audit log from a specific date, represented in <code class="prettyprint">ISO-8601</code> format like <code class="prettyprint">2024-02-03</code>.</td></tr>
+<tr>
+<td>magic_time (optional)</td><td>Use the magic time parameter to retrieve audit log details from a trailing range in time. This parameter takes a value in <code class="prettyprint">last_{#x}</code> where <code class="prettyprint">#</code> is a number and <code class="prettyprint">X</code> is <code class="prettyprint">seconds</code>, <code class="prettyprint">minutes</code>, <code class="prettyprint">hours</code>, <code class="prettyprint">days</code>, or <code class="prettyprint">weeks</code>, like <code class="prettyprint">last_7days</code> or <code class="prettyprint">last_15minutes</code>.</td></tr>
+</tbody></table>
+
+      </div>
+      <div class="dark-box">
+          <div class="lang-selector">
+                <a href="#" data-language-name="shell">shell</a>
+                <a href="#" data-language-name="ruby">ruby</a>
+          </div>
+      </div>
+    </div>
+  </body>
+</html>
