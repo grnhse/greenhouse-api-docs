@@ -19,7 +19,7 @@
 <meta name="msapplication-TileColor" content="#da532c">
 <meta name="msapplication-TileImage" content="/images/favicons/mstile-144x144.png">
 <meta name="theme-color" content="#00b2a9">
-    <title>Harvest API | Greenhouse</title>
+    <title>Audit Log API | Greenhouse</title>
 
     <link href="stylesheets/print.css" rel="stylesheet" type="text/css" media="print" />
     <link href="stylesheets/screen_audit-log.css" rel="stylesheet" type="text/css" media="screen" />
@@ -73,6 +73,7 @@ analytics.page()
             <li><a href='/webhooks.html' title="Web Hooks">Web Hooks</a></li>
             <li><a href='/candidate-ingestion.html' title="Ingestion API">Ingestion API</a></li>
             <li><a href='/assessment.html' title="Assessment API">Assessment API</a></li>
+            <li><a href='/harvest.html' title="Harvest API">Harvest API</a></li>
         </ul>
     </div>
     <div class="page-wrapper">
@@ -148,6 +149,12 @@ X-RateLimit-Remaining: 49
 <h2 id="pagination">Pagination</h2>
 
 <p>Pagination on audit log API allows for retrieving the next page from your query results. To retrieve the next page, use the <code class="prettyprint">paging</code> field of the response body. The <code class="prettyprint">pit_id</code> should be the value of your <code class="prettyprint">Pit-Id</code> header, and the <code class="prettyprint">next_search_after</code> should be the value of your Search-After header. Your query parameters should remain consistent with your original query. Audit log results with only one page will return <code class="prettyprint">null</code> results on the next page.</p>
+
+<ul>
+<li><code class="prettyprint">pit_id</code>. The ID from a specific <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/pit.html">point in time (PIT)</a> in a fixed time dataset, created automatically when you run a query.</li>
+<li><code class="prettyprint">search_after</code>. Use this parameter to retrieve audit log after a specific page in the search results when running a query with the <code class="prettyprint">pit_id</code>.</li>
+<li><code class="prettyprint">size</code>. The size of the requested query. This parameter has a minimum value of <code class="prettyprint">100</code> and a maximum value of <code class="prettyprint">500</code>.</li>
+</ul>
 
 <h2 id="validation">Validation</h2>
 
