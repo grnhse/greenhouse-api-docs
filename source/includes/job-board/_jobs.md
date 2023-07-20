@@ -209,6 +209,9 @@ content | If set to `true`, include the full post description, department, and o
     {
       "type": "gdpr",
       "requires_consent": true,
+      // To be deprecated. Use if your organization doesn't have single-purpose consent configured, otherwise use separate values for processing and retention
+      "requires_processing_consent": true,
+      "requires_retention_consent": true,
       "retention_period": 12345
     }
   ],
