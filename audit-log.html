@@ -323,7 +323,7 @@ curl -X GET <span class="s1">'https://auditlog.us.greenhouse.io/events'</span>
 <tr>
 <td>date (optional)</td><td>Use this parameter to retrieve audit log from a specific date, represented in <code class="prettyprint">ISO-8601</code> format like <code class="prettyprint">2024-02-03</code>.</td></tr>
 <tr>
-<td>magic_time (optional)</td><td>Use the magic time parameter to retrieve audit log details from a trailing range in time. This parameter takes a value in <code class="prettyprint">last_{#x}</code> where <code class="prettyprint">#</code> is a number and <code class="prettyprint">X</code> is <code class="prettyprint">seconds</code>, <code class="prettyprint">minutes</code>, <code class="prettyprint">hours</code>, <code class="prettyprint">days</code>, or <code class="prettyprint">weeks</code>, like <code class="prettyprint">last_7days</code> or <code class="prettyprint">last_15minutes</code>.</td></tr>
+<td>magic_time (optional)</td><td>Use this parameter to retrieve audit log results from a trailing range in time. This parameter takes a value in <code class="prettyprint">last{#x}</code> where <code class="prettyprint">#</code> is a number and <code class="prettyprint">x</code> is seconds, minutes, hours, days, or weeks, like <code class="prettyprint">last7days</code> or <code class="prettyprint">last15minutes</code>.</td></tr>
 <tr>
 <td>performer_ids (optional)</td><td>Use this parameter to retrieve audit log results matching one or more <a href="https://support.greenhouse.io/hc/en-us/articles/15075283790107">performer IDs</a>, which are Greenhouse Recruiting user IDs. Separate multiple IDs by a comma.</td></tr>
 <tr>
