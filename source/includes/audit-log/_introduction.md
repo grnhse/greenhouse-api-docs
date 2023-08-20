@@ -10,9 +10,6 @@ Use audit log to empower your teams to detect and minimize the impact of inciden
 ## Authentication
 Audit log uses bearer authorization over HTTPS with a valid access token. You’ll need a Harvest API key to generate an access token, returned through the Harvest endpoint [POST: Authenticate audit log](#post-authenticate-audit-log). Use the access token as your bearer to authenticate audit log API requests.
 
-Note: Harvest API uses basic auth where the username is a (valid Harvest API key with permission to authenticate audit log)[]. Unauthenticated requests will return an <code>HTTP 401</code> response.
-
-
 ### The authenticate audit log object
 The authenticate audit log object returns an access token that is valid for 24 hours, which can be used to authenticate your requests to [the events object](#the-events-object).
 
