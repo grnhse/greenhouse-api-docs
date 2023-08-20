@@ -326,6 +326,24 @@ curl -X GET <span class="s1">'https://auditlog.us.greenhouse.io/events'</span>
 <td>date (optional)</td><td>Use this parameter to retrieve audit log from a specific date, represented in <code class="prettyprint">ISO-8601</code> format like <code class="prettyprint">2024-02-03</code>.</td></tr>
 <tr>
 <td>magic_time (optional)</td><td>Use the magic time parameter to retrieve audit log details from a trailing range in time. This parameter takes a value in <code class="prettyprint">last_{#x}</code> where <code class="prettyprint">#</code> is a number and <code class="prettyprint">X</code> is <code class="prettyprint">seconds</code>, <code class="prettyprint">minutes</code>, <code class="prettyprint">hours</code>, <code class="prettyprint">days</code>, or <code class="prettyprint">weeks</code>, like <code class="prettyprint">last_7days</code> or <code class="prettyprint">last_15minutes</code>.</td></tr>
+<tr>
+<td>performer_ids (optional)</td><td>Use this parameter to retrieve audit log results matching one or more <a href="https://support.greenhouse.io/hc/en-us/articles/15075283790107">performer IDs</a>, which are Greenhouse Recruiting user IDs. Separate multiple IDs by a comma.</td></tr>
+<tr>
+<td>performer_types (optional)</td><td>Use this parameter to retrieve audit log results matching one or more <a href="https://support.greenhouse.io/hc/en-us/articles/15075283790107">performer types</a>: <code class="prettyprint">user</code>, <code class="prettyprint">api_key</code>, or <code class="prettyprint">greenhouse_internal</code>. Separate multiple performer types by a comma.</td></tr>
+<tr>
+<td>performer_ip_addresses (optional)</td><td>Use this parameter to retrieve audit log results matching one or more <a href="https://support.greenhouse.io/hc/en-us/articles/15075283790107">performer IP addresses</a>. Separate multiple IP addresses by a comma.</td></tr>
+<tr>
+<td>event_types (optional)</td><td>Use this parameter to retrieve audit log results matching one or more <a href="https://support.greenhouse.io/hc/en-us/articles/15075283790107">event types</a>: <code class="prettyprint">data_change_update</code>, <code class="prettyprint">data_change_create</code>, <code class="prettyprint">data_change_destroy</code>, <code class="prettyprint">harvest_access</code>, or <code class="prettyprint">action</code>. Separate multiple event types by a comma.</td></tr>
+<tr>
+<td>event_target_ids (optional)</td><td>Use this parameter to retrieve audit log results matching one or more <a href="https://support.greenhouse.io/hc/en-us/articles/15075283790107">event target IDs</a>, which reflect the element that was created, edited or accessed. Separate multiple event target IDs by a comma.</td></tr>
+<tr>
+<td>event_target_types (optional)</td><td>Use this parameter to retrieve audit log results matching one or more <a href="https://support.greenhouse.io/hc/en-us/articles/15075283790107">event target types</a>. Separate multiple event target types by a comma.</td></tr>
+<tr>
+<td>request_ids (optional)</td><td>Use this parameter to retrieve audit log results matching one or more <a href="https://support.greenhouse.io/hc/en-us/articles/15075283790107">request IDs</a>. A single event in audit log may return multiple results. An event and its resulting changes will return individual results that can be linked by request ID. Separate multiple request IDs by a comma.</td></tr>
+<tr>
+<td>request_types (optional)</td><td>Use this parameter to retrieve audit log results matching one or more <a href="https://support.greenhouse.io/hc/en-us/articles/15075283790107">request types</a>. Separate multiple request types by a comma.</td></tr>
+<tr>
+<td>paging (optional)</td><td>Use this parameter for <a href="https://developers.greenhouse.io/audit-log.html#pagination">pagination</a>. When set to <code class="prettyprint">true</code>, we return a <code class="prettyprint">pit_id</code> that can be used to paginate query results.</td></tr>
 </tbody></table>
 
       </div>
