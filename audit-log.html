@@ -93,8 +93,6 @@ analytics.page()
 
 <p>Audit log uses bearer authorization over HTTPS with a valid access token. You’ll need a Harvest API key to generate an access token, returned through the Harvest endpoint <a href="#post-authenticate-audit-log">POST: Authenticate audit log</a>. Use the access token as your bearer to authenticate audit log API requests.</p>
 
-<p>Note: Harvest API uses basic auth where the username is a (valid Harvest API key with permission to authenticate audit log)[]. Unauthenticated requests will return an <code>HTTP 401</code> response.</p>
-
 <h3 id="the-authenticate-audit-log-object">The authenticate audit log object</h3>
 
 <p>The authenticate audit log object returns an access token that is valid for 24 hours, which can be used to authenticate your requests to <a href="#the-events-object">the events object</a>.</p>
