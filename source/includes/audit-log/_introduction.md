@@ -88,4 +88,7 @@ Unless otherwise specified, audit log API methods generally conform to the follo
 | 500        | Server Error -- We’re having a problem with our server. Give us a few minutes and try again, or check [our status page](https://status.greenhouse.io/).                                                 |
 
 ## Audit Log Change Log
-[No changes.]
+
+| Date                          | Description                                                                                                                       |
+|-------------------------------| --------------------------------------------------------------------------------------------------------------------------------- |
+| July 14, 2023 | We added new query parameters to the Events endpoint, including `performer_ids`, `performer_types`, `performer_ip_addresses`, `event_types`, `event_target_ids`, `event_target_types`, `request_ids`, and `request_types`.
