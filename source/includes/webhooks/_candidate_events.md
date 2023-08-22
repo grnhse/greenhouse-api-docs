@@ -38,6 +38,7 @@ This web hook will fire when a candidate or prospect is deleted from Greenhouse.
 | `coordinator_user_id` | The Greenhouse user_id of this candidate's coordinator |
 | `can_email` | True or false; if this candidate can be e-mailed. |
 | `application_ids` | This is an array containing the Greenhouse application IDs that will be deleted as a consequence of this candidate being deleted |
+| `deleted_application_ids` | In many merge cases, this section will be blank, as applications will have been merged into the new candidate. |
 
 ## Candidate hired
 
@@ -333,7 +334,6 @@ This web hook will fire when a candidate or prospect is merged with another cand
 
 | Attribute | Note |
 |------------|--------|
-| `deleted_application_ids` | In many merge cases, this section will be blank, as applications will have been merged into the new candidate. |
 | `new_candidate_id` | The ID of the candidate to whom this candidate has been merged |
 
 ## Candidate stage change
