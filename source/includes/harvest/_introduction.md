@@ -152,7 +152,7 @@ Unless otherwise specified, API methods generally conform to the following:
 - Properties without a value will use `null` instead of being undefined
 - "Snake Case" is used for attribute names (e.g. `first_name`)
 - Timestamps are rendered in ISO-8601 format (e.g. `2016-02-03T16:38:46.985Z)
-- URLs to external resources are valid for 30 days
+- URLs to external resources are valid for 7 days
 - We reserve the right to add more properties to objects, but will never change or remove them
 - Custom Fields on the [application object](#applications) are only available to customers with Enterprise-level accounts
 - Resumes, cover letters, and other document attachments in Greenhouse are hosted on Amazon Web Services and are provided via signed, temporary URLs. Due to the ephemeral nature of these resource links, users should download these documents immediately after the request is made and should not rely on these URLs to be available for future requests. In the event AWS S3 is experiencing issues, document attachments will not be available in Harvest.
