@@ -846,7 +846,7 @@ See web hook [common attributes](#common-attributes).
 }
 ```
 
-The Reject Candidate event occurs when a prospect or candidate is rejected for a position.
+The Reject Candidate event occurs when a prospect or candidate is rejected for a position. When candidates are rejected via a bulk action, a web hook will fire once for each candidate or prospect rejected.
 
 See web hook [common attributes](#common-attributes).
 
