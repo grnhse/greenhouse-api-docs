@@ -290,19 +290,19 @@ analytics.page()
 
 <h2 id="retry-policy">Retry policy</h2>
 
-<p>In the event of a failed webhook request (due to timeout, a non HTTP 200 response, or network issues), Greenhouse will attempt a maximum of 5 retries according to the formula on the right:</p>
+<p>In the event of a failed webhook request (due to timeout, a non HTTP 200 response, or network issues), Greenhouse will attempt a maximum of 6 retries according to the formula on the right:</p>
 
 <p>This formula increases the amount of time between each retry, while assigning a random number of seconds to avoid consistent failures from overload or contention.</p>
 
-<p>Greenhouse will attempt 5 retries over the course of 7 hours.</p>
-<pre class="highlight plaintext"><code>RETRY_DELAY_MINUTES = [1, 15, 60, 120, 240]
+<p>Greenhouse will attempt 6 retries over the course of 15 hours.</p>
+<pre class="highlight ruby"><code><span class="no">RETRY_DELAY_MINUTES</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">120</span><span class="p">,</span> <span class="mi">240</span><span class="p">,</span> <span class="mi">480</span><span class="p">]</span>
 
-sidekiq_retry_in do |index, _exception|
-  seconds_delay = (RETRY_DELAY_MINUTES[index] || RETRY_DELAY_MINUTES.last) * 60
-  offset = rand(30) * (index + 1)
+<span class="n">sidekiq_retry_in</span> <span class="k">do</span> <span class="o">|</span><span class="n">index</span><span class="p">,</span> <span class="n">_exception</span><span class="o">|</span>
+  <span class="n">seconds_delay</span> <span class="o">=</span> <span class="p">(</span><span class="no">RETRY_DELAY_MINUTES</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">||</span> <span class="no">RETRY_DELAY_MINUTES</span><span class="p">.</span><span class="nf">last</span><span class="p">)</span> <span class="o">*</span> <span class="mi">60</span>
+  <span class="n">offset</span> <span class="o">=</span> <span class="nb">rand</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">index</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
 
-  seconds_delay + offset
-end
+  <span class="n">seconds_delay</span> <span class="o">+</span> <span class="n">offset</span>
+<span class="k">end</span>
 </code></pre>
 
 <p>The table below outlines the estimated wait time for each retry request, assuming that rand(30) always returns 0.</p>
@@ -321,6 +321,8 @@ end
 <td>4</td><td>120m</td><td>3h 16m</td></tr>
 <tr>
 <td>5</td><td>240m</td><td>7h 16m</td></tr>
+<tr>
+<td>6</td><td>480m</td><td>15h 16m</td></tr>
 </tbody></table>
 
           <h1 id="application-events">Application Events</h1>
@@ -1063,6 +1065,8 @@ end
 <td><code class="prettyprint">can_email</code></td><td>True or false; if this candidate can be e-mailed.</td></tr>
 <tr>
 <td><code class="prettyprint">application_ids</code></td><td>This is an array containing the Greenhouse application IDs that will be deleted as a consequence of this candidate being deleted</td></tr>
+<tr>
+<td><code class="prettyprint">deleted_application_ids</code></td><td>In many merge cases, this section will be blank, as applications will have been merged into the new candidate.</td></tr>
 </tbody></table>
 
 <h2 id="candidate-hired">Candidate hired</h2>
@@ -1369,8 +1373,6 @@ end
 <tr>
 <td>Attribute</td><td>Note</td></tr>
 </thead><tbody>
-<tr>
-<td><code class="prettyprint">deleted_application_ids</code></td><td>In many merge cases, this section will be blank, as applications will have been merged into the new candidate.</td></tr>
 <tr>
 <td><code class="prettyprint">new_candidate_id</code></td><td>The ID of the candidate to whom this candidate has been merged</td></tr>
 </tbody></table>
@@ -1884,7 +1886,7 @@ end
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>The Reject Candidate event occurs when a prospect or candidate is rejected for a position.</p>
+<p>The Reject Candidate event occurs when a prospect or candidate is rejected for a position. When candidates are rejected via a bulk action, a web hook will fire once for each candidate or prospect rejected.</p>
 
 <p>See web hook <a href="#common-attributes">common attributes</a>.</p>
 

@@ -232,7 +232,7 @@ X-RateLimit-Remaining: 49
 <li>Properties without a value will use <code class="prettyprint">null</code> instead of being undefined</li>
 <li>&ldquo;Snake Case&rdquo; is used for attribute names (e.g. <code class="prettyprint">first_name</code>)</li>
 <li>Timestamps are rendered in ISO-8601 format (e.g. `2016-02-03T16:38:46.985Z)</li>
-<li>URLs to external resources are valid for 30 days</li>
+<li>URLs to external resources are valid for 7 days</li>
 <li>We reserve the right to add more properties to objects, but will never change or remove them</li>
 <li>Custom Fields on the <a href="#applications">application object</a> are only available to customers with Enterprise-level accounts</li>
 <li>Resumes, cover letters, and other document attachments in Greenhouse are hosted on Amazon Web Services and are provided via signed, temporary URLs. Due to the ephemeral nature of these resource links, users should download these documents immediately after the request is made and should not rely on these URLs to be available for future requests. In the event AWS S3 is experiencing issues, document attachments will not be available in Harvest.</li>
@@ -262,6 +262,10 @@ X-RateLimit-Remaining: 49
 <tr>
 <td>Date</td><td>Description</td></tr>
 </thead><tbody>
+<tr>
+<td>Aug 22, 2023 3:00:00PM</td><td>Included <code class="prettyprint">active</code> attribute in the <a href="#the-job-stage-object">Job Stage Object</a></td></tr>
+<tr>
+<td>Aug 22, 2023 3:00:00PM</td><td>Fixed URL expiry timing in <a href="#general-considerations">General Considerations</a> and the <a href="#the-candidate-object">Candidate Object</a></td></tr>
 <tr>
 <td>May 15, 2023 12:00:00PM</td><td>Added ability to update closed openings in the <a href="#patch-edit-openings">Edit Openings Endpoint</a></td></tr>
 <tr>
@@ -3113,7 +3117,7 @@ X-RateLimit-Remaining: 49
 <tr>
 <td>attachments[].type</td><td>One of: [&ldquo;resume&rdquo;, &ldquo;cover_letter&rdquo;, &ldquo;offer_packet&rdquo;, &ldquo;offer_letter&rdquo;, &ldquo;take_home_test&rdquo;, &ldquo;other&rdquo;]</td></tr>
 <tr>
-<td>attachments[].url</td><td>URLs expire in 30 days.</td></tr>
+<td>attachments[].url</td><td>URLs expire in 7 days.</td></tr>
 <tr>
 <td>custom_fields</td><td>Contains a hash of the custom fields configured for this resource. The properties in this hash reflect the active custom fields as of the time this method is called.</td></tr>
 <tr>
@@ -9467,6 +9471,7 @@ X-RateLimit-Remaining: 49
   </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Face to Face"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-10-22T05:31:37.263Z"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-10-22T05:31:37.263Z"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
   </span><span class="nt">"job_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">98765</span><span class="p">,</span><span class="w">
   </span><span class="nt">"priority"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
   </span><span class="nt">"interviews"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -9538,6 +9543,8 @@ X-RateLimit-Remaining: 49
 <td>id</td><td>The job stage&rsquo;s unique identifier</td></tr>
 <tr>
 <td>name</td><td>The name for this job stage</td></tr>
+<tr>
+<td>active</td><td>One of <code class="prettyprint">true</code> or <code class="prettyprint">false</code>:<br><code class="prettyprint">true</code> - The job stage is active<br><code class="prettyprint">false</code> - The job stage was deleted</td></tr>
 <tr>
 <td>job_id</td><td>The job that this stage belongs to</td></tr>
 <tr>
