@@ -152,7 +152,7 @@ Unless otherwise specified, API methods generally conform to the following:
 - Properties without a value will use `null` instead of being undefined
 - "Snake Case" is used for attribute names (e.g. `first_name`)
 - Timestamps are rendered in ISO-8601 format (e.g. `2016-02-03T16:38:46.985Z)
-- URLs to external resources are valid for 30 days
+- URLs to external resources are valid for 7 days
 - We reserve the right to add more properties to objects, but will never change or remove them
 - Custom Fields on the [application object](#applications) are only available to customers with Enterprise-level accounts
 - Resumes, cover letters, and other document attachments in Greenhouse are hosted on Amazon Web Services and are provided via signed, temporary URLs. Due to the ephemeral nature of these resource links, users should download these documents immediately after the request is made and should not rely on these URLs to be available for future requests. In the event AWS S3 is experiencing issues, document attachments will not be available in Harvest.
@@ -172,6 +172,8 @@ The timestamps below are Eastern Time.
 
 | Date                          | Description                                                                                                                       |
 |-------------------------------| --------------------------------------------------------------------------------------------------------------------------------- |
+| Aug 22, 2023 3:00:00PM | Included `active` attribute in the [Job Stage Object](#the-job-stage-object)
+| Aug 22, 2023 3:00:00PM | Fixed URL expiry timing in [General Considerations](#general-considerations) and the [Candidate Object](#the-candidate-object)
 | May 15, 2023 12:00:00PM | Added ability to update closed openings in the [Edit Openings Endpoint](#patch-edit-openings)
 | April 12, 2023 3:00:00PM  | Modified format of request links for [POST: Scheduled Interviews](#post-scheduled-interviews) and [PATCH: Scheduled Interviews](#patch-scheduled-interviews).
 | March 7, 2023 10:00:00AM  | Modified `intenal` querystring parameter on [job post](#job-posts) GET requests to work in the reverse manner. When included in a request and set to `false`, the response will only include external job posts.

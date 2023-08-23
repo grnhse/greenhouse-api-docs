@@ -72,5 +72,6 @@ The timestamps below are Eastern Time.
 
 | Date                   | Description                                                                             |
 | ---------------------- | --------------------------------------------------------------------------------------- |
+| Aug 22, 2023 3:00:00PM | Fixed URL expiry timing in [Send Test](#send-test)                                      |
 | Aug 21, 2019 2:00:00PM | Added Change Log and General Consideration sections to the Assessment API documentation |
 | Aug 21, 2019 2:00:00PM | Added [PATCH - Mark Test as Completed](#patch-mark-test-as-completed) endpoint          |

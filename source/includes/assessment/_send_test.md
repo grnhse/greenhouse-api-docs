@@ -31,7 +31,7 @@ Greenhouse will initiate the process by sending a POST request to the `send_test
 | partner_test_id        | String | Yes      | Identifies a test available to an organization. Initially provided as a response to the [List Tests request](#list-tests). |
 | first_name             | String | Yes      | The first name of the candidate.                                                                                           |
 | last_name              | String | Yes      | The last name of the candidate.                                                                                            |
-| resume_url             | String | No       | A URL to the candidate’s resume. This URL will expire 30 days after the request.                                           |
+| resume_url             | String | No       | A URL to the candidate’s resume. This URL will expire 7 days after the request.                                           |
 | phone_number           | String | No       | The candidate’s phone number.                                                                                              |
 | email                  | String | Yes      | The candidate’s email address. The test should be sent to this address.                                                    |
 | greenhouse_profile_url | String | Yes      | URL to the candidate’s Greenhouse application. Allows the partner to link back to Greenhouse.                              |

@@ -10,6 +10,7 @@ An organization's job stages.
   "name": "Face to Face",
   "created_at": "2016-10-22T05:31:37.263Z",
   "updated_at": "2016-10-22T05:31:37.263Z",
+  "active": true,
   "job_id": 98765,
   "priority": 0,
   "interviews": [
@@ -77,6 +78,7 @@ An organization's job stages.
 |-----------|-------------|
 | id | The job stage's unique identifier |
 | name | The name for this job stage |
+| active | One of `true` or `false`:<br>`true` - The job stage is active<br>`false` - The job stage was deleted |
 | job_id | The job that this stage belongs to |
 | priority| Numeric field used for ordering, with the lowest values ordered first. For example, priority 0 indicates the first stage on a job
 | interviews | An array of interview steps associated with this job stage.<br>Each Step contains:<br>`id` - The step's unique identifier<br>`name` - The name of this interview step<br>`schedulable` - True / False value for whether this step can be scheduled<br>`interview_kit` - Details about the interview, including unique ID, interview prep content, and custom interview questions |
