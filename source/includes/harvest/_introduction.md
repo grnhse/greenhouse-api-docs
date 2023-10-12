@@ -85,7 +85,7 @@ You can specify which API endpoints your API keys have access to from the Greenh
 
 To add or remove endpoint permissions on an API key, go to the Dev Center in Greenhouse, click "API Credential Management," then click "Manage Permissions" next to your Harvest API Key. From there, check or uncheck permissions for any endpoints.
 
-## Throttling
+## Rate limiting
 
 ```
 Status: 200 OK
@@ -93,7 +93,7 @@ X-RateLimit-Limit: 50
 X-RateLimit-Remaining: 49
 ```
 
-API requests are limited to the amount specified in the returned `X-RateLimit-Limit` header (per 10 seconds). Exceeding that limit will cause Harvest to return an `HTTP 429` response. Check the `X-RateLimit-Limit` and `X-RateLimit-Remaining` headers to see how many more requests you are allowed until throttling kicks in. Note that the `HTTP 429` response will exclude the `X-RateLimit-Limit` and `X-RateLimit-Remaining` headers.
+Harvest API requests are limited to the amount specified in the returned `X-RateLimit-Limit` header, per 10 seconds. Check the `X-RateLimit-Limit` and `X-RateLimit-Remaining` headers to see how many more requests are permitted before you're throttled. Exceeding the limit will return an `HTTP 429` response. In the `HTTP 429` response, the `Retry-After` header includes an Epoch / Unix timestamp indicating when you can try again.
 
 ## Pagination
 
