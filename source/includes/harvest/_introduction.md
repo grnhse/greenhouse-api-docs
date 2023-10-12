@@ -172,6 +172,7 @@ The timestamps below are Eastern Time.
 
 | Date                          | Description                                                                                                                       |
 |-------------------------------| --------------------------------------------------------------------------------------------------------------------------------- |
+| Oct 12, 2023 2:15:00PM | Updated Throttling section to Rate limiting and updated description
 | Aug 22, 2023 3:00:00PM | Included `active` attribute in the [Job Stage Object](#the-job-stage-object)
 | Aug 22, 2023 3:00:00PM | Fixed URL expiry timing in [General Considerations](#general-considerations) and the [Candidate Object](#the-candidate-object)
 | May 15, 2023 12:00:00PM | Added ability to update closed openings in the [Edit Openings Endpoint](#patch-edit-openings)
