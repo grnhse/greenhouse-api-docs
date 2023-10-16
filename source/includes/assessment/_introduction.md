@@ -9,7 +9,8 @@ To begin the integration process, please send the following information to us at
 1. URL for your `list_tests` API call
 2. URL for your `send_test` API call
 3. URL for your `test_status` API call
-4. A sample API key
+4. URL for your `response_error` API call
+5. A sample API key
 
 The Partnerships team will configure endpoint URLs for creating assessment stages and provide next steps on receiving access to a Sandbox account to test the integration. If you are building an integration for use by mutual customers, we will need documentation on the integration for the Greenhouse Help Center.
 
@@ -72,6 +73,7 @@ The timestamps below are Eastern Time.
 
 | Date                   | Description                                                                             |
 | ---------------------- | --------------------------------------------------------------------------------------- |
+| Oct 13, 2023 3:00:00PM | Added URL for `response_error` as a requirement in [Introduction](#introduction)        |
 | Aug 22, 2023 3:00:00PM | Fixed URL expiry timing in [Send Test](#send-test)                                      |
 | Aug 21, 2019 2:00:00PM | Added Change Log and General Consideration sections to the Assessment API documentation |
 | Aug 21, 2019 2:00:00PM | Added [PATCH - Mark Test as Completed](#patch-mark-test-as-completed) endpoint          |
