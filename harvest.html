@@ -164,13 +164,13 @@ analytics.page()
 
 <p>To add or remove endpoint permissions on an API key, go to the Dev Center in Greenhouse, click &ldquo;API Credential Management,&rdquo; then click &ldquo;Manage Permissions&rdquo; next to your Harvest API Key. From there, check or uncheck permissions for any endpoints.</p>
 
-<h2 id="throttling">Throttling</h2>
+<h2 id="rate-limiting">Rate limiting</h2>
 <pre class="highlight plaintext"><code>Status: 200 OK
 X-RateLimit-Limit: 50
 X-RateLimit-Remaining: 49
 </code></pre>
 
-<p>API requests are limited to the amount specified in the returned <code class="prettyprint">X-RateLimit-Limit</code> header (per 10 seconds). Exceeding that limit will cause Harvest to return an <code class="prettyprint">HTTP 429</code> response. Check the <code class="prettyprint">X-RateLimit-Limit</code> and <code class="prettyprint">X-RateLimit-Remaining</code> headers to see how many more requests you are allowed until throttling kicks in. Note that the <code class="prettyprint">HTTP 429</code> response will exclude the <code class="prettyprint">X-RateLimit-Limit</code> and <code class="prettyprint">X-RateLimit-Remaining</code> headers.</p>
+<p>Harvest API requests are limited to the amount specified in the returned <code class="prettyprint">X-RateLimit-Limit</code> header, per 10 seconds. Check the <code class="prettyprint">X-RateLimit-Limit</code> and <code class="prettyprint">X-RateLimit-Remaining</code> headers to see how many more requests are permitted before you&rsquo;re throttled. Exceeding the limit will return an <code class="prettyprint">HTTP 429</code> response. In the <code class="prettyprint">HTTP 429</code> response, the <code class="prettyprint">Retry-After</code> header includes an Epoch / Unix timestamp indicating when you can try again.</p>
 
 <h2 id="pagination">Pagination</h2>
 
@@ -262,6 +262,8 @@ X-RateLimit-Remaining: 49
 <tr>
 <td>Date</td><td>Description</td></tr>
 </thead><tbody>
+<tr>
+<td>Oct 12, 2023 2:15:00PM</td><td>Updated Throttling section to Rate limiting and updated description</td></tr>
 <tr>
 <td>Aug 22, 2023 3:00:00PM</td><td>Included <code class="prettyprint">active</code> attribute in the <a href="#the-job-stage-object">Job Stage Object</a></td></tr>
 <tr>
