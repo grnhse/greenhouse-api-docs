@@ -2,11 +2,11 @@
 
 ### If you have implemented the polling option:
 <aside class="warning">The polling option has been deprecated as of October 1, 2019. All Assessment API implementations after this date must use the PATCH Completed Test endpoint. However, existing integrations will continue to work with the original test status method.</aside>
-After a successful `send_test` request, Greenhouse will check whether the test instance has been completed by polling the `test_status` endpoint hourly. We will discontinue polling the `test_status` endpoint after we receive a `partner_status` of `complete`, or after 8 weeks has passed since the test was sent.
+After a successful `send_test` request, Greenhouse will check whether the test instance has been completed by polling the `test_status` endpoint hourly. We will discontinue polling the `test_status` endpoint after the candidate is marked as hired, after we receive a `partner_status` of `complete`, or after 8 weeks have passed since the test was sent.
 
 ### If you have implemented the PATCH Completed Test option:
 
-After a successful `send_test` request, you can alert Greenhouse to updates of the test's status by sending a [PATCH Completed Test](#patch-mark-test-as-completed) request to the URL found in the `url` field of the `send_test` request. This will trigger a <a href="#test-status">Test Status</a> request from Greenhouse.
+After a successful `send_test` request, you can alert Greenhouse to updates of the test's status by sending a [PATCH Completed Test](#patch-mark-test-as-completed) request to the URL found in the `url` field of the `send_test` request. This will trigger a [Test Status](#test-status) request from Greenhouse. Active, unhired candidates will show the completed test status.
 
 # Test Status
 
