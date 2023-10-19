@@ -114,9 +114,11 @@ analytics.page()
 
 <h3 id="receiving-the-test-results">Receiving the Test Results</h3>
 
-<p>Greenhouse will periodically poll the <a href="#test-status">Test Status endpoint</a> to retrieve the candidate&rsquo;s test status and results. When the candidate completes the test, Greenhouse will notify the appropriate user that the test is complete. The user will be able to view the candidate’s score, navigate to the partner site to see more details, and make an advance or reject decision within Greenhouse. The user will also be able to filter candidates by score and advance or reject candidates in bulk.</p>
+<p>Greenhouse will periodically poll the <a href="#test-status">Test Status endpoint</a> to retrieve the candidate&rsquo;s test status and results. When the candidate completes the test, Greenhouse will notify the appropriate user that the test is complete. The user will be able to view the candidate&rsquo;s score, navigate to the partner site to see more details, and make an advance or reject decision within Greenhouse. The user will also be able to filter candidates by score and advance or reject candidates in bulk.</p>
 
-<p>Alternatively, Greenhouse&rsquo;s Assessment API now includes the ability to notify Greenhouse of completed tests via the <a href="#patch-mark-test-as-completed">PATCH - Mark Test as Completed</a> endpoint to avoid long polling!</p>
+<p>Alternatively, Greenhouse&rsquo;s Assessment API now includes the ability to notify Greenhouse of completed tests via the <a href="#patch-mark-test-as-completed">PATCH - Mark Test as Completed endpoint</a> to avoid long polling!</p>
+
+<p><strong>Note</strong>: You can only update test statuses for active, unhired candidates.</p>
 
 <h2 id="authentication">Authentication</h2>
 
@@ -160,6 +162,8 @@ analytics.page()
 <tr>
 <td>Date</td><td>Description</td></tr>
 </thead><tbody>
+<tr>
+<td>Oct 19, 2023 12:30:00PM</td><td>Clarified use of Assessment API for active, unhired candidates in <a href="#introduction">Introduction</a> and <a href="#test-status">Test Status</a></td></tr>
 <tr>
 <td>Oct 13, 2023 3:00:00PM</td><td>Added URL for <code class="prettyprint">response_error</code> as a requirement in <a href="#introduction">Introduction</a></td></tr>
 <tr>
@@ -306,11 +310,11 @@ The partner_interview_id should not be confused with partner_test_id. While part
 
 <aside class="warning">The polling option has been deprecated as of October 1, 2019. All Assessment API implementations after this date must use the PATCH Completed Test endpoint. However, existing integrations will continue to work with the original test status method.</aside>
 
-<p>After a successful <code class="prettyprint">send_test</code> request, Greenhouse will check whether the test instance has been completed by polling the <code class="prettyprint">test_status</code> endpoint hourly. We will discontinue polling the <code class="prettyprint">test_status</code> endpoint after we receive a <code class="prettyprint">partner_status</code> of <code class="prettyprint">complete</code>, or after 8 weeks has passed since the test was sent.</p>
+<p>After a successful <code class="prettyprint">send_test</code> request, Greenhouse will check whether the test instance has been completed by polling the <code class="prettyprint">test_status</code> endpoint hourly. We will discontinue polling the <code class="prettyprint">test_status</code> endpoint after the candidate is marked as hired, after we receive a <code class="prettyprint">partner_status</code> of <code class="prettyprint">complete</code>, or after 8 weeks have passed since the test was sent.</p>
 
 <h3 id="if-you-have-implemented-the-patch-completed-test-option">If you have implemented the PATCH Completed Test option:</h3>
 
-<p>After a successful <code class="prettyprint">send_test</code> request, you can alert Greenhouse to updates of the test&rsquo;s status by sending a <a href="#patch-mark-test-as-completed">PATCH Completed Test</a> request to the URL found in the <code class="prettyprint">url</code> field of the <code class="prettyprint">send_test</code> request. This will trigger a <a href="#test-status">Test Status</a> request from Greenhouse.</p>
+<p>After a successful <code class="prettyprint">send_test</code> request, you can alert Greenhouse to updates of the test&rsquo;s status by sending a <a href="#patch-mark-test-as-completed">PATCH Completed Test</a> request to the URL found in the <code class="prettyprint">url</code> field of the <code class="prettyprint">send_test</code> request. This will trigger a <a href="#test-status">Test Status</a> request from Greenhouse. Active, unhired candidates will show the completed test status.</p>
 
 <h1 id="test-status">Test Status</h1>
 
