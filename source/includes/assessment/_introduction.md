@@ -32,9 +32,11 @@ When a candidate reaches this Interview Stage, the user will click the "Send Tes
 
 ### Receiving the Test Results
 
-Greenhouse will periodically poll the [Test Status endpoint](#test-status) to retrieve the candidate's test status and results. When the candidate completes the test, Greenhouse will notify the appropriate user that the test is complete. The user will be able to view the candidate’s score, navigate to the partner site to see more details, and make an advance or reject decision within Greenhouse. The user will also be able to filter candidates by score and advance or reject candidates in bulk.
+Greenhouse will periodically poll the [Test Status endpoint](#test-status) to retrieve the candidate's test status and results. When the candidate completes the test, Greenhouse will notify the appropriate user that the test is complete. The user will be able to view the candidate's score, navigate to the partner site to see more details, and make an advance or reject decision within Greenhouse. The user will also be able to filter candidates by score and advance or reject candidates in bulk.
 
-Alternatively, Greenhouse's Assessment API now includes the ability to notify Greenhouse of completed tests via the [PATCH - Mark Test as Completed](#patch-mark-test-as-completed) endpoint to avoid long polling!
+Alternatively, Greenhouse's Assessment API now includes the ability to notify Greenhouse of completed tests via the [PATCH - Mark Test as Completed endpoint](#patch-mark-test-as-completed) to avoid long polling!
+
+**Note**: You can only update test statuses for active, unhired candidates.
 
 ## Authentication
 
@@ -71,9 +73,10 @@ Unless otherwise specified, API methods generally conform to the following:
 
 The timestamps below are Eastern Time.
 
-| Date                   | Description                                                                             |
-| ---------------------- | --------------------------------------------------------------------------------------- |
-| Oct 13, 2023 3:00:00PM | Added URL for `response_error` as a requirement in [Introduction](#introduction)        |
-| Aug 22, 2023 3:00:00PM | Fixed URL expiry timing in [Send Test](#send-test)                                      |
-| Aug 21, 2019 2:00:00PM | Added Change Log and General Consideration sections to the Assessment API documentation |
-| Aug 21, 2019 2:00:00PM | Added [PATCH - Mark Test as Completed](#patch-mark-test-as-completed) endpoint          |
+| Date                    | Description																																																											|
+| ----------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| Oct 19, 2023 12:30:00PM | Clarified use of Assessment API for active, unhired candidates in [Introduction](#introduction) and [Test Status](#test-status)	|
+| Oct 13, 2023 3:00:00PM  | Added URL for `response_error` as a requirement in [Introduction](#introduction)        																					|
+| Aug 22, 2023 3:00:00PM  | Fixed URL expiry timing in [Send Test](#send-test)                                      																					|
+| Aug 21, 2019 2:00:00PM  | Added Change Log and General Consideration sections to the Assessment API documentation 																					|
+| Aug 21, 2019 2:00:00PM  | Added [PATCH - Mark Test as Completed](#patch-mark-test-as-completed) endpoint          																					|
