@@ -56,11 +56,13 @@ Audit log API requests are limited to the amount specified in the returned X-Rat
 </aside>
 
 ## Pagination
-Pagination on audit log API allows for retrieving the next page from your query results. To retrieve the next page, use the `paging` field of the response body. The `pit_id` should be the value of your `Pit-Id` header, and the `next_search_after` should be the value of your Search-After header. Your query parameters should remain consistent with your original query. Audit log results with only one page will return `null` results on the next page.
+Pagination on audit log API allows for retrieving the next page from your query results. Use the `paging` [query parameter](https://developers.greenhouse.io/audit-log.html#the-events-object) to receive a `pit_id` with your results. To retrieve the next page of results, the `pit_id` should be the value of your `pit_id` header, and the `next_search_after` should be the value of your `search_after` header. Your query parameters should remain consistent with your original query. Audit log results with only one page will return `null` results on the next page. 
 
 - `pit_id`. The ID from a specific [point in time (PIT)](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/pit.html) in a fixed time dataset, created automatically when you run a query.
 - `search_after`. Use this parameter to retrieve audit log after a specific page in the search results when running a query with the `pit_id`.
 - `size`. The size of the requested query. This parameter has a minimum value of `100` and a maximum value of `500`.
+
+Audit log API requests are rate limited. Paginated requests are limited to 3 per 30 seconds, and overall requests are limited to 50 per 10 seconds. Exceeding the limit will result in [throttling](https://developers.greenhouse.io/audit-log.html#throttling).
 
 ## Validation
 Any methods that take input will validate all parameters. Any parameter that fails validation will trigger an error response with status `HTTP 422`. The response body will be a JSON object that includes a message as well as a list of fields that failed validation.
@@ -91,4 +93,5 @@ Unless otherwise specified, audit log API methods generally conform to the follo
 
 | Date                          | Description                                                                                                                       |
 |-------------------------------| --------------------------------------------------------------------------------------------------------------------------------- |
+| Oct 26, 2023 | Update Pagination to reflect new approach to returning `pit_ids`.
 | July 14, 2023 | We added new query parameters to the Events endpoint, including `performer_ids`, `performer_types`, `performer_ip_addresses`, `event_types`, `event_target_ids`, `event_target_types`, `request_ids`, and `request_types`.
