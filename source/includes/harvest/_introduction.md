@@ -93,7 +93,7 @@ X-RateLimit-Limit: 50
 X-RateLimit-Remaining: 49
 ```
 
-Harvest API requests are limited to the amount specified in the returned `X-RateLimit-Limit` header, per 10 seconds. Check the `X-RateLimit-Limit` and `X-RateLimit-Remaining` headers to see how many more requests are permitted before you're throttled. Exceeding the limit will return an `HTTP 429` response. In the `HTTP 429` response, the `Retry-After` header includes an Epoch / Unix timestamp indicating when you can try again.
+Harvest API requests are limited to the amount specified in the returned `X-RateLimit-Limit` header, per 10 seconds. Check the `X-RateLimit-Limit` and `X-RateLimit-Remaining` headers to see how many more requests are permitted before you're throttled. Exceeding the limit will return an `HTTP 429` response. In the `HTTP 429` response, the `X-Ratelimit-Remaining` header includes a RFC1132 timestamp indicating when you can try again.
 
 ## Pagination
 
