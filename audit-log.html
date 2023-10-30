@@ -145,13 +145,15 @@ X-RateLimit-Remaining: 49
 
 <h2 id="pagination">Pagination</h2>
 
-<p>Pagination on audit log API allows for retrieving the next page from your query results. To retrieve the next page, use the <code class="prettyprint">paging</code> field of the response body. The <code class="prettyprint">pit_id</code> should be the value of your <code class="prettyprint">Pit-Id</code> header, and the <code class="prettyprint">next_search_after</code> should be the value of your Search-After header. Your query parameters should remain consistent with your original query. Audit log results with only one page will return <code class="prettyprint">null</code> results on the next page.</p>
+<p>Pagination on audit log API allows for retrieving the next page from your query results. Use the <code class="prettyprint">paging</code> <a href="https://developers.greenhouse.io/audit-log.html#the-events-object">query parameter</a> to receive a <code class="prettyprint">pit_id</code> with your results. To retrieve the next page of results, the <code class="prettyprint">pit_id</code> should be the value of your <code class="prettyprint">pit_id</code> header, and the <code class="prettyprint">next_search_after</code> should be the value of your <code class="prettyprint">search_after</code> header. Your query parameters should remain consistent with your original query. Audit log results with only one page will return <code class="prettyprint">null</code> results on the next page. </p>
 
 <ul>
 <li><code class="prettyprint">pit_id</code>. The ID from a specific <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/pit.html">point in time (PIT)</a> in a fixed time dataset, created automatically when you run a query.</li>
 <li><code class="prettyprint">search_after</code>. Use this parameter to retrieve audit log after a specific page in the search results when running a query with the <code class="prettyprint">pit_id</code>.</li>
 <li><code class="prettyprint">size</code>. The size of the requested query. This parameter has a minimum value of <code class="prettyprint">100</code> and a maximum value of <code class="prettyprint">500</code>.</li>
 </ul>
+
+<p>Audit log API requests are rate limited. Paginated requests are limited to 3 per 30 seconds, and overall requests are limited to 50 per 10 seconds. Exceeding the limit will result in <a href="https://developers.greenhouse.io/audit-log.html#throttling">throttling</a>.</p>
 
 <h2 id="validation">Validation</h2>
 
@@ -195,6 +197,8 @@ X-RateLimit-Remaining: 49
 <tr>
 <td>Date</td><td>Description</td></tr>
 </thead><tbody>
+<tr>
+<td>Oct 26, 2023</td><td>Update Pagination to reflect new approach to returning <code class="prettyprint">pit_ids</code>.</td></tr>
 <tr>
 <td>July 14, 2023</td><td>We added new query parameters to the Events endpoint, including <code class="prettyprint">performer_ids</code>, <code class="prettyprint">performer_types</code>, <code class="prettyprint">performer_ip_addresses</code>, <code class="prettyprint">event_types</code>, <code class="prettyprint">event_target_ids</code>, <code class="prettyprint">event_target_types</code>, <code class="prettyprint">request_ids</code>, and <code class="prettyprint">request_types</code>.</td></tr>
 </tbody></table>
