@@ -93,7 +93,7 @@ X-RateLimit-Limit: 50
 X-RateLimit-Remaining: 49
 ```
 
-Harvest API requests are limited to the amount specified in the returned `X-RateLimit-Limit` header, per 10 seconds. Check the `X-RateLimit-Limit` and `X-RateLimit-Remaining` headers to see how many more requests are permitted before you're throttled. Exceeding the limit will return an `HTTP 429` response. In the `HTTP 429` response, the `Retry-After` header includes an Epoch / Unix timestamp indicating when you can try again.
+Harvest API requests are limited to the amount specified in the returned `X-RateLimit-Limit` header, per 10 seconds. Check the `X-RateLimit-Limit` and `X-RateLimit-Remaining` headers to see how many more requests are permitted before you're throttled. Exceeding the limit will return an `HTTP 429` response. In the `HTTP 429` response, the `X-Ratelimit-Remaining` header includes a RFC1132 formatted timestamp indicating when you can try again, if preferred the `Retry-After` header contains the number of seconds until the `X-Ratelimit-Remaining` timestamp.
 
 ## Pagination
 
@@ -172,6 +172,7 @@ The timestamps below are Eastern Time.
 
 | Date                          | Description                                                                                                                       |
 |-------------------------------| --------------------------------------------------------------------------------------------------------------------------------- |
+| Oct 30, 2023 10:30:00AM | Updated the rate limiting section to include the proper header name for the timestamp to retry again, also included formatting details |
 | Oct 12, 2023 2:15:00PM | Updated Throttling section to Rate limiting and updated description
 | Aug 22, 2023 3:00:00PM | Included `active` attribute in the [Job Stage Object](#the-job-stage-object)
 | Aug 22, 2023 3:00:00PM | Fixed URL expiry timing in [General Considerations](#general-considerations) and the [Candidate Object](#the-candidate-object)
