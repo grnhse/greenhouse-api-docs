@@ -172,6 +172,7 @@ The timestamps below are Eastern Time.
 
 | Date                          | Description                                                                                                                       |
 |-------------------------------| --------------------------------------------------------------------------------------------------------------------------------- |
+| Oct 30, 2023 3:20:00PM | Removed language indicating [PUT: Anonymize Candidate](#put-anonymize-candidate) is restricted to Expert Tier
 | Oct 12, 2023 2:15:00PM | Updated Throttling section to Rate limiting and updated description
 | Aug 22, 2023 3:00:00PM | Included `active` attribute in the [Job Stage Object](#the-job-stage-object)
 | Aug 22, 2023 3:00:00PM | Fixed URL expiry timing in [General Considerations](#general-considerations) and the [Candidate Object](#the-candidate-object)
