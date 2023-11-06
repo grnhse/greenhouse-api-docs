@@ -42,7 +42,7 @@ curl -X POST 'https://harvest.greenhouse.io/auth/jwt_access_token'
 <b>Note</b>: Use HTTPS for all requests. Requests made over HTTP will return an <code>HTTP 401</code> response.
 </aside>
 
-## Rate Limiting
+## Rate limiting
 ```shell
 Status: 200 OK
 X-RateLimit-Limit: 50
