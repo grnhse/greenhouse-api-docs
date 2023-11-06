@@ -131,13 +131,13 @@ curl -X POST <span class="s1">'https://harvest.greenhouse.io/auth/jwt_access_tok
 <b>Note</b>: Use HTTPS for all requests. Requests made over HTTP will return an <code>HTTP 401</code> response.
 </aside>
 
-<h2 id="throttling">Throttling</h2>
+<h2 id="rate-limiting">Rate limiting</h2>
 <pre class="highlight shell"><code>Status: 200 OK
 X-RateLimit-Limit: 50
 X-RateLimit-Remaining: 49
 </code></pre>
 
-<p>Audit log API requests are limited to the amount specified in the returned X-RateLimit-Limit header, per 10 seconds. Exceeding the limit will cause audit log to return an <code class="prettyprint">HTTP 429</code> response. Check the <code class="prettyprint">X-RateLimit-Limit</code> and <code class="prettyprint">X-RateLimit-Remaining</code> headers to see how many more requests you’re allowed until throttling kicks in.</p>
+<p>Audit log API requests are limited to 50 per 10 seconds, as specified in the returned <code class="prettyprint">X-RateLimit-Limit</code> header. Paginated requests are limited to 3 per 30 seconds. Check the <code class="prettyprint">X-RateLimit-Limit</code> and <code class="prettyprint">X-RateLimit-Remaining</code> headers to see how many more requests are permitted until throttling kicks in. Exceeding the limit will return an <code class="prettyprint">HTTP 429</code> response.</p>
 
 <aside class="success">
 <b>Note</b>: An <code>HTTP 429</code> response will exclude the <code>X-RateLimit-Limit</code> and <code>X-RateLimit-Remaining</code> headers.
@@ -197,6 +197,8 @@ X-RateLimit-Remaining: 49
 <tr>
 <td>Date</td><td>Description</td></tr>
 </thead><tbody>
+<tr>
+<td>Nov 6, 2023</td><td>Update Throttling section to Rate Limiting and updated approach to rate limiting.</td></tr>
 <tr>
 <td>Oct 26, 2023</td><td>Update Pagination to reflect new approach to returning <code class="prettyprint">pit_ids</code>.</td></tr>
 <tr>
