@@ -42,14 +42,14 @@ curl -X POST 'https://harvest.greenhouse.io/auth/jwt_access_token'
 <b>Note</b>: Use HTTPS for all requests. Requests made over HTTP will return an <code>HTTP 401</code> response.
 </aside>
 
-## Throttling
+## Rate Limiting
 ```shell
 Status: 200 OK
 X-RateLimit-Limit: 50
 X-RateLimit-Remaining: 49
 ```
 
-Audit log API requests are limited to the amount specified in the returned X-RateLimit-Limit header, per 10 seconds. Exceeding the limit will cause audit log to return an `HTTP 429` response. Check the `X-RateLimit-Limit` and `X-RateLimit-Remaining` headers to see how many more requests you’re allowed until throttling kicks in.
+Audit log API requests are limited to 50 per 10 seconds, as specified in the returned `X-RateLimit-Limit` header. Paginated requests are limited to 3 per 30 seconds. Check the `X-RateLimit-Limit` and `X-RateLimit-Remaining` headers to see how many more requests are permitted until throttling kicks in. Exceeding the limit will return an `HTTP 429` response.
 
 <aside class="success">
 <b>Note</b>: An <code>HTTP 429</code> response will exclude the <code>X-RateLimit-Limit</code> and <code>X-RateLimit-Remaining</code> headers.
@@ -93,5 +93,6 @@ Unless otherwise specified, audit log API methods generally conform to the follo
 
 | Date                          | Description                                                                                                                       |
 |-------------------------------| --------------------------------------------------------------------------------------------------------------------------------- |
+| Nov 6, 2023 | Update Throttling section to Rate Limiting and updated approach to rate limiting.
 | Oct 26, 2023 | Update Pagination to reflect new approach to returning `pit_ids`.
 | July 14, 2023 | We added new query parameters to the Events endpoint, including `performer_ids`, `performer_types`, `performer_ip_addresses`, `event_types`, `event_target_ids`, `event_target_types`, `request_ids`, and `request_types`.
