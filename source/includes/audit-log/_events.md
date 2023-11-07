@@ -22,7 +22,6 @@ HTTP request
 
 curl -X GET 'https://auditlog.us.greenhouse.io/events'
 -H "Content-Type: application/json"
--H "On-Behalf-Of: {greenhouse user ID}"
 -H "Authorization: Bearer MeyJhbGci.eyJhdWQiO"
 
 {
