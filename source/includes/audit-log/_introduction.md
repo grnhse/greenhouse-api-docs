@@ -93,6 +93,7 @@ Unless otherwise specified, audit log API methods generally conform to the follo
 
 | Date                          | Description                                                                                                                       |
 |-------------------------------| --------------------------------------------------------------------------------------------------------------------------------- |
-| Nov 6, 2023 | Update Throttling section to Rate Limiting and updated approach to rate limiting.
-| Oct 26, 2023 | Update Pagination to reflect new approach to returning `pit_ids`.
+| Nov 7, 2023 | Removed On-Behalf-Of header from the [events object](#events) sample payload 
+| Nov 6, 2023 | Updated Throttling section to Rate limiting and updated approach to rate limiting.
+| Oct 26, 2023 | Updated Pagination to reflect new approach to returning `pit_ids`.
 | July 14, 2023 | We added new query parameters to the Events endpoint, including `performer_ids`, `performer_types`, `performer_ip_addresses`, `event_types`, `event_target_ids`, `event_target_types`, `request_ids`, and `request_types`.
