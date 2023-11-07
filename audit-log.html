@@ -198,9 +198,11 @@ X-RateLimit-Remaining: 49
 <td>Date</td><td>Description</td></tr>
 </thead><tbody>
 <tr>
-<td>Nov 6, 2023</td><td>Update Throttling section to Rate Limiting and updated approach to rate limiting.</td></tr>
+<td>Nov 7, 2023</td><td>Removed On-Behalf-Of header from the <a href="#events">events object</a> sample payload</td></tr>
 <tr>
-<td>Oct 26, 2023</td><td>Update Pagination to reflect new approach to returning <code class="prettyprint">pit_ids</code>.</td></tr>
+<td>Nov 6, 2023</td><td>Updated Throttling section to Rate limiting and updated approach to rate limiting.</td></tr>
+<tr>
+<td>Oct 26, 2023</td><td>Updated Pagination to reflect new approach to returning <code class="prettyprint">pit_ids</code>.</td></tr>
 <tr>
 <td>July 14, 2023</td><td>We added new query parameters to the Events endpoint, including <code class="prettyprint">performer_ids</code>, <code class="prettyprint">performer_types</code>, <code class="prettyprint">performer_ip_addresses</code>, <code class="prettyprint">event_types</code>, <code class="prettyprint">event_target_ids</code>, <code class="prettyprint">event_target_types</code>, <code class="prettyprint">request_ids</code>, and <code class="prettyprint">request_types</code>.</td></tr>
 </tbody></table>
@@ -248,7 +250,6 @@ X-RateLimit-Remaining: 49
 
 curl -X GET <span class="s1">'https://auditlog.us.greenhouse.io/events'</span>
 -H <span class="s2">"Content-Type: application/json"</span>
--H <span class="s2">"On-Behalf-Of: {greenhouse user ID}"</span>
 -H <span class="s2">"Authorization: Bearer MeyJhbGci.eyJhdWQiO"</span>
 
 <span class="o">{</span>
