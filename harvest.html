@@ -245,13 +245,17 @@ X-RateLimit-Remaining: 49
 <td>Error Code</td><td>Meaning</td></tr>
 </thead><tbody>
 <tr>
-<td>401</td><td>Unauthorized &ndash; Invalid Harvest API key. Check to make sure you&rsquo;re passing it in via the <code class="prettyprint">Authorization</code> header (Basic Auth)</td></tr>
+<td>401</td><td>Unauthorized – Ensure you’re using a valid Harvest API key with the correct permissions in the <code class="prettyprint">Authorization</code> header (Basic Auth).</td></tr>
 <tr>
-<td>403</td><td>Forbidden &ndash; You do not have access to that record.</td></tr>
+<td>403</td><td>Forbidden &ndash; You don&rsquo;t have access to that record.</td></tr>
 <tr>
-<td>404</td><td>Not Found &ndash; Resource not found</td></tr>
+<td>404</td><td>Not Found &ndash; Resource not found.</td></tr>
 <tr>
-<td>500</td><td>Server Error &ndash; We had a problem with our server. Try again later or contact us: support@greenhouse.io</td></tr>
+<td>422</td><td>Not processed – We&rsquo;re not able to process your request. Validate your parameters.</td></tr>
+<tr>
+<td>429</td><td>Rate limit exceeded – You&rsquo;re being (throttled)[https://developers.greenhouse.io/harvest.html#throttling] for exceeding our rate limit.</td></tr>
+<tr>
+<td>500</td><td>Server error – We&rsquo;re having a problem with our server. Give us a few minutes and try again, or check (our status page)[https://status.greenhouse.io/]</td></tr>
 </tbody></table>
 
 <h2 id="harvest-change-log">Harvest Change Log</h2>
@@ -262,6 +266,8 @@ X-RateLimit-Remaining: 49
 <tr>
 <td>Date</td><td>Description</td></tr>
 </thead><tbody>
+<tr>
+<td>Nov 13, 2023 11:09:00AM</td><td>Update error status code message.</td></tr>
 <tr>
 <td>Oct 30, 2023 3:20:00PM</td><td>Removed language indicating <a href="#put-anonymize-candidate">PUT: Anonymize Candidate</a> is restricted to Expert Tier</td></tr>
 <tr>
