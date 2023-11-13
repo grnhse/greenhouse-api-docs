@@ -159,12 +159,14 @@ Unless otherwise specified, API methods generally conform to the following:
 
 ## Errors
 
-| Error Code | Meaning                                                                                                                      |
-| ---------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| 401        | Unauthorized -- Invalid Harvest API key. Check to make sure you're passing it in via the `Authorization` header (Basic Auth) |
-| 403        | Forbidden -- You do not have access to that record.                                                                          |
-| 404        | Not Found -- Resource not found                                                                                              |
-| 500        | Server Error -- We had a problem with our server. Try again later or contact us: support@greenhouse.io                       |
+| Error Code | Meaning                                                                                                                                               |
+| ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 401        | Unauthorized – Ensure you’re using a valid Harvest API key with the correct permissions in the `Authorization` header (Basic Auth).                   |
+| 403        | Forbidden -- You don't have access to that record.                                                                                                    |
+| 404        | Not Found -- Resource not found.                                                                                                                      |
+| 422        | Not processed – We're not able to process your request. Validate your parameters.                                                                     |
+| 429        | Rate limit exceeded – You're being (throttled)[https://developers.greenhouse.io/harvest.html#throttling] for exceeding our rate limit.                |
+| 500        | Server error – We're having a problem with our server. Give us a few minutes and try again, or check (our status page)[https://status.greenhouse.io/] |
 
 ## Harvest Change Log
 
@@ -172,6 +174,7 @@ The timestamps below are Eastern Time.
 
 | Date                          | Description                                                                                                                       |
 |-------------------------------| --------------------------------------------------------------------------------------------------------------------------------- |
+| Nov 13, 2023 11:09:00AM | Update error status code message.
 | Oct 30, 2023 3:20:00PM | Removed language indicating [PUT: Anonymize Candidate](#put-anonymize-candidate) is restricted to Expert Tier
 | Oct 12, 2023 2:15:00PM | Updated Throttling section to Rate limiting and updated description
 | Aug 22, 2023 3:00:00PM | Included `active` attribute in the [Job Stage Object](#the-job-stage-object)
