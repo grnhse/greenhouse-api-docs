@@ -165,8 +165,8 @@ Unless otherwise specified, API methods generally conform to the following:
 | 403        | Forbidden -- You don't have access to that record.                                                                                                    |
 | 404        | Not Found -- Resource not found.                                                                                                                      |
 | 422        | Not processed – We're not able to process your request. Validate your parameters.                                                                     |
-| 429        | Rate limit exceeded – You're being (throttled)[https://developers.greenhouse.io/harvest.html#throttling] for exceeding our rate limit.                |
-| 500        | Server error – We're having a problem with our server. Give us a few minutes and try again, or check (our status page)[https://status.greenhouse.io/] |
+| 429        | Rate limit exceeded – You're being [throttled](https://developers.greenhouse.io/harvest.html#throttling) for exceeding our rate limit.                |
+| 500        | Server error – We're having a problem with our server. Give us a few minutes and try again, or check [our status page](https://status.greenhouse.io/) |
 
 ## Harvest Change Log
 
