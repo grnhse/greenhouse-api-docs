@@ -174,6 +174,7 @@ The timestamps below are Eastern Time.
 
 | Date                          | Description                                                                                                                       |
 |-------------------------------| --------------------------------------------------------------------------------------------------------------------------------- |
+| Nov 15, 2023 12:45:00PM | Added `job_post_custom_location_id` field to Job Post response object and updated sample response 
 | Nov 13, 2023 11:09:00AM | Update error status code message.
 | Oct 30, 2023 3:20:00PM | Removed language indicating [PUT: Anonymize Candidate](#put-anonymize-candidate) is restricted to Expert Tier
 | Oct 12, 2023 2:15:00PM | Updated Throttling section to Rate limiting and updated description

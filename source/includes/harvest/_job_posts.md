@@ -7,20 +7,27 @@ Describes the online job posts for an organization's jobs (as seen on the Job Bo
 ```json
 {
   "id": 123,
-  "title": "Button Pusher",
-  "location": {
-    "name": "The Island"
-  },
+  "title": "Software Engineer",
+    "location": {
+      "id": 123456,
+      "name": "New York, NY",
+      "office_id": null,
+      "job_post_custom_location_id": 303145,
+      "job_post_location_type": {
+        "id": 1,
+        "name": "Free Text"
+      }
+    },
   "internal": true,
   "external": false,
   "active": true,
   "live": true,
-  "first_published_at": "2014-04-03T17:06:18Z",
+  "first_published_at": "2023-04-03T18:06:18Z",
   "job_id": 1234,
-  "content": "<p>Do you want to save the world? &nbsp;If so, apply today!</p>",
-  "internal_content": "<p>Do you want to save the world? &nbsp;If so, apply today!</p>",
-  "updated_at": "2016-11-21T15:39:24Z",
-  "created_at": "2014-04-01T17:56:19Z",
+  "content": "<p>We’re looking for the next big innovator.</p>",
+  "internal_content": "<p>Apply today!</p>",
+  "updated_at": "2024-11-21T15:39:24Z",
+  "created_at": "2023-04-01T17:56:19Z",
   "demographic_question_set_id": 999,
   "questions": [
     {
@@ -80,7 +87,7 @@ Describes the online job posts for an organization's jobs (as seen on the Job Bo
     {
       "required": false,
       "private": false,
-      "label": "Have you ever won the lottery?",
+      "label": "Have you ever worked for our organization before?",
       "name": "question_234567",
       "type": "boolean",
       "values": [
@@ -98,7 +105,7 @@ Describes the online job posts for an organization's jobs (as seen on the Job Bo
     {
       "required": false,
       "private": true,
-      "label": "Do you know what 'the numbers' are?",
+      "label": "Have you applied to this job before?",
       "type": "multi_select",
       "name": "question_345678[]",
       "values": [
@@ -169,26 +176,27 @@ curl 'https://harvest.greenhouse.io/v1/job_posts'
 [
   {
     "id": 123,
-    "title": "Button Pusher",
+    "title": "Software Engineer",
     "location": {
-        "id": 123456,
-        "name": "New York, NY",
-        "office_id": null,
-        "job_post_location_type": {
-            "id": 1,
-            "name": "Free Text"
-        }
+      "id": 123456,
+      "name": "New York, NY",
+      "office_id": null,
+      "job_post_custom_location_id": 303145,
+      "job_post_location_type": {
+        "id": 1,
+        "name": "Free Text"
+      }
     },
     "internal": true,
     "external": false,
     "active": true,
     "live": true,
-    "first_published_at": "2014-04-03T17:06:18Z",
+    "first_published_at": "2023-04-03T18:06:18Z",
     "job_id": 1234,
-    "content": "<p>Do you want to save the world? &nbsp;If so, apply today!</p>",
-    "internal_content": "<p>Do you want to save the world? &nbsp;If so, apply today!</p>",
-    "updated_at": "2016-11-21T15:39:24Z",
-    "created_at": "2014-04-01T17:56:19Z",
+    "content": "<p>We’re looking for the next big innovator.</p>",
+    "internal_content": "<p>Apply today!</p>",
+    "updated_at": "2024-11-21T15:39:24Z",
+    "created_at": "2023-04-01T17:56:19Z",
     "demographic_question_set_id": 999,
     "questions": [
       {
@@ -248,7 +256,7 @@ curl 'https://harvest.greenhouse.io/v1/job_posts'
       {
         "required": false,
         "private": false,
-        "label": "Have you ever won the lottery?",
+        "label": "Have you ever worked for our organization before?",
         "name": "question_234567",
         "type": "boolean",
         "values": [
@@ -266,7 +274,7 @@ curl 'https://harvest.greenhouse.io/v1/job_posts'
       {
         "required": false,
         "private": true,
-        "label": "Do you know what 'the numbers' are?",
+        "label": "Have you applied to this job before?",
         "type": "multi_select",
         "name": "question_345678[]",
         "values": [
@@ -510,11 +518,12 @@ curl 'https://harvest.greenhouse.io/v1/jobs/{id}/job_posts'
 [
   {
     "id": 123,
-    "title": "Button Pusher",
+    "title": "Software Engineer",
     "location": {
       "id": 123456,
       "name": "New York, NY",
       "office_id": null,
+      "job_post_custom_location_id": 303145,
       "job_post_location_type": {
         "id": 1,
         "name": "Free Text"
@@ -524,12 +533,12 @@ curl 'https://harvest.greenhouse.io/v1/jobs/{id}/job_posts'
     "external": false,
     "active": true,
     "live": true,
-    "first_published_at": "2014-04-03T17:06:18Z",
+    "first_published_at": "2023-04-03T18:06:18Z",
     "job_id": 1234,
-    "content": "<p>Do you want to save the world? &nbsp;If so, apply today!</p>",
-    "internal_content": "<p>Do you want to save the world? &nbsp;If so, apply today!</p>",
-    "updated_at": "2016-11-21T15:39:24Z",
-    "created_at": "2014-04-01T17:56:19Z",
+    "content": "<p>We’re looking for the next big innovator.</p>",
+    "internal_content": "<p>Apply today!</p>",
+    "updated_at": "2024-11-21T15:39:24Z",
+    "created_at": "2023-04-01T17:56:19Z",
     "demographic_question_set_id": 999,
     "questions": [
       {
@@ -589,7 +598,7 @@ curl 'https://harvest.greenhouse.io/v1/jobs/{id}/job_posts'
       {
         "required": false,
         "private": false,
-        "label": "Have you ever won the lottery?",
+        "label": "Have you ever worked for our organization before?",
         "name": "question_234567",
         "type": "boolean",
         "values": [
@@ -607,7 +616,7 @@ curl 'https://harvest.greenhouse.io/v1/jobs/{id}/job_posts'
       {
         "required": false,
         "private": true,
-        "label": "Do you know what 'the numbers' are?",
+        "label": "Have you applied to this job before?",
         "type": "multi_select",
         "name": "question_345678[]",
         "values": [
@@ -650,7 +659,7 @@ curl 'https://harvest.greenhouse.io/v1/jobs/{id}/job_posts'
     "id": 129548,
     "demographic_question_set_id": 999,
     "live": true,
-    "first_published_at": "2014-04-03T17:06:18Z",
+    "first_published_at": "2023-04-03T18:06:18Z",
     "title": "Test job two",
     "location": {
       "name": "Material Plane"
@@ -659,8 +668,8 @@ curl 'https://harvest.greenhouse.io/v1/jobs/{id}/job_posts'
     "external": true,
     "job_id": 146218,
     "content": "job post content two",
-    "updated_at": "2016-11-21T15:39:24Z",
-    "created_at": "2014-04-01T17:56:19Z",
+    "updated_at": "2024-11-21T15:39:24Z",
+    "created_at": "2023-04-01T17:56:19Z",
     "internal_content": "",
     "created_at": "2015-11-22T05:49:35.145Z",
     "questions": [
