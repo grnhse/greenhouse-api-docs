@@ -8,16 +8,16 @@ Describes the online job posts for an organization's jobs (as seen on the Job Bo
 {
   "id": 123,
   "title": "Software Engineer",
-    "location": {
-      "id": 123456,
-      "name": "New York, NY",
-      "office_id": null,
-      "job_post_custom_location_id": 303145,
-      "job_post_location_type": {
-        "id": 1,
-        "name": "Free Text"
-      }
-    },
+  "location": {
+    "id": 123456,
+    "name": "New York, NY",
+    "office_id": null,
+    "job_post_custom_location_id": 303145,
+    "job_post_location_type": {
+      "id": 1,
+      "name": "Free Text"
+    }
+  },
   "internal": true,
   "external": false,
   "active": true,
