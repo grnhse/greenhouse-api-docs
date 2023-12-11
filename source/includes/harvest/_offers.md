@@ -663,6 +663,8 @@ curl -X PATCH 'https://harvest.greenhouse.io/v1/applications/{id}/offers/current
 
 Update the current offer on the given application. The response will only tell you if the update succeeded.
 
+**Note**: You can't update offers on hired candidates.
+
 ### HTTP Request
 
 `PATCH https://harvest.greenhouse.io/v1/applications/{id}/offers/current_offer`
