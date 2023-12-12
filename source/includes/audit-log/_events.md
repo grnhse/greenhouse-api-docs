@@ -1,6 +1,9 @@
 # Events
+
 ## The events object
+
 The events object is the audit log’s collected record of important events in Greenhouse Recruiting from the previous thirty days. A single event may return multiple results. For instance, an event and its resulting changes will return individual results that can be linked by `request.id`.
+
 ### Attributes
 Attribute | Definition
 --------- | -----------
@@ -16,7 +19,8 @@ event.type | One of the following values: `data_change_update`, `data_change_cre
 event.target_id | The ID of the element that was edited or accessed; this may be blank if the action does not target one particular ID
 event.target_type | The resource name for data changes, Harvest access, or the event action type for other actions
 event.meta | The before and after values from data change events, or other relevant data for the event such as the title of a report
-### GET: Retrieve events
+
+## GET: Retrieve events
 ```shell
 HTTP request
 
@@ -93,7 +97,9 @@ curl -X GET 'https://auditlog.us.greenhouse.io/events'
 #### HTTP request
 
 `GET https://auditlog.us.greenhouse.io/events/`
+
 #### URL Parameters
+
 Parameter | Definition
 --------- | -----------
 before_time (optional) | Use this parameter to retrieve audit log before a certain point in time, represented in `ISO-8601` format like `2024-02-03T16:38:46.985Z`. This parameter can be combined with after_time for a date range.
