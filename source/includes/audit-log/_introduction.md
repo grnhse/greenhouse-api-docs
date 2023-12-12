@@ -93,6 +93,7 @@ Unless otherwise specified, audit log API methods generally conform to the follo
 
 | Date                          | Description                                                                                                                       |
 |-------------------------------| --------------------------------------------------------------------------------------------------------------------------------- |
+| Dec 12, 2023 | Fix bug with missing GET events in nav menu
 | Nov 7, 2023 | Removed On-Behalf-Of header from the [events object](#events) sample payload 
 | Nov 6, 2023 | Updated Throttling section to Rate limiting and updated approach to rate limiting.
 | Oct 26, 2023 | Updated Pagination to reflect new approach to returning `pit_ids`.
