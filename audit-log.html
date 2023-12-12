@@ -198,6 +198,8 @@ X-RateLimit-Remaining: 49
 <td>Date</td><td>Description</td></tr>
 </thead><tbody>
 <tr>
+<td>Dec 12, 2023</td><td>Fix bug with missing GET events in nav menu</td></tr>
+<tr>
 <td>Nov 7, 2023</td><td>Removed On-Behalf-Of header from the <a href="#events">events object</a> sample payload</td></tr>
 <tr>
 <td>Nov 6, 2023</td><td>Updated Throttling section to Rate limiting and updated approach to rate limiting.</td></tr>
@@ -245,7 +247,7 @@ X-RateLimit-Remaining: 49
 <td>event.meta</td><td>The before and after values from data change events, or other relevant data for the event such as the title of a report</td></tr>
 </tbody></table>
 
-<h3 id="get-retrieve-events">GET: Retrieve events</h3>
+<h2 id="get-retrieve-events">GET: Retrieve events</h2>
 <pre class="highlight shell"><code>HTTP request
 
 curl -X GET <span class="s1">'https://auditlog.us.greenhouse.io/events'</span>
