@@ -2122,6 +2122,7 @@ Represents a single document attached to an [Employee](#employee).
 
 Field | Type | Description
 --------- | ----------- | -----------
+assignedTaskName | [String!](#string) | Name of the task the document is attached to.
 createdAt | [DateTime!](#datetime) |
 file | [File](#file) | Contains the file payload.
 id | [ID!](#id) |
