@@ -174,6 +174,7 @@ The timestamps below are Eastern Time.
 
 | Date                          | Description                                                                                                                       |
 |-------------------------------| --------------------------------------------------------------------------------------------------------------------------------- |
+| Feb 23 2024 1:00:00PM | Updated description of the application parameter in the [POST: Add Prospect](#post-add-prospect) documentation
 | Dec 11, 2023 4:00:00PM | Added a Note to [PATCH: Update Current Offer](#patch-update-current-offer) documentation
 | Nov 15, 2023 12:45:00PM | Added `job_post_custom_location_id` field to Job Post response object and updated sample response 
 | Nov 13, 2023 11:09:00AM | Update error status code message.
