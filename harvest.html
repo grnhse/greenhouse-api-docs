@@ -267,6 +267,8 @@ X-RateLimit-Remaining: 49
 <td>Date</td><td>Description</td></tr>
 </thead><tbody>
 <tr>
+<td>Feb 23 2024 1:00:00PM</td><td>Updated description of the application parameter in the <a href="#post-add-prospect">POST: Add Prospect</a> documentation</td></tr>
+<tr>
 <td>Dec 11, 2023 4:00:00PM</td><td>Added a Note to <a href="#patch-update-current-offer">PATCH: Update Current Offer</a> documentation</td></tr>
 <tr>
 <td>Nov 15, 2023 12:45:00PM</td><td>Added <code class="prettyprint">job_post_custom_location_id</code> field to Job Post response object and updated sample response</td></tr>
@@ -5072,7 +5074,7 @@ X-RateLimit-Remaining: 49
 <tr>
 <td>activity_feed_notes</td><td>No</td><td>Array</td><td>An array of activity feed objects. See <a href="#post-add-note">Add Note</a> for parameters.</td></tr>
 <tr>
-<td>application</td><td>No</td><td>Hash</td><td>As opposed to candidate, a prospect is a single application object that contains multiple job ids.  A prospect in Greenhouse can be attached to zero or many jobs.  If the request does not contain an application object, the person will be created as a jobless prospect.  The source_id, referrer, custom_fields, and attachments parameters in this object match the format of the <a href="#post-add-application">Add Application</a> endpoint.</td></tr>
+<td>application</td><td>No</td><td>Hash</td><td>Unlike a candidate application, a prospect application can contain zero or multiple job IDs because a prospect in Greenhouse Recruiting can be attached to zero or many jobs. If your request doesn’t contain an application object, the prospect will be created with a single, jobless application. If your request includes an application object, the <code class="prettyprint">source_id</code>, <code class="prettyprint">referrer</code>, <code class="prettyprint">custom_fields</code>, and <code class="prettyprint">attachments</code> parameters must match the format of the <a href="#post-add-application">Add Application</a> endpoint.</td></tr>
 <tr>
 <td>application[job_ids]</td><td>No</td><td>Array</td><td>This element is unique to the prospects endpoint. This contains an array of job ids to which the prospect will be assigned.  Note that even if the application object is included, this may still be blank or omitted and the request will create a jobless prospect. A normal use case for this would be creating a jobless prospect but still wanting to attach their resume or identify their source.</td></tr>
 </tbody></table>
