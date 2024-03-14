@@ -2321,6 +2321,7 @@ Field | Type | Description
 counterSigner | [Employee](#employee) | The employee responsible for counter-signing this document, if applicable.
 createdAt | [DateTime](#datetime) |
 file | [File](#file) | This is available only for completed signatures.
+formFields | [JSON](#JSON) | An array of values entered in the e-signature document by the signer (and counter signer if applicable). This is available only for completed signatures.
 id | [ID](#id) |
 signatureRequestTemplate | [SignatureRequestTemplate!](#signaturerequesttemplate) |
 status | [SignatureRequestStatus](#signaturerequeststatus) |
