@@ -848,6 +848,7 @@ us anything. This really comes in handy when paired with other queries.</p>
         id
         email
       }
+      formFields(fieldNames: ["first_name", "last_name"])
       file {
         fileUrl
       }
@@ -3013,6 +3014,8 @@ mutation {
 <tr>
 <td>file</td><td><a href="#file">File</a></td><td>This is available only for completed signatures.</td></tr>
 <tr>
+<td>formFields</td><td><a href="#JSON">JSON</a></td><td>An array of values entered in the e-signature document by the signer (and counter signer if applicable). This is available only for completed signatures.</td></tr>
+<tr>
 <td>id</td><td><a href="#id">ID</a></td><td></td></tr>
 <tr>
 <td>signatureRequestTemplate</td><td><a href="#signaturerequesttemplate">SignatureRequestTemplate!</a></td><td></td></tr>
@@ -3631,6 +3634,10 @@ mutation {
 <h2 id="int">Int</h2>
 
 <p>Represents non-fractional signed whole numeric values. Int can represent values between -(2^31) and 2^31 - 1.</p>
+
+<h2 id="json">JSON</h2>
+
+<p>Represents untyped JSON</p>
 
 <h2 id="string">String</h2>
 
