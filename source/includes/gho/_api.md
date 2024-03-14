@@ -2671,6 +2671,9 @@ Represents a unique identifier that is Base64 obfuscated. It is often used to re
 ## Int
 Represents non-fractional signed whole numeric values. Int can represent values between -(2^31) and 2^31 - 1.
 
+## JSON
+Represents untyped JSON
+
 ## String
 Represents textual data as UTF-8 character sequences. This type is most often used by GraphQL to represent free-form human-readable text.
 
