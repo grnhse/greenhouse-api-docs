@@ -444,6 +444,7 @@ last | [Int](#int) | Returns the last _n_ elements from the list. |
         id
         email
       }
+      formFields(fieldNames: ["first_name", "last_name"])
       file {
         fileUrl
       }
@@ -2321,6 +2322,7 @@ Field | Type | Description
 counterSigner | [Employee](#employee) | The employee responsible for counter-signing this document, if applicable.
 createdAt | [DateTime](#datetime) |
 file | [File](#file) | This is available only for completed signatures.
+formFields | [JSON](#JSON) | An array of values entered in the e-signature document by the signer (and counter signer if applicable). This is available only for completed signatures.
 id | [ID](#id) |
 signatureRequestTemplate | [SignatureRequestTemplate!](#signaturerequesttemplate) |
 status | [SignatureRequestStatus](#signaturerequeststatus) |
@@ -2669,6 +2671,9 @@ Represents a unique identifier that is Base64 obfuscated. It is often used to re
 
 ## Int
 Represents non-fractional signed whole numeric values. Int can represent values between -(2^31) and 2^31 - 1.
+
+## JSON
+Represents untyped JSON
 
 ## String
 Represents textual data as UTF-8 character sequences. This type is most often used by GraphQL to represent free-form human-readable text.
