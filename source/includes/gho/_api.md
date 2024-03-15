@@ -444,7 +444,6 @@ last | [Int](#int) | Returns the last _n_ elements from the list. |
         id
         email
       }
-      formFields(fieldNames: ["first_name", "last_name"])
       file {
         fileUrl
       }
@@ -459,8 +458,17 @@ last | [Int](#int) | Returns the last _n_ elements from the list. |
     }
   }
 }
+```
 
-
+```graphql
+# Request an employee, limit their signatureRequests to those that are completed an request the formFields
+{
+  employee(id: 20) {
+    signatureRequests(statuses: [COMPLETED]) {
+      formFields(fieldNames: ["first_name", "last_name"])
+    }
+  }
+}
 ```
 An Onboarding employee record
 
