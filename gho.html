@@ -848,7 +848,6 @@ us anything. This really comes in handy when paired with other queries.</p>
         id
         email
       }
-      formFields(fieldNames: ["first_name", "last_name"])
       file {
         fileUrl
       }
@@ -863,8 +862,15 @@ us anything. This really comes in handy when paired with other queries.</p>
     }
   }
 }
-
-
+</code></pre>
+<pre class="highlight plaintext"><code># Request an employee, limit their signatureRequests to those that are completed an request the formFields
+{
+  employee(id: 20) {
+    signatureRequests(statuses: [COMPLETED]) {
+      formFields(fieldNames: ["first_name", "last_name"])
+    }
+  }
+}
 </code></pre>
 
 <p>An Onboarding employee record</p>
