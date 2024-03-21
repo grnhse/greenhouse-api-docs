@@ -93,7 +93,9 @@ X-RateLimit-Limit: 50
 X-RateLimit-Remaining: 49
 ```
 
-Harvest API requests are limited to the amount specified in the returned `X-RateLimit-Limit` header, per 10 seconds. Check the `X-RateLimit-Limit` and `X-RateLimit-Remaining` headers to see how many more requests are permitted before you're throttled. Exceeding the limit will return an `HTTP 429` response. In the `HTTP 429` response, the `Retry-After` header includes an Epoch / Unix timestamp indicating when you can try again.
+Harvest API requests for approved Greenhouse partners and customer-built custom integrations are limited to the amount specified in the returned `X-RateLimit-Limit` header, per 10 seconds. Unlisted vendors may be subject to additional rate limits.
+
+Exceeding the limit will return an `HTTP 429` response. Status requests for approved integrations can be checked using the `X-RateLimit-Remaining` header. In the `HTTP 429` response, the `X-RateLimit-Reset` header is the timestamp indicating when you can try again while the `Retry-After` header is the number of seconds indicating when you can try again.
 
 ## Pagination
 
@@ -174,6 +176,7 @@ The timestamps below are Eastern Time.
 
 | Date                          | Description                                                                                                                       |
 |-------------------------------| --------------------------------------------------------------------------------------------------------------------------------- |
+| Mar 21, 2024 3:15:00PM | Updated description in the [Rate-Limiting](#rate-limiting) section
 | Feb 23 2024 1:00:00PM | Updated description of the application parameter in the [POST: Add Prospect](#post-add-prospect) documentation
 | Dec 11, 2023 4:00:00PM | Added a Note to [PATCH: Update Current Offer](#patch-update-current-offer) documentation
 | Nov 15, 2023 12:45:00PM | Added `job_post_custom_location_id` field to Job Post response object and updated sample response 
