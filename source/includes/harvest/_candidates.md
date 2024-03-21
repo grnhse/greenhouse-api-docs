@@ -517,7 +517,7 @@ List all of an organization's candidates.
 | created_after | Return only candidates that were created at or after this timestamp. Timestamp must be in in [ISO-8601] (#general-considerations) format.
 | updated_before | Return only candidates that were updated before this timestamp. Timestamp must be in in [ISO-8601] (#general-considerations) format.
 | updated_after | Return only candidates that were updated at or after this timestamp. Timestamp must be in in [ISO-8601] (#general-considerations) format.
-| job_id | If supplied, only return candidates that have applied to this job. Will return both when a candidate has applied to a job and when they're a prospect for a job.
+| job_id | Only returns candidates who have applied to the specified job. Prospects on the job are not included.
 | email | If supplied, only return candidates who have a matching e-mail address. If supplied with job_id, only return a candidate with a matching e-mail with an application on the job. If email and candidate_ids are included, candidate_ids will be ignored.
 | candidate_ids | If supplied, return only the candidates with the given ids. These are supplied as a comma separated string. e.g.: "candidate_ids=123,456,789".  When combined with job_id, only return candidates with an application on the job. A maximum of 50 candidates can be returned this way.
 
