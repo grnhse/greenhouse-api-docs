@@ -170,7 +170,9 @@ X-RateLimit-Limit: 50
 X-RateLimit-Remaining: 49
 </code></pre>
 
-<p>Harvest API requests are limited to the amount specified in the returned <code class="prettyprint">X-RateLimit-Limit</code> header, per 10 seconds. Check the <code class="prettyprint">X-RateLimit-Limit</code> and <code class="prettyprint">X-RateLimit-Remaining</code> headers to see how many more requests are permitted before you&rsquo;re throttled. Exceeding the limit will return an <code class="prettyprint">HTTP 429</code> response. In the <code class="prettyprint">HTTP 429</code> response, the <code class="prettyprint">Retry-After</code> header includes an Epoch / Unix timestamp indicating when you can try again.</p>
+<p>Harvest API requests for approved Greenhouse partners and customer-built custom integrations are limited to the amount specified in the returned <code class="prettyprint">X-RateLimit-Limit</code> header, per 10 seconds. Unlisted vendors may be subject to additional rate limits.</p>
+
+<p>Exceeding the limit will return an <code class="prettyprint">HTTP 429</code> response. Status requests for approved integrations can be checked using the <code class="prettyprint">X-RateLimit-Remaining</code> header. In the <code class="prettyprint">HTTP 429</code> response, the <code class="prettyprint">X-RateLimit-Reset</code> header is the timestamp indicating when you can try again while the <code class="prettyprint">Retry-After</code> header is the number of seconds indicating when you can try again.</p>
 
 <h2 id="pagination">Pagination</h2>
 
@@ -266,6 +268,8 @@ X-RateLimit-Remaining: 49
 <tr>
 <td>Date</td><td>Description</td></tr>
 </thead><tbody>
+<tr>
+<td>Mar 21, 2024 3:15:00PM</td><td>Updated description in the <a href="#rate-limiting">Rate-Limiting</a> section</td></tr>
 <tr>
 <td>Feb 23 2024 1:00:00PM</td><td>Updated description of the application parameter in the <a href="#post-add-prospect">POST: Add Prospect</a> documentation</td></tr>
 <tr>
