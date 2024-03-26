@@ -269,6 +269,8 @@ X-RateLimit-Remaining: 49
 <td>Date</td><td>Description</td></tr>
 </thead><tbody>
 <tr>
+<td>Mar 25, 2024 9:15:00AM</td><td>Updated <code class="prettyprint">job_id</code> description in the <a href="#get-list-candidates">GET: List Candidates</a> section</td></tr>
+<tr>
 <td>Mar 21, 2024 3:15:00PM</td><td>Updated description in the <a href="#rate-limiting">Rate-Limiting</a> section</td></tr>
 <tr>
 <td>Feb 23 2024 1:00:00PM</td><td>Updated description of the application parameter in the <a href="#post-add-prospect">POST: Add Prospect</a> documentation</td></tr>
@@ -3393,7 +3395,7 @@ X-RateLimit-Remaining: 49
 <tr>
 <td>updated_after</td><td>Return only candidates that were updated at or after this timestamp. Timestamp must be in in <a href="#general-considerations">ISO-8601</a> format.</td></tr>
 <tr>
-<td>job_id</td><td>If supplied, only return candidates that have applied to this job. Will return both when a candidate has applied to a job and when they&rsquo;re a prospect for a job.</td></tr>
+<td>job_id</td><td>Only returns candidates who have applied to the specified job. Prospects on the job are not included.</td></tr>
 <tr>
 <td>email</td><td>If supplied, only return candidates who have a matching e-mail address. If supplied with job_id, only return a candidate with a matching e-mail with an application on the job. If email and candidate_ids are included, candidate_ids will be ignored.</td></tr>
 <tr>
