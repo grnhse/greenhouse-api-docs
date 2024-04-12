@@ -116,7 +116,7 @@ curl 'https://harvest.greenhouse.io/v1/offices'
     ],
     "child_office_external_ids": [
         "child-office-1",
-        nil
+        ""
     ],
     "external_id": "12345"
   },
@@ -144,46 +144,54 @@ curl 'https://harvest.greenhouse.io/v1/offices'
     "id": 50891,
     "name": "Utica",
     "location": {
-        "name": "Utica, New York, United States"
+      "name": "Utica, New York, United States"
     },
     "primary_contact_user_id": 336474,
-    "parent_id": 47012,
-    "parent_office_external_id": "parent-1",
-    "child_ids": [],
-    "child_office_external_ids": [],
-    "external_id": "45647"
-  },
-  {
-    "id": 47012,
-    "name": "New York",
-    "location": {
-        "name": "New York, United States"
-    },
-    "primary_contact_user_id": 485538,
-    "parent_id": 50849,
-    "parent_office_external_id": "parent-2",
-    "child_ids": [
-        50891,
-        50852
-    ],
-    "child_office_external_ids": [
-        "child-office-1",
-        nil
-    ],
-    "external_id": "12345"
+    "external_id": "45647",
+    "children": [
+      {
+        "id": 12345,
+        "name": "Child-office-1",
+        "location": {
+          "name": "Rome, New York, United States"
+        },
+        "primary_contact_user_id": 95313,
+        "external_id": "Rome-NY",
+        "children": [
+          {
+            "id": 54321,
+            "name": "Child-office-1-2",
+            "location": {
+              "name": "Syracuse, New York, United States"
+            },
+            "primary_contact_user_id": 95313,
+            "external_id": "Syracuse-NY",
+            "children": []
+          }
+        ]
+      }
+    ]
   },
   {
     "id": 50852,
-    "name": "New York City",
+    "name": "New York",
     "location": {
-        "name": "New York, New York, United States"
+      "name": "New York City, New York, United States"
     },
-    "primary_contact_user_id": 676259,
-    "parent_id": 47012,
-    "parent_office_external_id": "parent-1",
-    "child_ids": [],
-    "child_office_external_ids": [],
-    "external_id": "67890"
+    "primary_contact_user_id": 5659415,
+    "external_id": "NYC-123",
+    "children": [
+      {
+        "id": 4020460005,
+        "name": "Child-office-2",
+        "location": {
+          "name": "New York City, New York, United States"
+        },
+        "primary_contact_user_id": 567863,
+        "external_id": "Manhattan",
+        "children": []
+      }
+    ]
   }
 ]
 ```
@@ -232,7 +240,7 @@ curl 'https://harvest.greenhouse.io/v1/offices/{id}'
   ],
   "child_office_external_ids": [
       "child-office-1",
-      nil
+      ""
   ],
   "external_id": "12345"
 }

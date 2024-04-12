@@ -176,6 +176,7 @@ The timestamps below are Eastern Time.
 
 | Date                          | Description                                                                                                                       |
 |-------------------------------| --------------------------------------------------------------------------------------------------------------------------------- |
+| Apr 12, 2024 9:30:00AM | Updated sample response in the [GET: List Offices](#get-list-offices) and [GET: Retrieve Office](#get-retrieve-office) documentation
 | Mar 25, 2024 9:15:00AM | Updated `job_id` description in the [GET: List Candidates](#get-list-candidates) section
 | Mar 21, 2024 3:15:00PM | Updated description in the [Rate-Limiting](#rate-limiting) section
 | Feb 23 2024 1:00:00PM | Updated description of the application parameter in the [POST: Add Prospect](#post-add-prospect) documentation
