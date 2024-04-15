@@ -269,6 +269,8 @@ X-RateLimit-Remaining: 49
 <td>Date</td><td>Description</td></tr>
 </thead><tbody>
 <tr>
+<td>Apr 12, 2024 9:30:00AM</td><td>Updated sample response in the <a href="#get-list-offices">GET: List Offices</a> and <a href="#get-retrieve-office">GET: Retrieve Office</a> documentation</td></tr>
+<tr>
 <td>Mar 25, 2024 9:15:00AM</td><td>Updated <code class="prettyprint">job_id</code> description in the <a href="#get-list-candidates">GET: List Candidates</a> section</td></tr>
 <tr>
 <td>Mar 21, 2024 3:15:00PM</td><td>Updated description in the <a href="#rate-limiting">Rate-Limiting</a> section</td></tr>
@@ -12504,7 +12506,7 @@ X-RateLimit-Remaining: 49
     </span><span class="p">],</span><span class="w">
     </span><span class="nt">"child_office_external_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="s2">"child-office-1"</span><span class="p">,</span><span class="w">
-        </span><span class="err">nil</span><span class="w">
+        </span><span class="s2">""</span><span class="w">
     </span><span class="p">],</span><span class="w">
     </span><span class="nt">"external_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345"</span><span class="w">
   </span><span class="p">},</span><span class="w">
@@ -12532,46 +12534,54 @@ X-RateLimit-Remaining: 49
     </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">50891</span><span class="p">,</span><span class="w">
     </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Utica"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"location"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Utica, New York, United States"</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Utica, New York, United States"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="nt">"primary_contact_user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">336474</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"parent_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">47012</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"parent_office_external_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"parent-1"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"child_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-    </span><span class="nt">"child_office_external_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-    </span><span class="nt">"external_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"45647"</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">47012</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"New York"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"location"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"New York, United States"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="nt">"primary_contact_user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">485538</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"parent_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">50849</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"parent_office_external_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"parent-2"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"child_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="mi">50891</span><span class="p">,</span><span class="w">
-        </span><span class="mi">50852</span><span class="w">
-    </span><span class="p">],</span><span class="w">
-    </span><span class="nt">"child_office_external_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="s2">"child-office-1"</span><span class="p">,</span><span class="w">
-        </span><span class="err">nil</span><span class="w">
-    </span><span class="p">],</span><span class="w">
-    </span><span class="nt">"external_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345"</span><span class="w">
+    </span><span class="nt">"external_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"45647"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"children"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">12345</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Child-office-1"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"location"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rome, New York, United States"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"primary_contact_user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">95313</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"external_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rome-NY"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"children"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">54321</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Child-office-1-2"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"location"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+              </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Syracuse, New York, United States"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nt">"primary_contact_user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">95313</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"external_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Syracuse-NY"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"children"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">50852</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"New York City"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"New York"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"location"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"New York, New York, United States"</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"New York City, New York, United States"</span><span class="w">
     </span><span class="p">},</span><span class="w">
-    </span><span class="nt">"primary_contact_user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">676259</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"parent_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">47012</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"parent_office_external_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"parent-1"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"child_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-    </span><span class="nt">"child_office_external_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-    </span><span class="nt">"external_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"67890"</span><span class="w">
+    </span><span class="nt">"primary_contact_user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5659415</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"external_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NYC-123"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"children"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4020460005</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Child-office-2"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"location"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"New York City, New York, United States"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"primary_contact_user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">567863</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"external_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Manhattan"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"children"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
@@ -12624,7 +12634,7 @@ X-RateLimit-Remaining: 49
   </span><span class="p">],</span><span class="w">
   </span><span class="nt">"child_office_external_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
       </span><span class="s2">"child-office-1"</span><span class="p">,</span><span class="w">
-      </span><span class="err">nil</span><span class="w">
+      </span><span class="s2">""</span><span class="w">
   </span><span class="p">],</span><span class="w">
   </span><span class="nt">"external_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345"</span><span class="w">
 </span><span class="p">}</span><span class="w">
