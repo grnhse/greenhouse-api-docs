@@ -1001,7 +1001,7 @@ See web hook [common attributes](#common-attributes).
       "id": 15696179,
       "first_name": "Ronald",
       "last_name": "Ronnie",
-      "title": "Director of Strategic Janitorial Initiatives",
+      "title": "Director of Strategic Initiatives",
       "company": "Example",
       "created_at": "2016-08-23T17:51:27Z",
       "external_id": "946aa514658",

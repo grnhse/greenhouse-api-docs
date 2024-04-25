@@ -8,7 +8,7 @@
     {
       "id":127817,
       "internal_job_id":144381,
-      "title":"Bad Cop",
+      "title":"Vault Designer",
       "updated_at":"2016-01-14T10:55:28-05:00",
       "requisition_id": "50",
       "location":{
@@ -32,7 +32,7 @@
     {
       "id":127817,
       "internal_job_id":144381,
-      "title":"Bad Cop",
+      "title":"Vault Designer",
       "updated_at":"2016-01-14T10:55:28-05:00",
       "requisition_id": "50",
       "location":{
@@ -40,7 +40,7 @@
       },
       "absolute_url":"https://boards.greenhouse.io/vaulttec/jobs/127817",
       "metadata":null,
-      "content":"&lt;p&gt;The Rule Enforcement team is dedicated to keeping all employees in line. &amp;nbsp;Rule enforcers use&amp;nbsp;various tactics such as physical intimidation, awkward pauses, and dramatic coffee sips in order to make sure everyone does what they&#39;re told.",
+      "content":"This is the job description. &amp;lt;p&amp;gt;Any HTML included through the hosted job application editor will be automatically converted into corresponding HTML entitites.&amp;lt;/p&amp;gt;",
       "departments":[
         {
           "id":13583,
