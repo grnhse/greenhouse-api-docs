@@ -161,8 +161,9 @@ curl 'https://harvest.greenhouse.io/v1/departments'
 
 | Parameter | Description |
 |-----------|-------------|
-| per_page | Return up to this number of objects per response. Must be an integer between 1 and 500. Defaults to 100.
-| page | A cursor for use in pagination.  Returns the n-th chunk of `per_page` objects.
+| *per_page | Return up to this number of objects per response. Must be an integer between 1 and 500. Defaults to 100.
+| *page | A cursor for use in pagination.  Returns the n-th chunk of `per_page` objects.
+| *skip_count | If `true`, the performance of retrieving departments will improve. This will remove `last` from the `link` response header.
 | render_as | This parameter defines how to represent the list of departments. The default value is 'list', which returns a flat list of departments.  If this is set to 'tree', departments are represented in a tree-like structure where they may include sub-departments as `children`.
 | external_id | If supplied, only return department(s) with that external ID.
 

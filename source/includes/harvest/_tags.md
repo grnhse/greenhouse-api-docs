@@ -50,6 +50,14 @@ curl -X GET 'https://harvest.greenhouse.io/v1/tags/candidate'
 
 `GET https://harvest.greenhouse.io/v1/tags/candidate`
 
+### Querystring parameters
+
+| Parameter   | Description |
+|-------------|-------------|
+| *per_page   | Return up to this number of objects per response. Must be an integer between 1 and 500. Defaults to 100.
+| *page       | A cursor for use in pagination.  Returns the n-th chunk of `per_page` objects.
+| *skip_count | If `true`, the performance of retrieving candidate tags will improve. This will remove `last` from the `link` response header.
+
 <br>
 
 [See noteworthy response attributes.](#the-candidate-tag-object)

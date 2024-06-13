@@ -247,8 +247,9 @@ curl 'https://harvest.greenhouse.io/v1/offers'
 
 | Parameter | Description |
 |-----------|-------------|
-| per_page | Return up to this number of objects per response. Must be an integer between 1 and 500. Defaults to 100.
-| page | A cursor for use in pagination.  Returns the n-th chunk of `per_page` objects.
+| *per_page | Return up to this number of objects per response. Must be an integer between 1 and 500. Defaults to 100.
+| *page | A cursor for use in pagination.  Returns the n-th chunk of `per_page` objects.
+| *skip_count | If `true`, the performance of retrieving offers will improve. This will remove `last` from the `link` response header.
 | created_before | Return only offers that were created before this timestamp. Timestamp must be in in [ISO-8601] (#general-considerations) format.
 | created_after | Return only offers that were created at or after this timestamp. Timestamp must be in in [ISO-8601] (#general-considerations) format.
 | updated_before | Return only offers that were updated at or before this timestamp. Timestamp must be in in [ISO-8601] (#general-considerations) format.
@@ -427,8 +428,9 @@ application_id | ID of the application whose offers you want to retrieve
 
 | Parameter | Description |
 |-----------|-------------|
-| per_page | Return up to this number of objects per response. Must be an integer between 1 and 500. Defaults to 100.
-| page | A cursor for use in pagination.  Returns the n-th chunk of `per_page` objects.
+| *per_page | Return up to this number of objects per response. Must be an integer between 1 and 500. Defaults to 100.
+| *page | A cursor for use in pagination.  Returns the n-th chunk of `per_page` objects.
+| *skip_count | If `true`, the performance of retrieving application offers will improve. This will remove `last` from the `link` response header.
 
 <br>
 [See noteworthy response attributes.](#the-offer-object)

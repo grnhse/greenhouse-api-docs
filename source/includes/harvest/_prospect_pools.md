@@ -103,8 +103,9 @@ List all of an organization's prospect pools.
 
 | Parameter | Description |
 |-----------|-------------|
-| per_page | Return up to this number of objects per response. Must be an integer between 1 and 500. Defaults to 100.
-| page | A cursor for use in pagination.  Returns the n-th chunk of `per_page` objects.
+| *per_page | Return up to this number of objects per response. Must be an integer between 1 and 500. Defaults to 100.
+| *page | A cursor for use in pagination.  Returns the n-th chunk of `per_page` objects.
+| *skip_count | If `true`, the performance of retrieving prospect pools will improve. This will remove `last` from the `link` response header.
 
 <br>
 [See noteworthy response attributes.](#the-prospect-pool-object)

@@ -312,6 +312,7 @@ List all of an organization's applications.
 |-----------|-------------|
 | *per_page | Return up to this number of objects per response. Must be an integer between 1 and 500. Defaults to 100.
 | *page | A cursor for use in pagination.  Returns the n-th chunk of `per_page` objects.
+| *skip_count | If `true`, the performance of retrieving applications will improve. This will remove `last` from the `link` response header.
 | created_before | Return only applications that were created before this timestamp. Timestamp must be in in [ISO-8601] (#general-considerations) format.
 | created_after | Return only applications that were created at or after this timestamp. Timestamp must be in in [ISO-8601] (#general-considerations) format.
 | last_activity_after | Return only applications where 'last_activity_at' is at or after this timestamp. Timestamp must be in in [ISO-8601] (#general-considerations) format.

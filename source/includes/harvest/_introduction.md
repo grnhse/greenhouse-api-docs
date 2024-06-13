@@ -110,7 +110,7 @@ API methods that return a collection of results are always paginated. Paginated 
 
 - `next`. The corresponding URL is the link to the next page.
 - `prev`. The corresponding URL is the link to the previous page.
-- `last`. The corresponding URL is the link to the last page.
+- `last`. The corresponding URL is the link to the last page. Will not be returned if the query param `skip_count` is `true`.
 
 Note that when this header is not set, there is only one page, the first page, of results.
 
@@ -176,6 +176,7 @@ The timestamps below are Eastern Time.
 
 | Date                          | Description                                                                                                                       |
 |-------------------------------| --------------------------------------------------------------------------------------------------------------------------------- |
+| Jun 13, 2024 5:00:00PM | Updated [Introduction - Pagination](#pagination) `last` param, and all list endpoint documentation using old pagination to include `skip_count` param 
 | Apr 12, 2024 9:30:00AM | Updated sample response in the [GET: List Offices](#get-list-offices) and [GET: Retrieve Office](#get-retrieve-office) documentation
 | Mar 25, 2024 9:15:00AM | Updated `job_id` description in the [GET: List Candidates](#get-list-candidates) section
 | Mar 21, 2024 3:15:00PM | Updated description in the [Rate-Limiting](#rate-limiting) section

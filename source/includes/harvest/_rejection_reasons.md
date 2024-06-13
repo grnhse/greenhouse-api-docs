@@ -71,8 +71,9 @@ List all of an organization's rejection reasons.
 
 | Parameter | Description |
 |-----------|-------------|
-| per_page | Return up to this number of objects per response. Must be an integer between 1 and 500. Defaults to 100.
-| page | A cursor for use in pagination.  Returns the n-th chunk of `per_page` objects.
+| *per_page | Return up to this number of objects per response. Must be an integer between 1 and 500. Defaults to 100.
+| *page | A cursor for use in pagination.  Returns the n-th chunk of `per_page` objects.
+| *skip_count | If `true`, the performance of retrieving rejection reasons will improve. This will remove `last` from the `link` response header.
 | include_defaults | When included and set to true, this will also return Greenhouse's default rejection reasons which are included automatically in each account.
 
 <br>
