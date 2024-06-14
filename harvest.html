@@ -188,7 +188,7 @@ X-RateLimit-Remaining: 49
 <ul>
 <li><code class="prettyprint">next</code>. The corresponding URL is the link to the next page.</li>
 <li><code class="prettyprint">prev</code>. The corresponding URL is the link to the previous page.</li>
-<li><code class="prettyprint">last</code>. The corresponding URL is the link to the last page.</li>
+<li><code class="prettyprint">last</code>. The corresponding URL is the link to the last page. Will not be returned if the query param <code class="prettyprint">skip_count</code> is <code class="prettyprint">true</code>.</li>
 </ul>
 
 <p>Note that when this header is not set, there is only one page, the first page, of results.</p>
@@ -268,6 +268,8 @@ X-RateLimit-Remaining: 49
 <tr>
 <td>Date</td><td>Description</td></tr>
 </thead><tbody>
+<tr>
+<td>Jun 13, 2024 5:00:00PM</td><td>Updated <a href="#pagination">Introduction - Pagination</a> <code class="prettyprint">last</code> param, and all list endpoint documentation using old pagination to include <code class="prettyprint">skip_count</code> param</td></tr>
 <tr>
 <td>Apr 12, 2024 9:30:00AM</td><td>Updated sample response in the <a href="#get-list-offices">GET: List Offices</a> and <a href="#get-retrieve-office">GET: Retrieve Office</a> documentation</td></tr>
 <tr>
@@ -925,6 +927,8 @@ X-RateLimit-Remaining: 49
 <td class="optional">per_page</td><td>Return up to this number of objects per response. Must be an integer between 1 and 500. Defaults to 100.</td></tr>
 <tr>
 <td class="optional">page</td><td>A cursor for use in pagination.  Returns the n-th chunk of <code class="prettyprint">per_page</code> objects.</td></tr>
+<tr>
+<td class="optional">skip_count</td><td>If <code class="prettyprint">true</code>, the performance of retrieving applications will improve. This will remove <code class="prettyprint">last</code> from the <code class="prettyprint">link</code> response header.</td></tr>
 <tr>
 <td>created_before</td><td>Return only applications that were created before this timestamp. Timestamp must be in in <a href="#general-considerations">ISO-8601</a> format.</td></tr>
 <tr>
@@ -3385,9 +3389,11 @@ X-RateLimit-Remaining: 49
 <td>Parameter</td><td>Description</td></tr>
 </thead><tbody>
 <tr>
-<td>per_page</td><td>Return up to this number of objects per response. Must be an integer between 1 and 500. Defaults to 100.</td></tr>
+<td class="optional">per_page</td><td>Return up to this number of objects per response. Must be an integer between 1 and 500. Defaults to 100.</td></tr>
 <tr>
-<td>page</td><td>A cursor for use in pagination.  Returns the n-th chunk of <code class="prettyprint">per_page</code> objects.</td></tr>
+<td class="optional">page</td><td>A cursor for use in pagination.  Returns the n-th chunk of <code class="prettyprint">per_page</code> objects.</td></tr>
+<tr>
+<td class="optional">skip_count</td><td>If <code class="prettyprint">true</code>, the performance of retrieving candidates will improve. This will remove <code class="prettyprint">last</code> from the <code class="prettyprint">link</code> response header.</td></tr>
 <tr>
 <td>created_before</td><td>Return only candidates that were created before this timestamp. Timestamp must be in in <a href="#general-considerations">ISO-8601</a> format.</td></tr>
 <tr>
@@ -7152,9 +7158,11 @@ X-RateLimit-Remaining: 49
 <td>Parameter</td><td>Description</td></tr>
 </thead><tbody>
 <tr>
-<td>per_page</td><td>Return up to this number of objects per response. Must be an integer between 1 and 500. Defaults to 100.</td></tr>
+<td class="optional">per_page</td><td>Return up to this number of objects per response. Must be an integer between 1 and 500. Defaults to 100.</td></tr>
 <tr>
-<td>page</td><td>A cursor for use in pagination.  Returns the n-th chunk of <code class="prettyprint">per_page</code> objects.</td></tr>
+<td class="optional">page</td><td>A cursor for use in pagination.  Returns the n-th chunk of <code class="prettyprint">per_page</code> objects.</td></tr>
+<tr>
+<td class="optional">skip_count</td><td>If <code class="prettyprint">true</code>, the performance of retrieving departments will improve. This will remove <code class="prettyprint">last</code> from the <code class="prettyprint">link</code> response header.</td></tr>
 <tr>
 <td>render_as</td><td>This parameter defines how to represent the list of departments. The default value is &lsquo;list&rsquo;, which returns a flat list of departments.  If this is set to &#39;tree&rsquo;, departments are represented in a tree-like structure where they may include sub-departments as <code class="prettyprint">children</code>.</td></tr>
 <tr>
@@ -7852,9 +7860,11 @@ X-RateLimit-Remaining: 49
 <td>Parameter</td><td>Description</td></tr>
 </thead><tbody>
 <tr>
-<td>per_page</td><td>Return up to this number of objects per response. Must be an integer between 1 and 500. Defaults to 100.</td></tr>
+<td class="optional">per_page</td><td>Return up to this number of objects per response. Must be an integer between 1 and 500. Defaults to 100.</td></tr>
 <tr>
-<td>page</td><td>A cursor for use in pagination.  Returns the n-th chunk of <code class="prettyprint">per_page</code> objects.</td></tr>
+<td class="optional">page</td><td>A cursor for use in pagination.  Returns the n-th chunk of <code class="prettyprint">per_page</code> objects.</td></tr>
+<tr>
+<td class="optional">skip_count</td><td>If <code class="prettyprint">true</code>, the performance of retrieving email templates will improve. This will remove <code class="prettyprint">last</code> from the <code class="prettyprint">link</code> response header.</td></tr>
 <tr>
 <td>created_before</td><td>Return only email templates that were created before this timestamp. Timestamp must be in in <a href="#general-considerations">ISO-8601</a> format.</td></tr>
 <tr>
@@ -8736,9 +8746,11 @@ X-RateLimit-Remaining: 49
 <td>Parameter</td><td>Description</td></tr>
 </thead><tbody>
 <tr>
-<td>per_page</td><td>Return up to this number of objects per response. Must be an integer between 1 and 500. Defaults to 100.</td></tr>
+<td class="optional">per_page</td><td>Return up to this number of objects per response. Must be an integer between 1 and 500. Defaults to 100.</td></tr>
 <tr>
-<td>page</td><td>A cursor for use in pagination.  Returns the n-th chunk of <code class="prettyprint">per_page</code> objects.</td></tr>
+<td class="optional">page</td><td>A cursor for use in pagination.  Returns the n-th chunk of <code class="prettyprint">per_page</code> objects.</td></tr>
+<tr>
+<td class="optional">skip_count</td><td>If <code class="prettyprint">true</code>, the performance of retrieving job posts will improve. This will remove <code class="prettyprint">last</code> from the <code class="prettyprint">link</code> response header.</td></tr>
 <tr>
 <td>created_before</td><td>Return only job posts that were created before this timestamp. Timestamp must be in in <a href="#general-considerations">ISO-8601</a> format.</td></tr>
 <tr>
@@ -9694,9 +9706,11 @@ X-RateLimit-Remaining: 49
 <td>Parameter</td><td>Description</td></tr>
 </thead><tbody>
 <tr>
-<td>per_page</td><td>Return up to this number of objects per response. Must be an integer between 1 and 500. Defaults to 100.</td></tr>
+<td class="optional">per_page</td><td>Return up to this number of objects per response. Must be an integer between 1 and 500. Defaults to 100.</td></tr>
 <tr>
-<td>page</td><td>A cursor for use in pagination.  Returns the n-th chunk of <code class="prettyprint">per_page</code> objects.</td></tr>
+<td class="optional">page</td><td>A cursor for use in pagination.  Returns the n-th chunk of <code class="prettyprint">per_page</code> objects.</td></tr>
+<tr>
+<td class="optional">skip_count</td><td>If <code class="prettyprint">true</code>, the performance of retrieving job stages will improve. This will remove <code class="prettyprint">last</code> from the <code class="prettyprint">link</code> response header.</td></tr>
 <tr>
 <td>created_before</td><td>Return only job stages that were created before this timestamp. Timestamp must be in in <a href="#general-considerations">ISO-8601</a> format.</td></tr>
 <tr>
@@ -10339,9 +10353,11 @@ X-RateLimit-Remaining: 49
 <td>Parameter</td><td>Description</td></tr>
 </thead><tbody>
 <tr>
-<td>per_page</td><td>Return up to this number of objects per response. Must be an integer between 1 and 500. Defaults to 100.</td></tr>
+<td class="optional">per_page</td><td>Return up to this number of objects per response. Must be an integer between 1 and 500. Defaults to 100.</td></tr>
 <tr>
-<td>page</td><td>A cursor for use in pagination. Returns the n-th chunk of <code class="prettyprint">per_page</code> objects.</td></tr>
+<td class="optional">page</td><td>A cursor for use in pagination. Returns the n-th chunk of <code class="prettyprint">per_page</code> objects.</td></tr>
+<tr>
+<td class="optional">skip_count</td><td>If <code class="prettyprint">true</code>, the performance of retrieving jobs will improve. This will remove <code class="prettyprint">last</code> from the <code class="prettyprint">link</code> response header.</td></tr>
 <tr>
 <td>created_before</td><td>Return only jobs that were created before this timestamp. Timestamp must be in in <a href="#general-considerations">ISO-8601</a> format.</td></tr>
 <tr>
@@ -11899,9 +11915,11 @@ X-RateLimit-Remaining: 49
 <td>Parameter</td><td>Description</td></tr>
 </thead><tbody>
 <tr>
-<td>per_page</td><td>Return up to this number of objects per response. Must be an integer between 1 and 500. Defaults to 100.</td></tr>
+<td class="optional">per_page</td><td>Return up to this number of objects per response. Must be an integer between 1 and 500. Defaults to 100.</td></tr>
 <tr>
-<td>page</td><td>A cursor for use in pagination.  Returns the n-th chunk of <code class="prettyprint">per_page</code> objects.</td></tr>
+<td class="optional">page</td><td>A cursor for use in pagination.  Returns the n-th chunk of <code class="prettyprint">per_page</code> objects.</td></tr>
+<tr>
+<td class="optional">skip_count</td><td>If <code class="prettyprint">true</code>, the performance of retrieving offers will improve. This will remove <code class="prettyprint">last</code> from the <code class="prettyprint">link</code> response header.</td></tr>
 <tr>
 <td>created_before</td><td>Return only offers that were created before this timestamp. Timestamp must be in in <a href="#general-considerations">ISO-8601</a> format.</td></tr>
 <tr>
@@ -12094,9 +12112,11 @@ X-RateLimit-Remaining: 49
 <td>Parameter</td><td>Description</td></tr>
 </thead><tbody>
 <tr>
-<td>per_page</td><td>Return up to this number of objects per response. Must be an integer between 1 and 500. Defaults to 100.</td></tr>
+<td class="optional">per_page</td><td>Return up to this number of objects per response. Must be an integer between 1 and 500. Defaults to 100.</td></tr>
 <tr>
-<td>page</td><td>A cursor for use in pagination.  Returns the n-th chunk of <code class="prettyprint">per_page</code> objects.</td></tr>
+<td class="optional">page</td><td>A cursor for use in pagination.  Returns the n-th chunk of <code class="prettyprint">per_page</code> objects.</td></tr>
+<tr>
+<td class="optional">skip_count</td><td>If <code class="prettyprint">true</code>, the performance of retrieving application offers will improve. This will remove <code class="prettyprint">last</code> from the <code class="prettyprint">link</code> response header.</td></tr>
 </tbody></table>
 
 <p><br>
@@ -12599,9 +12619,11 @@ X-RateLimit-Remaining: 49
 <td>Parameter</td><td>Description</td></tr>
 </thead><tbody>
 <tr>
-<td>per_page</td><td>Return up to this number of objects per response. Must be an integer between 1 and 500. Defaults to 100.</td></tr>
+<td class="optional">per_page</td><td>Return up to this number of objects per response. Must be an integer between 1 and 500. Defaults to 100.</td></tr>
 <tr>
-<td>page</td><td>A cursor for use in pagination.  Returns the n-th chunk of <code class="prettyprint">per_page</code> objects.</td></tr>
+<td class="optional">page</td><td>A cursor for use in pagination.  Returns the n-th chunk of <code class="prettyprint">per_page</code> objects.</td></tr>
+<tr>
+<td class="optional">skip_count</td><td>If <code class="prettyprint">true</code>, the performance of retrieving offices will improve. This will remove <code class="prettyprint">last</code> from the <code class="prettyprint">link</code> response header.</td></tr>
 <tr>
 <td>render_as</td><td>This parameter defines how to represent the list of offices. The default value is &lsquo;list&rsquo;, which returns a flat list of offices.  If this is set to &#39;tree&rsquo;, offices are represented in a tree-like structure where they may include sub-offices as <code class="prettyprint">children</code></td></tr>
 <tr>
@@ -12967,9 +12989,11 @@ X-RateLimit-Remaining: 49
 <td>Parameter</td><td>Description</td></tr>
 </thead><tbody>
 <tr>
-<td>per_page</td><td>Return up to this number of objects per response. Must be an integer between 1 and 500. Defaults to 100.</td></tr>
+<td class="optional">per_page</td><td>Return up to this number of objects per response. Must be an integer between 1 and 500. Defaults to 100.</td></tr>
 <tr>
-<td>page</td><td>A cursor for use in pagination.  Returns the n-th chunk of <code class="prettyprint">per_page</code> objects.</td></tr>
+<td class="optional">page</td><td>A cursor for use in pagination.  Returns the n-th chunk of <code class="prettyprint">per_page</code> objects.</td></tr>
+<tr>
+<td class="optional">skip_count</td><td>If <code class="prettyprint">true</code>, the performance of retrieving prospect pools will improve. This will remove <code class="prettyprint">last</code> from the <code class="prettyprint">link</code> response header.</td></tr>
 </tbody></table>
 
 <p><br>
@@ -13095,9 +13119,11 @@ X-RateLimit-Remaining: 49
 <td>Parameter</td><td>Description</td></tr>
 </thead><tbody>
 <tr>
-<td>per_page</td><td>Return up to this number of objects per response. Must be an integer between 1 and 500. Defaults to 100.</td></tr>
+<td class="optional">per_page</td><td>Return up to this number of objects per response. Must be an integer between 1 and 500. Defaults to 100.</td></tr>
 <tr>
-<td>page</td><td>A cursor for use in pagination.  Returns the n-th chunk of <code class="prettyprint">per_page</code> objects.</td></tr>
+<td class="optional">page</td><td>A cursor for use in pagination.  Returns the n-th chunk of <code class="prettyprint">per_page</code> objects.</td></tr>
+<tr>
+<td class="optional">skip_count</td><td>If <code class="prettyprint">true</code>, the performance of retrieving rejection reasons will improve. This will remove <code class="prettyprint">last</code> from the <code class="prettyprint">link</code> response header.</td></tr>
 <tr>
 <td>include_defaults</td><td>When included and set to true, this will also return Greenhouse&rsquo;s default rejection reasons which are included automatically in each account.</td></tr>
 </tbody></table>
@@ -13269,9 +13295,11 @@ X-RateLimit-Remaining: 49
 <td>Parameter</td><td>Description</td></tr>
 </thead><tbody>
 <tr>
-<td>per_page</td><td>Return up to this number of objects per response. Must be an integer between 1 and 500. Defaults to 100.</td></tr>
+<td class="optional">per_page</td><td>Return up to this number of objects per response. Must be an integer between 1 and 500. Defaults to 100.</td></tr>
 <tr>
-<td>page</td><td>A cursor for use in pagination.  Returns the n-th chunk of <code class="prettyprint">per_page</code> objects.</td></tr>
+<td class="optional">page</td><td>A cursor for use in pagination.  Returns the n-th chunk of <code class="prettyprint">per_page</code> objects.</td></tr>
+<tr>
+<td class="optional">skip_count</td><td>If <code class="prettyprint">true</code>, the performance of retrieving scheduled interviews will improve. This will remove <code class="prettyprint">last</code> from the <code class="prettyprint">link</code> response header.</td></tr>
 <tr>
 <td>created_before</td><td>Only return scheduled interviews that were created before this timestamp.</td></tr>
 <tr>
@@ -13389,9 +13417,11 @@ X-RateLimit-Remaining: 49
 <tr>
 <td>id</td><td>ID of the application to retrieve</td></tr>
 <tr>
-<td>per_page</td><td>Return up to this number of objects per response. Must be an integer between 1 and 500. Defaults to 100.</td></tr>
+<td class="optional">per_page</td><td>Return up to this number of objects per response. Must be an integer between 1 and 500. Defaults to 100.</td></tr>
 <tr>
-<td>page</td><td>A cursor for use in pagination.  Returns the n-th chunk of <code class="prettyprint">per_page</code> objects.</td></tr>
+<td class="optional">page</td><td>A cursor for use in pagination.  Returns the n-th chunk of <code class="prettyprint">per_page</code> objects.</td></tr>
+<tr>
+<td class="optional">skip_count</td><td>If <code class="prettyprint">true</code>, the performance of retrieving application scheduled interviews will improve. This will remove <code class="prettyprint">last</code> from the <code class="prettyprint">link</code> response header.</td></tr>
 <tr>
 <td>created_before</td><td>Return only scheduled interviews that were created before this timestamp. Timestamp must be in in <a href="#general-considerations">ISO-8601</a> format.</td></tr>
 <tr>
@@ -14121,9 +14151,11 @@ only delete Scheduled Interviews in the following statues: Scheduled, Awaiting F
 <td>Parameter</td><td>Description</td></tr>
 </thead><tbody>
 <tr>
-<td>per_page</td><td>Return up to this number of objects per response. Must be an integer between 1 and 500. Defaults to 100.</td></tr>
+<td class="optional">per_page</td><td>Return up to this number of objects per response. Must be an integer between 1 and 500. Defaults to 100.</td></tr>
 <tr>
-<td>page</td><td>A cursor for use in pagination.  Returns the n-th chunk of <code class="prettyprint">per_page</code> objects.</td></tr>
+<td class="optional">page</td><td>A cursor for use in pagination.  Returns the n-th chunk of <code class="prettyprint">per_page</code> objects.</td></tr>
+<tr>
+<td class="optional">skip_count</td><td>If <code class="prettyprint">true</code>, the performance of retrieving scorecards will improve. This will remove <code class="prettyprint">last</code> from the <code class="prettyprint">link</code> response header.</td></tr>
 <tr>
 <td>created_before</td><td>Return only scorecards that were created before this timestamp. Timestamp must be in in <a href="#general-considerations">ISO-8601</a> format.</td></tr>
 <tr>
@@ -14592,9 +14624,11 @@ only delete Scheduled Interviews in the following statues: Scheduled, Awaiting F
 <td>Parameter</td><td>Description</td></tr>
 </thead><tbody>
 <tr>
-<td>per_page</td><td>Return up to this number of objects per response. Must be an integer between 1 and 500. Defaults to 100.</td></tr>
+<td class="optional">per_page</td><td>Return up to this number of objects per response. Must be an integer between 1 and 500. Defaults to 100.</td></tr>
 <tr>
-<td>page</td><td>A cursor for use in pagination.  Returns the n-th chunk of <code class="prettyprint">per_page</code> objects.</td></tr>
+<td class="optional">page</td><td>A cursor for use in pagination.  Returns the n-th chunk of <code class="prettyprint">per_page</code> objects.</td></tr>
+<tr>
+<td class="optional">skip_count</td><td>If <code class="prettyprint">true</code>, the performance of retrieving sources will improve. This will remove <code class="prettyprint">last</code> from the <code class="prettyprint">link</code> response header.</td></tr>
 </tbody></table>
 
 <p><br>
@@ -14652,6 +14686,20 @@ only delete Scheduled Interviews in the following statues: Scheduled, Awaiting F
 <h3 id="http-request">HTTP Request</h3>
 
 <p><code class="prettyprint">GET https://harvest.greenhouse.io/v1/tags/candidate</code></p>
+
+<h3 id="querystring-parameters">Querystring parameters</h3>
+
+<table><thead>
+<tr>
+<td>Parameter</td><td>Description</td></tr>
+</thead><tbody>
+<tr>
+<td class="optional">per_page</td><td>Return up to this number of objects per response. Must be an integer between 1 and 500. Defaults to 100.</td></tr>
+<tr>
+<td class="optional">page</td><td>A cursor for use in pagination.  Returns the n-th chunk of <code class="prettyprint">per_page</code> objects.</td></tr>
+<tr>
+<td class="optional">skip_count</td><td>If <code class="prettyprint">true</code>, the performance of retrieving candidate tags will improve. This will remove <code class="prettyprint">last</code> from the <code class="prettyprint">link</code> response header.</td></tr>
+</tbody></table>
 
 <p><br></p>
 
@@ -15136,9 +15184,11 @@ only delete Scheduled Interviews in the following statues: Scheduled, Awaiting F
 <td>Parameter</td><td>Description</td></tr>
 </thead><tbody>
 <tr>
-<td>per_page</td><td>Return up to this number of objects per response. Must be an integer between 1 and 500. Defaults to 100.</td></tr>
+<td class="optional">per_page</td><td>Return up to this number of objects per response. Must be an integer between 1 and 500. Defaults to 100.</td></tr>
 <tr>
-<td>page</td><td>A cursor for use in pagination.  Returns the n-th chunk of <code class="prettyprint">per_page</code> objects.</td></tr>
+<td class="optional">page</td><td>A cursor for use in pagination.  Returns the n-th chunk of <code class="prettyprint">per_page</code> objects.</td></tr>
+<tr>
+<td class="optional">skip_count</td><td>If <code class="prettyprint">true</code>, the performance of retrieving users will improve. This will remove <code class="prettyprint">last</code> from the <code class="prettyprint">link</code> response header.</td></tr>
 <tr>
 <td>employee_id</td><td>Return only users that match this employee id.</td></tr>
 <tr>
