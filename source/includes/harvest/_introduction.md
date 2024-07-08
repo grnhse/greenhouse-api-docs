@@ -178,7 +178,9 @@ The timestamps below are Eastern Time.
 |-------------------------------| --------------------------------------------------------------------------------------------------------------------------------- |
 | Jul 10, 2024 7:00:00AM | Updated [The job object](#the-job-object) `openings[].opened_at` and [The job opening object](#job-openings) `opened_at` param descriptions
 | Jul 9, 2024 9:00:00AM | Updated [POST: Reject Application](#post-reject-application) `rejection_email.send_email_at` param documentation to indicate the time zone
+| Jun 8, 2024 3:10:00PM | Add ability to update custom fields in rejection details to [PATCH: Update Application](#patch-update-application)
 | Jun 13, 2024 5:00:00PM | Updated [Introduction - Pagination](#pagination) `last` param, and all list endpoint documentation using old pagination to include `skip_count` param
+| Jun 13, 2024 5:00:00PM | Updated [Introduction - Pagination](#pagination) `last` param, and all list endpoint documentation using old pagination to include `skip_count` param 
 | Apr 12, 2024 9:30:00AM | Updated sample response in the [GET: List Offices](#get-list-offices) and [GET: Retrieve Office](#get-retrieve-office) documentation
 | Mar 25, 2024 9:15:00AM | Updated `job_id` description in the [GET: List Candidates](#get-list-candidates) section
 | Mar 21, 2024 3:15:00PM | Updated description in the [Rate-Limiting](#rate-limiting) section
