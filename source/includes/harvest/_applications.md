@@ -12,8 +12,8 @@ Applications associate [candidates](#candidates) with [jobs](#jobs). There are 2
     "applied_at": "2016-03-26T20:11:39.000Z",
     "rejected_at": "2016-08-17T21:08:29.686Z",
     "last_activity_at": "2016-08-27T16:13:15.000Z",
-    "location": { 
-        "address": "New York, New York, USA" 
+    "location": {
+        "address": "New York, New York, USA"
     },
     "source": {
         "id": 1871,
@@ -139,8 +139,8 @@ curl -X GET 'https://harvest.greenhouse.io/v1/applications'
     "applied_at": "2017-09-29T12:56:05.244Z",
     "rejected_at": null,
     "last_activity_at": "2017-09-29T13:00:28.038Z",
-    "location": { 
-        "address": "New York, New York, USA" 
+    "location": {
+        "address": "New York, New York, USA"
     },
     "source": {
         "id": 2,
@@ -337,8 +337,8 @@ curl -X GET 'https://harvest.greenhouse.io/v1/applications/{id}'
     "applied_at": "2017-09-29T12:56:05.244Z",
     "rejected_at": null,
     "last_activity_at": "2017-09-29T13:00:28.038Z",
-    "location": { 
-        "address": "New York, New York, USA" 
+    "location": {
+        "address": "New York, New York, USA"
     },
     "source": {
         "id": 2,
@@ -625,8 +625,8 @@ curl -X PATCH 'https://harvest.greenhouse.io/v1/applications/{id}'
   "applied_at": "2017-09-29T12:56:05.244Z",
   "rejected_at": null,
   "last_activity_at": "2017-09-29T13:00:28.038Z",
-  "location": { 
-      "address": "New York, New York, USA" 
+  "location": {
+      "address": "New York, New York, USA"
   },
   "source": {
       "id": 2,
@@ -743,8 +743,8 @@ curl -X POST 'https://harvest.greenhouse.io/v1/applications/{id}/advance'
   "applied_at": "2017-09-29T12:56:05.244Z",
   "rejected_at": null,
   "last_activity_at": "2017-09-29T13:00:28.038Z",
-  "location": { 
-      "address": "New York, New York, USA" 
+  "location": {
+      "address": "New York, New York, USA"
   },
   "source": {
       "id": 2,
@@ -858,8 +858,8 @@ curl -X POST 'https://harvest.greenhouse.io/v1/applications/{id}/transfer_to_job
   "applied_at": "2017-09-29T12:56:05.244Z",
   "rejected_at": null,
   "last_activity_at": "2017-09-29T13:00:28.038Z",
-  "location": { 
-      "address": "New York, New York, USA" 
+  "location": {
+      "address": "New York, New York, USA"
   },
   "source": {
       "id": 2,
@@ -976,8 +976,8 @@ curl -X POST 'https://harvest.greenhouse.io/v1/applications/{id}/move'
   "applied_at": "2017-02-01T14:26:02.282Z",
   "rejected_at": null,
   "last_activity_at": "2017-02-01T14:51:12.670Z",
-  "location": { 
-    "address": "New York, New York, USA" 
+  "location": {
+    "address": "New York, New York, USA"
   },
   "source": {
     "id": 33,
@@ -1201,8 +1201,8 @@ curl -X POST 'https://harvest.greenhouse.io/v1/applications/{id}/hire'
   "applied_at": "2017-02-01T14:26:02.282Z",
   "rejected_at": null,
   "last_activity_at": "2017-02-01T14:51:12.670Z",
-  "location": { 
-    "address": "New York, New York, USA" 
+  "location": {
+    "address": "New York, New York, USA"
   },
   "source": {
     "id": 33,
@@ -1264,7 +1264,7 @@ curl -X POST 'https://harvest.greenhouse.io/v1/applications/{id}/hire'
 }
 ```
 
-Hire this application. The application must not be a prospect and all approvals for the job and offer must have occurred. 
+Hire this application. The application must not be a prospect and all approvals for the job and offer must have occurred.
 
 ### HTTP Request
 
@@ -1435,7 +1435,7 @@ Parameter | Required | Type | Description
 rejection_reason_id | No | integer | The ID of the reason why this application was rejected.
 notes | No | string | Notes on why this application was rejected. These will be added to the activity feed.
 rejection_email | No | hash | An email will be sent to the candidate notifying them of this rejection.
-rejection_email.send_email_at | No | string | The rejection email will be delayed until this time.
+rejection_email.send_email_at | No | string | The rejection email will be delayed until this time. The On-Behalf-Of user's time zone will be used for scheduling the email.
 rejection_email.email_template_id | Yes, if sending rejection_email | string | The template to use for the rejection email. Template must be an organization wide email template.
 
 ## PATCH: Update Rejection Reason
@@ -1514,8 +1514,8 @@ curl -X POST 'https://harvest.greenhouse.io/v1/applications/{id}/unreject'
   "applied_at": "2017-09-29T12:56:05.244Z",
   "rejected_at": null,
   "last_activity_at": "2017-09-29T13:00:28.038Z",
-  "location": { 
-    "address": "New York, New York, USA" 
+  "location": {
+    "address": "New York, New York, USA"
   },
   "source": {
     "id": 2,

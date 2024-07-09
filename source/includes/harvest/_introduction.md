@@ -176,13 +176,14 @@ The timestamps below are Eastern Time.
 
 | Date                          | Description                                                                                                                       |
 |-------------------------------| --------------------------------------------------------------------------------------------------------------------------------- |
-| Jun 13, 2024 5:00:00PM | Updated [Introduction - Pagination](#pagination) `last` param, and all list endpoint documentation using old pagination to include `skip_count` param 
+| Jul 9, 2024 9:00:00AM | Updated [POST: Reject Application](#post-reject-application) `rejection_email.send_email_at` param documentation to indicate the time zone
+| Jun 13, 2024 5:00:00PM | Updated [Introduction - Pagination](#pagination) `last` param, and all list endpoint documentation using old pagination to include `skip_count` param
 | Apr 12, 2024 9:30:00AM | Updated sample response in the [GET: List Offices](#get-list-offices) and [GET: Retrieve Office](#get-retrieve-office) documentation
 | Mar 25, 2024 9:15:00AM | Updated `job_id` description in the [GET: List Candidates](#get-list-candidates) section
 | Mar 21, 2024 3:15:00PM | Updated description in the [Rate-Limiting](#rate-limiting) section
 | Feb 23 2024 1:00:00PM | Updated description of the application parameter in the [POST: Add Prospect](#post-add-prospect) documentation
 | Dec 11, 2023 4:00:00PM | Added a Note to [PATCH: Update Current Offer](#patch-update-current-offer) documentation
-| Nov 15, 2023 12:45:00PM | Added `job_post_custom_location_id` field to Job Post response object and updated sample response 
+| Nov 15, 2023 12:45:00PM | Added `job_post_custom_location_id` field to Job Post response object and updated sample response
 | Nov 13, 2023 11:09:00AM | Update error status code message.
 | Oct 30, 2023 3:20:00PM | Removed language indicating [PUT: Anonymize Candidate](#put-anonymize-candidate) is restricted to Expert Tier
 | Oct 12, 2023 2:15:00PM | Updated Throttling section to Rate limiting and updated description
@@ -192,7 +193,7 @@ The timestamps below are Eastern Time.
 | April 12, 2023 3:00:00PM  | Modified format of request links for [POST: Scheduled Interviews](#post-scheduled-interviews) and [PATCH: Scheduled Interviews](#patch-scheduled-interviews).
 | March 7, 2023 10:00:00AM  | Modified `intenal` querystring parameter on [job post](#job-posts) GET requests to work in the reverse manner. When included in a request and set to `false`, the response will only include external job posts.
 | February 28, 2023 12:00:00PM  | Added `internal` querystring paramater to [job post](#job-posts) GET requests to return only internal job posts. When included in a request and set to `true`, the response will only include internal job posts.
-| November 21, 2022 12:00:00PM  | Deprecated version 1 of the [DELETE: Destroy Openings](#delete-destroy-openings) endpoint. Only v2 is available going forward. 
+| November 21, 2022 12:00:00PM  | Deprecated version 1 of the [DELETE: Destroy Openings](#delete-destroy-openings) endpoint. Only v2 is available going forward.
 | November 9, 2022 04:00:00PM  | The `full_content` querystring parameter has been modified on [job post](#job-posts) GET requests to return Pay Transparency ranges (if present). When included in a request, the "content" or "internal_content" fields will return a concatenated string that includes the Board-level introduction, the Post-level description, pay transparency ranges, and the Board-level conclusion.
 | October 18, 2022 12:00:00PM   | Added ability to create and update User Attributes to the [Users](#users) endpoints
 | September 22, 2022 12:00:00PM | Updated [DELETE: Destroy Openings](#delete-destroy-openings) to a v2 endpoint. The v1 endpoint will be deprecated in a future release. Users and partners should switch over to the v2 endpoint as soon as possible to avoid issues with your integration.
