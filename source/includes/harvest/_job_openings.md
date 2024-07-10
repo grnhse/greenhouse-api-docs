@@ -69,7 +69,7 @@ This endpoint is used to managing openings on jobs.
 | id | The opening's unique identifier |
 | opening_id | This is a text string used to identify the opening. This is defined by the users and may be null. |
 | status | Either "open" or "closed" |
-| opened_at | This is the date and time this opening was created. |
+| opened_at | This is the date and time this opening was opened. |
 | closed_at | This is when the opening was closed; usually via the opening being filled. This should be null for opened openings. |
 | application_id | The application that was used to fill this opening. This should only be set on a closed opening, null otherwise. |
 | custom_fields | These are the custom fields that are specific to openings. This index, along with keyed_custom_fields, may not be included if your organization does not have access to custom fields on openings.
@@ -246,7 +246,7 @@ Parameter | Required | Type | Description
 --------- | ----------- | ----------- | -----------
 ids | yes | Array | An array of opening ids to delete. Important to note that these are not `opening_id` from the other endpoints, but the unique `id` identifier.
 
-**Notes**: The v1 version of this endpoint has been deprecated because it allowed integrations to delete open or filled openings that were otherwise prevented by data validations in the Greenhouse Recruiting UI. 
+**Notes**: The v1 version of this endpoint has been deprecated because it allowed integrations to delete open or filled openings that were otherwise prevented by data validations in the Greenhouse Recruiting UI.
 
 The v2 version of this endpoint only allows closed, unfilled openings to be deleted and respects data validation rules as they exist in Greenhouse Recruiting. When the v1 endpoint is deprecated, some integrations may experience errors if they relied on deleting active or filled openings. Since the behavior adheres to the data validation guidelines established in Greenhouse Recruiting, Greenhouse does not consider these issues a breaking change.
 
@@ -258,7 +258,7 @@ In the v2 version, response messages will include both IDs that were successfull
 If the organization has deactivated the ability to destroy openings or if the On-Behalf-Of User does not have the ability to edit the given job, a 403 error will be returned.
 
 The v1 endpoint has been deactivated as of 11/21/2022. Customers or partners should begin using the v2 endpoint.
- 
+
 API keys that were granted access to the v1 endpoint will automatically have access to the v2 endpoint.
 
 
