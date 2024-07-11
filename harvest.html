@@ -273,6 +273,10 @@ X-RateLimit-Remaining: 49
 <tr>
 <td>Jul 9, 2024 9:00:00AM</td><td>Updated <a href="#post-reject-application">POST: Reject Application</a> <code class="prettyprint">rejection_email.send_email_at</code> param documentation to indicate the time zone</td></tr>
 <tr>
+<td>Jun 8, 2024 3:10:00PM</td><td>Add ability to update custom fields in rejection details to <a href="#patch-update-application">PATCH: Update Application</a></td></tr>
+<tr>
+<td>Jun 13, 2024 5:00:00PM</td><td>Updated <a href="#pagination">Introduction - Pagination</a> <code class="prettyprint">last</code> param, and all list endpoint documentation using old pagination to include <code class="prettyprint">skip_count</code> param</td></tr>
+<tr>
 <td>Jun 13, 2024 5:00:00PM</td><td>Updated <a href="#pagination">Introduction - Pagination</a> <code class="prettyprint">last</code> param, and all list endpoint documentation using old pagination to include <code class="prettyprint">skip_count</code> param</td></tr>
 <tr>
 <td>Apr 12, 2024 9:30:00AM</td><td>Updated sample response in the <a href="#get-list-offices">GET: List Offices</a> and <a href="#get-retrieve-office">GET: Retrieve Office</a> documentation</td></tr>
@@ -1373,11 +1377,15 @@ X-RateLimit-Remaining: 49
 <tr>
 <td>referrer[value]</td><td>No</td><td>string</td><td>The id of the user who made the referral (not the referrer id)</td></tr>
 <tr>
-<td>custom_fields[]</td><td>No</td><td>custom_field</td><td>Array of hashes containing new custom field values.  Passing an empty array does nothing. <a href="#custom-field-parameters">Click here</a> for more information on structuring custom field data for edit requests.</td></tr>
+<td>custom_fields[]</td><td>No</td><td>custom_field</td><td>Array of hashes containing new application custom field values.  Passing an empty array does nothing. <a href="#custom-field-parameters">Click here</a> for more information on structuring custom field data for edit requests.</td></tr>
 <tr>
 <td>prospect_pool_id</td><td>No</td><td>integer</td><td>The ID of the prospect pool for the application</td></tr>
 <tr>
 <td>prospect_stage_id</td><td>No</td><td>integer</td><td>The ID of the prospect pool stage for the application</td></tr>
+<tr>
+<td>rejection_details</td><td>No</td><td>object</td><td>An object representing the rejection details of a rejected application. <strong>Note:</strong> Rejection details can&rsquo;t be updated if the application has not been rejected.</td></tr>
+<tr>
+<td>rejection_details[custom_fields[]]</td><td>No</td><td>custom_field</td><td>Array of hashes containing new rejection detail custom field values.  Passing an empty array does nothing. <a href="#custom-field-parameters">Click here</a> for more information on structuring custom field data for edit requests.</td></tr>
 </tbody></table>
 
 <h2 id="post-advance-application">POST: Advance Application</h2>
