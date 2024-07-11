@@ -269,6 +269,8 @@ X-RateLimit-Remaining: 49
 <td>Date</td><td>Description</td></tr>
 </thead><tbody>
 <tr>
+<td>Jul 10, 2024 7:00:00AM</td><td>Updated <a href="#the-job-object">The job object</a> <code class="prettyprint">openings[].opened_at</code> and <a href="#job-openings">The job opening object</a> <code class="prettyprint">opened_at</code> param descriptions</td></tr>
+<tr>
 <td>Jul 9, 2024 9:00:00AM</td><td>Updated <a href="#post-reject-application">POST: Reject Application</a> <code class="prettyprint">rejection_email.send_email_at</code> param documentation to indicate the time zone</td></tr>
 <tr>
 <td>Jun 13, 2024 5:00:00PM</td><td>Updated <a href="#pagination">Introduction - Pagination</a> <code class="prettyprint">last</code> param, and all list endpoint documentation using old pagination to include <code class="prettyprint">skip_count</code> param</td></tr>
@@ -8002,7 +8004,7 @@ X-RateLimit-Remaining: 49
 <tr>
 <td>status</td><td>Either &ldquo;open&rdquo; or &ldquo;closed&rdquo;</td></tr>
 <tr>
-<td>opened_at</td><td>This is the date and time this opening was created.</td></tr>
+<td>opened_at</td><td>This is the date and time this opening was opened.</td></tr>
 <tr>
 <td>closed_at</td><td>This is when the opening was closed; usually via the opening being filled. This should be null for opened openings.</td></tr>
 <tr>
@@ -8195,7 +8197,7 @@ X-RateLimit-Remaining: 49
 <td>ids</td><td>yes</td><td>Array</td><td>An array of opening ids to delete. Important to note that these are not <code class="prettyprint">opening_id</code> from the other endpoints, but the unique <code class="prettyprint">id</code> identifier.</td></tr>
 </tbody></table>
 
-<p><strong>Notes</strong>: The v1 version of this endpoint has been deprecated because it allowed integrations to delete open or filled openings that were otherwise prevented by data validations in the Greenhouse Recruiting UI. </p>
+<p><strong>Notes</strong>: The v1 version of this endpoint has been deprecated because it allowed integrations to delete open or filled openings that were otherwise prevented by data validations in the Greenhouse Recruiting UI.</p>
 
 <p>The v2 version of this endpoint only allows closed, unfilled openings to be deleted and respects data validation rules as they exist in Greenhouse Recruiting. When the v1 endpoint is deprecated, some integrations may experience errors if they relied on deleting active or filled openings. Since the behavior adheres to the data validation guidelines established in Greenhouse Recruiting, Greenhouse does not consider these issues a breaking change.</p>
 
@@ -10143,7 +10145,7 @@ X-RateLimit-Remaining: 49
 <tr>
 <td>openings[].status</td><td>One of: <code class="prettyprint">[&quot;open&quot;, &quot;closed&quot;]</code></td></tr>
 <tr>
-<td>openings[].opened_at</td><td>Timestamp when the opening was created.</td></tr>
+<td>openings[].opened_at</td><td>Timestamp when the opening was opened.</td></tr>
 <tr>
 <td>openings[].closed_at</td><td>Timestamp when the opening was closed. An opening is closed when it is filled or removed.</td></tr>
 <tr>
