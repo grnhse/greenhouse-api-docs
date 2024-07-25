@@ -6,10 +6,12 @@ language_tabs:
   - ruby
 
 toc_footers:
-  - <a href="/job-board.html" title="Job Board API">Job Board API</a>
-  - <a href='/webhooks.html' title="Web Hooks">Web Hooks</a>
-  - <a href='/candidate-ingestion.html' title="Ingestion API">Ingestion API</a>
   - <a href='/assessment.html' title="Assessment API">Assessment API</a>
+  - <a href='/audit-log.html' title="Audit Log API">Audit Log API</a>
+  - <a href='/candidate-ingestion.html' title="Ingestion API">Ingestion API</a>
+  - <a href="/job-board.html" title="Job Board API">Job Board API</a>
+  - <a href='/gho.html' title="Onboarding API">Onboarding API</a>
+  - <a href='/webhooks.html' title="Web Hooks">Web Hooks</a>
 
 includes:
   - harvest/introduction
