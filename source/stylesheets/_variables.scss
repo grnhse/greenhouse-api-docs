@@ -27,8 +27,9 @@ $nav-bg: #292929;
 $examples-bg: #2f2f2f;
 $code-bg: #292929;
 $code-annotation-bg: #1c1c1c;
-$nav-subitem-bg: #5eb2c5;
+$nav-subitem-bg: #00b2a9;
 $nav-active-bg: #ffffff;
+$nav-active-parent-bg: #018D85 !default; // parent links of the current section
 $lang-select-border: #000;
 $lang-select-bg: #222;
 $lang-select-active-bg: $examples-bg; // feel free to change this to blue or something
@@ -39,40 +40,39 @@ $aside-warning-bg: #fcf5cc;
 $aside-success-bg: #b7dd79;
 $search-notice-bg: #c97a7e;
 $footer-nav-items-bg: #2f2f2f;
-$active-header-bg: #018D85;
-
 
 // TEXT COLORS
 ////////////////////
-$main-text: #54585a; // main content text color
-$nav-text: #FFF;
-$nav-active-text: #54585a;
-$lang-select-text: #9b9b9b; // color of unselected language tab text
-$lang-select-active-text: #9b9b9b; // color of selected language tab text
-$lang-select-pressed-text: #9b9b9b; // color of language tab text when mouse is pressed
+$main-text: #54585a !default; // main content text color
+$nav-text: #fff !default;
+$nav-active-text: #54585a !default;
+$nav-active-parent-text: #fff !default; // parent links of the current section
+$lang-select-text: #9b9b9b !default; // color of unselected language tab text
+$lang-select-active-text: #9b9b9b !default; // color of selected language tab text
+$lang-select-pressed-text: #9b9b9b !default; // color of language tab text when mouse is pressed
 $nav-home-text: #9b9b9b;
 $footer-items-text: #9b9b9b;
 
 
 // SIZES
 ////////////////////
-$nav-width: 250px; // width of the navbar
-$examples-width: 50%; // portion of the screen taken up by code examples
-$logo-margin: 20px; // margin between nav items and logo, ignored if search is active
-$main-padding: 28px; // padding to left and right of content & examples
-$nav-padding: 15px; // padding to left and right of navbar
-$nav-v-padding: 10px; // padding used vertically around search boxes and results
-$nav-indent: 10px; // extra padding for ToC subitems
-$code-annotation-padding: 13px; // padding inside code annotations
-$h1-margin-bottom: 21px; // padding under the largest header tags
-$tablet-width: 930px; // min width before reverting to tablet size
-$phone-width: $tablet-width - $nav-width; // min width before reverting to mobile size
+$nav-width: 230px !default; // width of the navbar
+$examples-width: 50% !default; // portion of the screen taken up by code examples
+$logo-margin: 0px !default; // margin below logo
+$main-padding: 28px !default; // padding to left and right of content & examples
+$nav-padding: 15px !default; // padding to left and right of navbar
+$nav-v-padding: 10px !default; // padding used vertically around search boxes and results
+$nav-indent: 10px !default; // extra padding for ToC subitems
+$code-annotation-padding: 13px !default; // padding inside code annotations
+$h1-margin-bottom: 21px !default; // padding under the largest header tags
+$tablet-width: 930px !default; // min width before reverting to tablet size
+$phone-width: $tablet-width - $nav-width !default; // min width before reverting to mobile size
 
 
 // FONTS
 ////////////////////
 %default-font {
-  font-family: "LLAkkuratWeb-Regular", Helmut, Helvetica, Arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   font-size: 14px;
 }
 
@@ -90,13 +90,8 @@ $phone-width: $tablet-width - $nav-width; // min width before reverting to mobil
 
 // OTHER
 ////////////////////
-$nav-active-shadow: #000;
-$nav-footer-border-color: #666;
-$nav-embossed-border-top: #000;
-$nav-embossed-border-bottom: #000;
-$main-embossed-text-shadow: 0px 1px 0px #fff;
-$search-box-border-color: #424242;
-$nav-active-bottom-border: #000;
+$nav-footer-border-color: #666 !default;
+$search-box-border-color: #666 !default;
 
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -105,10 +100,6 @@ $nav-active-bottom-border: #000;
 // These settings are probably best left alone.
 
 %break-words {
-     word-break: break-all;
-
-     /* Non standard for webkit */
-     word-break: break-word;
-
-        hyphens: auto;
+    word-break: break-all;
+    hyphens: auto;
 }
