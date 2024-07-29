@@ -1,37 +1,200 @@
+
 <!doctype html>
 <html>
   <head>
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link rel="apple-touch-icon" sizes="57x57" href="/images/favicons/apple-touch-icon-57x57.png">
-<link rel="apple-touch-icon" sizes="60x60" href="/images/favicons/apple-touch-icon-60x60.png">
-<link rel="apple-touch-icon" sizes="72x72" href="/images/favicons/apple-touch-icon-72x72.png">
-<link rel="apple-touch-icon" sizes="76x76" href="/images/favicons/apple-touch-icon-76x76.png">
-<link rel="apple-touch-icon" sizes="114x114" href="/images/favicons/apple-touch-icon-114x114.png">
-<link rel="apple-touch-icon" sizes="120x120" href="/images/favicons/apple-touch-icon-120x120.png">
-<link rel="apple-touch-icon" sizes="144x144" href="/images/favicons/apple-touch-icon-144x144.png">
-<link rel="icon" type="image/png" href="/images/favicons/favicon-32x32.png" sizes="32x32">
-<link rel="icon" type="image/png" href="/images/favicons/favicon-96x96.png" sizes="96x96">
-<link rel="icon" type="image/png" href="/images/favicons/favicon-16x16.png" sizes="16x16">
+    <link rel="apple-touch-icon" sizes="57x57" href="images/favicons/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="images/favicons/apple-touch-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="images/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="images/favicons/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="images/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="images/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="images/favicons/apple-touch-icon-144x144.png">
+<link rel="icon" type="image/png" href="images/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="images/favicons/favicon-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="images/favicons/favicon-16x16.png" sizes="16x16">
 <link rel="manifest" href="/images/favicons/manifest.json">
-<link rel="mask-icon" href="/images/favicons/safari-pinned-tab.svg" color="#00b2a9">
+<link rel="mask-icon" href="images/favicons/safari-pinned-tab.svg" color="#00b2a9">
 <meta name="msapplication-TileColor" content="#da532c">
-<meta name="msapplication-TileImage" content="/images/favicons/mstile-144x144.png">
+<meta name="msapplication-TileImage" content="images/favicons/mstile-144x144.png">
 <meta name="theme-color" content="#00b2a9">
+
     <title>Assessment API | Greenhouse</title>
 
-    <link href="stylesheets/print.css" rel="stylesheet" type="text/css" media="print" />
-    <link href="stylesheets/screen_assessment.css" rel="stylesheet" type="text/css" media="screen" />
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-      <script src="javascripts/all.js" type="text/javascript"></script>
-
-      <script>
-        $(function() {
-          setupLanguages(["shell"]);
-        });
-      </script>
+    <style media="screen">
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight, .highlight .w {
+  color: #f8f8f2;
+  background-color: #272822;
+}
+.highlight .err {
+  color: #272822;
+  background-color: #f92672;
+}
+.highlight .c, .highlight .ch, .highlight .cd, .highlight .cm, .highlight .cpf, .highlight .c1, .highlight .cs {
+  color: #75715e;
+}
+.highlight .cp {
+  color: #f4bf75;
+}
+.highlight .nt {
+  color: #f4bf75;
+}
+.highlight .o, .highlight .ow {
+  color: #f8f8f2;
+}
+.highlight .p, .highlight .pi {
+  color: #f8f8f2;
+}
+.highlight .gi {
+  color: #a6e22e;
+}
+.highlight .gd {
+  color: #f92672;
+}
+.highlight .gh {
+  color: #66d9ef;
+  background-color: #272822;
+  font-weight: bold;
+}
+.highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
+  color: #ae81ff;
+}
+.highlight .kc {
+  color: #fd971f;
+}
+.highlight .kt {
+  color: #fd971f;
+}
+.highlight .kd {
+  color: #fd971f;
+}
+.highlight .s, .highlight .sb, .highlight .sc, .highlight .dl, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
+  color: #a6e22e;
+}
+.highlight .sa {
+  color: #ae81ff;
+}
+.highlight .sr {
+  color: #a1efe4;
+}
+.highlight .si {
+  color: #cc6633;
+}
+.highlight .se {
+  color: #cc6633;
+}
+.highlight .nn {
+  color: #f4bf75;
+}
+.highlight .nc {
+  color: #f4bf75;
+}
+.highlight .no {
+  color: #f4bf75;
+}
+.highlight .na {
+  color: #66d9ef;
+}
+.highlight .m, .highlight .mb, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mx {
+  color: #a6e22e;
+}
+.highlight .ss {
+  color: #a6e22e;
+}
+    </style>
+    <style media="print">
+      * {
+        -webkit-transition:none!important;
+        transition:none!important;
+      }
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight, .highlight .w {
+  color: #586e75;
+}
+.highlight .err {
+  color: #002b36;
+  background-color: #dc322f;
+}
+.highlight .c, .highlight .ch, .highlight .cd, .highlight .cm, .highlight .cpf, .highlight .c1, .highlight .cs {
+  color: #657b83;
+}
+.highlight .cp {
+  color: #b58900;
+}
+.highlight .nt {
+  color: #b58900;
+}
+.highlight .o, .highlight .ow {
+  color: #93a1a1;
+}
+.highlight .p, .highlight .pi {
+  color: #93a1a1;
+}
+.highlight .gi {
+  color: #859900;
+}
+.highlight .gd {
+  color: #dc322f;
+}
+.highlight .gh {
+  color: #268bd2;
+  background-color: #002b36;
+  font-weight: bold;
+}
+.highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
+  color: #6c71c4;
+}
+.highlight .kc {
+  color: #cb4b16;
+}
+.highlight .kt {
+  color: #cb4b16;
+}
+.highlight .kd {
+  color: #cb4b16;
+}
+.highlight .s, .highlight .sb, .highlight .sc, .highlight .dl, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
+  color: #859900;
+}
+.highlight .sa {
+  color: #6c71c4;
+}
+.highlight .sr {
+  color: #2aa198;
+}
+.highlight .si {
+  color: #d33682;
+}
+.highlight .se {
+  color: #d33682;
+}
+.highlight .nn {
+  color: #b58900;
+}
+.highlight .nc {
+  color: #b58900;
+}
+.highlight .no {
+  color: #b58900;
+}
+.highlight .na {
+  color: #268bd2;
+}
+.highlight .m, .highlight .mb, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mx {
+  color: #859900;
+}
+.highlight .ss {
+  color: #859900;
+}
+    </style>
+    <link href="stylesheets/screen_assessment.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/print.css" rel="stylesheet" media="print" />
+      <script src="javascripts/all.js"></script>
 
     <script type="text/javascript">
 !function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","page","once","off","on"];analytics.factory=function(t){return function(){var e=Array.prototype.slice.call(arguments);e.unshift(t);analytics.push(e);return analytics}};for(var t=0;t<analytics.methods.length;t++){var e=analytics.methods[t];analytics[e]=analytics.factory(e)}analytics.load=function(t){var e=document.createElement("script");e.type="text/javascript";e.async=!0;e.src=("https:"===document.location.protocol?"https://":"http://")+"cdn.segment.com/analytics.js/v1/"+t+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(e,n)};analytics.SNIPPET_VERSION="3.1.0";
@@ -41,17 +204,17 @@ analytics.page()
 </script>
   </head>
 
-  <body class="assessment">
+  <body class="assessment" data-languages="[&quot;shell&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
-        <img src="images/navbar.png" alt="Navbar" />
+        <img src="images/navbar.png" alt="" />
       </span>
     </a>
-    <div class="tocify-wrapper">
+    <div class="toc-wrapper">
       <a href="/" class="nav-home-link">
         <div class="nav-home">
-          <img src="images/logo.png" alt="Logo" />
+          <img src="images/logo.png" class="logo" alt="" />
           <span>Developers Home</span>
         </div>
       </a>
@@ -62,66 +225,143 @@ analytics.page()
           <input type="text" class="search" id="input-search" placeholder="Search">
         </div>
         <ul class="search-results"></ul>
-      <div id="toc">
-      </div>
+      <ul id="toc" class="toc-list-h1">
+          <li>
+            <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#working-with-greenhouse-to-implement-the-integration" class="toc-h2 toc-link" data-title="Working with Greenhouse to implement the integration">Working with Greenhouse to implement the integration</a>
+                  </li>
+                  <li>
+                    <a href="#workflow" class="toc-h2 toc-link" data-title="Workflow">Workflow</a>
+                  </li>
+                  <li>
+                    <a href="#authentication" class="toc-h2 toc-link" data-title="Authentication">Authentication</a>
+                  </li>
+                  <li>
+                    <a href="#general-considerations" class="toc-h2 toc-link" data-title="General considerations">General considerations</a>
+                  </li>
+                  <li>
+                    <a href="#assessment-api-change-log" class="toc-h2 toc-link" data-title="Assessment API Change Log">Assessment API Change Log</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#list-tests" class="toc-h1 toc-link" data-title="List Tests">List Tests</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#request" class="toc-h2 toc-link" data-title="Request">Request</a>
+                  </li>
+                  <li>
+                    <a href="#response" class="toc-h2 toc-link" data-title="Response">Response</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#send-test" class="toc-h1 toc-link" data-title="Send Test">Send Test</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#request" class="toc-h2 toc-link" data-title="Request">Request</a>
+                  </li>
+                  <li>
+                    <a href="#response" class="toc-h2 toc-link" data-title="Response">Response</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#patch-mark-test-as-completed" class="toc-h1 toc-link" data-title="PATCH - Mark Test as Completed">PATCH - Mark Test as Completed</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#request" class="toc-h2 toc-link" data-title="Request">Request</a>
+                  </li>
+                  <li>
+                    <a href="#response" class="toc-h2 toc-link" data-title="Response">Response</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#sending-updates-to-greenhouse" class="toc-h1 toc-link" data-title="Sending Updates to Greenhouse">Sending Updates to Greenhouse</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#if-you-have-implemented-the-polling-option" class="toc-h2 toc-link" data-title="If you have implemented the polling option:">If you have implemented the polling option:</a>
+                  </li>
+                  <li>
+                    <a href="#if-you-have-implemented-the-patch-completed-test-option" class="toc-h2 toc-link" data-title="If you have implemented the PATCH Completed Test option:">If you have implemented the PATCH Completed Test option:</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#test-status" class="toc-h1 toc-link" data-title="Test Status">Test Status</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#request" class="toc-h2 toc-link" data-title="Request">Request</a>
+                  </li>
+                  <li>
+                    <a href="#response" class="toc-h2 toc-link" data-title="Response">Response</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#response-error" class="toc-h1 toc-link" data-title="Response Error">Response Error</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#request" class="toc-h2 toc-link" data-title="Request">Request</a>
+                  </li>
+                  <li>
+                    <a href="#response" class="toc-h2 toc-link" data-title="Response">Response</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
+          </li>
+      </ul>
       <ul class="toc-appendage">
         <li id="github_link"><a href="https://github.com/grnhse/greenhouse-api-docs/tree/master/source/includes/assessment" title="View on Github" target="_blank">View on GitHub</a></li>
       </ul>
         <ul class="toc-footer">
+            <li><a href='/audit-log.html' title="Audit Log API">Audit Log API</a></li>
             <li><a href="/harvest.html" title="Harvest API">Harvest API</a></li>
-            <li><a href="/job-board.html" title="Job Board API">Job Board API</a></li>
-            <li><a href='/webhooks.html' title="Web Hooks">Web Hooks</a></li>
             <li><a href='/candidate-ingestion.html' title="Ingestion API">Ingestion API</a></li>
+            <li><a href="/job-board.html" title="Job Board API">Job Board API</a></li>
+            <li><a href='/gho.html' title="Onboarding API">Onboarding API</a></li>
+            <li><a href='/webhooks.html' title="Web Hooks">Web Hooks</a></li>
         </ul>
     </div>
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        
-          <h1 id="introduction">Introduction</h1>
-
-<p>Greenhouse integrates with many candidate testing platforms, including code testing, video interviewing, personality testing, and more. We&rsquo;ve created the Assessment Partner API to allow our customers to seemlessly integrate our Partners&rsquo; assessments into their Greenhouse interview workflow. This document outlines the end-user experience with the integration and the technical details of how to implement it.</p>
-
-<h3 id="working-with-greenhouse-to-implement-the-integration">Working with Greenhouse to implement the integration</h3>
-
+        <h1 id='introduction'>Introduction</h1>
+<p>Greenhouse integrates with many candidate testing platforms, including code testing, video interviewing, personality testing, and more. We&#39;ve created the Assessment Partner API to allow our customers to seemlessly integrate our Partners&#39; assessments into their Greenhouse interview workflow. This document outlines the end-user experience with the integration and the technical details of how to implement it.</p>
+<h3 id='working-with-greenhouse-to-implement-the-integration'>Working with Greenhouse to implement the integration</h3>
 <p>To begin the integration process, please send the following information to us at partners@greenhouse.io:</p>
 
 <ol>
-<li>URL for your <code class="prettyprint">list_tests</code> API call</li>
-<li>URL for your <code class="prettyprint">send_test</code> API call</li>
-<li>URL for your <code class="prettyprint">test_status</code> API call</li>
-<li>URL for your <code class="prettyprint">response_error</code> API call</li>
+<li>URL for your <code>list_tests</code> API call</li>
+<li>URL for your <code>send_test</code> API call</li>
+<li>URL for your <code>test_status</code> API call</li>
+<li>URL for your <code>response_error</code> API call</li>
 <li>A sample API key</li>
 </ol>
 
 <p>The Partnerships team will configure endpoint URLs for creating assessment stages and provide next steps on receiving access to a Sandbox account to test the integration. If you are building an integration for use by mutual customers, we will need documentation on the integration for the Greenhouse Help Center.</p>
-
-<h2 id="workflow">Workflow</h2>
-
+<h2 id='workflow'>Workflow</h2>
 <p>The Assessment Partner will provide an org-level API key to the customer. The organization will provide this API key to their Greenhouse Account Manager, who will input it into our system.</p>
-
-<h3 id="selecting-the-test">Selecting the Test</h3>
-
+<h3 id='selecting-the-test'>Selecting the Test</h3>
 <p>Once Greenhouse enters the API key for the organization, a new partner interview stage will be available for use. The user can add this stage to the Hiring Plan of any job that has access to the new Assessment Partner stage. Greenhouse will then make an API call to the <a href="#list-tests">List Tests endpoint</a> to determine what tests the organization has configured.</p>
 
-<p><img src="/images/add-stage.png" alt="Add Stage Image"></p>
+<p><img src="images/add-stage.png" alt="Add Stage Image"></p>
+<h3 id='sending-the-test'>Sending the Test</h3>
+<p>When a candidate reaches this Interview Stage, the user will click the &quot;Send Test&quot; button to send the test to the candidate via the <a href="#send-test">Send Test endpoint</a>. Greenhouse will send the Test ID and candidate email to the Assessment Partner, who will email the test to the candidate. The Assessment Partner will then send Greenhouse the ID for this unique test instance.</p>
 
-<h3 id="sending-the-test">Sending the Test</h3>
+<p><img src="images/send-test.png" alt="Add Stage Image"></p>
+<h3 id='receiving-the-test-results'>Receiving the Test Results</h3>
+<p>Greenhouse will periodically poll the <a href="#test-status">Test Status endpoint</a> to retrieve the candidate&#39;s test status and results. When the candidate completes the test, Greenhouse will notify the appropriate user that the test is complete. The user will be able to view the candidate&#39;s score, navigate to the partner site to see more details, and make an advance or reject decision within Greenhouse. The user will also be able to filter candidates by score and advance or reject candidates in bulk.</p>
 
-<p>When a candidate reaches this Interview Stage, the user will click the &ldquo;Send Test&rdquo; button to send the test to the candidate via the <a href="#send-test">Send Test endpoint</a>. Greenhouse will send the Test ID and candidate email to the Assessment Partner, who will email the test to the candidate. The Assessment Partner will then send Greenhouse the ID for this unique test instance.</p>
-
-<p><img src="/images/send-test.png" alt="Add Stage Image"></p>
-
-<h3 id="receiving-the-test-results">Receiving the Test Results</h3>
-
-<p>Greenhouse will periodically poll the <a href="#test-status">Test Status endpoint</a> to retrieve the candidate&rsquo;s test status and results. When the candidate completes the test, Greenhouse will notify the appropriate user that the test is complete. The user will be able to view the candidate&rsquo;s score, navigate to the partner site to see more details, and make an advance or reject decision within Greenhouse. The user will also be able to filter candidates by score and advance or reject candidates in bulk.</p>
-
-<p>Alternatively, Greenhouse&rsquo;s Assessment API now includes the ability to notify Greenhouse of completed tests via the <a href="#patch-mark-test-as-completed">PATCH - Mark Test as Completed endpoint</a> to avoid long polling!</p>
+<p>Alternatively, Greenhouse&#39;s Assessment API now includes the ability to notify Greenhouse of completed tests via the <a href="#patch-mark-test-as-completed">PATCH - Mark Test as Completed endpoint</a> to avoid long polling!</p>
 
 <p><strong>Note</strong>: You can only update test statuses for active, unhired candidates.</p>
-
-<h2 id="authentication">Authentication</h2>
-
+<h2 id='authentication'>Authentication</h2>
 <p>Every request Greenhouse sends to a Assessment Partner’s API will utilize HTTP Basic Authentication over HTTPS. As such, we require each of the API endpoints to use HTTPS.</p>
 
 <p>When an organization decides to utilize a Assessment Partner’s integration, they will provide their Greenhouse Account Manager with their API key for that Assessment Partner.</p>
@@ -129,13 +369,11 @@ analytics.page()
 <p>Greenhouse will then make all requests for the organization using that API key as the username in Basic Authentication. Greenhouse will append a : (colon) to the API token and then Base64 encode the resulting string.</p>
 
 <p>Upon receiving a request, the Assessment Partner should inspect the API key to determine whether the request should be permitted and which data should be returned.</p>
-
-<h3 id="example-situation">Example Situation</h3>
-
+<h3 id='example-situation'>Example Situation</h3>
 <ul>
 <li><em>Assessment Partner A</em> provided <em>Customer 1</em> with an API key.</li>
 <li><em>Customer 1</em> provided this key to Greenhouse.</li>
-<li><p><em>Assessment Partner A</em> provided the following URL for its <code class="prettyprint">list_tests</code> endpoint:</p>
+<li><p><em>Assessment Partner A</em> provided the following URL for its <code>list_tests</code> endpoint:</p>
 
 <p><em>https://www.testing-partner-a.com/api/list_tests</em></p></li>
 <li><p>Greenhouse would make the following request to retrieve the list of available tests:</p>
@@ -143,318 +381,395 @@ analytics.page()
 <p><em>GET https://www.testing-partner-a.com/api/list_tests</em>
     <em>Authorization: Basic &lt; base-64-encoded-credentials &gt;</em></p></li>
 </ul>
-
-<h2 id="general-considerations">General considerations</h2>
-
+<h2 id='general-considerations'>General considerations</h2>
 <p>Unless otherwise specified, API methods generally conform to the following:</p>
 
 <ul>
-<li>Properties without a value will use <code class="prettyprint">null</code> instead of being undefined</li>
-<li>&ldquo;Snake Case&rdquo; is used for attribute names (e.g. <code class="prettyprint">first_name</code>)</li>
+<li>Properties without a value will use <code>null</code> instead of being undefined</li>
+<li>&quot;Snake Case&quot; is used for attribute names (e.g. <code>first_name</code>)</li>
 <li>We reserve the right to add more properties to objects, but will never change or remove them</li>
 </ul>
-
-<h2 id="assessment-api-change-log">Assessment API Change Log</h2>
-
+<h2 id='assessment-api-change-log'>Assessment API Change Log</h2>
 <p>The timestamps below are Eastern Time.</p>
 
 <table><thead>
 <tr>
-<td>Date</td><td>Description</td></tr>
+<th>Date</th>
+<th>Description</th>
+</tr>
 </thead><tbody>
 <tr>
-<td>Oct 19, 2023 12:30:00PM</td><td>Clarified use of Assessment API for active, unhired candidates in <a href="#introduction">Introduction</a> and <a href="#test-status">Test Status</a></td></tr>
+<td>Oct 19, 2023 12:30:00PM</td>
+<td>Clarified use of Assessment API for active, unhired candidates in <a href="#introduction">Introduction</a> and <a href="#test-status">Test Status</a></td>
+</tr>
 <tr>
-<td>Oct 13, 2023 3:00:00PM</td><td>Added URL for <code class="prettyprint">response_error</code> as a requirement in <a href="#introduction">Introduction</a></td></tr>
+<td>Oct 13, 2023 3:00:00PM</td>
+<td>Added URL for <code>response_error</code> as a requirement in <a href="#introduction">Introduction</a></td>
+</tr>
 <tr>
-<td>Aug 22, 2023 3:00:00PM</td><td>Fixed URL expiry timing in <a href="#send-test">Send Test</a></td></tr>
+<td>Aug 22, 2023 3:00:00PM</td>
+<td>Fixed URL expiry timing in <a href="#send-test">Send Test</a></td>
+</tr>
 <tr>
-<td>Aug 21, 2019 2:00:00PM</td><td>Added Change Log and General Consideration sections to the Assessment API documentation</td></tr>
+<td>Aug 21, 2019 2:00:00PM</td>
+<td>Added Change Log and General Consideration sections to the Assessment API documentation</td>
+</tr>
 <tr>
-<td>Aug 21, 2019 2:00:00PM</td><td>Added <a href="#patch-mark-test-as-completed">PATCH - Mark Test as Completed</a> endpoint</td></tr>
+<td>Aug 21, 2019 2:00:00PM</td>
+<td>Added <a href="#patch-mark-test-as-completed">PATCH - Mark Test as Completed</a> endpoint</td>
+</tr>
 </tbody></table>
+<h1 id='list-tests'>List Tests</h1>
+<p>Greenhouse will first need to retrieve the list of tests from the Assessment Partner using the <code>list_tests</code> API endpoint. We will show the list of available tests to the user, who will to select the appropriate test for a given candidate. </p>
 
-          <h1 id="list-tests">List Tests</h1>
-
-<p>Greenhouse will first need to retrieve the list of tests from the Assessment Partner using the <code class="prettyprint">list_tests</code> API endpoint. We will show the list of available tests to the user, who will to select the appropriate test for a given candidate. </p>
-
-<p><code class="prettyprint">GET https://www.testing-partner.com/api/list_tests</code></p>
-<pre class="highlight shell"><code>curl <span class="s1">'https://www.testing-partner.com/api/list_tests'</span>
--H <span class="s2">"Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"</span>
-</code></pre>
-
-<h3 id="request">Request</h3>
-
-<p>Greenhouse will make a GET request to the <code class="prettyprint">list_tests</code> endpoint specified by the Assessment Partner.</p>
-
-<h3 id="response">Response</h3>
-
+<p><code>GET https://www.testing-partner.com/api/list_tests</code></p>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://www.testing-partner.com/api/list_tests'</span>
+<span class="nt">-H</span> <span class="s2">"Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"</span>
+</code></pre></div><h3 id='request'>Request</h3>
+<p>Greenhouse will make a GET request to the <code>list_tests</code> endpoint specified by the Assessment Partner.</p>
+<h3 id='response'>Response</h3>
 <blockquote>
 <p>API Response</p>
 </blockquote>
-<pre class="highlight json"><code><span class="p">[</span><span class="w">
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"partner_test_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"partner_test_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My First Test"</span><span class="w"> 
+        </span><span class="nl">"partner_test_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"partner_test_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My First Test"</span><span class="w"> 
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"partner_test_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"54321"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"partner_test_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My Second Test"</span><span class="w">
+        </span><span class="nl">"partner_test_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"54321"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"partner_test_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My Second Test"</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
-</span></code></pre>
-
-<p>The Assessment Partner’s response should include a JSON payload containing a list of test objects for the organization. Each test object should contain the keys <code class="prettyprint">partner_test_id</code> and <code class="prettyprint">partner_test_name.</code></p>
+</span></code></pre></div>
+<p>The Assessment Partner’s response should include a JSON payload containing a list of test objects for the organization. Each test object should contain the keys <code>partner_test_id</code> and <code>partner_test_name.</code></p>
 
 <table><thead>
 <tr>
-<td>Property Name</td><td>Type</td><td>Required</td><td>Description</td></tr>
+<th>Property Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
 </thead><tbody>
 <tr>
-<td>partner_test_id</td><td>String</td><td>Yes</td><td>Identifies a test available to an organization.</td></tr>
+<td>partner_test_id</td>
+<td>String</td>
+<td>Yes</td>
+<td>Identifies a test available to an organization.</td>
+</tr>
 <tr>
-<td>partner_test_name</td><td>String</td><td>Yes</td><td>A descriptive title for the test. We will use this value our UI as the test’s label.</td></tr>
+<td>partner_test_name</td>
+<td>String</td>
+<td>Yes</td>
+<td>A descriptive title for the test. We will use this value our UI as the test’s label.</td>
+</tr>
 </tbody></table>
-
-          <h1 id="send-test">Send Test</h1>
-
-<p>When a Greenhouse user sends a test to a candidate, Greenhouse will send a request to the Assessment Partner&rsquo;s <code class="prettyprint">send_test</code> API endpoint. The Assessment Partner will then email the specified candidate the specified test.</p>
-
-<h3 id="request">Request</h3>
-<pre class="highlight shell"><code>curl -X POST <span class="s1">'https://www.testing-partner.com/api/send_test'</span>
--H <span class="s2">"Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"</span>
-</code></pre>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"partner_test_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"candidate"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Harry"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Potter"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"resume_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://hogwarts.com/resume"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123-456-7890"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"hpotter@hogwarts.edu"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"greenhouse_profile_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.greenhouse.io/people/17681532?application_id=26234709"</span><span class="w">
+<h1 id='send-test'>Send Test</h1>
+<p>When a Greenhouse user sends a test to a candidate, Greenhouse will send a request to the Assessment Partner&#39;s <code>send_test</code> API endpoint. The Assessment Partner will then email the specified candidate the specified test.</p>
+<h3 id='request'>Request</h3><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="s1">'https://www.testing-partner.com/api/send_test'</span>
+<span class="nt">-H</span> <span class="s2">"Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"</span>
+</code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"partner_test_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"candidate"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Harry"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Potter"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"resume_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://hogwarts.com/resume"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123-456-7890"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"hpotter@hogwarts.edu"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"greenhouse_profile_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.greenhouse.io/people/17681532?application_id=26234709"</span><span class="w">
   </span><span class="p">},</span><span class="w">
-  </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.greenhouse.io/integrations/testing_partners/take_home_tests/12345"</span><span class="w">
+  </span><span class="nl">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.greenhouse.io/integrations/testing_partners/take_home_tests/12345"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre>
-
-<p>Greenhouse will initiate the process by sending a POST request to the <code class="prettyprint">send_test</code> endpoint specified by the Assessment Partner. The body of the POST request will contain a JSON payload.</p>
+</span></code></pre></div>
+<p>Greenhouse will initiate the process by sending a POST request to the <code>send_test</code> endpoint specified by the Assessment Partner. The body of the POST request will contain a JSON payload.</p>
 
 <table><thead>
 <tr>
-<td>Property Name</td><td>Type</td><td>Required</td><td>Description</td></tr>
+<th>Property Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
 </thead><tbody>
 <tr>
-<td>partner_test_id</td><td>String</td><td>Yes</td><td>Identifies a test available to an organization. Initially provided as a response to the <a href="#list-tests">List Tests request</a>.</td></tr>
+<td>partner_test_id</td>
+<td>String</td>
+<td>Yes</td>
+<td>Identifies a test available to an organization. Initially provided as a response to the <a href="#list-tests">List Tests request</a>.</td>
+</tr>
 <tr>
-<td>first_name</td><td>String</td><td>Yes</td><td>The first name of the candidate.</td></tr>
+<td>first_name</td>
+<td>String</td>
+<td>Yes</td>
+<td>The first name of the candidate.</td>
+</tr>
 <tr>
-<td>last_name</td><td>String</td><td>Yes</td><td>The last name of the candidate.</td></tr>
+<td>last_name</td>
+<td>String</td>
+<td>Yes</td>
+<td>The last name of the candidate.</td>
+</tr>
 <tr>
-<td>resume_url</td><td>String</td><td>No</td><td>A URL to the candidate’s resume. This URL will expire 7 days after the request.</td></tr>
+<td>resume_url</td>
+<td>String</td>
+<td>No</td>
+<td>A URL to the candidate’s resume. This URL will expire 7 days after the request.</td>
+</tr>
 <tr>
-<td>phone_number</td><td>String</td><td>No</td><td>The candidate’s phone number.</td></tr>
+<td>phone_number</td>
+<td>String</td>
+<td>No</td>
+<td>The candidate’s phone number.</td>
+</tr>
 <tr>
-<td>email</td><td>String</td><td>Yes</td><td>The candidate’s email address. The test should be sent to this address.</td></tr>
+<td>email</td>
+<td>String</td>
+<td>Yes</td>
+<td>The candidate’s email address. The test should be sent to this address.</td>
+</tr>
 <tr>
-<td>greenhouse_profile_url</td><td>String</td><td>Yes</td><td>URL to the candidate’s Greenhouse application. Allows the partner to link back to Greenhouse.</td></tr>
+<td>greenhouse_profile_url</td>
+<td>String</td>
+<td>Yes</td>
+<td>URL to the candidate’s Greenhouse application. Allows the partner to link back to Greenhouse.</td>
+</tr>
 <tr>
-<td>url</td><td>String</td><td>Yes</td><td>URL to which to send the <a href="#patch-mark-test-as-completed">PATCH Completed Test</a> request, if using</td></tr>
+<td>url</td>
+<td>String</td>
+<td>Yes</td>
+<td>URL to which to send the <a href="#patch-mark-test-as-completed">PATCH Completed Test</a> request, if using</td>
+</tr>
 </tbody></table>
-
-<h3 id="response">Response</h3>
-
+<h3 id='response'>Response</h3>
 <blockquote>
 <p>The API Response</p>
 </blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"partner_interview_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"98765"</span><span class="w">
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"partner_interview_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"98765"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre>
-
-<p>The response to the <code class="prettyprint">send_test</code> request should contain a JSON payload in its body. This payload should be a single object that contains a single key: <code class="prettyprint">partner_interview_id</code>.</p>
+</span></code></pre></div>
+<p>The response to the <code>send_test</code> request should contain a JSON payload in its body. This payload should be a single object that contains a single key: <code>partner_interview_id</code>.</p>
 
 <table><thead>
 <tr>
-<td>Property Name</td><td>Type</td><td>Required</td><td>Description</td></tr>
+<th>Property Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
 </thead><tbody>
 <tr>
-<td>partner_interview_id</td><td>String</td><td>Yes</td><td>Identifies a candidate’s test.</td></tr>
+<td>partner_interview_id</td>
+<td>String</td>
+<td>Yes</td>
+<td>Identifies a candidate’s test.</td>
+</tr>
 </tbody></table>
 
 <aside class="notice">
 The partner_interview_id should not be confused with partner_test_id. While partner_test_id identifies the test, partner_interview_id identifies an instance of the test that was sent to a candidate.
 </aside>
-
-          <h1 id="patch-mark-test-as-completed">PATCH - Mark Test as Completed</h1>
-
+<h1 id='patch-mark-test-as-completed'>PATCH - Mark Test as Completed</h1>
 <p>When a candidate completes a test, send this request to the URL sent in the initial Send Test request to signal Greenhouse that the test has been completed. Upon this, Greenhouse will send a request to your Test Status endpoint.</p>
 
-<p><code class="prettyprint">PATCH https://app.greenhouse.io/integrations/testing_partners/take_home_tests/12345</code></p>
+<p><code>PATCH https://app.greenhouse.io/integrations/testing_partners/take_home_tests/12345</code></p>
+<h3 id='request'>Request</h3><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> PATCH <span class="s1">'https://app.greenhouse.io/integrations/testing_partners/take_home_tests/12345'</span>
 
-<h3 id="request">Request</h3>
-<pre class="highlight shell"><code>curl -X PATCH <span class="s1">'https://app.greenhouse.io/integrations/testing_partners/take_home_tests/12345'</span>
-
--H <span class="s2">"Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"</span>
-</code></pre>
-
+<span class="nt">-H</span> <span class="s2">"Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"</span>
+</code></pre></div>
 <p>No parameters are necessary with this request.</p>
-
-<h3 id="response">Response</h3>
-
+<h3 id='response'>Response</h3>
 <p>The response will return only the HTTP status code.</p>
-
-          <h1 id="sending-updates-to-greenhouse">Sending Updates to Greenhouse</h1>
-
-<h3 id="if-you-have-implemented-the-polling-option">If you have implemented the polling option:</h3>
-
+<h1 id='sending-updates-to-greenhouse'>Sending Updates to Greenhouse</h1><h3 id='if-you-have-implemented-the-polling-option'>If you have implemented the polling option:</h3>
 <aside class="warning">The polling option has been deprecated as of October 1, 2019. All Assessment API implementations after this date must use the PATCH Completed Test endpoint. However, existing integrations will continue to work with the original test status method.</aside>
 
-<p>After a successful <code class="prettyprint">send_test</code> request, Greenhouse will check whether the test instance has been completed by polling the <code class="prettyprint">test_status</code> endpoint hourly. We will discontinue polling the <code class="prettyprint">test_status</code> endpoint after the candidate is marked as hired, after we receive a <code class="prettyprint">partner_status</code> of <code class="prettyprint">complete</code>, or after 8 weeks have passed since the test was sent.</p>
-
-<h3 id="if-you-have-implemented-the-patch-completed-test-option">If you have implemented the PATCH Completed Test option:</h3>
-
-<p>After a successful <code class="prettyprint">send_test</code> request, you can alert Greenhouse to updates of the test&rsquo;s status by sending a <a href="#patch-mark-test-as-completed">PATCH Completed Test</a> request to the URL found in the <code class="prettyprint">url</code> field of the <code class="prettyprint">send_test</code> request. This will trigger a <a href="#test-status">Test Status</a> request from Greenhouse. Active, unhired candidates will show the completed test status.</p>
-
-<h1 id="test-status">Test Status</h1>
-
+<p>After a successful <code>send_test</code> request, Greenhouse will check whether the test instance has been completed by polling the <code>test_status</code> endpoint hourly. We will discontinue polling the <code>test_status</code> endpoint after the candidate is marked as hired, after we receive a <code>partner_status</code> of <code>complete</code>, or after 8 weeks have passed since the test was sent.</p>
+<h3 id='if-you-have-implemented-the-patch-completed-test-option'>If you have implemented the PATCH Completed Test option:</h3>
+<p>After a successful <code>send_test</code> request, you can alert Greenhouse to updates of the test&#39;s status by sending a <a href="#patch-mark-test-as-completed">PATCH Completed Test</a> request to the URL found in the <code>url</code> field of the <code>send_test</code> request. This will trigger a <a href="#test-status">Test Status</a> request from Greenhouse. Active, unhired candidates will show the completed test status.</p>
+<h1 id='test-status'>Test Status</h1>
 <p>Tells Greenhouse the current status of a take home test.</p>
 
-<p><code class="prettyprint">GET https://www.testing-partner.com/api/test_status?partner_interview_id=12345</code></p>
+<p><code>GET https://www.testing-partner.com/api/test_status?partner_interview_id=12345</code></p>
+<h3 id='request'>Request</h3><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://www.testing-partner.com/api/test_status?partner_interview_id=12345'</span>
 
-<h3 id="request">Request</h3>
-<pre class="highlight shell"><code>curl <span class="s1">'https://www.testing-partner.com/api/test_status?partner_interview_id=12345'</span>
-
--H <span class="s2">"Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"</span>
-</code></pre>
-
-<p>Greenhouse will send a <code class="prettyprint">GET</code> request to the <code class="prettyprint">test_status</code> endpoint provided by the Assessment Partner. The <code class="prettyprint">GET</code> request will contain a single query string parameter: <code class="prettyprint">partner_interview_id</code>.</p>
+<span class="nt">-H</span> <span class="s2">"Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"</span>
+</code></pre></div>
+<p>Greenhouse will send a <code>GET</code> request to the <code>test_status</code> endpoint provided by the Assessment Partner. The <code>GET</code> request will contain a single query string parameter: <code>partner_interview_id</code>.</p>
 
 <table><thead>
 <tr>
-<td>Parameter Name</td><td>Type</td><td>Required</td><td>Description</td></tr>
+<th>Parameter Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
 </thead><tbody>
 <tr>
-<td>partner_interview_id</td><td>String</td><td>Yes</td><td>Identifies a test instance for a candidate. Initially provided as a response to the <a href="#send-test">Send Test request</a>.</td></tr>
+<td>partner_interview_id</td>
+<td>String</td>
+<td>Yes</td>
+<td>Identifies a test instance for a candidate. Initially provided as a response to the <a href="#send-test">Send Test request</a>.</td>
+</tr>
 </tbody></table>
 
 <aside class="notice">
 The partner_interview_id should not be confused with partner_test_id. While partner_test_id identifies the test, partner_interview_id identifies an instance of the test that was sent to a candidate.
 </aside>
-
-<h3 id="response">Response</h3>
-
+<h3 id='response'>Response</h3>
 <blockquote>
 <p>API Response</p>
 </blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-    </span><span class="nt">"partner_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"complete"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"partner_profile_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://example.com/tests/12345"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"partner_score"</span><span class="p">:</span><span class="w"> </span><span class="mi">81</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"metadata"</span><span class="p">:</span><span class="w">
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"partner_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"complete"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"partner_profile_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://example.com/tests/12345"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"partner_score"</span><span class="p">:</span><span class="w"> </span><span class="mi">81</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"metadata"</span><span class="p">:</span><span class="w">
         </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"Started At"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10:15 AM 26 March 2014"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"Completed At"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10:15 AM 26 March 2014"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"Notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This candidate did extremely well!"</span><span class="w">
+            </span><span class="nl">"Started At"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10:15 AM 26 March 2014"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Completed At"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10:15 AM 26 March 2014"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This candidate did extremely well!"</span><span class="w">
         </span><span class="p">}</span><span class="w">
 
 </span><span class="p">}</span><span class="w">
-</span></code></pre>
-
-<p>The response to a <code class="prettyprint">test_status</code> request should contain a JSON object in its body with up to four keys: 
-<code class="prettyprint">partner_status</code>, <code class="prettyprint">partner_profile_url</code>, <code class="prettyprint">partner_score</code>, and <code class="prettyprint">metadata</code>.</p>
+</span></code></pre></div>
+<p>The response to a <code>test_status</code> request should contain a JSON object in its body with up to four keys: 
+<code>partner_status</code>, <code>partner_profile_url</code>, <code>partner_score</code>, and <code>metadata</code>.</p>
 
 <table><thead>
 <tr>
-<td>Property Name</td><td>Type</td><td>Required</td><td>Description</td></tr>
+<th>Property Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
 </thead><tbody>
 <tr>
-<td>partner_status</td><td>String</td><td>Yes</td><td>Describes the current state of the test instance. If the test has been completed and results are available, this value should be <strong>&ldquo;complete&rdquo;.</strong> We will continue to poll until the status is &ldquo;complete&rdquo;, or until 8 weeks has passed since the test was sent.</td></tr>
+<td>partner_status</td>
+<td>String</td>
+<td>Yes</td>
+<td>Describes the current state of the test instance. If the test has been completed and results are available, this value should be <strong>&quot;complete&quot;.</strong> We will continue to poll until the status is &quot;complete&quot;, or until 8 weeks has passed since the test was sent.</td>
+</tr>
 <tr>
-<td>partner_profile_url</td><td>String</td><td>Required only if status is <strong>complete</strong>.</td><td>URL to the candidate’s page on the Test Partner’s website.</td></tr>
+<td>partner_profile_url</td>
+<td>String</td>
+<td>Required only if status is <strong>complete</strong>.</td>
+<td>URL to the candidate’s page on the Test Partner’s website.</td>
+</tr>
 <tr>
-<td>partner_score</td><td>Number</td><td>No</td><td>Numerical score reflecting the candidate’s performance on the test.</td></tr>
+<td>partner_score</td>
+<td>Number</td>
+<td>No</td>
+<td>Numerical score reflecting the candidate’s performance on the test.</td>
+</tr>
 <tr>
-<td>metadata</td><td>Object</td><td>No</td><td>A non-nested object containing keys and values that will be displayed in our test results. All of the values must be Javascript primitives.</td></tr>
+<td>metadata</td>
+<td>Object</td>
+<td>No</td>
+<td>A non-nested object containing keys and values that will be displayed in our test results. All of the values must be Javascript primitives.</td>
+</tr>
 </tbody></table>
 
 <aside class="notice">
 When Greenhouse makes a test_status request, we may only receive the numerical score of the test. To allow an organization to access more information about the test, we will link to the partner’s site using the partner_profile_url. 
 </aside>
+<h1 id='response-error'>Response Error</h1>
+<p>When Greenhouse receives a malformed response for any of Assessment Partner&#39;s API endpoints, we would like to report the errors to the Assessment Partner. As such, each Assessment Partner should provide an API endpoint to ingest this information.</p>
 
-          <h1 id="response-error">Response Error</h1>
-
-<p>When Greenhouse receives a malformed response for any of Assessment Partner&rsquo;s API endpoints, we would like to report the errors to the Assessment Partner. As such, each Assessment Partner should provide an API endpoint to ingest this information.</p>
-
-<p><code class="prettyprint">POST https://www.testing-partner.com/api/request_errors</code></p>
-
-<h3 id="request">Request</h3>
-<pre class="highlight shell"><code>curl -X POST <span class="s1">'https://www.testing-partner.com/api/request_errors'</span>
--H <span class="s2">"Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"</span>
-</code></pre>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-    </span><span class="nt">"api_call"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test_status"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"partner_status is 'complete' but partner_profile url is missing"</span><span class="p">],</span><span class="w">
-    </span><span class="nt">"partner_test_id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"12345"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"partner_test_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Personality Test"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"partner_interview_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"299506"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"candidate_email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"hpotter@hogwarts.edu"</span><span class="w">
+<p><code>POST https://www.testing-partner.com/api/request_errors</code></p>
+<h3 id='request'>Request</h3><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="s1">'https://www.testing-partner.com/api/request_errors'</span>
+<span class="nt">-H</span> <span class="s2">"Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"</span>
+</code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"api_call"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test_status"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"partner_status is 'complete' but partner_profile url is missing"</span><span class="p">],</span><span class="w">
+    </span><span class="nl">"partner_test_id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"12345"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"partner_test_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Personality Test"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"partner_interview_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"299506"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"candidate_email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"hpotter@hogwarts.edu"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre>
-
-<p>After receiving a malformed response, Greenhouse will provide the Assessment Partner with the details of the failed response. Each time an invalid response arrives, Greenhouse will send a POST request to the <code class="prettyprint">response_error</code> API endpoint.</p>
+</span></code></pre></div>
+<p>After receiving a malformed response, Greenhouse will provide the Assessment Partner with the details of the failed response. Each time an invalid response arrives, Greenhouse will send a POST request to the <code>response_error</code> API endpoint.</p>
 
 <p>The body of the request will contain as much information as Greenhouse has at the moment of failure. </p>
 
-<p>For example, if a <code class="prettyprint">list_tests</code> request fails, Greenhouse can only provide the api call (in this case, ‘list_tests’) and the assorted errors (missing keys, unexpected data types, etc.). However, if a <code class="prettyprint">test_status</code> request fails, we can provide more information (partner_test_id, partner_interview_id, etc.) that may prove useful for debugging purposes. Assessment Partners can always expect to receive <code class="prettyprint">api_call</code> and <code class="prettyprint">errors</code> in the JSON body. </p>
+<p>For example, if a <code>list_tests</code> request fails, Greenhouse can only provide the api call (in this case, ‘list_tests’) and the assorted errors (missing keys, unexpected data types, etc.). However, if a <code>test_status</code> request fails, we can provide more information (partner_test_id, partner_interview_id, etc.) that may prove useful for debugging purposes. Assessment Partners can always expect to receive <code>api_call</code> and <code>errors</code> in the JSON body. </p>
 
 <table><thead>
 <tr>
-<td>Property Name</td><td>Value</td><td>Required</td><td>Description</td></tr>
+<th>Property Name</th>
+<th>Value</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
 </thead><tbody>
 <tr>
-<td>api_call</td><td>String</td><td>Yes</td><td>The name of the API call that generated the malformed response.</td></tr>
+<td>api_call</td>
+<td>String</td>
+<td>Yes</td>
+<td>The name of the API call that generated the malformed response.</td>
+</tr>
 <tr>
-<td>errors</td><td>Array</td><td>Yes</td><td>An array of strings which describe an error that prevented the response from validating.</td></tr>
+<td>errors</td>
+<td>Array</td>
+<td>Yes</td>
+<td>An array of strings which describe an error that prevented the response from validating.</td>
+</tr>
 <tr>
-<td>partner_test_id</td><td>String</td><td>No</td><td>Identifies a test available to an organization. Initially provided as a response to the <a href="#list-tests">List Tests request</a>.</td></tr>
+<td>partner_test_id</td>
+<td>String</td>
+<td>No</td>
+<td>Identifies a test available to an organization. Initially provided as a response to the <a href="#list-tests">List Tests request</a>.</td>
+</tr>
 <tr>
-<td>partner_test_name</td><td>String</td><td>No</td><td>A human-readable string that identifies the test. Initially provided as a response to the <a href="#list-tests">List Tests request</a>.</td></tr>
+<td>partner_test_name</td>
+<td>String</td>
+<td>No</td>
+<td>A human-readable string that identifies the test. Initially provided as a response to the <a href="#list-tests">List Tests request</a>.</td>
+</tr>
 <tr>
-<td>partner_interview_id</td><td>String</td><td>No</td><td>Identifies a candidate’s test.</td></tr>
+<td>partner_interview_id</td>
+<td>String</td>
+<td>No</td>
+<td>Identifies a candidate’s test.</td>
+</tr>
 <tr>
-<td>candidate_email</td><td>String</td><td>No</td><td>The candidate’s email address. The test should be sent to this address.</td></tr>
+<td>candidate_email</td>
+<td>String</td>
+<td>No</td>
+<td>The candidate’s email address. The test should be sent to this address.</td>
+</tr>
 </tbody></table>
 
 <aside class="notice">
 The partner_interview_id should not be confused with partner_test_id. While partner_test_id identifies the test, partner_interview_id identifies an instance of the test that was sent to a candidate.
 </aside>
-
-<h3 id="response">Response</h3>
-
+<h3 id='response'>Response</h3>
 <blockquote>
 <p>API Response</p>
 </blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-    </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="w">
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre>
-
-<p>The response to a successful <code class="prettyprint">response_errors</code> request should contain a response code of 200.
+</span></code></pre></div>
+<p>The response to a successful <code>response_errors</code> request should contain a response code of 200.
 <br><br></p>
-
-          <h1 id="errors">Errors</h1>
-
+<h1 id='errors'>Errors</h1>
 <p>Successful requests should generate a response with a 200-level status code. Unsuccessful requests should generate a response with one of the following responses:</p>
 
 <table><thead>
 <tr>
-<td>Status Code</td><td>Description</td></tr>
+<th>Status Code</th>
+<th>Description</th>
+</tr>
 </thead><tbody>
 <tr>
-<td>401</td><td>Unsuccessful authentication with the provided API key.</td></tr>
+<td>401</td>
+<td>Unsuccessful authentication with the provided API key.</td>
+</tr>
 <tr>
-<td>404</td><td>The requested resource could not be found.</td></tr>
+<td>404</td>
+<td>The requested resource could not be found.</td>
+</tr>
 </tbody></table>
 
       </div>

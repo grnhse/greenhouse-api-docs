@@ -1,37 +1,200 @@
+
 <!doctype html>
 <html>
   <head>
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link rel="apple-touch-icon" sizes="57x57" href="/images/favicons/apple-touch-icon-57x57.png">
-<link rel="apple-touch-icon" sizes="60x60" href="/images/favicons/apple-touch-icon-60x60.png">
-<link rel="apple-touch-icon" sizes="72x72" href="/images/favicons/apple-touch-icon-72x72.png">
-<link rel="apple-touch-icon" sizes="76x76" href="/images/favicons/apple-touch-icon-76x76.png">
-<link rel="apple-touch-icon" sizes="114x114" href="/images/favicons/apple-touch-icon-114x114.png">
-<link rel="apple-touch-icon" sizes="120x120" href="/images/favicons/apple-touch-icon-120x120.png">
-<link rel="apple-touch-icon" sizes="144x144" href="/images/favicons/apple-touch-icon-144x144.png">
-<link rel="icon" type="image/png" href="/images/favicons/favicon-32x32.png" sizes="32x32">
-<link rel="icon" type="image/png" href="/images/favicons/favicon-96x96.png" sizes="96x96">
-<link rel="icon" type="image/png" href="/images/favicons/favicon-16x16.png" sizes="16x16">
+    <link rel="apple-touch-icon" sizes="57x57" href="images/favicons/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="images/favicons/apple-touch-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="images/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="images/favicons/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="images/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="images/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="images/favicons/apple-touch-icon-144x144.png">
+<link rel="icon" type="image/png" href="images/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="images/favicons/favicon-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="images/favicons/favicon-16x16.png" sizes="16x16">
 <link rel="manifest" href="/images/favicons/manifest.json">
-<link rel="mask-icon" href="/images/favicons/safari-pinned-tab.svg" color="#00b2a9">
+<link rel="mask-icon" href="images/favicons/safari-pinned-tab.svg" color="#00b2a9">
 <meta name="msapplication-TileColor" content="#da532c">
-<meta name="msapplication-TileImage" content="/images/favicons/mstile-144x144.png">
+<meta name="msapplication-TileImage" content="images/favicons/mstile-144x144.png">
 <meta name="theme-color" content="#00b2a9">
+
     <title>Candidate Ingestion API | Greenhouse</title>
 
-    <link href="stylesheets/print.css" rel="stylesheet" type="text/css" media="print" />
-    <link href="stylesheets/screen_candidate-ingestion.css" rel="stylesheet" type="text/css" media="screen" />
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-      <script src="javascripts/all.js" type="text/javascript"></script>
-
-      <script>
-        $(function() {
-          setupLanguages(["shell"]);
-        });
-      </script>
+    <style media="screen">
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight, .highlight .w {
+  color: #f8f8f2;
+  background-color: #272822;
+}
+.highlight .err {
+  color: #272822;
+  background-color: #f92672;
+}
+.highlight .c, .highlight .ch, .highlight .cd, .highlight .cm, .highlight .cpf, .highlight .c1, .highlight .cs {
+  color: #75715e;
+}
+.highlight .cp {
+  color: #f4bf75;
+}
+.highlight .nt {
+  color: #f4bf75;
+}
+.highlight .o, .highlight .ow {
+  color: #f8f8f2;
+}
+.highlight .p, .highlight .pi {
+  color: #f8f8f2;
+}
+.highlight .gi {
+  color: #a6e22e;
+}
+.highlight .gd {
+  color: #f92672;
+}
+.highlight .gh {
+  color: #66d9ef;
+  background-color: #272822;
+  font-weight: bold;
+}
+.highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
+  color: #ae81ff;
+}
+.highlight .kc {
+  color: #fd971f;
+}
+.highlight .kt {
+  color: #fd971f;
+}
+.highlight .kd {
+  color: #fd971f;
+}
+.highlight .s, .highlight .sb, .highlight .sc, .highlight .dl, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
+  color: #a6e22e;
+}
+.highlight .sa {
+  color: #ae81ff;
+}
+.highlight .sr {
+  color: #a1efe4;
+}
+.highlight .si {
+  color: #cc6633;
+}
+.highlight .se {
+  color: #cc6633;
+}
+.highlight .nn {
+  color: #f4bf75;
+}
+.highlight .nc {
+  color: #f4bf75;
+}
+.highlight .no {
+  color: #f4bf75;
+}
+.highlight .na {
+  color: #66d9ef;
+}
+.highlight .m, .highlight .mb, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mx {
+  color: #a6e22e;
+}
+.highlight .ss {
+  color: #a6e22e;
+}
+    </style>
+    <style media="print">
+      * {
+        -webkit-transition:none!important;
+        transition:none!important;
+      }
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight, .highlight .w {
+  color: #586e75;
+}
+.highlight .err {
+  color: #002b36;
+  background-color: #dc322f;
+}
+.highlight .c, .highlight .ch, .highlight .cd, .highlight .cm, .highlight .cpf, .highlight .c1, .highlight .cs {
+  color: #657b83;
+}
+.highlight .cp {
+  color: #b58900;
+}
+.highlight .nt {
+  color: #b58900;
+}
+.highlight .o, .highlight .ow {
+  color: #93a1a1;
+}
+.highlight .p, .highlight .pi {
+  color: #93a1a1;
+}
+.highlight .gi {
+  color: #859900;
+}
+.highlight .gd {
+  color: #dc322f;
+}
+.highlight .gh {
+  color: #268bd2;
+  background-color: #002b36;
+  font-weight: bold;
+}
+.highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
+  color: #6c71c4;
+}
+.highlight .kc {
+  color: #cb4b16;
+}
+.highlight .kt {
+  color: #cb4b16;
+}
+.highlight .kd {
+  color: #cb4b16;
+}
+.highlight .s, .highlight .sb, .highlight .sc, .highlight .dl, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
+  color: #859900;
+}
+.highlight .sa {
+  color: #6c71c4;
+}
+.highlight .sr {
+  color: #2aa198;
+}
+.highlight .si {
+  color: #d33682;
+}
+.highlight .se {
+  color: #d33682;
+}
+.highlight .nn {
+  color: #b58900;
+}
+.highlight .nc {
+  color: #b58900;
+}
+.highlight .no {
+  color: #b58900;
+}
+.highlight .na {
+  color: #268bd2;
+}
+.highlight .m, .highlight .mb, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mx {
+  color: #859900;
+}
+.highlight .ss {
+  color: #859900;
+}
+    </style>
+    <link href="stylesheets/screen_candidate-ingestion.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/print.css" rel="stylesheet" media="print" />
+      <script src="javascripts/all.js"></script>
 
     <script type="text/javascript">
 !function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","page","once","off","on"];analytics.factory=function(t){return function(){var e=Array.prototype.slice.call(arguments);e.unshift(t);analytics.push(e);return analytics}};for(var t=0;t<analytics.methods.length;t++){var e=analytics.methods[t];analytics[e]=analytics.factory(e)}analytics.load=function(t){var e=document.createElement("script");e.type="text/javascript";e.async=!0;e.src=("https:"===document.location.protocol?"https://":"http://")+"cdn.segment.com/analytics.js/v1/"+t+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(e,n)};analytics.SNIPPET_VERSION="3.1.0";
@@ -41,17 +204,17 @@ analytics.page()
 </script>
   </head>
 
-  <body class="candidate-ingestion">
+  <body class="candidate-ingestion" data-languages="[&quot;shell&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
-        <img src="images/navbar.png" alt="Navbar" />
+        <img src="images/navbar.png" alt="" />
       </span>
     </a>
-    <div class="tocify-wrapper">
+    <div class="toc-wrapper">
       <a href="/" class="nav-home-link">
         <div class="nav-home">
-          <img src="images/logo.png" alt="Logo" />
+          <img src="images/logo.png" class="logo" alt="" />
           <span>Developers Home</span>
         </div>
       </a>
@@ -62,24 +225,92 @@ analytics.page()
           <input type="text" class="search" id="input-search" placeholder="Search">
         </div>
         <ul class="search-results"></ul>
-      <div id="toc">
-      </div>
+      <ul id="toc" class="toc-list-h1">
+          <li>
+            <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#authentication" class="toc-h2 toc-link" data-title="Authentication">Authentication</a>
+                  </li>
+                  <li>
+                    <a href="#oauth-scopes" class="toc-h2 toc-link" data-title="OAuth Scopes">OAuth Scopes</a>
+                  </li>
+                  <li>
+                    <a href="#general-considerations" class="toc-h2 toc-link" data-title="General considerations">General considerations</a>
+                  </li>
+                  <li>
+                    <a href="#ingestion-api-change-log" class="toc-h2 toc-link" data-title="Ingestion API Change Log">Ingestion API Change Log</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#candidates" class="toc-h1 toc-link" data-title="Candidates">Candidates</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#retrieve-candidates" class="toc-h2 toc-link" data-title="Retrieve Candidates">Retrieve Candidates</a>
+                  </li>
+                  <li>
+                    <a href="#post-candidates" class="toc-h2 toc-link" data-title="Post Candidates">Post Candidates</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#current-user" class="toc-h1 toc-link" data-title="Current User">Current User</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#retrieve-current-user" class="toc-h2 toc-link" data-title="Retrieve Current User">Retrieve Current User</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#jobs" class="toc-h1 toc-link" data-title="Jobs">Jobs</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#retrieve-jobs" class="toc-h2 toc-link" data-title="Retrieve Jobs">Retrieve Jobs</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#tracking-link" class="toc-h1 toc-link" data-title="Tracking Link">Tracking Link</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#post-tracking-link" class="toc-h2 toc-link" data-title="Post Tracking Link">Post Tracking Link</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#prospect-pools" class="toc-h1 toc-link" data-title="Prospect Pools">Prospect Pools</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#retrieve-prospect-pools" class="toc-h2 toc-link" data-title="Retrieve Prospect Pools">Retrieve Prospect Pools</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#error-properties" class="toc-h2 toc-link" data-title="Error Properties">Error Properties</a>
+                  </li>
+              </ul>
+          </li>
+      </ul>
       <ul class="toc-appendage">
         <li id="github_link"><a href="https://github.com/grnhse/greenhouse-api-docs/tree/master/source/includes/candidate-ingestion" title="View on Github" target="_blank">View on GitHub</a></li>
       </ul>
         <ul class="toc-footer">
+            <li><a href='/assessment.html' title="Assessment API">Assessment API</a></li>
+            <li><a href='/audit-log.html' title="Audit Log API">Audit Log API</a></li>
             <li><a href="/harvest.html" title="Harvest API">Harvest API</a></li>
             <li><a href="/job-board.html" title="Job Board API">Job Board API</a></li>
+            <li><a href='/gho.html' title="Onboarding API">Onboarding API</a></li>
             <li><a href='/webhooks.html' title="Web Hooks">Web Hooks</a></li>
-            <li><a href='/assessment.html' title="Assessment">Assessment API</a></li>
         </ul>
     </div>
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        
-          <h1 id="introduction">Introduction</h1>
-
+        <h1 id='introduction'>Introduction</h1>
 <p>The Candidate Ingestion API enables sourcing partners with whom Greenhouse shares mutual customers to submit prospects and candidates.</p>
 
 <p>The API allows partners to:</p>
@@ -91,13 +322,9 @@ analytics.page()
 </ol>
 
 <p>Note: The organization must be able to create prospects in order to create prospects using the Candidate Ingestion API.</p>
-
-<h2 id="authentication">Authentication</h2>
-
+<h2 id='authentication'>Authentication</h2>
 <p>This API offers two methods of authentication: OAuth 2.0 and Basic Auth.</p>
-
-<h3 id="authentication-via-oauth-2-0">Authentication via OAuth 2.0</h3>
-
+<h3 id='authentication-via-oauth-2-0'>Authentication via OAuth 2.0</h3>
 <p>If the mutual customer’s users have accounts in both Greenhouse and the partner’s system, the preferred authentication method is <a href="https://tools.ietf.org/html/rfc6749">OAuth 2.0</a>. In this case, the partner would place an integration option on their website which would allow the user to authenticate in to Greenhouse via the partner’s application. This is similar to allowing people to register for a website using Facebook credentials. For a partner to configure this, they must supply Greenhouse with the following information:</p>
 
 <ol>
@@ -113,16 +340,26 @@ permissions modal.</li>
 
 <table><thead>
 <tr>
-<td>Attribute</td><td>Example Value</td></tr>
+<th>Attribute</th>
+<th>Example Value</th>
+</tr>
 </thead><tbody>
 <tr>
-<td>Consumer Key</td><td>bMipe4KWf987654321GrLG1Nfk1234567UshvloD</td></tr>
+<td>Consumer Key</td>
+<td>bMipe4KWf987654321GrLG1Nfk1234567UshvloD</td>
+</tr>
 <tr>
-<td>Consumer Secret</td><td>LQdulabcdefghijklEZok2fE5xGzeBcDa123gNXtN</td></tr>
+<td>Consumer Secret</td>
+<td>LQdulabcdefghijklEZok2fE5xGzeBcDa123gNXtN</td>
+</tr>
 <tr>
-<td>Token URL</td><td>https://api.greenhouse.io/oauth/token</td></tr>
+<td>Token URL</td>
+<td>https://api.greenhouse.io/oauth/token</td>
+</tr>
 <tr>
-<td>Authorize URL</td><td>https://api.greenhouse.io/oauth/authorize</td></tr>
+<td>Authorize URL</td>
+<td>https://api.greenhouse.io/oauth/authorize</td>
+</tr>
 </tbody></table>
 
 <aside class="notice">
@@ -133,33 +370,29 @@ Your Consumer Secret is confidential, and is best kept private. Greenhouse will 
 
 <p>When the user attempts to connect with Greenhouse, they will see a prompt asking them to confirm the connection. This prompt will then associate the user’s account in the partner system with their Greenhouse account.</p>
 
-<p><img src="/images/prompt.png" alt= "Prompt Image" max-width></p>
+<p><img src="images/prompt.png" alt= "Prompt Image" max-width></p>
 
 <p>Once the OAuth process is complete and the user grants the partner permission to access their data on Greenhouse, the partner will receive an access token. This access token must be included in the Authorization header:</p>
 
-<p><code class="prettyprint">Authorization: Bearer &lt;access_token&gt;</code></p>
-
-<h3 id="authentication-via-basic-auth">Authentication via Basic Auth</h3>
-
+<p><code>Authorization: Bearer &lt;access_token&gt;</code></p>
+<h3 id='authentication-via-basic-auth'>Authentication via Basic Auth</h3>
 <p>If your users only have an account in Greenhouse and you will be submitting candidates as a partner (and not sourced by a user), you will likely want to authenticate via HTTP Basic Authentication. Users do not have to take any action to authorize your application to modify Greenhouse data. When using basic auth, you are required to set the On-Behalf-Of header for every request. The value should be the e-mail address of the user on behalf of whom you are taking action. For example:</p>
 
-<p><code class="prettyprint">On-Behalf-Of: john.smith@example.com</code></p>
+<p><code>On-Behalf-Of: john.smith@example.com</code></p>
 
 <p>Normally, this will be a service user created specifically for this purpose. If this header is missing, or Greenhouse doesn’t recognize the address, the API will issue a <em>401 Unauthorized</em> response. The application must also supply the API key. Via basic auth, you will include the API key as the basic auth username and nothing as the password. Since only a username needs to be provided in our case, you’ll need to append a : (colon) to the API token and then Base64 encode the resulting string. This may be included via URL:</p>
 
-<p><code class="prettyprint">https://&lt;base64_encoded_api_key&gt;:@api.greenhouse.io/v1/partners/candidates</code></p>
+<p><code>https://&lt;base64_encoded_api_key&gt;:@api.greenhouse.io/v1/partners/candidates</code></p>
 
 <p>or as an authorized header:</p>
 
-<p><code class="prettyprint">Authorization: Basic base64_encoded_api_key:</code></p>
+<p><code>Authorization: Basic base64_encoded_api_key:</code></p>
 
 <p>In all cases, the customer will have supplied the partner with a Partner API Key and a service user. Both items are required to submit candidates.</p>
-
-<h3 id="note-capabilities-with-the-ingestion-api-will-be-limited-to-the-permissions-of-the-on-behalf-of-user">Note: Capabilities with the Ingestion API will be limited to the permissions of the On-Behalf-Of user</h3>
-
+<h3 id='note-capabilities-with-the-ingestion-api-will-be-limited-to-the-permissions-of-the-on-behalf-of-user'>Note: Capabilities with the Ingestion API will be limited to the permissions of the On-Behalf-Of user</h3>
 <p>There are four user types, <strong>Site Admin</strong>, <strong>Job Admin</strong>, <strong>Interviewer</strong>, and <strong>Basic</strong>.</p>
 
-<p>Site Admins have access to all jobs by default, whereas Job Admins/Interviewers are assigned to specific jobs. Job Admins/Interviewers will only be able to retrieve jobs via the API that they are assigned access to, or that are live on the company&rsquo;s job board. However they can add Candidates to jobs they have access to, as well as jobless Prospects to Greenhouse.</p>
+<p>Site Admins have access to all jobs by default, whereas Job Admins/Interviewers are assigned to specific jobs. Job Admins/Interviewers will only be able to retrieve jobs via the API that they are assigned access to, or that are live on the company&#39;s job board. However they can add Candidates to jobs they have access to, as well as jobless Prospects to Greenhouse.</p>
 
 <p>Because all user permissions are job-based, in order to retrieve jobless Prospects from the API, Site Admins, Job Admins, and Interviewers need the additional Greenhouse permission to manage jobless Prospects. Otherwise, they can only add Prospects, and not retrieve them. This is true of the UI as well.</p>
 
@@ -169,97 +402,88 @@ Your Consumer Secret is confidential, and is best kept private. Greenhouse will 
 * <em>Retreive jobs</em> Retreive information about the current user
 * <em>Create prospects</em> on no jobs Create candidates on jobs</p>
 
-<p>They can&rsquo;t:
+<p>They can&#39;t:
 * <em>Retreive prospects</em> Retreive candidates
 * Create a tracking link</p>
 
 <aside class="warning">
-All user accounts must be active. Disabled users won&rsquo;t be able to do anything with the Ingestion API.
+All user accounts must be active. Disabled users won't be able to do anything with the Ingestion API.
 </aside>
-
-<h2 id="oauth-scopes">OAuth Scopes</h2>
-
+<h2 id='oauth-scopes'>OAuth Scopes</h2>
 <p>If you use OAuth for authentication, there are 3 permission scopes to be aware of. Some endpoints will require a specific permission scope while others require none.</p>
 
 <ul>
-<li><code class="prettyprint">candidates.create</code>: Create new candidates or prospects</li>
-<li><code class="prettyprint">candidates.view</code>: View candidates imported via this partner</li>
-<li><code class="prettyprint">jobs.view</code>: View my jobs.</li>
+<li><code>candidates.create</code>: Create new candidates or prospects</li>
+<li><code>candidates.view</code>: View candidates imported via this partner</li>
+<li><code>jobs.view</code>: View my jobs.</li>
 </ul>
 
 <aside class="warning">
 These scopes do not apply if you are authenticating via Basic Auth.
 </aside>
-
-<h2 id="general-considerations">General considerations</h2>
-
+<h2 id='general-considerations'>General considerations</h2>
 <p>Unless otherwise specified, API methods generally conform to the following:</p>
 
 <ul>
-<li>Properties without a value will use <code class="prettyprint">null</code> instead of being undefined</li>
-<li>&ldquo;Snake Case&rdquo; is used for attribute names (e.g. <code class="prettyprint">first_name</code>)</li>
+<li>Properties without a value will use <code>null</code> instead of being undefined</li>
+<li>&quot;Snake Case&quot; is used for attribute names (e.g. <code>first_name</code>)</li>
 <li>We reserve the right to add more properties to objects, but will never change or remove them</li>
 </ul>
-
-<h2 id="ingestion-api-change-log">Ingestion API Change Log</h2>
-
+<h2 id='ingestion-api-change-log'>Ingestion API Change Log</h2>
 <p>The timestamps below are Eastern Time.</p>
 
 <table><thead>
 <tr>
-<td>Date</td><td>Description</td></tr>
+<th>Date</th>
+<th>Description</th>
+</tr>
 </thead><tbody>
 <tr>
-<td>Apr 15, 2021 03:00:00PM</td><td>Added <code class="prettyprint">full_name</code> and <code class="prettyprint">id</code> to the [GET current_user] response</td></tr>
+<td>Apr 15, 2021 03:00:00PM</td>
+<td>Added <code>full_name</code> and <code>id</code> to the [GET current_user] response</td>
+</tr>
 <tr>
-<td>Aug 22, 2019 11:00:00AM</td><td>Added Change Log and General Consideration sections to the Ingestion API documentation</td></tr>
+<td>Aug 22, 2019 11:00:00AM</td>
+<td>Added Change Log and General Consideration sections to the Ingestion API documentation</td>
+</tr>
 </tbody></table>
-
-          <h1 id="candidates">Candidates</h1>
-
-<h2 id="retrieve-candidates">Retrieve Candidates</h2>
-<pre class="highlight shell"><code>curl <span class="s1">'https://api.greenhouse.io/v1/partner/candidates'</span>
--H <span class="s2">"Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"</span>
-</code></pre>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-    </span><span class="nt">"candidate_ids"</span><span class="p">:</span><span class="w"> </span><span class="mi">17681532</span><span class="w">
+<h1 id='candidates'>Candidates</h1><h2 id='retrieve-candidates'>Retrieve Candidates</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.greenhouse.io/v1/partner/candidates'</span>
+<span class="nt">-H</span> <span class="s2">"Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"</span>
+</code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"candidate_ids"</span><span class="p">:</span><span class="w"> </span><span class="mi">17681532</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre>
-
+</span></code></pre></div>
 <blockquote>
 <p>API Response</p>
 </blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">17681532</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Harry Potter"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"external_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"24680"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"applications"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">17681532</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Harry Potter"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"external_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"24680"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"applications"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">59724</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"job"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Auror"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Active"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"stage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Application Review"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"profile_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.greenhouse.io/people/17681532?application_id=26234709"</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">59724</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"job"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Auror"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Active"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"stage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Application Review"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"profile_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.greenhouse.io/people/17681532?application_id=26234709"</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre>
+</span></code></pre></div>
+<p>Retrieve a candidate&#39;s data. Note that this call will only return candidates that the current user has permission to view.</p>
 
-<p>Retrieve a candidate&rsquo;s data. Note that this call will only return candidates that the current user has permission to view.</p>
-
-<p><code class="prettyprint">GET https://api.greenhouse.io/v1/partner/candidates</code></p>
+<p><code>GET https://api.greenhouse.io/v1/partner/candidates</code></p>
 
 <p><em>scope: candidates.view</em></p>
+<h3 id='request-parameters'>Request Parameters</h3>
+<p>The request should contain a single query parameter that specifies a comma-delimited list of candidate IDs or a single candidate ID. If you provide any candidate ids that don&#39;t exist or to which you do not have access, this endpoint will ignore them and only return the candidates that exist to this API key or Bearer token, or will return an empty response if you have only supplied one candidate ID.</p>
 
-<h3 id="request-parameters">Request Parameters</h3>
-
-<p>The request should contain a single query parameter that specifies a comma-delimited list of candidate IDs or a single candidate ID. If you provide any candidate ids that don&rsquo;t exist or to which you do not have access, this endpoint will ignore them and only return the candidates that exist to this API key or Bearer token, or will return an empty response if you have only supplied one candidate ID.</p>
-
-<p>An empty array will be returned for &ldquo;Retrieve Candidates&rdquo; requests with a single candidate ID for the following use-cases:</p>
+<p>An empty array will be returned for &quot;Retrieve Candidates&quot; requests with a single candidate ID for the following use-cases:</p>
 
 <ol>
 <li>Permissions changes made on a Greenhouse user account associated to the email address used to authenticate the request (e.g. User has been disabled or deprovisioned). </li>
-<li>The candidate is on a job that the user account/email address doesn&rsquo;t have access to. Note that the user account must be at least a job admin on the job associated to the candidate ID. If added as a prospect, the user must have the permission to manage unattached prospects.</li>
+<li>The candidate is on a job that the user account/email address doesn&#39;t have access to. Note that the user account must be at least a job admin on the job associated to the candidate ID. If added as a prospect, the user must have the permission to manage unattached prospects.</li>
 <li>The candidate profile was manually deleted by the organization.</li>
 <li>The source on the candidate profile was manually changed to a new source different from the original partner source.</li>
 <li>The candidate has been merged with another profile generating a new candidate ID.</li>
@@ -269,478 +493,687 @@ These scopes do not apply if you are authenticating via Basic Auth.
 
 <table><thead>
 <tr>
-<td>Query Parameter Name</td><td>Required</td><td>Description</td></tr>
+<th>Query Parameter Name</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
 </thead><tbody>
 <tr>
-<td>candidate_ids</td><td>Yes</td><td>Comma-delimited list of Candidate IDs (e.g. 123, 456)</td></tr>
+<td>candidate_ids</td>
+<td>Yes</td>
+<td>Comma-delimited list of Candidate IDs (e.g. 123, 456)</td>
+</tr>
 </tbody></table>
-
-<h3 id="response-parameters">Response Parameters</h3>
-
-<p>The response will always be an array of objects, even if only one <code class="prettyprint">candidate_id</code> is provided.</p>
+<h3 id='response-parameters'>Response Parameters</h3>
+<p>The response will always be an array of objects, even if only one <code>candidate_id</code> is provided.</p>
 
 <table><thead>
 <tr>
-<td>Property Name</td><td>Type</td><td>Description</td></tr>
+<th>Property Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
 </thead><tbody>
 <tr>
-<td>id</td><td>Integer</td><td>The ID of the candidate</td></tr>
+<td>id</td>
+<td>Integer</td>
+<td>The ID of the candidate</td>
+</tr>
 <tr>
-<td>external_id</td><td>String</td><td>The external ID that was provided in your initial candidate creation request. Can be null if you request the status of a candidate not associated with an external entity.</td></tr>
+<td>external_id</td>
+<td>String</td>
+<td>The external ID that was provided in your initial candidate creation request. Can be null if you request the status of a candidate not associated with an external entity.</td>
+</tr>
 <tr>
-<td>applications[]</td><td>Array</td><td>An array containing 0 or more applications representing the jobs to which this candidate has applied. Each of the sub-elements are required for each of the applications.</td></tr>
+<td>applications[]</td>
+<td>Array</td>
+<td>An array containing 0 or more applications representing the jobs to which this candidate has applied. Each of the sub-elements are required for each of the applications.</td>
+</tr>
 <tr>
-<td>applications.id</td><td>Integer</td><td>The ID of the application.</td></tr>
+<td>applications.id</td>
+<td>Integer</td>
+<td>The ID of the application.</td>
+</tr>
 <tr>
-<td>applications.job</td><td>String</td><td>Name of the job this application is for (e.g. &ldquo;Software developer).</td></tr>
+<td>applications.job</td>
+<td>String</td>
+<td>Name of the job this application is for (e.g. &quot;Software developer).</td>
+</tr>
 <tr>
-<td>applications.status</td><td>String</td><td>The candidate’s current status. Must be one of &quot;rejected,&rdquo; &ldquo;active,&rdquo; or &ldquo;hired.&rdquo;</td></tr>
+<td>applications.status</td>
+<td>String</td>
+<td>The candidate’s current status. Must be one of &quot;rejected,&quot; &quot;active,&quot; or &quot;hired.&quot;</td>
+</tr>
 <tr>
-<td>applications.stage</td><td>String</td><td>The applicant’s current stage in the interview pipeline (e.g. &ldquo;Recruiter Phone Screen&rdquo;).</td></tr>
+<td>applications.stage</td>
+<td>String</td>
+<td>The applicant’s current stage in the interview pipeline (e.g. &quot;Recruiter Phone Screen&quot;).</td>
+</tr>
 <tr>
-<td>applications.profile_url</td><td>String</td><td>A URL to the candidate’s profile in Greenhouse. You must be signed in to Greenhouse to view the profile.</td></tr>
+<td>applications.profile_url</td>
+<td>String</td>
+<td>A URL to the candidate’s profile in Greenhouse. You must be signed in to Greenhouse to view the profile.</td>
+</tr>
 </tbody></table>
-
-<h2 id="post-candidates">Post Candidates</h2>
-<pre class="highlight shell"><code>curl -X POST <span class="s1">'https://api.greenhouse.io/v1/partner/candidates'</span>
--H <span class="s2">"Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"</span>
--H <span class="s2">"Content-Type: application/json"</span>
-</code></pre>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-    </span><span class="nt">"prospect"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Harry"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Potter"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"company"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hogwarts"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Student"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"resume"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://hogwarts.com/resume"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"phone_numbers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+<h2 id='post-candidates'>Post Candidates</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="s1">'https://api.greenhouse.io/v1/partner/candidates'</span>
+<span class="nt">-H</span> <span class="s2">"Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"</span>
+<span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span>
+</code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"prospect"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Harry"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Potter"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"company"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hogwarts"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Student"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"resume"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://hogwarts.com/resume"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"phone_numbers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123-456-7890"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"home"</span><span class="w">
+            </span><span class="nl">"phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123-456-7890"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"home"</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">],</span><span class="w">
-    </span><span class="nt">"emails"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="nl">"emails"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"hpotter@hogwarts.edu"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"other"</span><span class="w">
+            </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"hpotter@hogwarts.edu"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"other"</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">],</span><span class="w">
-    </span><span class="nt">"social_media"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="nl">"social_media"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://twitter.com/hp"</span><span class="w">
+            </span><span class="nl">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://twitter.com/hp"</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">],</span><span class="w">
-    </span><span class="nt">"websites"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="nl">"websites"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://harrypotter.com"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"blog"</span><span class="w">
+            </span><span class="nl">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://harrypotter.com"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"blog"</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">],</span><span class="w">
-    </span><span class="nt">"addresses"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="nl">"addresses"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4 Privet Dr"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"home"</span><span class="w">
+            </span><span class="nl">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4 Privet Dr"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"home"</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">],</span><span class="w">
-    </span><span class="nt">"job_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">12345</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"external_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"24680"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Good at Quiddich"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"prospect_pool_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"prospect_pool_stage_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">456</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"prospect_owner_email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prospect_owners_email@example.com"</span><span class="w">
+    </span><span class="nl">"job_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">12345</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"external_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"24680"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Good at Quiddich"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"prospect_pool_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"prospect_pool_stage_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">456</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"prospect_owner_email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prospect_owners_email@example.com"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre>
-
+</span></code></pre></div>
 <blockquote>
 <p>API Response</p>
 </blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-</span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">12345</span><span class="p">,</span><span class="w">
-</span><span class="nt">"application_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">17681532</span><span class="p">,</span><span class="w">
-</span><span class="nt">"external_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"24680"</span><span class="p">,</span><span class="w">
-</span><span class="nt">"profile_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.greenhouse.io/people/17681532?application_id=26234709"</span><span class="w">
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+</span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">12345</span><span class="p">,</span><span class="w">
+</span><span class="nl">"application_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">17681532</span><span class="p">,</span><span class="w">
+</span><span class="nl">"external_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"24680"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"profile_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.greenhouse.io/people/17681532?application_id=26234709"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre>
-
+</span></code></pre></div>
 <p>Create one or more candidates or prospects</p>
 
-<p><code class="prettyprint">POST https://api.greenhouse.io/v1/partner/candidates</code></p>
+<p><code>POST https://api.greenhouse.io/v1/partner/candidates</code></p>
 
 <p><em>scope: candidates.create</em></p>
-
-<h3 id="request-parameters">Request Parameters</h3>
-
+<h3 id='request-parameters-2'>Request Parameters</h3>
 <table><thead>
 <tr>
-<td>Property Name</td><td>Type</td><td>Required</td><td>Description</td></tr>
+<th>Property Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
 </thead><tbody>
 <tr>
-<td>prospect</td><td>Boolean</td><td>No</td><td>True if this candidate should be a prospect. The organization must be able to create prospects to set this field. (Default: true)</td></tr>
+<td>prospect</td>
+<td>Boolean</td>
+<td>No</td>
+<td>True if this candidate should be a prospect. The organization must be able to create prospects to set this field. (Default: true)</td>
+</tr>
 <tr>
-<td>job_id</td><td>Integer</td><td>Mixed</td><td>Required only if prospect is false. The ID of the job to which this candidate or prospect should be added.</td></tr>
+<td>job_id</td>
+<td>Integer</td>
+<td>Mixed</td>
+<td>Required only if prospect is false. The ID of the job to which this candidate or prospect should be added.</td>
+</tr>
 <tr>
-<td>first_name</td><td>String</td><td>Yes</td><td></td></tr>
+<td>first_name</td>
+<td>String</td>
+<td>Yes</td>
+<td></td>
+</tr>
 <tr>
-<td>last_name</td><td>String</td><td>Yes</td><td></td></tr>
+<td>last_name</td>
+<td>String</td>
+<td>Yes</td>
+<td></td>
+</tr>
 <tr>
-<td>external_id</td><td>String</td><td>Yes</td><td>The unique id of this candidate in your application’s system.</td></tr>
+<td>external_id</td>
+<td>String</td>
+<td>Yes</td>
+<td>The unique id of this candidate in your application’s system.</td>
+</tr>
 <tr>
-<td>company</td><td>String</td><td>No</td><td>Candidate&rsquo;s current company</td></tr>
+<td>company</td>
+<td>String</td>
+<td>No</td>
+<td>Candidate&#39;s current company</td>
+</tr>
 <tr>
-<td>title</td><td>String</td><td>No</td><td>Candidate&rsquo;s current title</td></tr>
+<td>title</td>
+<td>String</td>
+<td>No</td>
+<td>Candidate&#39;s current title</td>
+</tr>
 <tr>
-<td>resume</td><td>String</td><td>No</td><td>URL to the candidate’s resume. Greenhouse will attempt to ingest the document at this URL and add it to the candidate record.</td></tr>
+<td>resume</td>
+<td>String</td>
+<td>No</td>
+<td>URL to the candidate’s resume. Greenhouse will attempt to ingest the document at this URL and add it to the candidate record.</td>
+</tr>
 <tr>
-<td>phone_numbers[]</td><td>Array</td><td>No</td><td></td></tr>
+<td>phone_numbers[]</td>
+<td>Array</td>
+<td>No</td>
+<td></td>
+</tr>
 <tr>
-<td>phone_numbers.phone_number</td><td>String</td><td>Mixed</td><td>Only required if phone_number is included.</td></tr>
+<td>phone_numbers.phone_number</td>
+<td>String</td>
+<td>Mixed</td>
+<td>Only required if phone_number is included.</td>
+</tr>
 <tr>
-<td>phone_numbers.type</td><td>String</td><td>Mixed</td><td>Must be &ldquo;mobile&rdquo;, &ldquo;home&rdquo;, &ldquo;work&rdquo;, or &ldquo;other.&rdquo; Only required if phone_number is included.</td></tr>
+<td>phone_numbers.type</td>
+<td>String</td>
+<td>Mixed</td>
+<td>Must be &quot;mobile&quot;, &quot;home&quot;, &quot;work&quot;, or &quot;other.&quot; Only required if phone_number is included.</td>
+</tr>
 <tr>
-<td>emails[]</td><td>Array</td><td>No</td><td></td></tr>
+<td>emails[]</td>
+<td>Array</td>
+<td>No</td>
+<td></td>
+</tr>
 <tr>
-<td>emails.email</td><td>String</td><td>Mixed</td><td>Note: Only required if email is included.</td></tr>
+<td>emails.email</td>
+<td>String</td>
+<td>Mixed</td>
+<td>Note: Only required if email is included.</td>
+</tr>
 <tr>
-<td>emails.type</td><td>String</td><td>Mixed</td><td>Must be &ldquo;personal&rdquo;, &ldquo;work&rdquo;, or &ldquo;other&rdquo;. Only required if email is included.</td></tr>
+<td>emails.type</td>
+<td>String</td>
+<td>Mixed</td>
+<td>Must be &quot;personal&quot;, &quot;work&quot;, or &quot;other&quot;. Only required if email is included.</td>
+</tr>
 <tr>
-<td>addresses[]</td><td>Array</td><td>No</td><td></td></tr>
+<td>addresses[]</td>
+<td>Array</td>
+<td>No</td>
+<td></td>
+</tr>
 <tr>
-<td>addresses.address</td><td>String</td><td>Mixed</td><td>A free form block of text, which may include newlines (&ldquo;\n&rdquo;). Only required if addresses are included.</td></tr>
+<td>addresses.address</td>
+<td>String</td>
+<td>Mixed</td>
+<td>A free form block of text, which may include newlines (&quot;\n&quot;). Only required if addresses are included.</td>
+</tr>
 <tr>
-<td>addresses.type</td><td>String</td><td>Mixed</td><td>Must be &ldquo;home&rdquo;, &ldquo;work&rdquo;, or &ldquo;other&rdquo;. Only required if addresses are included.</td></tr>
+<td>addresses.type</td>
+<td>String</td>
+<td>Mixed</td>
+<td>Must be &quot;home&quot;, &quot;work&quot;, or &quot;other&quot;. Only required if addresses are included.</td>
+</tr>
 <tr>
-<td>social_media[]</td><td>Array</td><td>No</td><td></td></tr>
+<td>social_media[]</td>
+<td>Array</td>
+<td>No</td>
+<td></td>
+</tr>
 <tr>
-<td>social_media.url</td><td>String</td><td>Mixed</td><td>Note: Only required if social media urls are included.</td></tr>
+<td>social_media.url</td>
+<td>String</td>
+<td>Mixed</td>
+<td>Note: Only required if social media urls are included.</td>
+</tr>
 <tr>
-<td>websites[]</td><td>Array</td><td>No</td><td></td></tr>
+<td>websites[]</td>
+<td>Array</td>
+<td>No</td>
+<td></td>
+</tr>
 <tr>
-<td>websites.url</td><td>String</td><td>Mixed</td><td>Note: Only required if websites are included.</td></tr>
+<td>websites.url</td>
+<td>String</td>
+<td>Mixed</td>
+<td>Note: Only required if websites are included.</td>
+</tr>
 <tr>
-<td>websites.type</td><td>String</td><td>Mixed</td><td>Must be either “personal”, “company”, “portfolio”, “blog”, or “other”. Only required if websites are included.</td></tr>
+<td>websites.type</td>
+<td>String</td>
+<td>Mixed</td>
+<td>Must be either “personal”, “company”, “portfolio”, “blog”, or “other”. Only required if websites are included.</td>
+</tr>
 <tr>
-<td>referrer</td><td>Object</td><td>No</td><td>If present, this value will be used to populate the &ldquo;Who Gets Credit&rdquo; field for the candidate’s application. If omitted, the &ldquo;Who Gets Credit&rdquo; field will be populated with the current user’s information.</td></tr>
+<td>referrer</td>
+<td>Object</td>
+<td>No</td>
+<td>If present, this value will be used to populate the &quot;Who Gets Credit&quot; field for the candidate’s application. If omitted, the &quot;Who Gets Credit&quot; field will be populated with the current user’s information.</td>
+</tr>
 <tr>
-<td>referrer.email</td><td>String</td><td>Mixed</td><td>Used to match this referrer with an existing Greenhouse user, if possible. Only required if referrer is included.</td></tr>
+<td>referrer.email</td>
+<td>String</td>
+<td>Mixed</td>
+<td>Used to match this referrer with an existing Greenhouse user, if possible. Only required if referrer is included.</td>
+</tr>
 <tr>
-<td>referrer.first_name</td><td>String</td><td>Mixed</td><td>Used to create a new ‘Referrer’ in Greenhouse if referrer.email does not match an existing user. Only required if referrer is included.</td></tr>
+<td>referrer.first_name</td>
+<td>String</td>
+<td>Mixed</td>
+<td>Used to create a new ‘Referrer’ in Greenhouse if referrer.email does not match an existing user. Only required if referrer is included.</td>
+</tr>
 <tr>
-<td>referrer.last_name</td><td>String</td><td>Mixed</td><td>Used to create a new ‘Referrer’ in Greenhouse if referrer.email does not match an existing user. Only required if referrer is included.</td></tr>
+<td>referrer.last_name</td>
+<td>String</td>
+<td>Mixed</td>
+<td>Used to create a new ‘Referrer’ in Greenhouse if referrer.email does not match an existing user. Only required if referrer is included.</td>
+</tr>
 <tr>
-<td>notes</td><td>String</td><td>No</td><td>Free-form plain-text notes about this candidate. One way for this to be used is to send secondary information that our API can’t capture as structured data. For example: &ldquo;Skills: Java, C++, Python&rdquo;</td></tr>
+<td>notes</td>
+<td>String</td>
+<td>No</td>
+<td>Free-form plain-text notes about this candidate. One way for this to be used is to send secondary information that our API can’t capture as structured data. For example: &quot;Skills: Java, C++, Python&quot;</td>
+</tr>
 <tr>
-<td>prospect_pool_id</td><td>Integer</td><td>Mixed</td><td>Used to put a prospect in the Prospect Pool with this id. Only required if prospect_pool_stage_id is included. &ldquo;prospect&rdquo; property must be set to true.</td></tr>
+<td>prospect_pool_id</td>
+<td>Integer</td>
+<td>Mixed</td>
+<td>Used to put a prospect in the Prospect Pool with this id. Only required if prospect_pool_stage_id is included. &quot;prospect&quot; property must be set to true.</td>
+</tr>
 <tr>
-<td>prospect_pool_stage_id</td><td>Integer</td><td>No</td><td>Used to put a prospect in the Prospect Pool Stage with this id. The stage must belong to the prospect pool provided in prospect_pool_id. &ldquo;prospect&rdquo; property must be set to true.</td></tr>
+<td>prospect_pool_stage_id</td>
+<td>Integer</td>
+<td>No</td>
+<td>Used to put a prospect in the Prospect Pool Stage with this id. The stage must belong to the prospect pool provided in prospect_pool_id. &quot;prospect&quot; property must be set to true.</td>
+</tr>
 <tr>
-<td>prospect_owner_email</td><td>String</td><td>No</td><td>Used to set the prospect owner for a prospect by providing a valid user&rsquo;s email that exists in Greenhouse. &ldquo;prospect&rdquo; property must be set to true.</td></tr>
+<td>prospect_owner_email</td>
+<td>String</td>
+<td>No</td>
+<td>Used to set the prospect owner for a prospect by providing a valid user&#39;s email that exists in Greenhouse. &quot;prospect&quot; property must be set to true.</td>
+</tr>
 </tbody></table>
-
-<h3 id="response-parameters">Response Parameters</h3>
-
+<h3 id='response-parameters-2'>Response Parameters</h3>
 <p>The API will respond with a single object if a single object was provided or an array of objects if an array was provided.</p>
 
 <table><thead>
 <tr>
-<td>Property Name</td><td>Type</td><td>Description</td></tr>
+<th>Property Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
 </thead><tbody>
 <tr>
-<td>id</td><td>Integer</td><td>The ID of the newly created candidate in Greenhouse.</td></tr>
+<td>id</td>
+<td>Integer</td>
+<td>The ID of the newly created candidate in Greenhouse.</td>
+</tr>
 <tr>
-<td>application_id</td><td>Integer</td><td>The ID of the application implicitly created in Greenhouse.</td></tr>
+<td>application_id</td>
+<td>Integer</td>
+<td>The ID of the application implicitly created in Greenhouse.</td>
+</tr>
 <tr>
-<td>external_id</td><td>String</td><td>The external ID that was provided in your request.</td></tr>
+<td>external_id</td>
+<td>String</td>
+<td>The external ID that was provided in your request.</td>
+</tr>
 <tr>
-<td>profile_url</td><td>String</td><td>A URL to the candidate’s profile within Greenhouse. The user must be signed into Greenhouse to view the profile.</td></tr>
+<td>profile_url</td>
+<td>String</td>
+<td>A URL to the candidate’s profile within Greenhouse. The user must be signed into Greenhouse to view the profile.</td>
+</tr>
 </tbody></table>
-
-          <h1 id="current-user">Current User</h1>
-
-<h2 id="retrieve-current-user">Retrieve Current User</h2>
-<pre class="highlight shell"><code>curl <span class="s1">'https://api.greenhouse.io/v1/partner/current_user'</span>
--H <span class="s2">"Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"</span>
-</code></pre>
-
+<h1 id='current-user'>Current User</h1><h2 id='retrieve-current-user'>Retrieve Current User</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.greenhouse.io/v1/partner/current_user'</span>
+<span class="nt">-H</span> <span class="s2">"Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"</span>
+</code></pre></div>
 <blockquote>
 <p>API Response </p>
 </blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"full_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ron Weasley"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ron"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Weasley"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rweasley@hogwarts.edu"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1234</span><span class="w">
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"full_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ron Weasley"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ron"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Weasley"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rweasley@hogwarts.edu"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1234</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre>
-
+</span></code></pre></div>
 <p>Retrieve details about the current user</p>
 
-<p><code class="prettyprint">GET https://api.greenhouse.io/v1/partner/current_user</code></p>
-
-<h3 id="request-parameters">Request Parameters</h3>
-
+<p><code>GET https://api.greenhouse.io/v1/partner/current_user</code></p>
+<h3 id='request-parameters'>Request Parameters</h3>
 <p>This request is simply the URL. It takes no parameters.</p>
-
-<h3 id="response-parameters">Response Parameters</h3>
-
+<h3 id='response-parameters'>Response Parameters</h3>
 <table><thead>
 <tr>
-<td>Property Name</td><td>Type</td><td>Description</td></tr>
+<th>Property Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
 </thead><tbody>
 <tr>
-<td>full_name</td><td>String</td><td>The current user&rsquo;s full name</td></tr>
+<td>full_name</td>
+<td>String</td>
+<td>The current user&#39;s full name</td>
+</tr>
 <tr>
-<td>first_name</td><td>String</td><td>The current user&rsquo;s first name</td></tr>
+<td>first_name</td>
+<td>String</td>
+<td>The current user&#39;s first name</td>
+</tr>
 <tr>
-<td>last_name</td><td>String</td><td>The current user&rsquo;s last name</td></tr>
+<td>last_name</td>
+<td>String</td>
+<td>The current user&#39;s last name</td>
+</tr>
 <tr>
-<td>email</td><td>String</td><td>The email address associated with the current user</td></tr>
+<td>email</td>
+<td>String</td>
+<td>The email address associated with the current user</td>
+</tr>
 <tr>
-<td>id</td><td>Integer</td><td>The ID of the current user</td></tr>
+<td>id</td>
+<td>Integer</td>
+<td>The ID of the current user</td>
+</tr>
 </tbody></table>
-
-          <h1 id="jobs">Jobs</h1>
-
-<h2 id="retrieve-jobs">Retrieve Jobs</h2>
-<pre class="highlight shell"><code>curl <span class="s1">'https://api.greenhouse.io/v1/partner/jobs'</span>
--H <span class="s2">"Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"</span>
-</code></pre>
-
+<h1 id='jobs'>Jobs</h1><h2 id='retrieve-jobs'>Retrieve Jobs</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.greenhouse.io/v1/partner/jobs'</span>
+<span class="nt">-H</span> <span class="s2">"Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"</span>
+</code></pre></div>
 <blockquote>
 <p>API Response</p>
 </blockquote>
-<pre class="highlight json"><code><span class="p">[</span><span class="w">
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">146859</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Auror"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"open"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"public"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">146859</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Auror"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"open"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"public"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">150050</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Professor"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"open"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"public"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">150050</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Professor"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"open"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"public"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">147886</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Caretaker"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"open"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"public"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">147886</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Caretaker"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"open"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"public"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
   </span><span class="p">},</span><span class="w">
 </span><span class="p">]</span><span class="w">
-</span></code></pre>
-
+</span></code></pre></div>
 <p>Retrieve jobs that are visible for the current user, including all jobs listed on their organization’s public careers page and unpublished jobs the user can access.</p>
 
-<p><code class="prettyprint">GET https://api.greenhouse.io/v1/partner/jobs</code></p>
+<p><code>GET https://api.greenhouse.io/v1/partner/jobs</code></p>
 
 <p><em>scope: jobs.view</em></p>
-
-<h3 id="request-parameters">Request Parameters</h3>
-
+<h3 id='request-parameters'>Request Parameters</h3>
 <p>This request is simply the URL. It takes no parameters.</p>
-
-<h3 id="response-parameters">Response Parameters</h3>
-
+<h3 id='response-parameters'>Response Parameters</h3>
 <table><thead>
 <tr>
-<td>Property Name</td><td>Type</td><td>Description</td></tr>
+<th>Property Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
 </thead><tbody>
 <tr>
-<td>id</td><td>Integer</td><td>The ID of the job.</td></tr>
+<td>id</td>
+<td>Integer</td>
+<td>The ID of the job.</td>
+</tr>
 <tr>
-<td>name</td><td>String</td><td>The name as it appears in Greenhouse, NOT necessarily how it appears on the public job board.</td></tr>
+<td>name</td>
+<td>String</td>
+<td>The name as it appears in Greenhouse, NOT necessarily how it appears on the public job board.</td>
+</tr>
 <tr>
-<td>status</td><td>String</td><td>Always ‘open’.</td></tr>
+<td>status</td>
+<td>String</td>
+<td>Always ‘open’.</td>
+</tr>
 <tr>
-<td>public</td><td>Boolean</td><td>True if this job has any job posts that are currently live on any job board.</td></tr>
+<td>public</td>
+<td>Boolean</td>
+<td>True if this job has any job posts that are currently live on any job board.</td>
+</tr>
 </tbody></table>
-
-          <h1 id="tracking-link">Tracking Link</h1>
-
-<h2 id="post-tracking-link">Post Tracking Link</h2>
-<pre class="highlight shell"><code>curl -X POST <span class="s1">'https://api.greenhouse.io/v1/partner/tracking_link'</span>
--H <span class="s2">"Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"</span>
--H <span class="s2">"Content-Type: application/json"</span>
-</code></pre>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-    </span><span class="nt">"job_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">12345</span><span class="w">
+<h1 id='tracking-link'>Tracking Link</h1><h2 id='post-tracking-link'>Post Tracking Link</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="s1">'https://api.greenhouse.io/v1/partner/tracking_link'</span>
+<span class="nt">-H</span> <span class="s2">"Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"</span>
+<span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span>
+</code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"job_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">12345</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre>
-
+</span></code></pre></div>
 <blockquote>
 <p>API Response</p>
 </blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w"> 
-    </span><span class="nt">"tracking_link"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://grnh.se/yvj0bj"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"job"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Auror"</span><span class="p">,</span><span class="w"> 
-    </span><span class="nt">"source"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Campus Recruiting"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"referrer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hermione Granger"</span><span class="w">
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w"> 
+    </span><span class="nl">"tracking_link"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://grnh.se/yvj0bj"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"job"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Auror"</span><span class="p">,</span><span class="w"> 
+    </span><span class="nl">"source"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Campus Recruiting"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"referrer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hermione Granger"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre>
-
+</span></code></pre></div>
 <p>Create a new tracking link for a specific job. Candidates that apply using this tracking link will automatically have their source set to your application and their referrer set to the current user.</p>
 
-<p><code class="prettyprint">POST https://api.greenhouse.io/v1/partner/tracking_link</code></p>
-
-<h3 id="request-parameters">Request Parameters</h3>
-
+<p><code>POST https://api.greenhouse.io/v1/partner/tracking_link</code></p>
+<h3 id='request-parameters'>Request Parameters</h3>
 <table><thead>
 <tr>
-<td>Property Name</td><td>Type</td><td>Required</td></tr>
+<th>Property Name</th>
+<th>Type</th>
+<th>Required</th>
+</tr>
 </thead><tbody>
 <tr>
-<td>job_id</td><td>Integer</td><td>Yes</td></tr>
+<td>job_id</td>
+<td>Integer</td>
+<td>Yes</td>
+</tr>
 </tbody></table>
-
-<h3 id="response-parameters">Response Parameters</h3>
-
+<h3 id='response-parameters'>Response Parameters</h3>
 <table><thead>
 <tr>
-<td>Property Name</td><td>Type</td><td>Description</td></tr>
+<th>Property Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
 </thead><tbody>
 <tr>
-<td>tracking_link</td><td>String</td><td>URL for newly created tracking link.</td></tr>
+<td>tracking_link</td>
+<td>String</td>
+<td>URL for newly created tracking link.</td>
+</tr>
 <tr>
-<td>job</td><td>String</td><td>The name of the job tied to this tracking link.</td></tr>
+<td>job</td>
+<td>String</td>
+<td>The name of the job tied to this tracking link.</td>
+</tr>
 <tr>
-<td>source</td><td>String</td><td>The name of the source tied to this tracking link (e.g. the name of your application).</td></tr>
+<td>source</td>
+<td>String</td>
+<td>The name of the source tied to this tracking link (e.g. the name of your application).</td>
+</tr>
 <tr>
-<td>referrer</td><td>String</td><td>The name of the user tied to this tracking link.</td></tr>
+<td>referrer</td>
+<td>String</td>
+<td>The name of the user tied to this tracking link.</td>
+</tr>
 </tbody></table>
-
-          <h1 id="prospect-pools">Prospect Pools</h1>
-
-<h2 id="retrieve-prospect-pools">Retrieve Prospect Pools</h2>
-<pre class="highlight shell"><code>curl <span class="s1">'https://api.greenhouse.io/v1/partner/prospect_pools'</span>
--H <span class="s2">"Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"</span>
-</code></pre>
-
+<h1 id='prospect-pools'>Prospect Pools</h1><h2 id='retrieve-prospect-pools'>Retrieve Prospect Pools</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.greenhouse.io/v1/partner/prospect_pools'</span>
+<span class="nt">-H</span> <span class="s2">"Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"</span>
+</code></pre></div>
 <blockquote>
 <p>API Response</p>
 </blockquote>
-<pre class="highlight json"><code><span class="p">[</span><span class="w">
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cold Outreach: Referred"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"stages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cold Outreach: Referred"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"stages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
       </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1957</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Not Contacted"</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1957</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Not Contacted"</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1958</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Contacted"</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1958</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Contacted"</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1959</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1st. Follow Up Sent"</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1959</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1st. Follow Up Sent"</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1960</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2nd Follow Up Sent"</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1960</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2nd Follow Up Sent"</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1961</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"In Discussion"</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1961</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"In Discussion"</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">456</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cold Outreach: Sourced"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"stages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">456</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cold Outreach: Sourced"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"stages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
       </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1962</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Not Contacted"</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1962</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Not Contacted"</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1963</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Contacted"</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1963</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Contacted"</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1964</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1st. Follow Up Sent"</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1964</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1st. Follow Up Sent"</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1965</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2nd Follow Up Sent"</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1965</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2nd Follow Up Sent"</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1966</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"In Discussion"</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1966</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"In Discussion"</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
-</span></code></pre>
+</span></code></pre></div>
+<p>Retrieve prospect pools along with their stages for the current user&#39;s organization.</p>
 
-<p>Retrieve prospect pools along with their stages for the current user&rsquo;s organization.</p>
+<p><code>GET https://api.greenhouse.io/v1/partner/prospect_pools</code></p>
 
-<p><code class="prettyprint">GET https://api.greenhouse.io/v1/partner/prospect_pools</code></p>
-
-<p><em>scope: prospect</em>pools.view_</p>
-
-<h3 id="request-parameters">Request Parameters</h3>
-
+<p><em>scope: prospect_pools.view</em></p>
+<h3 id='request-parameters'>Request Parameters</h3>
 <p>This request is simply the URL. It takes no parameters.</p>
-
-<h3 id="response-parameters">Response Parameters</h3>
-
+<h3 id='response-parameters'>Response Parameters</h3>
 <table><thead>
 <tr>
-<td>Property Name</td><td>Type</td><td>Description</td></tr>
+<th>Property Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
 </thead><tbody>
 <tr>
-<td>id</td><td>Integer</td><td>The ID of the prospect pool.</td></tr>
+<td>id</td>
+<td>Integer</td>
+<td>The ID of the prospect pool.</td>
+</tr>
 <tr>
-<td>name</td><td>String</td><td>The name of the prospect pool.</td></tr>
+<td>name</td>
+<td>String</td>
+<td>The name of the prospect pool.</td>
+</tr>
 <tr>
-<td>stages</td><td>Object</td><td>The stages that belong to a prospect pool with the id and name of the stage. The list of stages will be ordered the same way that it is configured to be ordered in Greenhouse.</td></tr>
+<td>stages</td>
+<td>Object</td>
+<td>The stages that belong to a prospect pool with the id and name of the stage. The list of stages will be ordered the same way that it is configured to be ordered in Greenhouse.</td>
+</tr>
 </tbody></table>
-
-          <h1 id="errors">Errors</h1>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-    </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+<h1 id='errors'>Errors</h1><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Your request included invalid JSON."</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"field"</span><span class="p">:</span><span class="w"> </span><span class="s2">"email"</span><span class="w">
+            </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Your request included invalid JSON."</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"field"</span><span class="p">:</span><span class="w"> </span><span class="s2">"email"</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre>
-
+</span></code></pre></div>
 <p>Successful API responses will have a 200-level HTTP status code. If there is a problem processing your request, you will receive a response with a 4xx- or 5xx-level status code as follows:</p>
 
 <table><thead>
 <tr>
-<td>Status Code</td><td>Description</td></tr>
+<th>Status Code</th>
+<th>Description</th>
+</tr>
 </thead><tbody>
 <tr>
-<td>400</td><td>Your request included invalid JSON.</td></tr>
+<td>400</td>
+<td>Your request included invalid JSON.</td>
+</tr>
 <tr>
-<td>401</td><td>You have not been authenticated.</td></tr>
+<td>401</td>
+<td>You have not been authenticated.</td>
+</tr>
 <tr>
-<td>403</td><td>You have been authenticated, but your Greenhouse user does not have permission to the resource.</td></tr>
+<td>403</td>
+<td>You have been authenticated, but your Greenhouse user does not have permission to the resource.</td>
+</tr>
 <tr>
-<td>404</td><td>The resource you requested could not be found.</td></tr>
+<td>404</td>
+<td>The resource you requested could not be found.</td>
+</tr>
 <tr>
-<td>5xx</td><td>There was an error on our end. You may retry at a later time or contact support if the problem persists.</td></tr>
+<td>5xx</td>
+<td>There was an error on our end. You may retry at a later time or contact support if the problem persists.</td>
+</tr>
 </tbody></table>
-
-<h3 id="error-properties">Error Properties</h3>
-
+<h3 id='error-properties'>Error Properties</h3>
 <table><thead>
 <tr>
-<td>Property Name</td><td>Type</td><td>Required</td><td>Description</td></tr>
+<th>Property Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
 </thead><tbody>
 <tr>
-<td>errors[]</td><td>Array</td><td></td><td>Yes</td></tr>
+<td>errors[]</td>
+<td>Array</td>
+<td></td>
+<td>Yes</td>
+</tr>
 <tr>
-<td>errors.message</td><td>String</td><td>Yes</td><td>A message describing the error. This is for debugging purposes and is not intended to be displayed to the end-user. The exact text should not be relied on programmatically.</td></tr>
+<td>errors.message</td>
+<td>String</td>
+<td>Yes</td>
+<td>A message describing the error. This is for debugging purposes and is not intended to be displayed to the end-user. The exact text should not be relied on programmatically.</td>
+</tr>
 <tr>
-<td>errors.field</td><td>String</td><td>No</td><td>The offending field in the request that caused the error, if applicable.</td></tr>
+<td>errors.field</td>
+<td>String</td>
+<td>No</td>
+<td>The offending field in the request that caused the error, if applicable.</td>
+</tr>
 </tbody></table>
 
       </div>

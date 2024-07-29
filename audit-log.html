@@ -1,37 +1,200 @@
+
 <!doctype html>
 <html>
   <head>
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link rel="apple-touch-icon" sizes="57x57" href="/images/favicons/apple-touch-icon-57x57.png">
-<link rel="apple-touch-icon" sizes="60x60" href="/images/favicons/apple-touch-icon-60x60.png">
-<link rel="apple-touch-icon" sizes="72x72" href="/images/favicons/apple-touch-icon-72x72.png">
-<link rel="apple-touch-icon" sizes="76x76" href="/images/favicons/apple-touch-icon-76x76.png">
-<link rel="apple-touch-icon" sizes="114x114" href="/images/favicons/apple-touch-icon-114x114.png">
-<link rel="apple-touch-icon" sizes="120x120" href="/images/favicons/apple-touch-icon-120x120.png">
-<link rel="apple-touch-icon" sizes="144x144" href="/images/favicons/apple-touch-icon-144x144.png">
-<link rel="icon" type="image/png" href="/images/favicons/favicon-32x32.png" sizes="32x32">
-<link rel="icon" type="image/png" href="/images/favicons/favicon-96x96.png" sizes="96x96">
-<link rel="icon" type="image/png" href="/images/favicons/favicon-16x16.png" sizes="16x16">
+    <link rel="apple-touch-icon" sizes="57x57" href="images/favicons/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="images/favicons/apple-touch-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="images/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="images/favicons/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="images/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="images/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="images/favicons/apple-touch-icon-144x144.png">
+<link rel="icon" type="image/png" href="images/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="images/favicons/favicon-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="images/favicons/favicon-16x16.png" sizes="16x16">
 <link rel="manifest" href="/images/favicons/manifest.json">
-<link rel="mask-icon" href="/images/favicons/safari-pinned-tab.svg" color="#00b2a9">
+<link rel="mask-icon" href="images/favicons/safari-pinned-tab.svg" color="#00b2a9">
 <meta name="msapplication-TileColor" content="#da532c">
-<meta name="msapplication-TileImage" content="/images/favicons/mstile-144x144.png">
+<meta name="msapplication-TileImage" content="images/favicons/mstile-144x144.png">
 <meta name="theme-color" content="#00b2a9">
+
     <title>Audit Log API | Greenhouse</title>
 
-    <link href="stylesheets/print.css" rel="stylesheet" type="text/css" media="print" />
-    <link href="stylesheets/screen_audit-log.css" rel="stylesheet" type="text/css" media="screen" />
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-      <script src="javascripts/all.js" type="text/javascript"></script>
-
-      <script>
-        $(function() {
-          setupLanguages(["shell"]);
-        });
-      </script>
+    <style media="screen">
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight, .highlight .w {
+  color: #f8f8f2;
+  background-color: #272822;
+}
+.highlight .err {
+  color: #272822;
+  background-color: #f92672;
+}
+.highlight .c, .highlight .ch, .highlight .cd, .highlight .cm, .highlight .cpf, .highlight .c1, .highlight .cs {
+  color: #75715e;
+}
+.highlight .cp {
+  color: #f4bf75;
+}
+.highlight .nt {
+  color: #f4bf75;
+}
+.highlight .o, .highlight .ow {
+  color: #f8f8f2;
+}
+.highlight .p, .highlight .pi {
+  color: #f8f8f2;
+}
+.highlight .gi {
+  color: #a6e22e;
+}
+.highlight .gd {
+  color: #f92672;
+}
+.highlight .gh {
+  color: #66d9ef;
+  background-color: #272822;
+  font-weight: bold;
+}
+.highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
+  color: #ae81ff;
+}
+.highlight .kc {
+  color: #fd971f;
+}
+.highlight .kt {
+  color: #fd971f;
+}
+.highlight .kd {
+  color: #fd971f;
+}
+.highlight .s, .highlight .sb, .highlight .sc, .highlight .dl, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
+  color: #a6e22e;
+}
+.highlight .sa {
+  color: #ae81ff;
+}
+.highlight .sr {
+  color: #a1efe4;
+}
+.highlight .si {
+  color: #cc6633;
+}
+.highlight .se {
+  color: #cc6633;
+}
+.highlight .nn {
+  color: #f4bf75;
+}
+.highlight .nc {
+  color: #f4bf75;
+}
+.highlight .no {
+  color: #f4bf75;
+}
+.highlight .na {
+  color: #66d9ef;
+}
+.highlight .m, .highlight .mb, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mx {
+  color: #a6e22e;
+}
+.highlight .ss {
+  color: #a6e22e;
+}
+    </style>
+    <style media="print">
+      * {
+        -webkit-transition:none!important;
+        transition:none!important;
+      }
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight, .highlight .w {
+  color: #586e75;
+}
+.highlight .err {
+  color: #002b36;
+  background-color: #dc322f;
+}
+.highlight .c, .highlight .ch, .highlight .cd, .highlight .cm, .highlight .cpf, .highlight .c1, .highlight .cs {
+  color: #657b83;
+}
+.highlight .cp {
+  color: #b58900;
+}
+.highlight .nt {
+  color: #b58900;
+}
+.highlight .o, .highlight .ow {
+  color: #93a1a1;
+}
+.highlight .p, .highlight .pi {
+  color: #93a1a1;
+}
+.highlight .gi {
+  color: #859900;
+}
+.highlight .gd {
+  color: #dc322f;
+}
+.highlight .gh {
+  color: #268bd2;
+  background-color: #002b36;
+  font-weight: bold;
+}
+.highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
+  color: #6c71c4;
+}
+.highlight .kc {
+  color: #cb4b16;
+}
+.highlight .kt {
+  color: #cb4b16;
+}
+.highlight .kd {
+  color: #cb4b16;
+}
+.highlight .s, .highlight .sb, .highlight .sc, .highlight .dl, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
+  color: #859900;
+}
+.highlight .sa {
+  color: #6c71c4;
+}
+.highlight .sr {
+  color: #2aa198;
+}
+.highlight .si {
+  color: #d33682;
+}
+.highlight .se {
+  color: #d33682;
+}
+.highlight .nn {
+  color: #b58900;
+}
+.highlight .nc {
+  color: #b58900;
+}
+.highlight .no {
+  color: #b58900;
+}
+.highlight .na {
+  color: #268bd2;
+}
+.highlight .m, .highlight .mb, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mx {
+  color: #859900;
+}
+.highlight .ss {
+  color: #859900;
+}
+    </style>
+    <link href="stylesheets/screen_audit-log.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/print.css" rel="stylesheet" media="print" />
+      <script src="javascripts/all.js"></script>
 
     <script type="text/javascript">
 !function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","page","once","off","on"];analytics.factory=function(t){return function(){var e=Array.prototype.slice.call(arguments);e.unshift(t);analytics.push(e);return analytics}};for(var t=0;t<analytics.methods.length;t++){var e=analytics.methods[t];analytics[e]=analytics.factory(e)}analytics.load=function(t){var e=document.createElement("script");e.type="text/javascript";e.async=!0;e.src=("https:"===document.location.protocol?"https://":"http://")+"cdn.segment.com/analytics.js/v1/"+t+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(e,n)};analytics.SNIPPET_VERSION="3.1.0";
@@ -41,17 +204,17 @@ analytics.page()
 </script>
   </head>
 
-  <body class="audit-log">
+  <body class="audit-log" data-languages="[&quot;shell&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
-        <img src="images/navbar.png" alt="Navbar" />
+        <img src="images/navbar.png" alt="" />
       </span>
     </a>
-    <div class="tocify-wrapper">
+    <div class="toc-wrapper">
       <a href="/" class="nav-home-link">
         <div class="nav-home">
-          <img src="images/logo.png" alt="Logo" />
+          <img src="images/logo.png" class="logo" alt="" />
           <span>Developers Home</span>
         </div>
       </a>
@@ -62,25 +225,62 @@ analytics.page()
           <input type="text" class="search" id="input-search" placeholder="Search">
         </div>
         <ul class="search-results"></ul>
-      <div id="toc">
-      </div>
+      <ul id="toc" class="toc-list-h1">
+          <li>
+            <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#authentication" class="toc-h2 toc-link" data-title="Authentication">Authentication</a>
+                  </li>
+                  <li>
+                    <a href="#rate-limiting" class="toc-h2 toc-link" data-title="Rate limiting">Rate limiting</a>
+                  </li>
+                  <li>
+                    <a href="#pagination" class="toc-h2 toc-link" data-title="Pagination">Pagination</a>
+                  </li>
+                  <li>
+                    <a href="#validation" class="toc-h2 toc-link" data-title="Validation">Validation</a>
+                  </li>
+                  <li>
+                    <a href="#general-considerations" class="toc-h2 toc-link" data-title="General considerations">General considerations</a>
+                  </li>
+                  <li>
+                    <a href="#errors" class="toc-h2 toc-link" data-title="Errors">Errors</a>
+                  </li>
+                  <li>
+                    <a href="#audit-log-change-log" class="toc-h2 toc-link" data-title="Audit Log Change Log">Audit Log Change Log</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#events" class="toc-h1 toc-link" data-title="Events">Events</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#the-events-object" class="toc-h2 toc-link" data-title="The events object">The events object</a>
+                  </li>
+                  <li>
+                    <a href="#get-retrieve-events" class="toc-h2 toc-link" data-title="GET: Retrieve events">GET: Retrieve events</a>
+                  </li>
+              </ul>
+          </li>
+      </ul>
       <ul class="toc-appendage">
         <li id="github_link"><a href="https://github.com/grnhse/greenhouse-api-docs/tree/master/source/includes/audit-log" title="View on Github" target="_blank">View on GitHub</a></li>
       </ul>
         <ul class="toc-footer">
-            <li><a href="/job-board.html" title="Job Board API">Job Board API</a></li>
-            <li><a href='/webhooks.html' title="Web Hooks">Web Hooks</a></li>
-            <li><a href='/candidate-ingestion.html' title="Ingestion API">Ingestion API</a></li>
             <li><a href='/assessment.html' title="Assessment API">Assessment API</a></li>
-            <li><a href='/harvest.html' title="Harvest API">Harvest API</a></li>
+            <li><a href='/audit-log.html' title="Audit Log API">Audit Log API</a></li>
+            <li><a href="/harvest.html" title="Harvest API">Harvest API</a></li>
+            <li><a href='/candidate-ingestion.html' title="Ingestion API">Ingestion API</a></li>
+            <li><a href="/job-board.html" title="Job Board API">Job Board API</a></li>
+            <li><a href='/gho.html' title="Onboarding API">Onboarding API</a></li>
+            <li><a href='/webhooks.html' title="Web Hooks">Web Hooks</a></li>
         </ul>
     </div>
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        
-          <h1 id="introduction">Introduction</h1>
-
+        <h1 id='introduction'>Introduction</h1>
 <p>Audit log offers a record of important events from the prior thirty days, providing insights to who accessed or edited information in Greenhouse Recruiting.</p>
 
 <p>Use audit log to empower your teams to detect and minimize the impact of incidents when they occur, scrutinize configuration edits, and ensure sensitive data is only accessed by the people who truly need it. Learn more about <a href="https://support.greenhouse.io/hc/en-us/articles/15074318933275">what to expect with audit log</a>.</p>
@@ -88,171 +288,197 @@ analytics.page()
 <aside class="success">
 <b>Note</b>: Ready to enable audit log for your organization? <a href="mailto:accountmanagement+auditlog@greenhouse.io?subject=I%20want%20to%20learn%20more%20about%20audit%20log">Reach out to us</a> to get started.
 </aside>
-
-<h2 id="authentication">Authentication</h2>
-
+<h2 id='authentication'>Authentication</h2>
 <p>Audit log uses bearer authorization over HTTPS with a valid access token. You’ll need a Harvest API key to generate an access token, returned through the Harvest endpoint <a href="#post-authenticate-audit-log">POST: Authenticate audit log</a>. Use the access token as your bearer to authenticate audit log API requests.</p>
-
-<h3 id="the-authenticate-audit-log-object">The authenticate audit log object</h3>
-
+<h3 id='the-authenticate-audit-log-object'>The authenticate audit log object</h3>
 <p>The authenticate audit log object returns an access token that is valid for 24 hours, which can be used to authenticate your requests to <a href="#the-events-object">the events object</a>.</p>
-
-<h3 id="attributes">Attributes</h3>
-
+<h3 id='attributes'>Attributes</h3>
 <table><thead>
 <tr>
-<td>Attribute</td><td>Definition</td></tr>
+<th>Attribute</th>
+<th>Definition</th>
+</tr>
 </thead><tbody>
 <tr>
-<td>access_token</td><td>A JWT (JSON web token) that’s valid for 24 hours from the time of creation.</td></tr>
+<td>access_token</td>
+<td>A JWT (JSON web token) that’s valid for 24 hours from the time of creation.</td>
+</tr>
 <tr>
-<td>expires</td><td>The exact time the access token will expire in <code class="prettyprint">ISO-8601</code> format, like <code class="prettyprint">2024-02-03T16:38:46.985Z</code>.</td></tr>
+<td>expires</td>
+<td>The exact time the access token will expire in <code>ISO-8601</code> format, like <code>2024-02-03T16:38:46.985Z</code>.</td>
+</tr>
 </tbody></table>
+<h3 id='post-authenticate-audit-log'>POST: Authenticate audit log</h3><div class="highlight"><pre class="highlight shell tab-shell"><code>HTTP request
 
-<h3 id="post-authenticate-audit-log">POST: Authenticate audit log</h3>
-<pre class="highlight shell"><code>HTTP request
-
-curl -X POST <span class="s1">'https://harvest.greenhouse.io/auth/jwt_access_token'</span>
--H <span class="s2">"Content-Type: application/json"</span>
--H <span class="s2">"On-Behalf-Of: {greenhouse user ID}"</span>
--H <span class="s2">"Authorization: Basic MGQwMzFmE2MWwNjdlMjQ6"</span>
+curl <span class="nt">-X</span> POST <span class="s1">'https://harvest.greenhouse.io/auth/jwt_access_token'</span>
+<span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span>
+<span class="nt">-H</span> <span class="s2">"On-Behalf-Of: {greenhouse user ID}"</span>
+<span class="nt">-H</span> <span class="s2">"Authorization: Basic MGQwMzFmE2MWwNjdlMjQ6"</span>
 
 <span class="o">{</span>
     <span class="s2">"access_token"</span>: <span class="s2">"MeyJhbGci.eyJhdWQiO"</span>,
     <span class="s2">"expires"</span>: 2024-02-03T16:38:46.985Z
 <span class="o">}</span>
-</code></pre>
-
-<h4 id="http-request">HTTP request</h4>
-
-<p><code class="prettyprint">POST https://harvest.greenhouse.io/auth/jwt_access_token</code></p>
+</code></pre></div><h4 id='http-request'>HTTP request</h4>
+<p><code>POST https://harvest.greenhouse.io/auth/jwt_access_token</code></p>
 
 <aside class="success">
 <b>Note</b>: Use HTTPS for all requests. Requests made over HTTP will return an <code>HTTP 401</code> response.
 </aside>
-
-<h2 id="rate-limiting">Rate limiting</h2>
-<pre class="highlight shell"><code>Status: 200 OK
+<h2 id='rate-limiting'>Rate limiting</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>Status: 200 OK
 X-RateLimit-Limit: 50
 X-RateLimit-Remaining: 49
-</code></pre>
-
-<p>Audit log API requests are limited to 50 per 10 seconds, as specified in the returned <code class="prettyprint">X-RateLimit-Limit</code> header. Paginated requests are limited to 3 per 30 seconds. Check the <code class="prettyprint">X-RateLimit-Limit</code> and <code class="prettyprint">X-RateLimit-Remaining</code> headers to see how many more requests are permitted until throttling kicks in. Exceeding the limit will return an <code class="prettyprint">HTTP 429</code> response.</p>
+</code></pre></div>
+<p>Audit log API requests are limited to 50 per 10 seconds, as specified in the returned <code>X-RateLimit-Limit</code> header. Paginated requests are limited to 3 per 30 seconds. Check the <code>X-RateLimit-Limit</code> and <code>X-RateLimit-Remaining</code> headers to see how many more requests are permitted until throttling kicks in. Exceeding the limit will return an <code>HTTP 429</code> response.</p>
 
 <aside class="success">
 <b>Note</b>: An <code>HTTP 429</code> response will exclude the <code>X-RateLimit-Limit</code> and <code>X-RateLimit-Remaining</code> headers.
 </aside>
-
-<h2 id="pagination">Pagination</h2>
-
-<p>Pagination on audit log API allows for retrieving the next page from your query results. Use the <code class="prettyprint">paging</code> <a href="https://developers.greenhouse.io/audit-log.html#the-events-object">query parameter</a> to receive a <code class="prettyprint">pit_id</code> with your results. To retrieve the next page of results, the <code class="prettyprint">pit_id</code> should be the value of your <code class="prettyprint">pit_id</code> header, and the <code class="prettyprint">next_search_after</code> should be the value of your <code class="prettyprint">search_after</code> header. Your query parameters should remain consistent with your original query. Audit log results with only one page will return <code class="prettyprint">null</code> results on the next page. </p>
+<h2 id='pagination'>Pagination</h2>
+<p>Pagination on audit log API allows for retrieving the next page from your query results. Use the <code>paging</code> <a href="https://developers.greenhouse.io/audit-log.html#the-events-object">query parameter</a> to receive a <code>pit_id</code> with your results. To retrieve the next page of results, the <code>pit_id</code> should be the value of your <code>pit_id</code> header, and the <code>next_search_after</code> should be the value of your <code>search_after</code> header. Your query parameters should remain consistent with your original query. Audit log results with only one page will return <code>null</code> results on the next page. </p>
 
 <ul>
-<li><code class="prettyprint">pit_id</code>. The ID from a specific <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/pit.html">point in time (PIT)</a> in a fixed time dataset, created automatically when you run a query.</li>
-<li><code class="prettyprint">search_after</code>. Use this parameter to retrieve audit log after a specific page in the search results when running a query with the <code class="prettyprint">pit_id</code>.</li>
-<li><code class="prettyprint">size</code>. The size of the requested query. This parameter has a minimum value of <code class="prettyprint">100</code> and a maximum value of <code class="prettyprint">500</code>.</li>
+<li><code>pit_id</code>. The ID from a specific <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/pit.html">point in time (PIT)</a> in a fixed time dataset, created automatically when you run a query.</li>
+<li><code>search_after</code>. Use this parameter to retrieve audit log after a specific page in the search results when running a query with the <code>pit_id</code>.</li>
+<li><code>size</code>. The size of the requested query. This parameter has a minimum value of <code>100</code> and a maximum value of <code>500</code>.</li>
 </ul>
 
 <p>Audit log API requests are rate limited. Paginated requests are limited to 3 per 30 seconds, and overall requests are limited to 50 per 10 seconds. Exceeding the limit will result in <a href="https://developers.greenhouse.io/audit-log.html#throttling">throttling</a>.</p>
-
-<h2 id="validation">Validation</h2>
-
-<p>Any methods that take input will validate all parameters. Any parameter that fails validation will trigger an error response with status <code class="prettyprint">HTTP 422</code>. The response body will be a JSON object that includes a message as well as a list of fields that failed validation.</p>
-
-<h2 id="general-considerations">General considerations</h2>
-
+<h2 id='validation'>Validation</h2>
+<p>Any methods that take input will validate all parameters. Any parameter that fails validation will trigger an error response with status <code>HTTP 422</code>. The response body will be a JSON object that includes a message as well as a list of fields that failed validation.</p>
+<h2 id='general-considerations'>General considerations</h2>
 <p>Unless otherwise specified, audit log API methods generally conform to the following standards:</p>
 
 <ul>
-<li>Properties without a value will use <code class="prettyprint">null</code> instead of being undefined.</li>
-<li>“Snake case” is used for attributes and headers, like <code class="prettyprint">first_name</code>.</li>
-<li>Timestamps are rendered in <code class="prettyprint">ISO-8601</code> format, like <code class="prettyprint">2024-02-03T16:38:46.985Z</code>.</li>
+<li>Properties without a value will use <code>null</code> instead of being undefined.</li>
+<li>“Snake case” is used for attributes and headers, like <code>first_name</code>.</li>
+<li>Timestamps are rendered in <code>ISO-8601</code> format, like <code>2024-02-03T16:38:46.985Z</code>.</li>
 <li>URLs to external resources are valid for thirty days.</li>
 <li>Resumes, cover letters, and other document attachments are hosted on Amazon Web Services and are provided via signed, temporary URLs. Due to the temporary nature of these resources, you should download the documents immediately after your request is made. You shouldn’t rely on these URLs to be available in future requests. In the event AWS is experiencing issues, document attachments won’t be available in audit log.</li>
 </ul>
-
-<h2 id="errors">Errors</h2>
-
+<h2 id='errors'>Errors</h2>
 <table><thead>
 <tr>
-<td>Error Code</td><td>Meaning</td></tr>
+<th>Error Code</th>
+<th>Meaning</th>
+</tr>
 </thead><tbody>
 <tr>
-<td>401</td><td>Unauthorized &ndash; Your access token is invalid or has expired. Access tokens expire 24 hours after generation. Ensure you’re sharing a <a href="#authentication">valid access token</a> in the authorization header.</td></tr>
+<td>401</td>
+<td>Unauthorized -- Your access token is invalid or has expired. Access tokens expire 24 hours after generation. Ensure you’re sharing a <a href="#authentication">valid access token</a> in the authorization header.</td>
+</tr>
 <tr>
-<td>403</td><td>Forbidden &ndash; You do not have access to that record.</td></tr>
+<td>403</td>
+<td>Forbidden -- You do not have access to that record.</td>
+</tr>
 <tr>
-<td>404</td><td>Not Found &ndash; Resource not found</td></tr>
+<td>404</td>
+<td>Not Found -- Resource not found</td>
+</tr>
 <tr>
-<td>422</td><td>Not processed &ndash; We’re not able to process your request. Validate your parameters.</td></tr>
+<td>422</td>
+<td>Not processed -- We’re not able to process your request. Validate your parameters.</td>
+</tr>
 <tr>
-<td>429</td><td>Rate limit exceeded &ndash; You’re being <a href="#throttling">throttled</a> for exceeding our rate limit.</td></tr>
+<td>429</td>
+<td>Rate limit exceeded -- You’re being <a href="#throttling">throttled</a> for exceeding our rate limit.</td>
+</tr>
 <tr>
-<td>500</td><td>Server Error &ndash; We’re having a problem with our server. Give us a few minutes and try again, or check <a href="https://status.greenhouse.io/">our status page</a>.</td></tr>
+<td>500</td>
+<td>Server Error -- We’re having a problem with our server. Give us a few minutes and try again, or check <a href="https://status.greenhouse.io/">our status page</a>.</td>
+</tr>
 </tbody></table>
-
-<h2 id="audit-log-change-log">Audit Log Change Log</h2>
-
+<h2 id='audit-log-change-log'>Audit Log Change Log</h2>
 <table><thead>
 <tr>
-<td>Date</td><td>Description</td></tr>
+<th>Date</th>
+<th>Description</th>
+</tr>
 </thead><tbody>
 <tr>
-<td>Dec 12, 2023</td><td>Fix bug with missing GET events in nav menu</td></tr>
+<td>Dec 12, 2023</td>
+<td>Fix bug with missing GET events in nav menu</td>
+</tr>
 <tr>
-<td>Nov 7, 2023</td><td>Removed On-Behalf-Of header from the <a href="#events">events object</a> sample payload</td></tr>
+<td>Nov 7, 2023</td>
+<td>Removed On-Behalf-Of header from the <a href="#events">events object</a> sample payload</td>
+</tr>
 <tr>
-<td>Nov 6, 2023</td><td>Updated Throttling section to Rate limiting and updated approach to rate limiting.</td></tr>
+<td>Nov 6, 2023</td>
+<td>Updated Throttling section to Rate limiting and updated approach to rate limiting.</td>
+</tr>
 <tr>
-<td>Oct 26, 2023</td><td>Updated Pagination to reflect new approach to returning <code class="prettyprint">pit_ids</code>.</td></tr>
+<td>Oct 26, 2023</td>
+<td>Updated Pagination to reflect new approach to returning <code>pit_ids</code>.</td>
+</tr>
 <tr>
-<td>July 14, 2023</td><td>We added new query parameters to the Events endpoint, including <code class="prettyprint">performer_ids</code>, <code class="prettyprint">performer_types</code>, <code class="prettyprint">performer_ip_addresses</code>, <code class="prettyprint">event_types</code>, <code class="prettyprint">event_target_ids</code>, <code class="prettyprint">event_target_types</code>, <code class="prettyprint">request_ids</code>, and <code class="prettyprint">request_types</code>.</td></tr>
+<td>July 14, 2023</td>
+<td>We added new query parameters to the Events endpoint, including <code>performer_ids</code>, <code>performer_types</code>, <code>performer_ip_addresses</code>, <code>event_types</code>, <code>event_target_ids</code>, <code>event_target_types</code>, <code>request_ids</code>, and <code>request_types</code>.</td>
+</tr>
 </tbody></table>
-
-          <h1 id="events">Events</h1>
-
-<h2 id="the-events-object">The events object</h2>
-
-<p>The events object is the audit log’s collected record of important events in Greenhouse Recruiting from the previous thirty days. A single event may return multiple results. For instance, an event and its resulting changes will return individual results that can be linked by <code class="prettyprint">request.id</code>.</p>
-
-<h3 id="attributes">Attributes</h3>
-
+<h1 id='events'>Events</h1><h2 id='the-events-object'>The events object</h2>
+<p>The events object is the audit log’s collected record of important events in Greenhouse Recruiting from the previous thirty days. A single event may return multiple results. For instance, an event and its resulting changes will return individual results that can be linked by <code>request.id</code>.</p>
+<h3 id='attributes'>Attributes</h3>
 <table><thead>
 <tr>
-<td>Attribute</td><td>Definition</td></tr>
+<th>Attribute</th>
+<th>Definition</th>
+</tr>
 </thead><tbody>
 <tr>
-<td>organization_id</td><td>Your organization’s unique Greenhouse Recruiting ID</td></tr>
+<td>organization_id</td>
+<td>Your organization’s unique Greenhouse Recruiting ID</td>
+</tr>
 <tr>
-<td>event_time</td><td>The exact time of the event, represented in <code class="prettyprint">ISO-8601</code> format like <code class="prettyprint">2024-02-03T16:38:46.985Z</code></td></tr>
+<td>event_time</td>
+<td>The exact time of the event, represented in <code>ISO-8601</code> format like <code>2024-02-03T16:38:46.985Z</code></td>
+</tr>
 <tr>
-<td>request.id</td><td>The ID of the request</td></tr>
+<td>request.id</td>
+<td>The ID of the request</td>
+</tr>
 <tr>
-<td>request.type</td><td>The name of the action taken in Greenhouse Recruiting, or the request URL if from Harvest API</td></tr>
+<td>request.type</td>
+<td>The name of the action taken in Greenhouse Recruiting, or the request URL if from Harvest API</td>
+</tr>
 <tr>
-<td>performer.id</td><td>The Greenhouse Recruiting user ID of the person who performed the change or the API key if performed via <a href="http://developers.greenhouse.io">Greenhouse API</a></td></tr>
+<td>performer.id</td>
+<td>The Greenhouse Recruiting user ID of the person who performed the change or the API key if performed via <a href="http://developers.greenhouse.io">Greenhouse API</a></td>
+</tr>
 <tr>
-<td>performer.type</td><td>One of the following values: <code class="prettyprint">user</code>, <code class="prettyprint">api_key</code>, or <code class="prettyprint">greenhouse_internal</code></td></tr>
+<td>performer.type</td>
+<td>One of the following values: <code>user</code>, <code>api_key</code>, or <code>greenhouse_internal</code></td>
+</tr>
 <tr>
-<td>performer.meta</td><td>The Greenhouse Recruiting email address of the person who performed the change or the exact type of API key that performed the change</td></tr>
+<td>performer.meta</td>
+<td>The Greenhouse Recruiting email address of the person who performed the change or the exact type of API key that performed the change</td>
+</tr>
 <tr>
-<td>performer.ip_address</td><td>The IP address of the person or integration that performed the change</td></tr>
+<td>performer.ip_address</td>
+<td>The IP address of the person or integration that performed the change</td>
+</tr>
 <tr>
-<td>event.type</td><td>One of the following values: <code class="prettyprint">data_change_update</code>, <code class="prettyprint">data_change_create</code>, <code class="prettyprint">data_change_destroy</code>, <code class="prettyprint">harvest_access</code>, or <code class="prettyprint">action</code></td></tr>
+<td>event.type</td>
+<td>One of the following values: <code>data_change_update</code>, <code>data_change_create</code>, <code>data_change_destroy</code>, <code>harvest_access</code>, or <code>action</code></td>
+</tr>
 <tr>
-<td>event.target_id</td><td>The ID of the element that was edited or accessed; this may be blank if the action does not target one particular ID</td></tr>
+<td>event.target_id</td>
+<td>The ID of the element that was edited or accessed; this may be blank if the action does not target one particular ID</td>
+</tr>
 <tr>
-<td>event.target_type</td><td>The resource name for data changes, Harvest access, or the event action type for other actions</td></tr>
+<td>event.target_type</td>
+<td>The resource name for data changes, Harvest access, or the event action type for other actions</td>
+</tr>
 <tr>
-<td>event.meta</td><td>The before and after values from data change events, or other relevant data for the event such as the title of a report</td></tr>
+<td>event.meta</td>
+<td>The before and after values from data change events, or other relevant data for the event such as the title of a report</td>
+</tr>
 </tbody></table>
+<h2 id='get-retrieve-events'>GET: Retrieve events</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>HTTP request
 
-<h2 id="get-retrieve-events">GET: Retrieve events</h2>
-<pre class="highlight shell"><code>HTTP request
-
-curl -X GET <span class="s1">'https://auditlog.us.greenhouse.io/events'</span>
--H <span class="s2">"Content-Type: application/json"</span>
--H <span class="s2">"Authorization: Bearer MeyJhbGci.eyJhdWQiO"</span>
+curl <span class="nt">-X</span> GET <span class="s1">'https://auditlog.us.greenhouse.io/events'</span>
+<span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span>
+<span class="nt">-H</span> <span class="s2">"Authorization: Bearer MeyJhbGci.eyJhdWQiO"</span>
 
 <span class="o">{</span>
     <span class="s2">"paging"</span>: <span class="o">{</span>
@@ -319,44 +545,67 @@ curl -X GET <span class="s1">'https://auditlog.us.greenhouse.io/events'</span>
         <span class="o">}</span>
     <span class="o">]</span>
 <span class="o">}</span>
-</code></pre>
-
-<h4 id="http-request">HTTP request</h4>
-
-<p><code class="prettyprint">GET https://auditlog.us.greenhouse.io/events/</code></p>
-
-<h4 id="url-parameters">URL Parameters</h4>
-
+</code></pre></div><h4 id='http-request'>HTTP request</h4>
+<p><code>GET https://auditlog.us.greenhouse.io/events/</code></p>
+<h4 id='url-parameters'>URL Parameters</h4>
 <table><thead>
 <tr>
-<td>Parameter</td><td>Definition</td></tr>
+<th>Parameter</th>
+<th>Definition</th>
+</tr>
 </thead><tbody>
 <tr>
-<td>before_time (optional)</td><td>Use this parameter to retrieve audit log before a certain point in time, represented in <code class="prettyprint">ISO-8601</code> format like <code class="prettyprint">2024-02-03T16:38:46.985Z</code>. This parameter can be combined with after_time for a date range.</td></tr>
+<td>before_time (optional)</td>
+<td>Use this parameter to retrieve audit log before a certain point in time, represented in <code>ISO-8601</code> format like <code>2024-02-03T16:38:46.985Z</code>. This parameter can be combined with after_time for a date range.</td>
+</tr>
 <tr>
-<td>after_time (optional)</td><td>Use this parameter to retrieve audit log after a certain point in time, represented in <code class="prettyprint">ISO-8601</code> format like <code class="prettyprint">2024-02-03T16:38:46.985Z</code>. This parameter can be combined with before_time for a date range.</td></tr>
+<td>after_time (optional)</td>
+<td>Use this parameter to retrieve audit log after a certain point in time, represented in <code>ISO-8601</code> format like <code>2024-02-03T16:38:46.985Z</code>. This parameter can be combined with before_time for a date range.</td>
+</tr>
 <tr>
-<td>date (optional)</td><td>Use this parameter to retrieve audit log from a specific date, represented in <code class="prettyprint">ISO-8601</code> format like <code class="prettyprint">2024-02-03</code>.</td></tr>
+<td>date (optional)</td>
+<td>Use this parameter to retrieve audit log from a specific date, represented in <code>ISO-8601</code> format like <code>2024-02-03</code>.</td>
+</tr>
 <tr>
-<td>magic_time (optional)</td><td>Use this parameter to retrieve audit log results from a trailing range in time. This parameter takes a value in <code class="prettyprint">last{#x}</code> where <code class="prettyprint">#</code> is a number and <code class="prettyprint">x</code> is seconds, minutes, hours, days, or weeks, like <code class="prettyprint">last7days</code> or <code class="prettyprint">last15minutes</code>.</td></tr>
+<td>magic_time (optional)</td>
+<td>Use this parameter to retrieve audit log results from a trailing range in time. This parameter takes a value in <code>last{#x}</code> where <code>#</code> is a number and <code>x</code> is seconds, minutes, hours, days, or weeks, like <code>last7days</code> or <code>last15minutes</code>.</td>
+</tr>
 <tr>
-<td>performer_ids (optional)</td><td>Use this parameter to retrieve audit log results matching one or more <a href="https://support.greenhouse.io/hc/en-us/articles/15075283790107">performer IDs</a>, which are Greenhouse Recruiting user IDs. Separate multiple IDs by a comma.</td></tr>
+<td>performer_ids (optional)</td>
+<td>Use this parameter to retrieve audit log results matching one or more <a href="https://support.greenhouse.io/hc/en-us/articles/15075283790107">performer IDs</a>, which are Greenhouse Recruiting user IDs. Separate multiple IDs by a comma.</td>
+</tr>
 <tr>
-<td>performer_types (optional)</td><td>Use this parameter to retrieve audit log results matching one or more <a href="https://support.greenhouse.io/hc/en-us/articles/15075283790107">performer types</a>: <code class="prettyprint">user</code>, <code class="prettyprint">api_key</code>, or <code class="prettyprint">greenhouse_internal</code>. Separate multiple performer types by a comma.</td></tr>
+<td>performer_types (optional)</td>
+<td>Use this parameter to retrieve audit log results matching one or more <a href="https://support.greenhouse.io/hc/en-us/articles/15075283790107">performer types</a>: <code>user</code>, <code>api_key</code>, or <code>greenhouse_internal</code>. Separate multiple performer types by a comma.</td>
+</tr>
 <tr>
-<td>performer_ip_addresses (optional)</td><td>Use this parameter to retrieve audit log results matching one or more <a href="https://support.greenhouse.io/hc/en-us/articles/15075283790107">performer IP addresses</a>. Separate multiple IP addresses by a comma.</td></tr>
+<td>performer_ip_addresses (optional)</td>
+<td>Use this parameter to retrieve audit log results matching one or more <a href="https://support.greenhouse.io/hc/en-us/articles/15075283790107">performer IP addresses</a>. Separate multiple IP addresses by a comma.</td>
+</tr>
 <tr>
-<td>event_types (optional)</td><td>Use this parameter to retrieve audit log results matching one or more <a href="https://support.greenhouse.io/hc/en-us/articles/15075283790107">event types</a>: <code class="prettyprint">data_change_update</code>, <code class="prettyprint">data_change_create</code>, <code class="prettyprint">data_change_destroy</code>, <code class="prettyprint">harvest_access</code>, or <code class="prettyprint">action</code>. Separate multiple event types by a comma.</td></tr>
+<td>event_types (optional)</td>
+<td>Use this parameter to retrieve audit log results matching one or more <a href="https://support.greenhouse.io/hc/en-us/articles/15075283790107">event types</a>: <code>data_change_update</code>, <code>data_change_create</code>, <code>data_change_destroy</code>, <code>harvest_access</code>, or <code>action</code>. Separate multiple event types by a comma.</td>
+</tr>
 <tr>
-<td>event_target_ids (optional)</td><td>Use this parameter to retrieve audit log results matching one or more <a href="https://support.greenhouse.io/hc/en-us/articles/15075283790107">event target IDs</a>, which reflect the element that was created, edited or accessed. Separate multiple event target IDs by a comma.</td></tr>
+<td>event_target_ids (optional)</td>
+<td>Use this parameter to retrieve audit log results matching one or more <a href="https://support.greenhouse.io/hc/en-us/articles/15075283790107">event target IDs</a>, which reflect the element that was created, edited or accessed. Separate multiple event target IDs by a comma.</td>
+</tr>
 <tr>
-<td>event_target_types (optional)</td><td>Use this parameter to retrieve audit log results matching one or more <a href="https://support.greenhouse.io/hc/en-us/articles/15075283790107">event target types</a>. Separate multiple event target types by a comma.</td></tr>
+<td>event_target_types (optional)</td>
+<td>Use this parameter to retrieve audit log results matching one or more <a href="https://support.greenhouse.io/hc/en-us/articles/15075283790107">event target types</a>. Separate multiple event target types by a comma.</td>
+</tr>
 <tr>
-<td>request_ids (optional)</td><td>Use this parameter to retrieve audit log results matching one or more <a href="https://support.greenhouse.io/hc/en-us/articles/15075283790107">request IDs</a>. A single event in audit log may return multiple results. An event and its resulting changes will return individual results that can be linked by request ID. Separate multiple request IDs by a comma.</td></tr>
+<td>request_ids (optional)</td>
+<td>Use this parameter to retrieve audit log results matching one or more <a href="https://support.greenhouse.io/hc/en-us/articles/15075283790107">request IDs</a>. A single event in audit log may return multiple results. An event and its resulting changes will return individual results that can be linked by request ID. Separate multiple request IDs by a comma.</td>
+</tr>
 <tr>
-<td>request_types (optional)</td><td>Use this parameter to retrieve audit log results matching one or more <a href="https://support.greenhouse.io/hc/en-us/articles/15075283790107">request types</a>. Separate multiple request types by a comma.</td></tr>
+<td>request_types (optional)</td>
+<td>Use this parameter to retrieve audit log results matching one or more <a href="https://support.greenhouse.io/hc/en-us/articles/15075283790107">request types</a>. Separate multiple request types by a comma.</td>
+</tr>
 <tr>
-<td>paging (optional)</td><td>Use this parameter for <a href="https://developers.greenhouse.io/audit-log.html#pagination">pagination</a>. When set to <code class="prettyprint">true</code>, we return a <code class="prettyprint">pit_id</code> that can be used to paginate query results.</td></tr>
+<td>paging (optional)</td>
+<td>Use this parameter for <a href="https://developers.greenhouse.io/audit-log.html#pagination">pagination</a>. When set to <code>true</code>, we return a <code>pit_id</code> that can be used to paginate query results.</td>
+</tr>
 </tbody></table>
 
       </div>
