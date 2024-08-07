@@ -2,7 +2,7 @@
 
 ## Interview deleted
 
-This web hook fires when a scheduled interview is cancelled or the interview is deleted directly. This web hook will not fire if an interview is deleted because a candidate, application, or hiring plan is deleted.
+This webhook fires when a scheduled interview is cancelled or the interview is deleted directly. This webhook will not fire if an interview is deleted because a candidate, application, or hiring plan is deleted.
 
 ```json
 {
@@ -16,7 +16,7 @@ This web hook fires when a scheduled interview is cancelled or the interview is 
 ```
 ## Scorecard deleted
 
-This web hook only fires when individual scorecards are destroyed.  This occurs when the Harvest API delete endpoint is used, or when the delete scorecard link is used in the application. This will not fire when a candidate or application is deleted. A candidate being deleted implies all their scorecards have been deleted with them. An application being deleted does not cause scorecards to be deleted.
+This webhook only fires when individual scorecards are destroyed.  This occurs when the Harvest API delete endpoint is used, or when the delete scorecard link is used in the application. This will not fire when a candidate or application is deleted. A candidate being deleted implies all their scorecards have been deleted with them. An application being deleted does not cause scorecards to be deleted.
 
 ```json
 {

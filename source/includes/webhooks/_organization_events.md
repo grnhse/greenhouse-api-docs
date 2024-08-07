@@ -2,7 +2,7 @@
 
 ## Department deleted
 
-This web hook fires when departments are deleted from the Greenhouse system from the Configure &raquo; Organization screen. This only happens when the "Remove" button is clicked after clicking the "X" next to an office name.
+This webhook fires when departments are deleted from the Greenhouse system from the Configure &raquo; Organization screen. This only happens when the "Remove" button is clicked after clicking the "X" next to an office name.
 
 ```json
 {
@@ -32,7 +32,7 @@ This web hook fires when departments are deleted from the Greenhouse system from
 
 ## Office deleted
 
-This web hook fires when offices are deleted from the Greenhouse system from the Configure &raquo; Organization screen. This only happens when the "Remove" button is clicked after clicking the "X" next to an office name.
+This webhook fires when offices are deleted from the Greenhouse system from the Configure &raquo; Organization screen. This only happens when the "Remove" button is clicked after clicking the "X" next to an office name.
 
 ```json
 {

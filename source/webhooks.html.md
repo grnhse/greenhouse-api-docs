@@ -1,5 +1,5 @@
 ---
-title: Web Hooks
+title: Webhooks
 
 language_tabs:
   - json

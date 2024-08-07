@@ -279,11 +279,11 @@
 
 The New Candidate Application event occurs when a new application is created for a candidate.
 
-See web hook [common attributes](#common-attributes).
+See webhook [common attributes](#common-attributes).
 
 ## Application deleted
 
-This web hook only fires when individual applications are destroyed.  This occurs when the Harvest API delete endpoint is used, when a candidate is removed from a specific job, or when two duplicate candidates on the same job are merged together.  This will not fire when a candidate is deleted.  A candidate being deleted implies all their applications have been deleted with them.
+This webhook only fires when individual applications are destroyed.  This occurs when the Harvest API delete endpoint is used, when a candidate is removed from a specific job, or when two duplicate candidates on the same job are merged together.  This will not fire when a candidate is deleted.  A candidate being deleted implies all their applications have been deleted with them.
 
 ```json
 {
@@ -431,11 +431,11 @@ This web hook only fires when individual applications are destroyed.  This occur
 
 The Application Updated event occurs when an application is updated.
 
-See web hook [common attributes](#common-attributes).
+See webhook [common attributes](#common-attributes).
 
 ## Offer created
 
-This web hook fires when creating a new offer in Greenhouse. This may also fire when changing an offer if the change causes a new version to be created. When bulk creating offers, this will fire per offer created.
+This webhook fires when creating a new offer in Greenhouse. This may also fire when changing an offer if the change causes a new version to be created. When bulk creating offers, this will fire per offer created.
 
 ```json
 {
@@ -464,7 +464,7 @@ This web hook fires when creating a new offer in Greenhouse. This may also fire 
 
 ## Offer approved
 
-This web hook fires when an offer requires approval and the approval is received. 
+This webhook fires when an offer requires approval and the approval is received.
 
 ```json
 {
@@ -493,7 +493,7 @@ This web hook fires when an offer requires approval and the approval is received
 
 ## Offer updated
 
-This web hook fires when an offer is updated. In some cases, an offer may be changed without generating a new version. In that case, this will fire by itself. If a change causes a new offer version to be generated, this will fire on the old version with the update to deprecate this offer and also a new "create" web hook will fire for the new version. This web hook should also fire when a person is hired,  which marks the offer as "accepted." 
+This webhook fires when an offer is updated. In some cases, an offer may be changed without generating a new version. In that case, this will fire by itself. If a change causes a new offer version to be generated, this will fire on the old version with the update to deprecate this offer and also a new "create" webhook will fire for the new version. This webhook should also fire when a person is hired,  which marks the offer as "accepted."
 
 ```json
 {
@@ -522,7 +522,7 @@ This web hook fires when an offer is updated. In some cases, an offer may be cha
 
 ## Offer deleted
 
-This web hook only fires when offers are deleted from the Greenhouse system.  This only happens when the "Delete" link is clicked on an individual offer or when the anonymize candidate process is run with the "all_offer_versions" option selected.  This will not fire individually when an application is deleted.
+This webhook only fires when offers are deleted from the Greenhouse system.  This only happens when the "Delete" link is clicked on an individual offer or when the anonymize candidate process is run with the "all_offer_versions" option selected.  This will not fire individually when an application is deleted.
 
 ```json
 {
@@ -697,5 +697,5 @@ This web hook only fires when offers are deleted from the Greenhouse system.  Th
 
 The New Prospect Application event occurs when a new prospect application is created.
 
-See web hook [common attributes](#common-attributes).
+See webhook [common attributes](#common-attributes).
 

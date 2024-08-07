@@ -2,7 +2,7 @@
 
 ## Candidate deleted
 
-This web hook will fire when a candidate or prospect is deleted from Greenhouse.  This occurs when the Harvest delete candidate methods are used, when a candidate is merged into another candidate, when a candidate is deleted in the application, and once for each candidate in a bulk delete operation.  Deleting a candidate will cause other deletes within Greenhouse but we will not fire an individual web hook for those deletions.  In the case of the applications that this delete causes, we will include an array of those Application IDs that will be removed from Greenhouse.
+This webhook will fire when a candidate or prospect is deleted from Greenhouse.  This occurs when the Harvest delete candidate methods are used, when a candidate is merged into another candidate, when a candidate is deleted in the application, and once for each candidate in a bulk delete operation.  Deleting a candidate will cause other deletes within Greenhouse but we will not fire an individual webhook for those deletions.  In the case of the applications that this delete causes, we will include an array of those Application IDs that will be removed from Greenhouse.
 
 ```json
 {
@@ -290,11 +290,11 @@ The Hire Candidate event occurs when an offer is accepted. This is triggered by 
 
 ### Noteworthy attributes
 
-See web hook [common attributes](#common-attributes).
+See webhook [common attributes](#common-attributes).
 
 | Attribute | Note |
 |-----------|------|
-| `application.offer.id` | Unique Greenhouse identifier of the offer. Information not included in the web hook can be retrieved via [Harvest API - GET Offers](/harvest.html#offers)
+| `application.offer.id` | Unique Greenhouse identifier of the offer. Information not included in the webhook can be retrieved via [Harvest API - GET Offers](/harvest.html#offers)
 | `application.offer.created_at` | Date when this offer was drafted.
 | `application.offer.sent_on` | Date when this offer was sent to the candidate.
 | `application.offer.resolved_at` | Date the offer was accepted.
@@ -306,7 +306,7 @@ See web hook [common attributes](#common-attributes).
 
 ## Candidate merged
 
-This web hook will fire when a candidate or prospect is merged with another candidate.  This process should fire for regular manual merges and auto-merges.  It will also fire per candidate for a bulk merge.  This web hook supersedes the candidate deleted web hook.  If both candidate deleted and candidate merged are configured on your site, only the candidate merged web hook will fire when candidate records are removed via merge.  If a candidate deleted web hook is configured but candidate merged is not, then the candidate deleted web hook will fire when a candidate record is deleted via merge.  The payload for a candidate merged web hook matches the payload for candidate deleted except it contains the ID of the winning candidate record.
+This webhook will fire when a candidate or prospect is merged with another candidate.  This process should fire for regular manual merges and auto-merges.  It will also fire per candidate for a bulk merge.  This webhook supersedes the candidate deleted webhook.  If both candidate deleted and candidate merged are configured on your site, only the candidate merged webhook will fire when candidate records are removed via merge.  If a candidate deleted webhook is configured but candidate merged is not, then the candidate deleted webhook will fire when a candidate record is deleted via merge.  The payload for a candidate merged webhook matches the payload for candidate deleted except it contains the ID of the winning candidate record.
 
 ```json
 {
@@ -533,7 +533,7 @@ This web hook will fire when a candidate or prospect is merged with another cand
 
 ### Noteworthy response attributes
 
-See web hook [common attributes](#common-attributes).
+See webhook [common attributes](#common-attributes).
 
 | Attribute | Note |
 |-----------|------|
@@ -690,9 +690,9 @@ See web hook [common attributes](#common-attributes).
 }
 ```
 
-This web hook only fires when the "Unhire" button is clicked in Greenhouse.  This button is only available on the candidate profile page after a candidate has been hired.
+This webhook only fires when the "Unhire" button is clicked in Greenhouse.  This button is only available on the candidate profile page after a candidate has been hired.
 
-See web hook [common attributes](#common-attributes).
+See webhook [common attributes](#common-attributes).
 
 ## Candidate/Prospect rejected
 
@@ -846,9 +846,9 @@ See web hook [common attributes](#common-attributes).
 }
 ```
 
-The Reject Candidate event occurs when a prospect or candidate is rejected for a position. When candidates are rejected via a bulk action, a web hook will fire once for each candidate or prospect rejected.
+The Reject Candidate event occurs when a prospect or candidate is rejected for a position. When candidates are rejected via a bulk action, a webhook will fire once for each candidate or prospect rejected.
 
-See web hook [common attributes](#common-attributes).
+See webhook [common attributes](#common-attributes).
 
 ## Candidate/Prospect unrejected
 
@@ -989,7 +989,7 @@ See web hook [common attributes](#common-attributes).
 
 The Unreject Candidate event occurs when a prospect or candidate is unrejected.
 
-See web hook [common attributes](#common-attributes).
+See webhook [common attributes](#common-attributes).
 
 ## Candidate/Prospect updated
 
@@ -1100,11 +1100,11 @@ See web hook [common attributes](#common-attributes).
 
 The Candidate or Prospect Updated event occurs when a candidate or prospect's standard field or custom field is updated.  For instance, an update to a candidate's first name would trigger this event.
 
-See web hook [common attributes](#common-attributes).
+See webhook [common attributes](#common-attributes).
 
 ## Candidate anonymized
 
-This web hook will fire when a particular candidate receives an anonymize event. Anonymize events may occur from the [Anonymize Endpoint](#put-anonymize-candidate) in Harvest or may be configured in the GDPR page in the Greenhouse application. An anonymize web hook consists of the action type, the id of the candidate who had properties anonymized, and the information that was anonymized.
+This webhook will fire when a particular candidate receives an anonymize event. Anonymize events may occur from the [Anonymize Endpoint](#put-anonymize-candidate) in Harvest or may be configured in the GDPR page in the Greenhouse application. An anonymize webhook consists of the action type, the id of the candidate who had properties anonymized, and the information that was anonymized.
 
 ```json
 {
@@ -1118,13 +1118,13 @@ This web hook will fire when a particular candidate receives an anonymize event.
 
 ### Anonymized Fields
 
-A list of possible anonymized fields are provided. If the item in "attribute" is received in the anonymized_fields array, the corresponding changes in notes have been applied in Greenhouse. Note that some of these fields may not be accessible via other web hooks or via Harvest.
+A list of possible anonymized fields are provided. If the item in "attribute" is received in the anonymized_fields array, the corresponding changes in notes have been applied in Greenhouse. Note that some of these fields may not be accessible via other webhooks or via Harvest.
 
 | Attribute | Anonymize Process |
 |------------|--------|
 | `activity_items` | Destroy all items in the candidate's activity feed of type "activity". In Harvest's Activity Feed endpoint, these are items in the `activities` section. |
 | `addresses` | Destroy all values from `candidate.addresses` |
-| `all_offer_versions` | For each of this candidate's applications, destroy all offers. (For legacy reasons, this will also raise an [Offer Deleted](#offer-deleted) web hook if one is configured.) |
+| `all_offer_versions` | For each of this candidate's applications, destroy all offers. (For legacy reasons, this will also raise an [Offer Deleted](#offer-deleted) webhook if one is configured.) |
 | `application_questions` | For each of this candidate's applications, destroy all values from `application.answers`. |
 | `attachments` | Destroy all attachments on this candidate and all their associated applications. |
 | `candidate_stage_data` | For each of this candidate's applications, set the `created_at` time to now, remove the candidate from the current stage, destroy all stage transition information, and set the candidate back to the first stage. |

@@ -105,7 +105,7 @@ The Job Created event is triggered when a new job is created from scratch or cop
 
 ## Job deleted
 
-This web hook only fires when jobs are deleted from the Greenhouse system. This only happens when a job is closed and then the "Delete" button is clicked from the Job Dashboard.
+This webhook only fires when jobs are deleted from the Greenhouse system. This only happens when a job is closed and then the "Delete" button is clicked from the Job Dashboard.
 
 ```json
 {
@@ -217,7 +217,7 @@ This web hook only fires when jobs are deleted from the Greenhouse system. This 
 }
 ```
 
-The Job Updated event is triggered any time one or more of the following fields are changed for a job: Internal Job Name, Department, Office, Level, Open Date, Status, Notes, Team and Responsibilities, and How To Sell This Job. Changes to custom fields on a job will also trigger this web hook.
+The Job Updated event is triggered any time one or more of the following fields are changed for a job: Internal Job Name, Department, Office, Level, Open Date, Status, Notes, Team and Responsibilities, and How To Sell This Job. Changes to custom fields on a job will also trigger this webhook.
 
 
 | Attribute | Note |
@@ -323,7 +323,7 @@ The Job Approved event is triggered when the final approval is received in a Gre
 
 ## Job Post created
 
-This web hook fires when a job post or prospect post is created. This occurs when a new job post or prospect post is added from the job set up.
+This webhook fires when a job post or prospect post is created. This occurs when a new job post or prospect post is added from the job set up.
 
 If `job_id` **is** present in the payload, the payload represents a new **job post**.
 
@@ -373,7 +373,7 @@ If `job_id` **is not** present, the payload represents a new **prospect post**.
 
 ## Job Post updated
 
-This web hook fires when a job post or prospect post is updated via the "Edit Job Post" page. It also fires when the live status of the job changes from on to off or vice-versa.
+This webhook fires when a job post or prospect post is updated via the "Edit Job Post" page. It also fires when the live status of the job changes from on to off or vice-versa.
 
 If `job_id` **is** present in the payload, the payload represents an updated **job post**.
 
@@ -422,7 +422,7 @@ If `job_id` **is not** present, the payload represents an updated **prospect pos
 
 ## Job Post deleted
 
-This web hook fires when a job post or prospect post is deleted.  This occurs when the delete link is clicked on a post. Only posts that are not live may be deleted. This will not fire if a job itself is deleted; a job being deleted implies all of its posts have been deleted with them.
+This webhook fires when a job post or prospect post is deleted.  This occurs when the delete link is clicked on a post. Only posts that are not live may be deleted. This will not fire if a job itself is deleted; a job being deleted implies all of its posts have been deleted with them.
 
 If `job_id` **is** present in the payload, the payload represents a deleted **job post**.
 
@@ -483,7 +483,7 @@ If `job_id` **is not** present, the payload represents a deleted **prospect post
 ```
 ## Job Stage deleted
 
-This web hook only fires when interview stages on a job are removed.  This occurs when the remove stage link is used in the Job Setup section of the application. This will not fire when a job is deleted. A job being deleted implies all of its stages have been deleted with them.
+This webhook only fires when interview stages on a job are removed.  This occurs when the remove stage link is used in the Job Setup section of the application. This will not fire when a job is deleted. A job being deleted implies all of its stages have been deleted with them.
 
 ```json
 {

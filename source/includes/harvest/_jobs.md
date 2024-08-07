@@ -1492,7 +1492,7 @@ curl -X PUT 'https://harvest.greenhouse.io/v1/jobs/{id}'
 
 There are four types of hiring team members, represented by the four hashes sent in the JSON body. If any of these types are not included, hiring team members of that type will not be changed. If an empty list is provided for any of the four types, all users will be removed.
 
-Note that this PUT method REPLACES the existing members of the hiring team. For each element included in the JSON request body, the existing hiring team members in Greenhouse will be removed and replaced with the current members. _This includes the removal of disabled and inactive users, who can never be re-added._ For more granular control over additions and removals, use the POST or DELETE methods on this endpoint. Also, this process is transactional: if there is one failure, no elements will be updated. Finally, if you have a Hiring Team Updated web hook configured, you will receive one web hook notification per element, so you may receive up to four web hook notifications when this endpoint is used.
+Note that this PUT method REPLACES the existing members of the hiring team. For each element included in the JSON request body, the existing hiring team members in Greenhouse will be removed and replaced with the current members. _This includes the removal of disabled and inactive users, who can never be re-added._ For more granular control over additions and removals, use the POST or DELETE methods on this endpoint. Also, this process is transactional: if there is one failure, no elements will be updated. Finally, if you have a Hiring Team Updated webhook configured, you will receive one webhook notification per element, so you may receive up to four webhook notifications when this endpoint is used.
 
 | Parameter                           | Required                         | Type    | Description                                                                                                                           |
 | ----------------------------------- | -------------------------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------- |
@@ -1576,7 +1576,7 @@ curl -X POST 'https://harvest.greenhouse.io/v1/jobs/{id}'
 
 ### JSON Body Parameters
 
-This method adds new hiring team members. If a user is designated as "responsible_for_future_candites" and a responsible user already exists, the new user will become the responsible user and the old user will no longer be responsible. This endpoint is transactional, if any items fail to add, the entire request will fail and no changes will be made. Finally, if you have a Hiring Team Updated web hook configured, you will receive one web hook notification per element, so you may receive up to four web hook notifications when this endpoint is used.
+This method adds new hiring team members. If a user is designated as "responsible_for_future_candidates" and a responsible user already exists, the new user will become the responsible user and the old user will no longer be responsible. This endpoint is transactional, if any items fail to add, the entire request will fail and no changes will be made. Finally, if you have a Hiring Team Updated webhook configured, you will receive one webhook notification per element, so you may receive up to four webhook notifications when this endpoint is used.
 
 | Parameter                           | Required                         | Type    | Description                                                                                                                           |
 | ----------------------------------- | -------------------------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------- |
@@ -1620,6 +1620,6 @@ curl -X DELETE 'https://harvest.greenhouse.io/v1/jobs/{id}'
 
 ### JSON Body Parameters
 
-This method removes hiring team members with the designated user ids from the designated type. If a user id is provided that does not exist in the hiring team of that type, it will be ignored and no error will be raised. Disabled and inactive users can be removed with this endpoint, but you will be unable to re-add them. If you have a Hiring Team Updated web hook configured, you will receive one web hook notification per element, so you may receive up to four web hook notifications when this endpoint is used.
+This method removes hiring team members with the designated user ids from the designated type. If a user id is provided that does not exist in the hiring team of that type, it will be ignored and no error will be raised. Disabled and inactive users can be removed with this endpoint, but you will be unable to re-add them. If you have a Hiring Team Updated webhook configured, you will receive one webhook notification per element, so you may receive up to four webhook notifications when this endpoint is used.
 
 On success, this will return a 200 response code with a success message in the JSON body.
