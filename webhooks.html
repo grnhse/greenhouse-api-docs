@@ -21,7 +21,7 @@
 <meta name="msapplication-TileImage" content="images/favicons/mstile-144x144.png">
 <meta name="theme-color" content="#00b2a9">
 
-    <title>Web Hooks | Greenhouse</title>
+    <title>Webhooks | Greenhouse</title>
 
     <style media="screen">
       .highlight table td { padding: 5px; }
@@ -230,10 +230,10 @@ analytics.page()
             <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#what-is-a-web-hook" class="toc-h2 toc-link" data-title="What is a web hook?">What is a web hook?</a>
+                    <a href="#what-is-a-webhook" class="toc-h2 toc-link" data-title="What is a webhook?">What is a webhook?</a>
                   </li>
                   <li>
-                    <a href="#creating-a-web-hook" class="toc-h2 toc-link" data-title="Creating a web hook">Creating a web hook</a>
+                    <a href="#creating-a-webhook" class="toc-h2 toc-link" data-title="Creating a webhook">Creating a webhook</a>
                   </li>
                   <li>
                     <a href="#advanced-settings" class="toc-h2 toc-link" data-title="Advanced settings">Advanced settings</a>
@@ -248,7 +248,7 @@ analytics.page()
                     <a href="#custom-fields" class="toc-h2 toc-link" data-title="Custom Fields">Custom Fields</a>
                   </li>
                   <li>
-                    <a href="#disabled-web-hooks" class="toc-h2 toc-link" data-title="Disabled web hooks">Disabled web hooks</a>
+                    <a href="#disabled-webhooks" class="toc-h2 toc-link" data-title="Disabled webhooks">Disabled webhooks</a>
                   </li>
                   <li>
                     <a href="#retry-policy" class="toc-h2 toc-link" data-title="Retry policy">Retry policy</a>
@@ -383,23 +383,23 @@ analytics.page()
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id='introduction'>Introduction</h1><h2 id='what-is-a-web-hook'>What is a web hook?</h2>
-<p>A web hook is a simple event-notification system. When an event occurs in Greenhouse, a payload of JSON data containing information about the event is sent via POST to a specified endpoint URL over HTTPS.</p>
+        <h1 id='introduction'>Introduction</h1><h2 id='what-is-a-webhook'>What is a webhook?</h2>
+<p>A webhook is a simple event-notification system. When an event occurs in Greenhouse, a payload of JSON data containing information about the event is sent via POST to a specified endpoint URL over HTTPS.</p>
 
 <p>Each delivery will include a <code>Greenhouse-Event-ID</code> header. This will contain an unique id associated with this delivery.</p>
-<h2 id='creating-a-web-hook'>Creating a web hook</h2>
-<p>Web hooks have three components. A name, an endpoint URL, and a secret key.</p>
+<h2 id='creating-a-webhook'>Creating a webhook</h2>
+<p>Webhooks have three components. A name, an endpoint URL, and a secret key.</p>
 
 <ul>
 <li><strong>Name</strong>: The name is simply a reference for you. It can contain any string value.</li>
-<li><strong>Endpoint URL</strong>: This is the URL to which we will send the POST data when the event occurs. This must be a valid URL and must be https. When the web hook is saved or updated, we will attempt to ping this URL with a payload containing some configuration settings for the web hook. If this ping fails, we will create the web hook in a disabled state and notify you that the ping has failed.</li>
-<li><strong>Secret Key</strong>: This secret key will be used to generate a signature header that you may use to verify the hook data was sent from Greenhouse. The secret key will be used in conjunction with the web hook&#39;s payload to generate a digital signature.</li>
+<li><strong>Endpoint URL</strong>: This is the URL to which we will send the POST data when the event occurs. This must be a valid URL and must be https. When the webhook is saved or updated, we will attempt to ping this URL with a payload containing some configuration settings for the webhook. If this ping fails, we will create the webhook in a disabled state and notify you that the ping has failed.</li>
+<li><strong>Secret Key</strong>: This secret key will be used to generate a signature header that you may use to verify the hook data was sent from Greenhouse. The secret key will be used in conjunction with the webhook&#39;s payload to generate a digital signature.</li>
 </ul>
 <h2 id='advanced-settings'>Advanced settings</h2>
-<p>Advanced settings allow customers with certain other security needs to use web hooks for their system. In most cases, users will not need to configure these.</p>
+<p>Advanced settings allow customers with certain other security needs to use webhooks for their system. In most cases, users will not need to configure these.</p>
 
 <ul>
-<li>Basic authentication username / password: These credentials are supplied if the web hook request needs to authenticate at the destination with HTTP Basic Authorization. These credentials will be encoded in to a HTTP Authorization header. See RFC 2617 for additional details.</li>
+<li>Basic authentication username / password: These credentials are supplied if the webhook request needs to authenticate at the destination with HTTP Basic Authorization. These credentials will be encoded in to a HTTP Authorization header. See RFC 2617 for additional details.</li>
 <li>Additional Headers: This textarea should contain any additional HTTP headers that will allow the POST request access to your environment. These headers will be included exactly as pasted, but may not include the following headers already reserved by Greenhouse: Content-Type, Content-Length, Greenhouse-Event-ID, Authorization, User-Agent, and Signature. Please consult with your technology department before including anything in this field.</li>
 </ul>
 <h2 id='authentication'>Authentication</h2><div class="highlight"><pre class="highlight plaintext"><code>Signature: sha256 37d2725109df92747ffcee59833a1d1262d74b9703fa1234c789407218b4a4ef
@@ -422,13 +422,13 @@ analytics.page()
 <p>The <code>body</code> variable in the above code samples refers to the entire content of the JSON response. Not just the <code>payload</code> attribute.</p>
 </blockquote>
 
-<p>Greenhouse uses a digital signature which is generated using the secret key entered when creating a web hook and the body of the web hook&#39;s request. This data is contained within the Signature header.</p>
+<p>Greenhouse uses a digital signature which is generated using the secret key entered when creating a webhook and the body of the webhook&#39;s request. This data is contained within the Signature header.</p>
 
-<p>The header contains: the SHA algorithm used to generate the signature, a space, and the signature. To verify the request came from Greenhouse, compute the HMAC digest using your secret key and the body and compare it to the signature portion (after the space) contained in the header. If they match, you can be sure the web hook was sent from Greenhouse.</p>
+<p>The header contains: the SHA algorithm used to generate the signature, a space, and the signature. To verify the request came from Greenhouse, compute the HMAC digest using your secret key and the body and compare it to the signature portion (after the space) contained in the header. If they match, you can be sure the webhook was sent from Greenhouse.</p>
 
-<p>Important note on Unicode: Greenhouse will escape Unicode characters when they are encoded as JSON before computing the signature. For example, if the job post content is <code>&lt;p&gt;hello&lt;/p&gt;</code>, the web hook body will represent it as <code>\u003cp\u003ehello\u003c/p\u003e</code>. When we compute the signature, we use the string exactly as it appears in the body, including the escaped unicode. Be sure to duplicate this process on the receiving end so the signatures match.</p>
+<p>Important note on Unicode: Greenhouse will escape Unicode characters when they are encoded as JSON before computing the signature. For example, if the job post content is <code>&lt;p&gt;hello&lt;/p&gt;</code>, the webhook body will represent it as <code>\u003cp\u003ehello\u003c/p\u003e</code>. When we compute the signature, we use the string exactly as it appears in the body, including the escaped unicode. Be sure to duplicate this process on the receiving end so the signatures match.</p>
 <h2 id='common-attributes'>Common Attributes</h2>
-<p>Currently, Web Hooks for all event types include these common attributes:</p>
+<p>Currently, Webhooks for all event types include these common attributes:</p>
 
 <table><thead>
 <tr>
@@ -438,7 +438,7 @@ analytics.page()
 </thead><tbody>
 <tr>
 <td><code>application.id</code></td>
-<td>Unique Greenhouse identifier of the application. Information not included in the web hook can be retrieved via <a href="harvest.html#applications">Harvest API - GET Applications</a></td>
+<td>Unique Greenhouse identifier of the application. Information not included in the webhook can be retrieved via <a href="harvest.html#applications">Harvest API - GET Applications</a></td>
 </tr>
 <tr>
 <td><code>application.credited_to</code></td>
@@ -450,7 +450,7 @@ analytics.page()
 </tr>
 <tr>
 <td><code>application.candidate.id</code></td>
-<td>Unique Greenhouse identifier of the candidate. Information not included in the web hook can be retrieved via <a href="harvest.html#candidates">Harvest API - GET Candidates</a></td>
+<td>Unique Greenhouse identifier of the candidate. Information not included in the webhook can be retrieved via <a href="harvest.html#candidates">Harvest API - GET Candidates</a></td>
 </tr>
 <tr>
 <td><code>application.candidate.phone_numbers[].type</code></td>
@@ -494,7 +494,7 @@ analytics.page()
 </tr>
 <tr>
 <td><code>application.jobs[].id</code></td>
-<td>Unique Greenhouse identifier of the job. Information not included in the web hook can be retrieved via <a href="harvest.html#jobs">Harvest API - GET Jobs</a></td>
+<td>Unique Greenhouse identifier of the job. Information not included in the webhook can be retrieved via <a href="harvest.html#jobs">Harvest API - GET Jobs</a></td>
 </tr>
 <tr>
 <td><code>application.jobs[].requisition_id</code></td>
@@ -608,11 +608,11 @@ analytics.page()
         </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
-<p>Custom fields may be attached to several objects within the Greenhouse Recruiting system. These fields may appear on candidates, applications, offers, and other objects in the system. These fields share several properties and are always indicated in web hooks by the &quot;custom_fields&quot; element. However, the &quot;value&quot; attribute of custom fields are different depending on the &quot;type&quot; attribute, so you must check the &quot;type&quot; attribute in order to predict what will be included in the value &quot;attribute&quot;. As described in the previous section, the type attribute will be one of short_text, long_text, boolean, single_select, multi_select, currency, currency_range, number, number_range, date, url, or user. An example of each of these fields&#39; expected value format are provided.</p>
+<p>Custom fields may be attached to several objects within the Greenhouse Recruiting system. These fields may appear on candidates, applications, offers, and other objects in the system. These fields share several properties and are always indicated in webhooks by the &quot;custom_fields&quot; element. However, the &quot;value&quot; attribute of custom fields are different depending on the &quot;type&quot; attribute, so you must check the &quot;type&quot; attribute in order to predict what will be included in the value &quot;attribute&quot;. As described in the previous section, the type attribute will be one of short_text, long_text, boolean, single_select, multi_select, currency, currency_range, number, number_range, date, url, or user. An example of each of these fields&#39; expected value format are provided.</p>
 
 <p>Compensation Field is a special type of <code>currency</code> custom field. If a currency field is marked as a compensation field, three additional fields will be included: <code>compensation_type</code>, <code>rationale</code>, <code>frequency</code></p>
-<h2 id='disabled-web-hooks'>Disabled web hooks</h2>
-<p>If a web hook is disabled, it will not trigger when the event occurs. Web hooks become disabled automatically if a ping event fails on create or update. They need to be manually re-enabled if this occurs.</p>
+<h2 id='disabled-webhooks'>Disabled webhooks</h2>
+<p>If a webhook is disabled, it will not trigger when the event occurs. Webhooks become disabled automatically if a ping event fails on create or update. They need to be manually re-enabled if this occurs.</p>
 <h2 id='retry-policy'>Retry policy</h2>
 <p>In the event of a failed webhook request (due to timeout, a non HTTP 200 response, or network issues), Greenhouse will attempt a maximum of 6 retries according to the formula on the right:</p>
 
@@ -943,9 +943,9 @@ analytics.page()
 </span></code></pre></div>
 <p>The New Candidate Application event occurs when a new application is created for a candidate.</p>
 
-<p>See web hook <a href="#common-attributes">common attributes</a>.</p>
+<p>See webhook <a href="#common-attributes">common attributes</a>.</p>
 <h2 id='application-deleted'>Application deleted</h2>
-<p>This web hook only fires when individual applications are destroyed.  This occurs when the Harvest API delete endpoint is used, when a candidate is removed from a specific job, or when two duplicate candidates on the same job are merged together.  This will not fire when a candidate is deleted.  A candidate being deleted implies all their applications have been deleted with them.</p>
+<p>This webhook only fires when individual applications are destroyed.  This occurs when the Harvest API delete endpoint is used, when a candidate is removed from a specific job, or when two duplicate candidates on the same job are merged together.  This will not fire when a candidate is deleted.  A candidate being deleted implies all their applications have been deleted with them.</p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"delete_application"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"payload"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -1091,9 +1091,9 @@ analytics.page()
 </span></code></pre></div>
 <p>The Application Updated event occurs when an application is updated.</p>
 
-<p>See web hook <a href="#common-attributes">common attributes</a>.</p>
+<p>See webhook <a href="#common-attributes">common attributes</a>.</p>
 <h2 id='offer-created'>Offer created</h2>
-<p>This web hook fires when creating a new offer in Greenhouse. This may also fire when changing an offer if the change causes a new version to be created. When bulk creating offers, this will fire per offer created.</p>
+<p>This webhook fires when creating a new offer in Greenhouse. This may also fire when changing an offer if the change causes a new version to be created. When bulk creating offers, this will fire per offer created.</p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"offer_created"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"payload"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -1117,7 +1117,7 @@ analytics.page()
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h2 id='offer-approved'>Offer approved</h2>
-<p>This web hook fires when an offer requires approval and the approval is received. </p>
+<p>This webhook fires when an offer requires approval and the approval is received.</p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"offer_approved"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"payload"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -1141,7 +1141,7 @@ analytics.page()
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h2 id='offer-updated'>Offer updated</h2>
-<p>This web hook fires when an offer is updated. In some cases, an offer may be changed without generating a new version. In that case, this will fire by itself. If a change causes a new offer version to be generated, this will fire on the old version with the update to deprecate this offer and also a new &quot;create&quot; web hook will fire for the new version. This web hook should also fire when a person is hired,  which marks the offer as &quot;accepted.&quot; </p>
+<p>This webhook fires when an offer is updated. In some cases, an offer may be changed without generating a new version. In that case, this will fire by itself. If a change causes a new offer version to be generated, this will fire on the old version with the update to deprecate this offer and also a new &quot;create&quot; webhook will fire for the new version. This webhook should also fire when a person is hired,  which marks the offer as &quot;accepted.&quot;</p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"offer_updated"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"payload"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -1165,7 +1165,7 @@ analytics.page()
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h2 id='offer-deleted'>Offer deleted</h2>
-<p>This web hook only fires when offers are deleted from the Greenhouse system.  This only happens when the &quot;Delete&quot; link is clicked on an individual offer or when the anonymize candidate process is run with the &quot;all_offer_versions&quot; option selected.  This will not fire individually when an application is deleted.</p>
+<p>This webhook only fires when offers are deleted from the Greenhouse system.  This only happens when the &quot;Delete&quot; link is clicked on an individual offer or when the anonymize candidate process is run with the &quot;all_offer_versions&quot; option selected.  This will not fire individually when an application is deleted.</p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"offer_deleted"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"payload"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -1346,9 +1346,9 @@ analytics.page()
 </span></code></pre></div>
 <p>The New Prospect Application event occurs when a new prospect application is created.</p>
 
-<p>See web hook <a href="#common-attributes">common attributes</a>.</p>
+<p>See webhook <a href="#common-attributes">common attributes</a>.</p>
 <h1 id='candidate-events'>Candidate Events</h1><h2 id='candidate-deleted'>Candidate deleted</h2>
-<p>This web hook will fire when a candidate or prospect is deleted from Greenhouse.  This occurs when the Harvest delete candidate methods are used, when a candidate is merged into another candidate, when a candidate is deleted in the application, and once for each candidate in a bulk delete operation.  Deleting a candidate will cause other deletes within Greenhouse but we will not fire an individual web hook for those deletions.  In the case of the applications that this delete causes, we will include an array of those Application IDs that will be removed from Greenhouse.</p>
+<p>This webhook will fire when a candidate or prospect is deleted from Greenhouse.  This occurs when the Harvest delete candidate methods are used, when a candidate is merged into another candidate, when a candidate is deleted in the application, and once for each candidate in a bulk delete operation.  Deleting a candidate will cause other deletes within Greenhouse but we will not fire an individual webhook for those deletions.  In the case of the applications that this delete causes, we will include an array of those Application IDs that will be removed from Greenhouse.</p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"delete_candidate"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"payload"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -1647,7 +1647,7 @@ analytics.page()
 </span></code></pre></div>
 <p>The Hire Candidate event occurs when an offer is accepted. This is triggered by clicking the &quot;Accept Offer&quot; button on the candidate&#39;s Private tab.</p>
 <h3 id='noteworthy-attributes'>Noteworthy attributes</h3>
-<p>See web hook <a href="#common-attributes">common attributes</a>.</p>
+<p>See webhook <a href="#common-attributes">common attributes</a>.</p>
 
 <table><thead>
 <tr>
@@ -1657,7 +1657,7 @@ analytics.page()
 </thead><tbody>
 <tr>
 <td><code>application.offer.id</code></td>
-<td>Unique Greenhouse identifier of the offer. Information not included in the web hook can be retrieved via <a href="harvest.html#offers">Harvest API - GET Offers</a></td>
+<td>Unique Greenhouse identifier of the offer. Information not included in the webhook can be retrieved via <a href="harvest.html#offers">Harvest API - GET Offers</a></td>
 </tr>
 <tr>
 <td><code>application.offer.created_at</code></td>
@@ -1693,7 +1693,7 @@ analytics.page()
 </tr>
 </tbody></table>
 <h2 id='candidate-merged'>Candidate merged</h2>
-<p>This web hook will fire when a candidate or prospect is merged with another candidate.  This process should fire for regular manual merges and auto-merges.  It will also fire per candidate for a bulk merge.  This web hook supersedes the candidate deleted web hook.  If both candidate deleted and candidate merged are configured on your site, only the candidate merged web hook will fire when candidate records are removed via merge.  If a candidate deleted web hook is configured but candidate merged is not, then the candidate deleted web hook will fire when a candidate record is deleted via merge.  The payload for a candidate merged web hook matches the payload for candidate deleted except it contains the ID of the winning candidate record.</p>
+<p>This webhook will fire when a candidate or prospect is merged with another candidate.  This process should fire for regular manual merges and auto-merges.  It will also fire per candidate for a bulk merge.  This webhook supersedes the candidate deleted webhook.  If both candidate deleted and candidate merged are configured on your site, only the candidate merged webhook will fire when candidate records are removed via merge.  If a candidate deleted webhook is configured but candidate merged is not, then the candidate deleted webhook will fire when a candidate record is deleted via merge.  The payload for a candidate merged webhook matches the payload for candidate deleted except it contains the ID of the winning candidate record.</p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"merge_candidate"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"payload"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -1916,7 +1916,7 @@ analytics.page()
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h3 id='noteworthy-response-attributes-3'>Noteworthy response attributes</h3>
-<p>See web hook <a href="#common-attributes">common attributes</a>.</p>
+<p>See webhook <a href="#common-attributes">common attributes</a>.</p>
 
 <table><thead>
 <tr>
@@ -2079,9 +2079,9 @@ analytics.page()
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
-<p>This web hook only fires when the &quot;Unhire&quot; button is clicked in Greenhouse.  This button is only available on the candidate profile page after a candidate has been hired.</p>
+<p>This webhook only fires when the &quot;Unhire&quot; button is clicked in Greenhouse.  This button is only available on the candidate profile page after a candidate has been hired.</p>
 
-<p>See web hook <a href="#common-attributes">common attributes</a>.</p>
+<p>See webhook <a href="#common-attributes">common attributes</a>.</p>
 <h2 id='candidate-prospect-rejected'>Candidate/Prospect rejected</h2><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"reject_candidate"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"payload"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -2230,9 +2230,9 @@ analytics.page()
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
-<p>The Reject Candidate event occurs when a prospect or candidate is rejected for a position. When candidates are rejected via a bulk action, a web hook will fire once for each candidate or prospect rejected.</p>
+<p>The Reject Candidate event occurs when a prospect or candidate is rejected for a position. When candidates are rejected via a bulk action, a webhook will fire once for each candidate or prospect rejected.</p>
 
-<p>See web hook <a href="#common-attributes">common attributes</a>.</p>
+<p>See webhook <a href="#common-attributes">common attributes</a>.</p>
 <h2 id='candidate-prospect-unrejected'>Candidate/Prospect unrejected</h2><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unreject_candidate"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"payload"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -2368,7 +2368,7 @@ analytics.page()
 </span></code></pre></div>
 <p>The Unreject Candidate event occurs when a prospect or candidate is unrejected.</p>
 
-<p>See web hook <a href="#common-attributes">common attributes</a>.</p>
+<p>See webhook <a href="#common-attributes">common attributes</a>.</p>
 <h2 id='candidate-prospect-updated'>Candidate/Prospect updated</h2><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"update_candidate"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"payload"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -2474,9 +2474,9 @@ analytics.page()
 </span></code></pre></div>
 <p>The Candidate or Prospect Updated event occurs when a candidate or prospect&#39;s standard field or custom field is updated.  For instance, an update to a candidate&#39;s first name would trigger this event.</p>
 
-<p>See web hook <a href="#common-attributes">common attributes</a>.</p>
+<p>See webhook <a href="#common-attributes">common attributes</a>.</p>
 <h2 id='candidate-anonymized'>Candidate anonymized</h2>
-<p>This web hook will fire when a particular candidate receives an anonymize event. Anonymize events may occur from the <a href="#put-anonymize-candidate">Anonymize Endpoint</a> in Harvest or may be configured in the GDPR page in the Greenhouse application. An anonymize web hook consists of the action type, the id of the candidate who had properties anonymized, and the information that was anonymized.</p>
+<p>This webhook will fire when a particular candidate receives an anonymize event. Anonymize events may occur from the <a href="#put-anonymize-candidate">Anonymize Endpoint</a> in Harvest or may be configured in the GDPR page in the Greenhouse application. An anonymize webhook consists of the action type, the id of the candidate who had properties anonymized, and the information that was anonymized.</p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"candidate_anonymized"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"payload"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -2485,7 +2485,7 @@ analytics.page()
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h3 id='anonymized-fields'>Anonymized Fields</h3>
-<p>A list of possible anonymized fields are provided. If the item in &quot;attribute&quot; is received in the anonymized_fields array, the corresponding changes in notes have been applied in Greenhouse. Note that some of these fields may not be accessible via other web hooks or via Harvest.</p>
+<p>A list of possible anonymized fields are provided. If the item in &quot;attribute&quot; is received in the anonymized_fields array, the corresponding changes in notes have been applied in Greenhouse. Note that some of these fields may not be accessible via other webhooks or via Harvest.</p>
 
 <table><thead>
 <tr>
@@ -2503,7 +2503,7 @@ analytics.page()
 </tr>
 <tr>
 <td><code>all_offer_versions</code></td>
-<td>For each of this candidate&#39;s applications, destroy all offers. (For legacy reasons, this will also raise an <a href="#offer-deleted">Offer Deleted</a> web hook if one is configured.)</td>
+<td>For each of this candidate&#39;s applications, destroy all offers. (For legacy reasons, this will also raise an <a href="#offer-deleted">Offer Deleted</a> webhook if one is configured.)</td>
 </tr>
 <tr>
 <td><code>application_questions</code></td>
@@ -2663,7 +2663,7 @@ analytics.page()
 </tr>
 </tbody></table>
 <h1 id='interview-events'>Interview Events</h1><h2 id='interview-deleted'>Interview deleted</h2>
-<p>This web hook fires when a scheduled interview is cancelled or the interview is deleted directly. This web hook will not fire if an interview is deleted because a candidate, application, or hiring plan is deleted.</p>
+<p>This webhook fires when a scheduled interview is cancelled or the interview is deleted directly. This webhook will not fire if an interview is deleted because a candidate, application, or hiring plan is deleted.</p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"interview_deleted"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"payload"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -2673,7 +2673,7 @@ analytics.page()
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h2 id='scorecard-deleted'>Scorecard deleted</h2>
-<p>This web hook only fires when individual scorecards are destroyed.  This occurs when the Harvest API delete endpoint is used, or when the delete scorecard link is used in the application. This will not fire when a candidate or application is deleted. A candidate being deleted implies all their scorecards have been deleted with them. An application being deleted does not cause scorecards to be deleted.</p>
+<p>This webhook only fires when individual scorecards are destroyed.  This occurs when the Harvest API delete endpoint is used, or when the delete scorecard link is used in the application. This will not fire when a candidate or application is deleted. A candidate being deleted implies all their scorecards have been deleted with them. An application being deleted does not cause scorecards to be deleted.</p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"scorecard_deleted"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"payload"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -2797,7 +2797,7 @@ analytics.page()
 </tr>
 </tbody></table>
 <h2 id='job-deleted'>Job deleted</h2>
-<p>This web hook only fires when jobs are deleted from the Greenhouse system. This only happens when a job is closed and then the &quot;Delete&quot; button is clicked from the Job Dashboard.</p>
+<p>This webhook only fires when jobs are deleted from the Greenhouse system. This only happens when a job is closed and then the &quot;Delete&quot; button is clicked from the Job Dashboard.</p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"job_deleted"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"payload"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -2910,7 +2910,7 @@ analytics.page()
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
-<p>The Job Updated event is triggered any time one or more of the following fields are changed for a job: Internal Job Name, Department, Office, Level, Open Date, Status, Notes, Team and Responsibilities, and How To Sell This Job. Changes to custom fields on a job will also trigger this web hook.</p>
+<p>The Job Updated event is triggered any time one or more of the following fields are changed for a job: Internal Job Name, Department, Office, Level, Open Date, Status, Notes, Team and Responsibilities, and How To Sell This Job. Changes to custom fields on a job will also trigger this webhook.</p>
 
 <table><thead>
 <tr>
@@ -3019,7 +3019,7 @@ analytics.page()
 </span></code></pre></div>
 <p>The Job Approved event is triggered when the final approval is received in a Greenhouse job&#39;s approval flow. &quot;Approvals to start recruiting&quot; will be identified as &quot;approval_flow_type&quot;: &quot;open_job&quot; while &quot;Official job approval&quot; will be identified as &quot;approval_flow_type&quot;: &quot;offer_job&quot;.</p>
 <h2 id='job-post-created'>Job Post created</h2>
-<p>This web hook fires when a job post or prospect post is created. This occurs when a new job post or prospect post is added from the job set up.</p>
+<p>This webhook fires when a job post or prospect post is created. This occurs when a new job post or prospect post is added from the job set up.</p>
 
 <p>If <code>job_id</code> <strong>is</strong> present in the payload, the payload represents a new <strong>job post</strong>.</p>
 
@@ -3063,7 +3063,7 @@ analytics.page()
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h2 id='job-post-updated'>Job Post updated</h2>
-<p>This web hook fires when a job post or prospect post is updated via the &quot;Edit Job Post&quot; page. It also fires when the live status of the job changes from on to off or vice-versa.</p>
+<p>This webhook fires when a job post or prospect post is updated via the &quot;Edit Job Post&quot; page. It also fires when the live status of the job changes from on to off or vice-versa.</p>
 
 <p>If <code>job_id</code> <strong>is</strong> present in the payload, the payload represents an updated <strong>job post</strong>.</p>
 
@@ -3107,7 +3107,7 @@ analytics.page()
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h2 id='job-post-deleted'>Job Post deleted</h2>
-<p>This web hook fires when a job post or prospect post is deleted.  This occurs when the delete link is clicked on a post. Only posts that are not live may be deleted. This will not fire if a job itself is deleted; a job being deleted implies all of its posts have been deleted with them.</p>
+<p>This webhook fires when a job post or prospect post is deleted.  This occurs when the delete link is clicked on a post. Only posts that are not live may be deleted. This will not fire if a job itself is deleted; a job being deleted implies all of its posts have been deleted with them.</p>
 
 <p>If <code>job_id</code> <strong>is</strong> present in the payload, the payload represents a deleted <strong>job post</strong>.</p>
 
@@ -3164,7 +3164,7 @@ analytics.page()
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h2 id='job-stage-deleted'>Job Stage deleted</h2>
-<p>This web hook only fires when interview stages on a job are removed.  This occurs when the remove stage link is used in the Job Setup section of the application. This will not fire when a job is deleted. A job being deleted implies all of its stages have been deleted with them.</p>
+<p>This webhook only fires when interview stages on a job are removed.  This occurs when the remove stage link is used in the Job Setup section of the application. This will not fire when a job is deleted. A job being deleted implies all of its stages have been deleted with them.</p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"job_interview_stage_deleted"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"payload"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -3179,7 +3179,7 @@ analytics.page()
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h1 id='organization-events'>Organization Events</h1><h2 id='department-deleted'>Department deleted</h2>
-<p>This web hook fires when departments are deleted from the Greenhouse system from the Configure &raquo; Organization screen. This only happens when the &quot;Remove&quot; button is clicked after clicking the &quot;X&quot; next to an office name.</p>
+<p>This webhook fires when departments are deleted from the Greenhouse system from the Configure &raquo; Organization screen. This only happens when the &quot;Remove&quot; button is clicked after clicking the &quot;X&quot; next to an office name.</p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"department_deleted"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"payload"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -3219,7 +3219,7 @@ analytics.page()
 </tr>
 </tbody></table>
 <h2 id='office-deleted'>Office deleted</h2>
-<p>This web hook fires when offices are deleted from the Greenhouse system from the Configure &raquo; Organization screen. This only happens when the &quot;Remove&quot; button is clicked after clicking the &quot;X&quot; next to an office name.</p>
+<p>This webhook fires when offices are deleted from the Greenhouse system from the Configure &raquo; Organization screen. This only happens when the &quot;Remove&quot; button is clicked after clicking the &quot;X&quot; next to an office name.</p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"office_deleted"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"payload"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
