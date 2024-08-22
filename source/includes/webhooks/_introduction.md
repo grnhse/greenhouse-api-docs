@@ -188,14 +188,14 @@ If a webhook is disabled, it will not trigger when the event occurs. Webhooks be
 
 ## Retry policy
 
-In the event of a failed webhook request (due to timeout, a non HTTP 200 response, or network issues), Greenhouse will attempt a maximum of 6 retries according to the formula on the right:
+In the event of a failed webhook request (due to timeout, a non HTTP 200 response, or network issues), Greenhouse will make up to 6 attempts according to the formula on the right.
 
 This formula increases the amount of time between each retry, while assigning a random number of seconds to avoid consistent failures from overload or contention.
 
-Greenhouse will attempt 6 retries over the course of 15 hours.
+Greenhouse will make up to 6 attempts over the course of 7 hours.
 
 ```ruby
-RETRY_DELAY_MINUTES = [1, 15, 60, 120, 240, 480]
+RETRY_DELAY_MINUTES = [0, 1, 15, 60, 120, 240]
 
 sidekiq_retry_in do |index, _exception|
   seconds_delay = (RETRY_DELAY_MINUTES[index] || RETRY_DELAY_MINUTES.last) * 60
@@ -205,13 +205,13 @@ sidekiq_retry_in do |index, _exception|
 end
 ```
 
-The table below outlines the estimated wait time for each retry request, assuming that rand(30) always returns 0.
+The table below outlines the estimated wait time for each attempt, assuming that rand(30) always returns 0.
 
-| Retry number | Next Retry in | Total waiting time |
-| ------------ | ------------- | ------------------ |
-|       1      |        1m     |        0h  1m      |
-|       2      |       15m     |        0h 16m      |
-|       3      |       60m     |        1h 16m      |
-|       4      |      120m     |        3h 16m      |
-|       5      |      240m     |        7h 16m      |
-|       6      |      480m     |       15h 16m      |
+| Attempt number | Next Attempt in | Total waiting time  |
+| -------------- | --------------- | ------------------  |
+|       1        |        1m       |            0m       |
+|       2        |       15m       |        0h  1m       |
+|       3        |       60m       |        0h 16m       |
+|       4        |      120m       |        1h 16m       |
+|       5        |      240m       |        3h 16m       |
+|       6        |        --       |        7h 16m       |
