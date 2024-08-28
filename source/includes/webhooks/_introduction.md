@@ -188,16 +188,17 @@ If a webhook is disabled, it will not trigger when the event occurs. Webhooks be
 
 ## Retry policy
 
-In the event of a failed webhook request (due to timeout, a non HTTP 200 response, or network issues), Greenhouse will make up to 6 attempts over the course of 7 hours.
+In the event of a failed webhook request (due to timeout, a non HTTP 200 response, or network issues), Greenhouse will make up to 7 attempts over the course of 15 hours.
 
 
 The table below outlines the estimated wait time for each attempt.
 
 | Approx. Total waiting time | Attempt number | Next Attempt in |
-| :--------------------------: | :--------------: | :---------------: |
-|           0h  0m           |       1        |        1m       |
-|           0h  1m           |       2        |       15m       |
-|           0h 16m           |       3        |       60m       |
-|           1h 16m           |       4        |      120m       |
-|           3h 16m           |       5        |      240m       |
-|           7h 16m           |       6        |        --       |
+| :-------------------------- | :--------------: | :--------------- |
+|           0h  0m           |       1        |         1m       |
+|           0h  1m           |       2        |         15m       |
+|           0h 16m           |       3        |         60m       |
+|           1h 16m           |       4        |         120m       |
+|           3h 16m           |       5        |         240m       |
+|           7h 16m           |       6        |         480m       |
+|          15h 16m           |       7        |          --       |
