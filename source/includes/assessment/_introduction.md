@@ -73,9 +73,10 @@ Unless otherwise specified, API methods generally conform to the following:
 
 The timestamps below are Eastern Time.
 
-| Date                    | Description																																																											|
-| ----------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
-| Oct 19, 2023 12:30:00PM | Clarified use of Assessment API for active, unhired candidates in [Introduction](#introduction) and [Test Status](#test-status)	|
+| Date                    | Description																																																											  |
+| ----------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| Sep 18, 2024 10:45:00AM | Added `sent_by` to the [Send Test](#send-test) request example                                                                 	  |
+| Oct 19, 2023 12:30:00PM | Clarified use of Assessment API for active, unhired candidates in [Introduction](#introduction) and [Test Status](#test-status)	  |
 | Oct 13, 2023 3:00:00PM  | Added URL for `response_error` as a requirement in [Introduction](#introduction)        																					|
 | Aug 22, 2023 3:00:00PM  | Fixed URL expiry timing in [Send Test](#send-test)                                      																					|
 | Aug 21, 2019 2:00:00PM  | Added Change Log and General Consideration sections to the Assessment API documentation 																					|
