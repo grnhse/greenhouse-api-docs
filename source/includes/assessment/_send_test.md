@@ -20,6 +20,7 @@ curl -X POST 'https://www.testing-partner.com/api/send_test'
     "email": "hpotter@hogwarts.edu",
     "greenhouse_profile_url": "https://app.greenhouse.io/people/17681532?application_id=26234709"
   },
+  "sent_by": "test_sender@example.org",
   "url": "https://app.greenhouse.io/integrations/testing_partners/take_home_tests/12345"
 }
 ```
@@ -31,10 +32,11 @@ Greenhouse will initiate the process by sending a POST request to the `send_test
 | partner_test_id        | String | Yes      | Identifies a test available to an organization. Initially provided as a response to the [List Tests request](#list-tests). |
 | first_name             | String | Yes      | The first name of the candidate.                                                                                           |
 | last_name              | String | Yes      | The last name of the candidate.                                                                                            |
-| resume_url             | String | No       | A URL to the candidate’s resume. This URL will expire 7 days after the request.                                           |
+| resume_url             | String | No       | A URL to the candidate’s resume. This URL will expire 7 days after the request.                                            |
 | phone_number           | String | No       | The candidate’s phone number.                                                                                              |
 | email                  | String | Yes      | The candidate’s email address. The test should be sent to this address.                                                    |
 | greenhouse_profile_url | String | Yes      | URL to the candidate’s Greenhouse application. Allows the partner to link back to Greenhouse.                              |
+| sent_by                | String | No       | Test sender's email address                                                                                                |
 | url                    | String | Yes      | URL to which to send the [PATCH Completed Test](#patch-mark-test-as-completed) request, if using                           |
 
 ### Response
