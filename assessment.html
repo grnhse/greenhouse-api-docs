@@ -399,6 +399,10 @@ analytics.page()
 </tr>
 </thead><tbody>
 <tr>
+<td>Sep 18, 2024 10:45:00AM</td>
+<td>Added <code>sent_by</code> to the <a href="#send-test">Send Test</a> request example</td>
+</tr>
+<tr>
 <td>Oct 19, 2023 12:30:00PM</td>
 <td>Clarified use of Assessment API for active, unhired candidates in <a href="#introduction">Introduction</a> and <a href="#test-status">Test Status</a></td>
 </tr>
@@ -479,6 +483,7 @@ analytics.page()
     </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"hpotter@hogwarts.edu"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"greenhouse_profile_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.greenhouse.io/people/17681532?application_id=26234709"</span><span class="w">
   </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"sent_by"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test_sender@example.org"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.greenhouse.io/integrations/testing_partners/take_home_tests/12345"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
@@ -533,6 +538,12 @@ analytics.page()
 <td>String</td>
 <td>Yes</td>
 <td>URL to the candidate’s Greenhouse application. Allows the partner to link back to Greenhouse.</td>
+</tr>
+<tr>
+<td>sent_by</td>
+<td>String</td>
+<td>No</td>
+<td>Test sender&#39;s email address</td>
 </tr>
 <tr>
 <td>url</td>

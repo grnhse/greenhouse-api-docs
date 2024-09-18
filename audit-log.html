@@ -335,13 +335,24 @@ X-RateLimit-Remaining: 49
 <b>Note</b>: An <code>HTTP 429</code> response will exclude the <code>X-RateLimit-Limit</code> and <code>X-RateLimit-Remaining</code> headers.
 </aside>
 <h2 id='pagination'>Pagination</h2>
-<p>Pagination on audit log API allows for retrieving the next page from your query results. Use the <code>paging</code> <a href="https://developers.greenhouse.io/audit-log.html#the-events-object">query parameter</a> to receive a <code>pit_id</code> with your results. To retrieve the next page of results, the <code>pit_id</code> should be the value of your <code>pit_id</code> header, and the <code>next_search_after</code> should be the value of your <code>search_after</code> header. Your query parameters should remain consistent with your original query. Audit log results with only one page will return <code>null</code> results on the next page. </p>
+<p>Pagination on audit log API allows for retrieving the next page from your query results.</p>
+
+<ol>
+<li>In the initial request:
 
 <ul>
-<li><code>pit_id</code>. The ID from a specific <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/pit.html">point in time (PIT)</a> in a fixed time dataset, created automatically when you run a query.</li>
-<li><code>search_after</code>. Use this parameter to retrieve audit log after a specific page in the search results when running a query with the <code>pit_id</code>.</li>
-<li><code>size</code>. The size of the requested query. This parameter has a minimum value of <code>100</code> and a maximum value of <code>500</code>.</li>
-</ul>
+<li>Set the <code>paging</code> <a href="https://developers.greenhouse.io/audit-log.html#the-events-object">query parameter</a> to <code>true</code> to receive a <code>paging</code> object with <code>pit_id</code> and <code>next_search_after</code> in the response</li>
+<li>Use the <code>Size</code> header to specify the number of results you want to receive per page. The minimum value is <code>100</code>, and the maximum value is <code>500</code></li>
+</ul></li>
+<li>In subsequent requests:
+
+<ul>
+<li>Ensure that the query parameters remain consistent with the initial request</li>
+<li>Set the <code>Pit-Id</code> header to the <code>paging.pit_id</code> value from the initial request</li>
+<li>Set the <code>Search-After</code> header to the <code>paging.next_search_after</code> value from each response progressively</li>
+</ul></li>
+<li>The last page of results will return <code>null</code> for the <code>paging.next_search_after</code> attribute, and an empty list of <code>results</code></li>
+</ol>
 
 <p>Audit log API requests are rate limited. Paginated requests are limited to 3 per 30 seconds, and overall requests are limited to 50 per 10 seconds. Exceeding the limit will result in <a href="https://developers.greenhouse.io/audit-log.html#throttling">throttling</a>.</p>
 <h2 id='validation'>Validation</h2>
@@ -395,6 +406,10 @@ X-RateLimit-Remaining: 49
 <th>Description</th>
 </tr>
 </thead><tbody>
+<tr>
+<td>September 10, 2023</td>
+<td>Fixed pagination docs to reflect proper use of headers/query params.</td>
+</tr>
 <tr>
 <td>Dec 12, 2023</td>
 <td>Fix bug with missing GET events in nav menu</td>
