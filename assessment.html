@@ -368,6 +368,8 @@ analytics.page()
 
 <p>Greenhouse will then make all requests for the organization using that API key as the username in Basic Authentication. Greenhouse will append a : (colon) to the API token and then Base64 encode the resulting string.</p>
 
+<p>Note: The API key sent to Greenhouse must be less than 171 characters.</p>
+
 <p>Upon receiving a request, the Assessment Partner should inspect the API key to determine whether the request should be permitted and which data should be returned.</p>
 <h3 id='example-situation'>Example Situation</h3>
 <ul>
@@ -398,6 +400,10 @@ analytics.page()
 <th>Description</th>
 </tr>
 </thead><tbody>
+<tr>
+<td>Oct 4, 2024 3:30:00PM</td>
+<td>Updated guidelines around API key character length in <a href="#introduction">Introduction</a></td>
+</tr>
 <tr>
 <td>Sep 18, 2024 10:45:00AM</td>
 <td>Added <code>sent_by</code> to the <a href="#send-test">Send Test</a> request example</td>
