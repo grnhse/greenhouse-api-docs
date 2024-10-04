@@ -1,7 +1,7 @@
 @import "variables";
 
 // Here we inject page-specific variable values:
-$nav-subitem-bg: #00b2a9;
-$nav-active-parent-bg: #018D85;
+$nav-subitem-bg: $harvest-base;
+$nav-active-parent-bg: $harvest-hover;
 
 @import "screen";

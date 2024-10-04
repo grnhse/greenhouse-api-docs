@@ -6,7 +6,7 @@ $full-width: $phone-width + 1;
 
 html, body {
   font-family: "LLAkkuratWeb-Light", Helmut, Helvetica, Arial, sans-serif;
-  color: #424242;
+  color: $body-color;
 }
 
 .header {
@@ -59,8 +59,8 @@ html, body {
 .block {
   min-height: 260px;
   height: 260px;
-  background-color: #00b2a9;
-  color: #fff;
+  background-color: $harvest-base;
+  color: $birch-white;
   padding: 30px;
 
   flex-basis: 260px;
@@ -91,67 +91,67 @@ html, body {
 
   &:link, &:visited, &:active {
     text-decoration: none;
-    color: #fff;
+    color: $birch-white;
   }
 
   &:hover {
-    background-color: #018d85;
+    background-color: $harvest-hover;
   }
 }
 
 .block-harvest {
-  background-color: #00b2a9;
+  background-color: $harvest-base;
 
   &:hover {
-    background-color: #018d85;
+    background-color: $harvest-hover;
   }
 }
 
 .block-job-board {
-  background-color: #7fade3;
+  background-color: $job-board-base;
 
   &:hover {
-    background-color: #5c8cc4;
+    background-color: $job-board-hover;
   }
 }
 
 .block-gho {
-  background-color: #4a9cd5;
+  background-color: $onboarding-base;
 
   &:hover {
-    background-color: #2384C7;
+    background-color: $onboarding-hover;
   }
 }
 
 .block-webhooks {
-  background-color: #62B2c4;
+  background-color: $webhooks-base;
 
   &:hover {
-    background-color: #448fa0;
+    background-color: $webhooks-hover;
   }
 }
 
 .block-candidate-ingestion {
-  background-color: #C67F90;
+  background-color: $ingestion-base;
 
   &:hover {
-    background-color: #A15F6F;
+    background-color: $ingestion-hover;
   }
 }
 
 .block-assessment {
-  background-color: #4AAAD3;
+  background-color: $assessment-base;
 
   &:hover {
-    background-color: #3086AA;
+    background-color: $assessment-hover;
   }
 }
 
 .block-audit-log {
-  background-color: #008561;
+  background-color: $audit-log-base;
 
   &:hover {
-    background-color: #006A4E;
+    background-color: $audit-log-hover;
   }
 }
 
@@ -190,13 +190,13 @@ html, body {
 
 
   .footer-links {
-    color: #424242;
+    color: $body-color;
     font-size: 16px;
     padding: 0;
 
     a:link, a:visited, a:hover, a:active {
       text-decoration: none;
-      color: #424242;
+      color: $body-color;
     }
 
     li {

@@ -1,7 +1,7 @@
 @import "variables";
 
 // Here we inject page-specific variable values:
-$nav-subitem-bg: #C67F90;
-$nav-active-parent-bg: #A15F6F;
+$nav-subitem-bg: $ingestion-base;
+$nav-active-parent-bg: $ingestion-hover;
 
 @import "screen";
