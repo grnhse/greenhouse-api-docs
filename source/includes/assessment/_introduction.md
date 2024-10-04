@@ -46,6 +46,8 @@ When an organization decides to utilize a Assessment Partner’s integration, th
 
 Greenhouse will then make all requests for the organization using that API key as the username in Basic Authentication. Greenhouse will append a : (colon) to the API token and then Base64 encode the resulting string.
 
+Note: The API key sent to Greenhouse must be less than 171 characters.
+
 Upon receiving a request, the Assessment Partner should inspect the API key to determine whether the request should be permitted and which data should be returned.
 
 ### Example Situation
@@ -75,6 +77,7 @@ The timestamps below are Eastern Time.
 
 | Date                    | Description																																																											  |
 | ----------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| Oct 4, 2024 3:30:00PM | Updated guidelines around API key character length in [Introduction](#introduction) |
 | Sep 18, 2024 10:45:00AM | Added `sent_by` to the [Send Test](#send-test) request example                                                                 	  |
 | Oct 19, 2023 12:30:00PM | Clarified use of Assessment API for active, unhired candidates in [Introduction](#introduction) and [Test Status](#test-status)	  |
 | Oct 13, 2023 3:00:00PM  | Added URL for `response_error` as a requirement in [Introduction](#introduction)        																					|
