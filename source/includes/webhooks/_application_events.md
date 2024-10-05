@@ -539,6 +539,7 @@ This webhook only fires when offers are deleted from the Greenhouse system.  Thi
       "resolved_at": "2013-03-25T00:00:00Z",
       "notes": "These are notes on the offer.",
       "job_id": 371417
+    }
   }
 }
 ```

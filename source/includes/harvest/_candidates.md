@@ -1096,7 +1096,7 @@ coordinator[email] | No | String | The email of the new coordinator - either id 
 
 ### Custom Field Parameters
 
-The custom field parameter structure is different in the PATCH method then in GET methods and responses.  Certain type of custom fields require different elements to be included, while deleting a field requires a specific argument.  What follows is the description of each item in a custom field element and what is required depending on the type.
+The custom field parameter structure is different in the PATCH method then in GET methods and responses.  Certain types of custom fields require different elements to be included, while deleting a field requires a specific argument.  What follows is the description of each item in a custom field element and what is required depending on the type.
 
 Parameter | Required for | Description
 ---------- | -------------- | ----------------
@@ -1167,7 +1167,7 @@ Parameter | Required | Type | Description
 filename | Yes | string | Name of the file
 type | Yes | string | One of: ["resume", "cover_letter", "admin_only"]
 content | No | string | Base64 encoded content of the attachment (if you are providing content, you do not need to provide url). String must be UTF-8 encoded.
-url | No | string | Url of the attachment (if you are providing the url, you do not need to provide the content.) _Please note, shareable links from cloud services such as Google Drive will result in a corrupted file. Please use machine accessbile URLs._
+url | No | string | Url of the attachment (if you are providing the url, you do not need to provide the content.) _Please note, shareable links from cloud services such as Google Drive will result in a corrupted file. Please use machine-accessible URLs._
 content_type | Yes* | string | The content-type of the document you are sending. When using a URL, this generally isn't needed, as the responding server will deliver a content type.  This should be included for encoded content.  Accepted content types are: <ul><li>"application/atom+xml"</li><li>"application/javascript"</li><li>"application/json"</li><li>"application/msgpack"</li><li>"application/msword"</li><li>"application/pdf"</li><li>"application/rss+xml"</li><li>"application/vnd.ms-excel"</li><li>"application/vnd.openxmlformats-<br>officedocument.spreadsheetml.sheet"</li><li>"application/vnd.openxmlformats-<br>officedocument.wordprocessingml.document"</li><li>"application/vnd.ms-powerpoint"</li><li>"application/xml"</li><li>"application/x-www-form-urlencoded"</li><li>"application/x-yaml"</li><li>"application/zip"</li><li>"multipart/form-data"</li><li>"image/bmp"</li><li>"image/gif"</li><li>"image/jpeg"</li><li>"image/png"</li><li>"image/tiff"</li><li>"text/calendar"</li><li>"text/css"</li><li>"text/csv"</li><li>"text/html"</li><li>"text/javascript"</li><li>"text/plain"</li><li>"text/vcard"</li><li>"video/mpeg"</li></ul>
 
 \* \- content_type is required for when uploading a document unless you are uploading using a URL.
@@ -1372,7 +1372,7 @@ curl -X POST 'https://harvest.greenhouse.io/v1/candidates'
             "jobs": [
                 {
                     "id": 215725,
-                    "name": "Operations Manger "
+                    "name": "Operations Manager"
                 }
             ],
             "job_post_id": 456,
@@ -2065,7 +2065,7 @@ coordinator[id] | No | Integer | The ID of the coordinator - either id or email 
 coordinator[email] | No | String | The email of the coordinator - either id or email must be present.
 custom_fields | No | Array | Array of custom field value objects - See "Custom Field Parameters" under [Edit candidate] (#patch-edit-candidate) for parameters.
 activity_feed_notes | No | Array | An array of activity feed objects. See [Add Note] (#post-add-note) for parameters.
-application | No | Hash | Unlike a candidate application, a prospect application can contain zero or multiple job IDs because a prospect in Greenhouse Recruiting can be attached to zero or many jobs. If your request doesn’t contain an application object, the prospect will be created with a single, jobless application. If your request includes an application object, the `source_id`, `referrer`, `custom_fields`, and `attachments` parameters must match the format of the [Add Application] (#post-add-application) endpoint.
+application | No | Hash | Unlike a candidate application, a prospect application can contain zero or multiple job IDs because a prospect in Greenhouse Recruiting can be attached to zero or many jobs. If your request doesn't contain an application object, the prospect will be created with a single, jobless application. If your request includes an application object, the `source_id`, `referrer`, `custom_fields`, and `attachments` parameters must match the format of the [Add Application] (#post-add-application) endpoint.
 application[job_ids] | No | Array | This element is unique to the prospects endpoint. This contains an array of job ids to which the prospect will be assigned.  Note that even if the application object is included, this may still be blank or omitted and the request will create a jobless prospect. A normal use case for this would be creating a jobless prospect but still wanting to attach their resume or identify their source.
 
 <aside class="notice">
@@ -2275,7 +2275,7 @@ curl -X PUT 'https://harvest.greenhouse.io/v1/candidates/merge'
             "type": "resume"
         },
          {
-            "filename": "Justin Locke cover leter.pdf",
+            "filename": "Justin Locke cover letter.pdf",
             "url": "https://prod-heroku.s3.amazonaws.com/...",
             "type": "cover_letter"
         }
@@ -2360,7 +2360,7 @@ curl -X PUT 'https://harvest.greenhouse.io/v1/candidates/merge'
             		"type": "resume"
         		},
          		{
-            		"filename": "Justin Locke cover leter.pdf",
+            		"filename": "Justin Locke cover letter.pdf",
             		"url": "https://prod-heroku.s3.amazonaws.com/...",
             		"type": "cover_letter"
         		}

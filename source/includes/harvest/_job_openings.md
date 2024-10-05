@@ -145,7 +145,7 @@ List all of a job's openings
 
 `GET https://harvest.greenhouse.io/v1/jobs/{job_id}/openings`
 
-### URL Paramters
+### URL Parameters
 
 | Parameter | Description |
 --------- | -----------

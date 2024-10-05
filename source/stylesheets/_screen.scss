@@ -347,7 +347,7 @@ html, body {
   // The dark box is what gives the code samples their dark background.
   // It sits essentially under the actual content block, which has a
   // transparent background.
-  // I know, it's hackish, but it's the simplist way to make the left
+  // I know, it's hackish, but it's the simplest way to make the left
   // half of the content always this background color.
   .dark-box {
     width: $examples-width;
@@ -647,7 +647,7 @@ html, body {
 // RESPONSIVE DESIGN
 ////////////////////////////////////////////////////////////////////////////////
 // These are the styles for phones and tablets
-// There are also a couple styles disperesed
+// There are also a couple styles dispersed
 
 @media (max-width: $tablet-width) {
   .toc-wrapper {

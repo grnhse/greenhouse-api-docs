@@ -223,7 +223,7 @@ email | Applicant's email address
 *educations | An array of education objects. Each education object should have five fields: `school_name_id`, `degree_id`, `discipline_id`, `start_date`, and `end_date`. You can get the `school_name_id`, `degree_id`, `discipline_id` from our [List Schools](#list-schools), [List Degrees](#list-degrees), and [List Disciplines](#list-disciplines) endpoints. `start_date` and `end_date` will use a hash of month and year.
 *employments | An array of employments objects. Each employment object should have: `company_name`, `title`, `start_date`, and `current` (must be `true` or `false`). If `current` is `false`, must have `end_date`. `start_date` and `end_date` will use a hash of month and year.
 *demographic_answers | An array of demographic answer objects, applicable only if your organization has Greenhouse Inclusion and demographic questions are enabled on the job post. Each object must have a `question_id` field. The `answer_options` field is an array of objects, one for each `answer_option_id` the candidate selected. For answer options which support free-form responses, a `text` field may also be supplied with the candidate's hand-typed answer. Note that these questions are always optional, so the `answer_options` array may be empty, null, or omitted if the candidate did not make any selections.
-*data_compliance | An object representing a candidate’s answers to required data compliance questions. This field is dependent on your organization’s [privacy and compliance configuration](https://support.greenhouse.io/hc/en-us/articles/360061849112-GDPR-features-overview). If your organization doesn’t have single-purpose consent configured, use `{"gdpr_consent_given": true}`. Otherwise use separate consent values, like `{"gdpr_processing_consent_given":true}` or `{gdpr_retention_consent_given":false.}`.
+*data_compliance | An object representing a candidate’s answers to required data compliance questions. This field is dependent on your organization’s [privacy and compliance configuration](https://support.greenhouse.io/hc/en-us/articles/360061849112-GDPR-features-overview). If your organization doesn't have single-purpose consent configured, use `{"gdpr_consent_given": true}`. Otherwise use separate consent values, like `{"gdpr_processing_consent_given":true}` or `{gdpr_retention_consent_given":false.}`.
 
 ### Submitting Attachments
 
@@ -234,7 +234,7 @@ We support 4 methods of uploading attachments when submitting a candidate applic
 3. Submit a path to the attachment on an external server.
 4. Submit the plaintext file contents.
 
-</br>
+<br>
 
 **Resume Attachments**
 
@@ -245,7 +245,7 @@ Direct upload | application/json | "resume_content", "resume_content_filename" |
 Path to file on external server  | multipart/form-data *or* application/json | "resume_url", "resume_url_filename" | "resume_url": "https://example.com/resume.pdf", "resume_url_filename": "resume.pdf"
 Plaintext file contents | multipart/form-data *or* application/json | "resume_text" | "resume_text": "This is my awesome resume!"
 
-</br>
+<br>
 
 **Cover Letter Attachments**
 
@@ -256,7 +256,7 @@ Direct upload | application/json | "cover_letter_content", "cover_letter_content
 Path to file on external server  | multipart/form-data *or* application/json | "cover_letter_url", "cover_letter_url_filename" | "cover_letter_url": "https://example.com/coverletter.pdf", "cover_letter_url_filename": "coverletter.pdf"
 Plaintext file contents | multipart/form-data *or* application/json | "cover_letter_text" | "cover_letter_text": "This is my awesome cover letter!"
 
-</br>
+<br>
 
 **Custom Question Attachments**
 

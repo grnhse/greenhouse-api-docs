@@ -997,7 +997,7 @@ id | [Int](#int) |  |
 }
 
 ```
-A collection of Onboarding employee records. The following arguments are depreacated and should be avoided as support for them will be dropped: dateOfBirth, departmentIds, emails, employmentStatuses, hrManagerIds, locationIds, managerIds, personalEmails, startDate, titles, and workCountryCodes. Each of these arguments has a newer, more powerful companion named *Filter. For example, departmentIds has been replaced by the argument departmentFilter - which allows for the specification of department IDs, but also allows for more flexibility (e.g. filtering by lack/presence of a given field - as opposed to filtering by specific values).
+A collection of Onboarding employee records. The following arguments are deprecated and should be avoided as support for them will be dropped: dateOfBirth, departmentIds, emails, employmentStatuses, hrManagerIds, locationIds, managerIds, personalEmails, startDate, titles, and workCountryCodes. Each of these arguments has a newer, more powerful companion named *Filter. For example, departmentIds has been replaced by the argument departmentFilter - which allows for the specification of department IDs, but also allows for more flexibility (e.g. filtering by lack/presence of a given field - as opposed to filtering by specific values).
 
 Argument | Type | Description | Required
 --------- | ----------- | ----------- | -----------
@@ -2018,7 +2018,7 @@ Field | Type | Description
 location | [Location](#location) | The new location
 
 ## ComplexityInfo
-Information about the current request's complexity. If the complexity exceeds the maxium, the request will fail
+Information about the current request's complexity. If the complexity exceeds the maximum, the request will fail
 
 Field | Type | Description
 --------- | ----------- | -----------
@@ -2495,7 +2495,7 @@ dateFilter | [DateFilter](#datefilter) |  |
 noValue | [Boolean](#boolean) |  |
 
 ## DateTimeFilter
-Specify a range of datetimes using after (exclusive >), before (exclusive <)
+Specify a range of date-times using after (exclusive >), before (exclusive <)
 
 Argument | Type | Description | Required
 --------- | ----------- | ----------- | -----------
