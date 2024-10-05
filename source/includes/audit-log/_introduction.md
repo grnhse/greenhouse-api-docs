@@ -61,11 +61,11 @@ Pagination on audit log API allows for retrieving the next page from your query 
 1. In the initial request:
     - Set the `paging` [query parameter](https://developers.greenhouse.io/audit-log.html#the-events-object) to `true` to receive a `paging` object with `pit_id` and `next_search_after` in the response
     - Use the `Size` header to specify the number of results you want to receive per page. The minimum value is `100`, and the maximum value is `500`
-1. In subsequent requests:
+2. In subsequent requests:
     - Ensure that the query parameters remain consistent with the initial request
     - Set the `Pit-Id` header to the `paging.pit_id` value from the initial request
     - Set the `Search-After` header to the `paging.next_search_after` value from each response progressively
-1. The last page of results will return `null` for the `paging.next_search_after` attribute, and an empty list of `results`
+3. The last page of results will return `null` for the `paging.next_search_after` attribute, and an empty list of `results`
 
 
 Audit log API requests are rate limited. Paginated requests are limited to 3 per 30 seconds, and overall requests are limited to 50 per 10 seconds. Exceeding the limit will result in [throttling](https://developers.greenhouse.io/audit-log.html#throttling).

@@ -40,7 +40,7 @@
       },
       "absolute_url":"https://boards.greenhouse.io/vaulttec/jobs/127817",
       "metadata":null,
-      "content":"This is the job description. &amp;lt;p&amp;gt;Any HTML included through the hosted job application editor will be automatically converted into corresponding HTML entitites.&amp;lt;/p&amp;gt;",
+      "content":"This is the job description. &amp;lt;p&amp;gt;Any HTML included through the hosted job application editor will be automatically converted into corresponding HTML entities.&amp;lt;/p&amp;gt;",
       "departments":[
         {
           "id":13583,
@@ -113,7 +113,7 @@ content | If set to `true`, include the full post description, department, and o
   "location":{
     "name":"San Francisco, CA"
   },
-  "content":"This is the job description. &amp;lt;p&amp;gt;Any HTML included through the hosted job application editor will be automatically converted into corresponding HTML entitites.&amp;lt;/p&amp;gt;",
+  "content":"This is the job description. &amp;lt;p&amp;gt;Any HTML included through the hosted job application editor will be automatically converted into corresponding HTML entities.&amp;lt;/p&amp;gt;",
   "absolute_url":"http://your.co/careers?gh_jid=444444",
   "internal_job_id":55555,
   "location_questions": [
@@ -149,7 +149,7 @@ content | If set to `true`, include the full post description, department, and o
         }
       ],
       "required": true
-    },
+    }
   ],
   "questions":[
     {

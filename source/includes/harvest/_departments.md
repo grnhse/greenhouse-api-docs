@@ -141,7 +141,7 @@ curl 'https://harvest.greenhouse.io/v1/departments'
       }
     ],
     "external_id": "26758"
-  }
+  },
   {
     "id": 67890,
     "name": "Administration",

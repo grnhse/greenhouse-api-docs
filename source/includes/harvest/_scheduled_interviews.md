@@ -427,7 +427,7 @@ Greenhouse deprecated the V1 endpoint on April 5th, 2020. The V2 endpoint was re
 
 Header | Description
 --------- | -----------
-On-Behalf-Of | ID of the user issuing this request. Will become the interview organizer. The user must have permission to manage the associcated application.
+On-Behalf-Of | ID of the user issuing this request. Will become the interview organizer. The user must have permission to manage the associated application.
 
 ### JSON Body Parameters
 
@@ -438,7 +438,7 @@ interview_id | Yes | integer | The id of the interview we'd like to schedule. Th
 interviewers[] | Yes | interviewer | Array of interviewers. Each must specify a user by user_id, email, or employee_id. Each must include a response status (one of needs_action, declined, tentative, or accepted).
 start | Yes | string | A datetime specifying when the interview starts. Must be provided in [ISO-8601](#general-considerations) format (e.g. 2018-11-05T13:12:14Z).
 end | Yes | string | A datetime specifying when the interview ends. Must be provided in [ISO-8601](#general-considerations) format (e.g. 2018-11-05T13:12:14Z).
-external_event_id | Yes | string | A unique identifer for this interview.
+external_event_id | Yes | string | A unique identifier for this interview.
 location| No | string | A textual description of the location of the interview.
 
 <aside class="notice">
@@ -544,7 +544,7 @@ Parameter | Required | Type | Description
 interviewers[] | No | interviewer | Array of interviewers. Each must specify a user by user_id, email, or employee_id. Each must include a response status (one of needs_action, declined, tentative, or accepted).
 start | No | string | A datetime specifying when the interview starts. Must be provided in [ISO-8601](#general-considerations) format (e.g. 2018-11-05T13:12:14Z).
 end | No | string | A datetime specifying when the interview ends. Must be provided in [ISO-8601](#general-considerations) format (e.g. 2018-11-05T13:12:14Z).
-external_event_id | No | string | A unique identifer for this interview.
+external_event_id | No | string | A unique identifier for this interview.
 location| No | string | A textual description of the location of the interview.
 
 ## Delete: Remove Scheduled Interview

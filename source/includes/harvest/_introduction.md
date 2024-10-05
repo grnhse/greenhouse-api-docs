@@ -65,7 +65,7 @@ Harvest API keys can be obtained in Greenhouse. In order to create a Harvest API
 Authorization: Basic YTcxODNlMWI3ZTlhYjA5YjhhNWNmYTg3ZDE5MzRjM2M6
 ```
 
-Most HTTP clients will automatically use a given username and password to generate the required Authorization header. However, you may need to explicity set this header. The header has the following format:
+Most HTTP clients will automatically use a given username and password to generate the required Authorization header. However, you may need to explicitly set this header. The header has the following format:
 
 `Authorization: Basic <base64("username:password")>`
 

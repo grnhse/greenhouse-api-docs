@@ -27,7 +27,7 @@ curl 'https://api.greenhouse.io/v1/partner/jobs'
     "name": "Caretaker",
     "status": "open",
     "public": false
-  },
+  }
 ]
 ```
 
