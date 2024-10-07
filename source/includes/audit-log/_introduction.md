@@ -97,11 +97,12 @@ Unless otherwise specified, audit log API methods generally conform to the follo
 
 ## Audit Log Change Log
 
-| Date                          | Description                                                                                                                       |
-|-------------------------------| --------------------------------------------------------------------------------------------------------------------------------- |
-| September 10, 2023 | Fixed pagination docs to reflect proper use of headers/query params.
-| Dec 12, 2023 | Fix bug with missing GET events in nav menu
-| Nov 7, 2023 | Removed On-Behalf-Of header from the [events object](#events) sample payload
-| Nov 6, 2023 | Updated Throttling section to Rate limiting and updated approach to rate limiting.
-| Oct 26, 2023 | Updated Pagination to reflect new approach to returning `pit_ids`.
-| July 14, 2023 | We added new query parameters to the Events endpoint, including `performer_ids`, `performer_types`, `performer_ip_addresses`, `event_types`, `event_target_ids`, `event_target_types`, `request_ids`, and `request_types`.
+| Date               | Description                                                                                                                                                                                                                |
+|--------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Oct 7, 2024        | Corrected typos and small formatting errors                                                                                                                                                                                |
+| September 10, 2023 | Fixed pagination docs to reflect proper use of headers/query params.                                                                                                                                                       |
+| Dec 12, 2023       | Fix bug with missing GET events in nav menu                                                                                                                                                                                |
+| Nov 7, 2023        | Removed On-Behalf-Of header from the [events object](#events) sample payload                                                                                                                                               |
+| Nov 6, 2023        | Updated Throttling section to Rate limiting and updated approach to rate limiting.                                                                                                                                         |
+| Oct 26, 2023       | Updated Pagination to reflect new approach to returning `pit_ids`.                                                                                                                                                         |
+| July 14, 2023      | We added new query parameters to the Events endpoint, including `performer_ids`, `performer_types`, `performer_ip_addresses`, `event_types`, `event_target_ids`, `event_target_types`, `request_ids`, and `request_types`. |
