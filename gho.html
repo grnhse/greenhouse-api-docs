@@ -1,25 +1,17 @@
 
 <!doctype html>
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link rel="apple-touch-icon" sizes="57x57" href="images/favicons/apple-touch-icon-57x57.png">
-<link rel="apple-touch-icon" sizes="60x60" href="images/favicons/apple-touch-icon-60x60.png">
-<link rel="apple-touch-icon" sizes="72x72" href="images/favicons/apple-touch-icon-72x72.png">
-<link rel="apple-touch-icon" sizes="76x76" href="images/favicons/apple-touch-icon-76x76.png">
-<link rel="apple-touch-icon" sizes="114x114" href="images/favicons/apple-touch-icon-114x114.png">
-<link rel="apple-touch-icon" sizes="120x120" href="images/favicons/apple-touch-icon-120x120.png">
-<link rel="apple-touch-icon" sizes="144x144" href="images/favicons/apple-touch-icon-144x144.png">
-<link rel="icon" type="image/png" href="images/favicons/favicon-32x32.png" sizes="32x32">
-<link rel="icon" type="image/png" href="images/favicons/favicon-96x96.png" sizes="96x96">
-<link rel="icon" type="image/png" href="images/favicons/favicon-16x16.png" sizes="16x16">
-<link rel="manifest" href="/images/favicons/manifest.json">
-<link rel="mask-icon" href="images/favicons/safari-pinned-tab.svg" color="#00b2a9">
-<meta name="msapplication-TileColor" content="#da532c">
-<meta name="msapplication-TileImage" content="images/favicons/mstile-144x144.png">
-<meta name="theme-color" content="#00b2a9">
+    <link rel="manifest" href="/images/favicons/manifest.json">
+
+<link rel="icon" href="images/favicons/favicon.ico" sizes="32x32">
+<link rel="icon" href="images/favicons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="images/favicons/apple-touch-icon.png">
+
+<meta name="theme-color" content="#047957"><!-- Birch Green 700 -->
 
     <title>Greenhouse Onboarding API | Greenhouse</title>
 
@@ -1896,7 +1888,7 @@ us anything. This really comes in handy when paired with other queries.</p>
 </span><span class="p">}</span><span class="w">
 
 </span></code></pre></div>
-<p>A collection of Onboarding employee records. The following arguments are depreacated and should be avoided as support for them will be dropped: dateOfBirth, departmentIds, emails, employmentStatuses, hrManagerIds, locationIds, managerIds, personalEmails, startDate, titles, and workCountryCodes. Each of these arguments has a newer, more powerful companion named *Filter. For example, departmentIds has been replaced by the argument departmentFilter - which allows for the specification of department IDs, but also allows for more flexibility (e.g. filtering by lack/presence of a given field - as opposed to filtering by specific values).</p>
+<p>A collection of Onboarding employee records. The following arguments are deprecated and should be avoided as support for them will be dropped: dateOfBirth, departmentIds, emails, employmentStatuses, hrManagerIds, locationIds, managerIds, personalEmails, startDate, titles, and workCountryCodes. Each of these arguments has a newer, more powerful companion named *Filter. For example, departmentIds has been replaced by the argument departmentFilter - which allows for the specification of department IDs, but also allows for more flexibility (e.g. filtering by lack/presence of a given field - as opposed to filtering by specific values).</p>
 
 <table><thead>
 <tr>
@@ -3175,7 +3167,7 @@ us anything. This really comes in handy when paired with other queries.</p>
 </tr>
 </tbody></table>
 <h2 id='complexityinfo'>ComplexityInfo</h2>
-<p>Information about the current request&#39;s complexity. If the complexity exceeds the maxium, the request will fail</p>
+<p>Information about the current request&#39;s complexity. If the complexity exceeds the maximum, the request will fail</p>
 
 <table><thead>
 <tr>
@@ -4739,7 +4731,7 @@ us anything. This really comes in handy when paired with other queries.</p>
 </tr>
 </tbody></table>
 <h2 id='datetimefilter'>DateTimeFilter</h2>
-<p>Specify a range of datetimes using after (exclusive &gt;), before (exclusive &lt;)</p>
+<p>Specify a range of date-times using after (exclusive &gt;), before (exclusive &lt;)</p>
 
 <table><thead>
 <tr>

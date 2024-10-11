@@ -1,25 +1,17 @@
 
 <!doctype html>
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link rel="apple-touch-icon" sizes="57x57" href="images/favicons/apple-touch-icon-57x57.png">
-<link rel="apple-touch-icon" sizes="60x60" href="images/favicons/apple-touch-icon-60x60.png">
-<link rel="apple-touch-icon" sizes="72x72" href="images/favicons/apple-touch-icon-72x72.png">
-<link rel="apple-touch-icon" sizes="76x76" href="images/favicons/apple-touch-icon-76x76.png">
-<link rel="apple-touch-icon" sizes="114x114" href="images/favicons/apple-touch-icon-114x114.png">
-<link rel="apple-touch-icon" sizes="120x120" href="images/favicons/apple-touch-icon-120x120.png">
-<link rel="apple-touch-icon" sizes="144x144" href="images/favicons/apple-touch-icon-144x144.png">
-<link rel="icon" type="image/png" href="images/favicons/favicon-32x32.png" sizes="32x32">
-<link rel="icon" type="image/png" href="images/favicons/favicon-96x96.png" sizes="96x96">
-<link rel="icon" type="image/png" href="images/favicons/favicon-16x16.png" sizes="16x16">
-<link rel="manifest" href="/images/favicons/manifest.json">
-<link rel="mask-icon" href="images/favicons/safari-pinned-tab.svg" color="#00b2a9">
-<meta name="msapplication-TileColor" content="#da532c">
-<meta name="msapplication-TileImage" content="images/favicons/mstile-144x144.png">
-<meta name="theme-color" content="#00b2a9">
+    <link rel="manifest" href="/images/favicons/manifest.json">
+
+<link rel="icon" href="images/favicons/favicon.ico" sizes="32x32">
+<link rel="icon" href="images/favicons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="images/favicons/apple-touch-icon.png">
+
+<meta name="theme-color" content="#047957"><!-- Birch Green 700 -->
 
     <title>Job Board API | Greenhouse</title>
 
@@ -381,7 +373,7 @@ Job Board data is publicly available, so authentication is not required for any 
       </span><span class="p">},</span><span class="w">
       </span><span class="nl">"absolute_url"</span><span class="p">:</span><span class="s2">"https://boards.greenhouse.io/vaulttec/jobs/127817"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"metadata"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"content"</span><span class="p">:</span><span class="s2">"This is the job description. &amp;amp;lt;p&amp;amp;gt;Any HTML included through the hosted job application editor will be automatically converted into corresponding HTML entitites.&amp;amp;lt;/p&amp;amp;gt;"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"content"</span><span class="p">:</span><span class="s2">"This is the job description. &amp;amp;lt;p&amp;amp;gt;Any HTML included through the hosted job application editor will be automatically converted into corresponding HTML entities.&amp;amp;lt;/p&amp;amp;gt;"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"departments"</span><span class="p">:[</span><span class="w">
         </span><span class="p">{</span><span class="w">
           </span><span class="nl">"id"</span><span class="p">:</span><span class="mi">13583</span><span class="p">,</span><span class="w">
@@ -459,7 +451,7 @@ When submitting a job application, you will use the <code>id</code> field to spe
   </span><span class="nl">"location"</span><span class="p">:{</span><span class="w">
     </span><span class="nl">"name"</span><span class="p">:</span><span class="s2">"San Francisco, CA"</span><span class="w">
   </span><span class="p">},</span><span class="w">
-  </span><span class="nl">"content"</span><span class="p">:</span><span class="s2">"This is the job description. &amp;amp;lt;p&amp;amp;gt;Any HTML included through the hosted job application editor will be automatically converted into corresponding HTML entitites.&amp;amp;lt;/p&amp;amp;gt;"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"content"</span><span class="p">:</span><span class="s2">"This is the job description. &amp;amp;lt;p&amp;amp;gt;Any HTML included through the hosted job application editor will be automatically converted into corresponding HTML entities.&amp;amp;lt;/p&amp;amp;gt;"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"absolute_url"</span><span class="p">:</span><span class="s2">"http://your.co/careers?gh_jid=444444"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"internal_job_id"</span><span class="p">:</span><span class="mi">55555</span><span class="p">,</span><span class="w">
   </span><span class="nl">"location_questions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -495,7 +487,7 @@ When submitting a job application, you will use the <code>id</code> field to spe
         </span><span class="p">}</span><span class="w">
       </span><span class="p">],</span><span class="w">
       </span><span class="nl">"required"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-    </span><span class="p">},</span><span class="w">
+    </span><span class="p">}</span><span class="w">
   </span><span class="p">],</span><span class="w">
   </span><span class="nl">"questions"</span><span class="p">:[</span><span class="w">
     </span><span class="p">{</span><span class="w">
@@ -767,12 +759,12 @@ can be used to dynamically construct your own job application form.</p>
           </span><span class="nl">"parent_id"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
           </span><span class="nl">"child_ids"</span><span class="p">:[</span><span class="w">
           </span><span class="p">]</span><span class="w">
-        </span><span class="p">},</span><span class="w">
+        </span><span class="p">}</span><span class="w">
       </span><span class="p">],</span><span class="w">
       </span><span class="nl">"parent_id"</span><span class="p">:</span><span class="mi">10201</span><span class="p">,</span><span class="w">
       </span><span class="nl">"child_ids"</span><span class="p">:[</span><span class="w">
       </span><span class="p">]</span><span class="w">
-    </span><span class="p">},</span><span class="w">
+    </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
@@ -825,13 +817,13 @@ can be used to dynamically construct your own job application form.</p>
               </span><span class="p">],</span><span class="w">
               </span><span class="nl">"children"</span><span class="p">:[</span><span class="w">
               </span><span class="p">]</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-          </span><span class="p">]</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+          </span><span class="p">],</span><span class="w">
           </span><span class="nl">"children"</span><span class="p">:[</span><span class="w">
           </span><span class="p">]</span><span class="w">
-        </span><span class="p">},</span><span class="w">
+        </span><span class="p">}</span><span class="w">
       </span><span class="p">]</span><span class="w">
-    </span><span class="p">},</span><span class="w">
+    </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
@@ -1072,7 +1064,7 @@ can be used to dynamically construct your own job application form.</p>
       </span><span class="nl">"parent_id"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
       </span><span class="nl">"child_ids"</span><span class="p">:[</span><span class="w">
       </span><span class="p">]</span><span class="w">
-    </span><span class="p">},</span><span class="w">
+    </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
@@ -1112,7 +1104,7 @@ can be used to dynamically construct your own job application form.</p>
           </span><span class="p">],</span><span class="w">
           </span><span class="nl">"children"</span><span class="p">:[</span><span class="w">
           </span><span class="p">]</span><span class="w">
-        </span><span class="p">},</span><span class="w">
+        </span><span class="p">}</span><span class="w">
       </span><span class="p">]</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
@@ -1122,7 +1114,7 @@ can be used to dynamically construct your own job application form.</p>
       </span><span class="p">],</span><span class="w">
       </span><span class="nl">"children"</span><span class="p">:[</span><span class="w">
       </span><span class="p">]</span><span class="w">
-    </span><span class="p">},</span><span class="w">
+    </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
@@ -1963,7 +1955,7 @@ Please keep in mind that the HTTP Basic Auth API token is a secret key.  Any for
 </tr>
 <tr>
 <td>*data_compliance</td>
-<td>An object representing a candidate’s answers to required data compliance questions. This field is dependent on your organization’s <a href="https://support.greenhouse.io/hc/en-us/articles/360061849112-GDPR-features-overview">privacy and compliance configuration</a>. If your organization doesn’t have single-purpose consent configured, use <code>{&quot;gdpr_consent_given&quot;: true}</code>. Otherwise use separate consent values, like <code>{&quot;gdpr_processing_consent_given&quot;:true}</code> or <code>{gdpr_retention_consent_given&quot;:false.}</code>.</td>
+<td>An object representing a candidate’s answers to required data compliance questions. This field is dependent on your organization’s <a href="https://support.greenhouse.io/hc/en-us/articles/360061849112-GDPR-features-overview">privacy and compliance configuration</a>. If your organization doesn&#39;t have single-purpose consent configured, use <code>{&quot;gdpr_consent_given&quot;: true}</code>. Otherwise use separate consent values, like <code>{&quot;gdpr_processing_consent_given&quot;:true}</code> or <code>{gdpr_retention_consent_given&quot;:false.}</code>.</td>
 </tr>
 </tbody></table>
 <h3 id='submitting-attachments'>Submitting Attachments</h3>
@@ -1976,7 +1968,7 @@ Please keep in mind that the HTTP Basic Auth API token is a secret key.  Any for
 <li>Submit the plaintext file contents.</li>
 </ol>
 
-<p></br></p>
+<p><br></p>
 
 <p><strong>Resume Attachments</strong></p>
 
@@ -2014,7 +2006,7 @@ Please keep in mind that the HTTP Basic Auth API token is a secret key.  Any for
 </tr>
 </tbody></table>
 
-<p></br></p>
+<p><br></p>
 
 <p><strong>Cover Letter Attachments</strong></p>
 
@@ -2052,7 +2044,7 @@ Please keep in mind that the HTTP Basic Auth API token is a secret key.  Any for
 </tr>
 </tbody></table>
 
-<p></br></p>
+<p><br></p>
 
 <p><strong>Custom Question Attachments</strong></p>
 
