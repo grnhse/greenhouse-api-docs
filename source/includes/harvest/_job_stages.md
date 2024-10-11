@@ -374,7 +374,7 @@ curl 'https://harvest.greenhouse.io/v1/job_stages/{id}'
   }
 ```
 
-Retreieve a job stage by its `id`.
+Retrieve a job stage by its `id`.
 
 ### HTTP Request
 

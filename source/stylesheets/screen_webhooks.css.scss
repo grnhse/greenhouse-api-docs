@@ -1,7 +1,7 @@
 @import "variables";
 
 // Here we inject page-specific variable values:
-$nav-subitem-bg: #62b2c4;
-$nav-active-parent-bg: #448FA0;
+$nav-subitem-bg: $webhooks-base;
+$nav-active-parent-bg: $webhooks-hover;
 
 @import "screen";

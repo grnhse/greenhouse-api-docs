@@ -147,7 +147,7 @@ curl 'https://harvest.greenhouse.io/v1/jobs/{job_id}/approval_flows'
                     "email_addresses": ["mclayton@example.com"]
                   }
                ]
-            },
+            }
         ]
     }
 ]
@@ -432,7 +432,7 @@ curl -X PUT 'https://harvest.greenhouse.io/v1/jobs/{job_id}/approval_flows'
 ```json
 {
     "success": true,
-    "approval_flow_id": 49394,
+    "approval_flow_id": 49394
 }
 ```
 

@@ -20,38 +20,117 @@ under the License.
 ////////////////////////////////////////////////////////////////////////////////
 // Use these settings to help adjust the appearance of Slate
 
+// SEEDLING COLORS (BIRCH)
+$birch-green-E25: #F3FFFB;
+$birch-green-E50: #E6FFF8;
+$birch-green-E100: #C9F0E6;
+$birch-green-E200: #ADE1D4;
+$birch-green-E300: #90D1C2;
+$birch-green-E400: #73C2B0;
+$birch-green-500: #4CB398;
+$birch-green-600: #24A47F;
+$birch-green-700: #047957;
+
+$birch-iris-E25: #ECF3FF;
+$birch-iris-E50: #D6E6FF;
+$birch-iris-E100: #BFD5F8;
+$birch-iris-E200: #A7C4F1;
+$birch-iris-E300: #90B4EA;
+$birch-iris-E400: #78A3E3;
+$birch-iris-500: #578BDD;
+$birch-iris-600: #3574D6;
+$birch-iris-700: #054AB2;
+
+$birch-poppy-E25: #FFF7F8;
+$birch-poppy-E50: #FFE5E3;
+$birch-poppy-E100: #F9C9C5;
+$birch-poppy-E200: #F3ACA7;
+$birch-poppy-E300: #EE9089;
+$birch-poppy-E400: #E8736B;
+$birch-poppy-500: #E3564B;
+$birch-poppy-600: #D8372A;
+$birch-poppy-700: #B52617;
+
+$birch-yellow-E25: #FFFBD7;
+$birch-yellow-500: #FFF9C1;
+$birch-yellow-600: #FFE607;
+$birch-yellow-700: #F2CD00;
+
+$birch-violet-E25: #F2EBFB;
+$birch-violet-E50: #D6C5EB;
+$birch-violet-E100: #C8B2E4;
+$birch-violet-E200: #BA9FDE;
+$birch-violet-E300: #AC8BD7;
+$birch-violet-E400: #9E78D0;
+$birch-violet-500: #9165C9;
+$birch-violet-600: #753EBC;
+$birch-violet-700: #462571;
+
+$birch-evergreen-E25: #DDE5E2;
+$birch-evergreen-E50: #BBCCC6;
+$birch-evergreen-E100: #A1B4AD;
+$birch-evergreen-E200: #879C95;
+$birch-evergreen-E300: #6C837C;
+$birch-evergreen-E400: #526B63;
+$birch-evergreen-600: #335247;
+$birch-evergreen-700: #15372C;
+
+$birch-grey-E25: #F9FAF9;
+$birch-grey-500: #EFF1F0;
+$birch-grey-600: #E0E5E3;
+$birch-grey-700: #CCD4D1;
+$birch-grey-800: #677D76;
+$birch-grey-900: #526B63;
+
+$birch-white: #FFFFFF;
+
+// SERVICE-BASED BACKGROUND COLORS
+$harvest-base: $birch-green-500;
+$harvest-hover: $birch-green-600;
+$job-board-base: $birch-iris-E400;
+$job-board-hover: $birch-iris-500;
+$webhooks-base: $birch-violet-E300;
+$webhooks-hover: $birch-violet-500;
+$onboarding-base: $birch-iris-500;
+$onboarding-hover: $birch-iris-700;
+$ingestion-base: $birch-poppy-E200;
+$ingestion-hover: $birch-poppy-E400;
+$assessment-base: $birch-violet-600;
+$assessment-hover: $birch-violet-700;
+$audit-log-base: $birch-green-600;
+$audit-log-hover: $birch-green-700;
 
 // BACKGROUND COLORS
 ////////////////////
+$body-color: #424242;
 $nav-bg: #292929;
 $examples-bg: #2f2f2f;
-$code-bg: #292929;
+$code-bg: $nav-bg;
 $code-annotation-bg: #1c1c1c;
-$nav-subitem-bg: #00b2a9;
-$nav-active-bg: #ffffff;
-$nav-active-parent-bg: #018D85 !default; // parent links of the current section
+$nav-active-bg: $birch-white;
+$nav-active-parent-bg: $harvest-hover !default; // parent links of the current section
 $lang-select-border: #000;
 $lang-select-bg: #222;
 $lang-select-active-bg: $examples-bg; // feel free to change this to blue or something
 $lang-select-pressed-bg: #111; // color of language tab bg when mouse is pressed
-$main-bg: #FFFFFF;
-$aside-notice-bg: #ccf0ee;
-$aside-warning-bg: #fcf5cc;
-$aside-success-bg: #b7dd79;
-$search-notice-bg: #c97a7e;
-$footer-nav-items-bg: #2f2f2f;
+$main-bg: $birch-white;
+$aside-notice-bg: $birch-green-E100;
+$aside-warning-bg: $birch-yellow-E25;
+$aside-success-bg: $birch-iris-E50;
+$search-notice-bg: $birch-poppy-E100;
+$footer-nav-items-bg: $examples-bg;
 
 // TEXT COLORS
 ////////////////////
-$main-text: #54585a !default; // main content text color
-$nav-text: #fff !default;
-$nav-active-text: #54585a !default;
-$nav-active-parent-text: #fff !default; // parent links of the current section
-$lang-select-text: #9b9b9b !default; // color of unselected language tab text
-$lang-select-active-text: #9b9b9b !default; // color of selected language tab text
-$lang-select-pressed-text: #9b9b9b !default; // color of language tab text when mouse is pressed
-$nav-home-text: #9b9b9b;
-$footer-items-text: #9b9b9b;
+$main-text: $birch-evergreen-700 !default; // main content text color
+$nav-text: $birch-white !default;
+$nav-active-text: $main-text !default;
+$nav-active-parent-text: $birch-white !default; // parent links of the current section
+$lang-select-text: $birch-evergreen-E100 !default; // color of unselected language tab text
+$lang-select-active-text: $lang-select-text !default; // color of selected language tab text
+$lang-select-pressed-text: $lang-select-text !default; // color of language tab text when mouse is pressed
+$nav-home-text: $lang-select-text;
+$footer-items-text: $lang-select-text;
 
 
 // SIZES
@@ -90,8 +169,8 @@ $phone-width: $tablet-width - $nav-width !default; // min width before reverting
 
 // OTHER
 ////////////////////
-$nav-footer-border-color: #666 !default;
-$search-box-border-color: #666 !default;
+$nav-footer-border-color: $birch-evergreen-E200 !default;
+$search-box-border-color: $nav-footer-border-color !default;
 
 
 ////////////////////////////////////////////////////////////////////////////////

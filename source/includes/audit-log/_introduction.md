@@ -61,11 +61,11 @@ Pagination on audit log API allows for retrieving the next page from your query 
 1. In the initial request:
     - Set the `paging` [query parameter](https://developers.greenhouse.io/audit-log.html#the-events-object) to `true` to receive a `paging` object with `pit_id` and `next_search_after` in the response
     - Use the `Size` header to specify the number of results you want to receive per page. The minimum value is `100`, and the maximum value is `500`
-1. In subsequent requests:
+2. In subsequent requests:
     - Ensure that the query parameters remain consistent with the initial request
     - Set the `Pit-Id` header to the `paging.pit_id` value from the initial request
     - Set the `Search-After` header to the `paging.next_search_after` value from each response progressively
-1. The last page of results will return `null` for the `paging.next_search_after` attribute, and an empty list of `results`
+3. The last page of results will return `null` for the `paging.next_search_after` attribute, and an empty list of `results`
 
 
 Audit log API requests are rate limited. Paginated requests are limited to 3 per 30 seconds, and overall requests are limited to 50 per 10 seconds. Exceeding the limit will result in [throttling](https://developers.greenhouse.io/audit-log.html#throttling).
@@ -97,11 +97,12 @@ Unless otherwise specified, audit log API methods generally conform to the follo
 
 ## Audit Log Change Log
 
-| Date                          | Description                                                                                                                       |
-|-------------------------------| --------------------------------------------------------------------------------------------------------------------------------- |
-| September 10, 2023 | Fixed pagination docs to reflect proper use of headers/query params.
-| Dec 12, 2023 | Fix bug with missing GET events in nav menu
-| Nov 7, 2023 | Removed On-Behalf-Of header from the [events object](#events) sample payload
-| Nov 6, 2023 | Updated Throttling section to Rate limiting and updated approach to rate limiting.
-| Oct 26, 2023 | Updated Pagination to reflect new approach to returning `pit_ids`.
-| July 14, 2023 | We added new query parameters to the Events endpoint, including `performer_ids`, `performer_types`, `performer_ip_addresses`, `event_types`, `event_target_ids`, `event_target_types`, `request_ids`, and `request_types`.
+| Date               | Description                                                                                                                                                                                                                |
+|--------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Oct 7, 2024        | Updated favicon, github mark, and color palette. Fixed typos and formatting errors.                                                                                                                                        |
+| September 10, 2023 | Fixed pagination docs to reflect proper use of headers/query params.                                                                                                                                                       |
+| Dec 12, 2023       | Fix bug with missing GET events in nav menu                                                                                                                                                                                |
+| Nov 7, 2023        | Removed On-Behalf-Of header from the [events object](#events) sample payload                                                                                                                                               |
+| Nov 6, 2023        | Updated Throttling section to Rate limiting and updated approach to rate limiting.                                                                                                                                         |
+| Oct 26, 2023       | Updated Pagination to reflect new approach to returning `pit_ids`.                                                                                                                                                         |
+| July 14, 2023      | We added new query parameters to the Events endpoint, including `performer_ids`, `performer_types`, `performer_ip_addresses`, `event_types`, `event_target_ids`, `event_target_types`, `request_ids`, and `request_types`. |

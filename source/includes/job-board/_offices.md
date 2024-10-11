@@ -56,12 +56,12 @@
           "parent_id":null,
           "child_ids":[
           ]
-        },
+        }
       ],
       "parent_id":10201,
       "child_ids":[
       ]
-    },
+    }
   ]
 }
 ```
@@ -114,13 +114,13 @@
               ],
               "children":[
               ]
-            },
-          ]
+            }
+          ],
           "children":[
           ]
-        },
+        }
       ]
-    },
+    }
   ]
 }
 ```
