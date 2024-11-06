@@ -606,58 +606,51 @@ analytics.page()
 <h2 id='disabled-webhooks'>Disabled webhooks</h2>
 <p>If a webhook is disabled, it will not trigger when the event occurs. Webhooks become disabled automatically if a ping event fails on create or update. They need to be manually re-enabled if this occurs.</p>
 <h2 id='retry-policy'>Retry policy</h2>
-<p>In the event of a failed webhook request (due to timeout, a non HTTP 200 response, or network issues), Greenhouse will attempt a maximum of 6 retries according to the formula on the right:</p>
+<p>In the event of a failed webhook request (due to timeout, a non HTTP 200 response, or network issues), Greenhouse will make up to 7 attempts over the course of 15 hours.</p>
 
-<p>This formula increases the amount of time between each retry, while assigning a random number of seconds to avoid consistent failures from overload or contention.</p>
-
-<p>Greenhouse will attempt 6 retries over the course of 15 hours.</p>
-<div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="no">RETRY_DELAY_MINUTES</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">120</span><span class="p">,</span> <span class="mi">240</span><span class="p">,</span> <span class="mi">480</span><span class="p">]</span>
-
-<span class="n">sidekiq_retry_in</span> <span class="k">do</span> <span class="o">|</span><span class="n">index</span><span class="p">,</span> <span class="n">_exception</span><span class="o">|</span>
-  <span class="n">seconds_delay</span> <span class="o">=</span> <span class="p">(</span><span class="no">RETRY_DELAY_MINUTES</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">||</span> <span class="no">RETRY_DELAY_MINUTES</span><span class="p">.</span><span class="nf">last</span><span class="p">)</span> <span class="o">*</span> <span class="mi">60</span>
-  <span class="n">offset</span> <span class="o">=</span> <span class="nb">rand</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">index</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
-
-  <span class="n">seconds_delay</span> <span class="o">+</span> <span class="n">offset</span>
-<span class="k">end</span>
-</code></pre></div>
-<p>The table below outlines the estimated wait time for each retry request, assuming that rand(30) always returns 0.</p>
+<p>The table below outlines the estimated wait time for each attempt.</p>
 
 <table><thead>
 <tr>
-<th>Retry number</th>
-<th>Next Retry in</th>
-<th>Total waiting time</th>
+<th style="text-align: left">Approx. Total waiting time</th>
+<th style="text-align: center">Attempt number</th>
+<th style="text-align: left">Next Attempt in</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>1</td>
-<td>1m</td>
-<td>0h  1m</td>
+<td style="text-align: left">0h  0m</td>
+<td style="text-align: center">1</td>
+<td style="text-align: left">1m</td>
 </tr>
 <tr>
-<td>2</td>
-<td>15m</td>
-<td>0h 16m</td>
+<td style="text-align: left">0h  1m</td>
+<td style="text-align: center">2</td>
+<td style="text-align: left">15m</td>
 </tr>
 <tr>
-<td>3</td>
-<td>60m</td>
-<td>1h 16m</td>
+<td style="text-align: left">0h 16m</td>
+<td style="text-align: center">3</td>
+<td style="text-align: left">60m</td>
 </tr>
 <tr>
-<td>4</td>
-<td>120m</td>
-<td>3h 16m</td>
+<td style="text-align: left">1h 16m</td>
+<td style="text-align: center">4</td>
+<td style="text-align: left">120m</td>
 </tr>
 <tr>
-<td>5</td>
-<td>240m</td>
-<td>7h 16m</td>
+<td style="text-align: left">3h 16m</td>
+<td style="text-align: center">5</td>
+<td style="text-align: left">240m</td>
 </tr>
 <tr>
-<td>6</td>
-<td>480m</td>
-<td>15h 16m</td>
+<td style="text-align: left">7h 16m</td>
+<td style="text-align: center">6</td>
+<td style="text-align: left">480m</td>
+</tr>
+<tr>
+<td style="text-align: left">15h 16m</td>
+<td style="text-align: center">7</td>
+<td style="text-align: left">--</td>
 </tr>
 </tbody></table>
 <h1 id='application-events'>Application Events</h1><h2 id='application-created'>Application created</h2><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
