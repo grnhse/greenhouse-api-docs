@@ -1078,6 +1078,10 @@ X-RateLimit-Remaining: 49
 </tr>
 </thead><tbody>
 <tr>
+<td>Nov 6, 2024</td>
+<td>Updated <a href="#post-add-application-to-candidate-prospect">Add Candidate Application</a> link on <a href="#post-add-prospect">POST: Add Prospect</a> description.</td>
+</tr>
+<tr>
 <td>Oct 7, 2024</td>
 <td>Updated favicon, github mark, and color palette. Fixed typos and formatting errors.</td>
 </tr>
@@ -5160,7 +5164,7 @@ X-RateLimit-Remaining: 49
           </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"$42k"</span><span class="w">
         </span><span class="p">}</span><span class="w">
      </span><span class="p">}</span><span class="w">
-  </span><span class="p">}</span><span class="w">     
+  </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre></div>
 <p>Update or <code>patch</code> a single candidate by its <code>id</code>.</p>
@@ -6496,7 +6500,7 @@ X-RateLimit-Remaining: 49
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
-<p>Create a new prospect. The difference between a prospect and a candidate is that a prospect can be on no jobs or many jobs. A prospect application cannot be added to a job stage. When a prospect is ready to be added to a job stage, they can be converted to a candidate in Greenhouse. Alternatively, you can add a candidate application to a prospect&#39;s profile by using the <a href="#post-add-candidate-application">Add Candidate Application</a> endpoint. The organization must be able to create prospects to set this field.</p>
+<p>Create a new prospect. The difference between a prospect and a candidate is that a prospect can be on no jobs or many jobs. A prospect application cannot be added to a job stage. When a prospect is ready to be added to a job stage, they can be converted to a candidate in Greenhouse. Alternatively, you can add a candidate application to a prospect&#39;s profile by using the <a href="#post-add-application-to-candidate-prospect">Add Candidate Application</a> endpoint. The organization must be able to create prospects to set this field.</p>
 <h3 id='http-request-13'>HTTP Request</h3>
 <p><code>POST https://harvest.greenhouse.io/v1/prospects</code></p>
 <h3 id='headers-11'>Headers</h3>
@@ -6790,7 +6794,7 @@ X-RateLimit-Remaining: 49
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
-<p>Anonymize the data associated with a candidate. </p>
+<p>Anonymize the data associated with a candidate.</p>
 <h3 id='http-request-14'>HTTP Request</h3>
 <p><code>PUT https://harvest.greenhouse.io/v1/candidates/{id}/anonymize?fields={field_names}</code></p>
 <h3 id='headers-12'>Headers</h3>
