@@ -15,6 +15,7 @@ curl -X POST 'https://www.testing-partner.com/api/send_test'
   "candidate": {
     "first_name": "Harry",
     "last_name": "Potter",
+    "preferred_name": "The Chosen One",
     "resume_url": "https://hogwarts.com/resume",
     "phone_number": "123-456-7890",
     "email": "hpotter@hogwarts.edu",
@@ -32,6 +33,7 @@ Greenhouse will initiate the process by sending a POST request to the `send_test
 | partner_test_id        | String | Yes      | Identifies a test available to an organization. Initially provided as a response to the [List Tests request](#list-tests). |
 | first_name             | String | Yes      | The first name of the candidate.                                                                                           |
 | last_name              | String | Yes      | The last name of the candidate.                                                                                            |
+| preferred_name         | String | Yes      | The preferred name of the candidate.                                                                                       |
 | resume_url             | String | No       | A URL to the candidate’s resume. This URL will expire 7 days after the request.                                            |
 | phone_number           | String | No       | The candidate’s phone number.                                                                                              |
 | email                  | String | Yes      | The candidate’s email address. The test should be sent to this address.                                                    |
