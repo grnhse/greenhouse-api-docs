@@ -701,7 +701,7 @@ can be used to dynamically construct your own job application form.</p>
 
 <p>For organizations using Greenhouse Inclusion, the response may contain demographic questions. Each question contains an array of answer options that may be rendered based on the question &#39;type&#39; defined in the table above. The candidate must select an answer option for questions with <code>required</code> set to <code>true</code>. If an answer option is selected that has <code>free_form</code> set to <code>true</code>, the candidate must be allowed to type a free-form response. This free-form response is only required if no other answer options have been selected by the candidate.</p>
 <h3 id='data-compliance'>Data Compliance</h3>
-<p>For organizations with GDPR rules configured and operating with a legal basis of explicit consent, the response may contain data_compliance objects. These objects will include whether a response is required and the data retention period in days as configured by the appropriate rule.</p>
+<p>Responses may include <code>data_compliance</code> objects if your organization is using GDPR rules and &#39;explicit consent&#39; legal basis. The object includes whether a response is required, and configured data retention period (in days) for the associated rule.</p>
 <h3 id='board-level-introductions-and-conclusions'>Board-level Introductions and Conclusions</h3>
 <p>For organizations with Default Descriptions authored on the Job Board, the <code>content</code> field will include the Board-level Introduction, Post-level Description, and Board-level Conclusion as a single concatenated string.</p>
 <h1 id='offices'>Offices</h1><h2 id='list-offices'>List offices</h2>
@@ -1715,6 +1715,10 @@ Please keep in mind that the HTTP Basic Auth API token is a secret key.  Any for
     {{ORGANIZATION}} has my consent to collect, store, and process my data for the purpose
     of considering me for employment.
   <span class="nt">&lt;/label&gt;</span>
+  <span class="nt">&lt;label&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"checkbox"</span> <span class="na">name=</span><span class="s">"data_compliance[gdpr_demographic_data_consent_given]"</span> <span class="na">value=</span><span class="s">"1"</span> <span class="nt">/&gt;</span>
+    By checking this box, I consent to {{ORGANIZATION}} collecting, storing, and processing my responses to the demographic data surveys above.
+  <span class="nt">&lt;/label&gt;</span>
   <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"submit"</span> <span class="nt">/&gt;</span>
 <span class="nt">&lt;/form&gt;</span>
 </code></pre></div>
@@ -1760,6 +1764,7 @@ Please keep in mind that the HTTP Basic Auth API token is a secret key.  Any for
   -F "data_compliance[gdpr_consent_given]=true" \ # `gdpr_consent_given` to be deprecated. Use if your organization doesn't have single-purpose consent configured, otherwise use separate values for processing and retention
   -F "data_compliance[gdpr_processing_consent_given]=true" \
   -F "data_compliance[gdpr_retention_consent_given]=true" \
+  -F "data_compliance[gdpr_demographic_data_consent_given]=true" \
   "https://boards-api.greenhouse.io/v1/boards/very_awesome_inc/jobs/127817"
 </code></pre></div>
 <blockquote>
@@ -1846,6 +1851,7 @@ Please keep in mind that the HTTP Basic Auth API token is a secret key.  Any for
     "gdpr_consent_given": true, // To be deprecated. Use if your organization doesn't have single-purpose consent configured, otherwise use separate values for processing and retention
     "gdpr_processing_consent_given": true
     "gdpr_retention_consent_given": true
+    "gdpr_demographic_data_consent_given": true
   }' \
   "https://boards-api.greenhouse.io/v1/boards/very_awesome_inc/jobs/127817"
 </code></pre></div>
