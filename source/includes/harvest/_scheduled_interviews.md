@@ -1,6 +1,6 @@
 # Scheduled Interviews
 
-## The Scheduled Interview object 
+## The Scheduled Interview object
 
 Interviews that have been scheduled for the specified application. Note that all-day interviews will have a start and end date with no specified time.
 
@@ -52,7 +52,7 @@ Interviews that have been scheduled for the specified application. Note that all
 | start                  | A date_time value if this interview has a precise start time, or a date value if this is an all-day event.
 | end                    | A date_time value if this interview has a precise start time, or a date value if this is an all-day event.
 | location               | The location of the interview.
-| video_conferencing_url | The URL used for video interviews, such as Zoom, Google Meets, or Microsoft Teams. 
+| video_conferencing_url | The URL used for video interviews, such as Zoom, Google Meets, or Microsoft Teams.
 | status                 | One of: `scheduled`, `awaiting_feedback`, `complete`
 | organizer              | The [user](#users) who is the organizer for this interview
 | interviewers           | An array containing the [users](#users) who have interviews with this candidate, including, if applicable, the ID of the scorecard they completed. This object will also contain the interviewer's `response_status` which indicates how they've responded to the interview invitation (one of `needs_action`, `declined`, `tentative`, or `accepted`).
@@ -358,7 +358,8 @@ curl -X POST 'https://harvest.greenhouse.io/v1/scheduled_interviews'
 	"start": "2018-12-12T13:15:00Z",
 	"end": "2018-12-12T14:15:00Z",
 	"external_event_id": "external_event_id_1",
-	"location": "Big Conference Room"
+	"location": "Big Conference Room",
+	"video_conferencing_url": "http://example.com"
 }
 ```
 > The above returns a JSON response, structured like this:
@@ -411,7 +412,7 @@ curl -X POST 'https://harvest.greenhouse.io/v1/scheduled_interviews'
 }
 ```
 
-Create a new Scheduled Interview. 
+Create a new Scheduled Interview.
 
 [See noteworthy response attributes.] (#the-scheduled-interview-object)
 
@@ -440,6 +441,7 @@ start | Yes | string | A datetime specifying when the interview starts. Must be 
 end | Yes | string | A datetime specifying when the interview ends. Must be provided in [ISO-8601](#general-considerations) format (e.g. 2018-11-05T13:12:14Z).
 external_event_id | Yes | string | A unique identifier for this interview.
 location| No | string | A textual description of the location of the interview.
+video_conferencing_url| No | string | The URL used for video interviews, such as Zoom, Google Meets, or Microsoft Teams.
 
 <aside class="notice">
     For the V1 endpoint only: There may be a delay between when Greenhouse receives the POST: Create Scheduled Interview request and when Greenhouse creates the full Scheduled Interview record, which will result in a truncated API response. The truncated response body will contain the id of the newly Scheduled Interview. You can retrieve the full Scheduled Interview record by requesting the Scheduled Interview ID with the GET: Scheduled Interview endpoint. If you receive a 404 error from the GET: Scheduled Interview endpoint, this indicates that the full Scheduled Interview record is still not available. Until the Scheduled Interview record has been made fully-available in the API, please continue to request the record until the API returns a successful response. Our recommendation is to perform this check every 30 seconds until the data becomes available. This issue has been resolved in V2.
@@ -465,7 +467,8 @@ curl -X PATCH 'https://harvest.greenhouse.io/v1/scheduled_interviews/{id}'
 	"start": "2018-11-12T13:15:00Z",
 	"end": "2018-11-12T14:15:00Z",
 	"external_event_id": "external_event_id_0",
-	"location": "Dunder Mifflin, Scranton"
+	"location": "Dunder Mifflin, Scranton",
+	"video_conferencing_url": "http://example.com"
 }
 ```
 > The above returns a JSON response, structured like this:
@@ -518,7 +521,7 @@ curl -X PATCH 'https://harvest.greenhouse.io/v1/scheduled_interviews/{id}'
 }
 ```
 
-Update a Scheduled Interview. Note that only Scheduled Interviews created through Harvest can be updated. Additionally, you can 
+Update a Scheduled Interview. Note that only Scheduled Interviews created through Harvest can be updated. Additionally, you can
 only update Scheduled Interviews in the following statues: Scheduled, Awaiting Feedback.
 
 [See noteworthy response attributes.] (#the-scheduled-interview-object)
@@ -546,6 +549,7 @@ start | No | string | A datetime specifying when the interview starts. Must be p
 end | No | string | A datetime specifying when the interview ends. Must be provided in [ISO-8601](#general-considerations) format (e.g. 2018-11-05T13:12:14Z).
 external_event_id | No | string | A unique identifier for this interview.
 location| No | string | A textual description of the location of the interview.
+video_conferencing_url| No | string | The URL used for video interviews, such as Zoom, Google Meets, or Microsoft Teams.
 
 ## Delete: Remove Scheduled Interview
 
@@ -563,7 +567,7 @@ curl -X DELETE 'https://harvest.greenhouse.io/v1/scheduled_interviews/{id}'
 }
 ```
 
-Delete a Scheduled Interview by `id`. Note that only Scheduled Interviews created through harvest can be deleted. Additionally, you can 
+Delete a Scheduled Interview by `id`. Note that only Scheduled Interviews created through harvest can be deleted. Additionally, you can
 only delete Scheduled Interviews in the following statues: Scheduled, Awaiting Feedback.
 
 ### HTTP Request
