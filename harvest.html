@@ -1078,6 +1078,10 @@ X-RateLimit-Remaining: 49
 </tr>
 </thead><tbody>
 <tr>
+<td>Apr 3, 2025</td>
+<td>Added <code>video_conferencing_url</code> parameter description to  <a href="#patch-update-scheduled-interview">PATCH: Update Scheduled Interview</a> and <a href="#post-create-scheduled-interview">POST: Create Scheduled Interview</a></td>
+</tr>
+<tr>
 <td>Nov 6, 2024</td>
 <td>Updated <a href="#post-add-application-to-candidate-prospect">Add Candidate Application</a> link on <a href="#post-add-prospect">POST: Add Prospect</a> description.</td>
 </tr>
@@ -15661,7 +15665,8 @@ or
     </span><span class="nl">"start"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-12-12T13:15:00Z"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"end"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-12-12T14:15:00Z"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"external_event_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"external_event_id_1"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Big Conference Room"</span><span class="w">
+    </span><span class="nl">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Big Conference Room"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"video_conferencing_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://example.com"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <blockquote>
@@ -15713,7 +15718,7 @@ or
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
-<p>Create a new Scheduled Interview. </p>
+<p>Create a new Scheduled Interview.</p>
 
 <p><a href="#the-scheduled-interview-object">See noteworthy response attributes.</a></p>
 <h3 id='http-request-4'>HTTP Request</h3>
@@ -15785,6 +15790,12 @@ or
 <td>string</td>
 <td>A textual description of the location of the interview.</td>
 </tr>
+<tr>
+<td>video_conferencing_url</td>
+<td>No</td>
+<td>string</td>
+<td>The URL used for video interviews, such as Zoom, Google Meets, or Microsoft Teams.</td>
+</tr>
 </tbody></table>
 
 <aside class="notice">
@@ -15806,7 +15817,8 @@ or
     </span><span class="nl">"start"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-11-12T13:15:00Z"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"end"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-11-12T14:15:00Z"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"external_event_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"external_event_id_0"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dunder Mifflin, Scranton"</span><span class="w">
+    </span><span class="nl">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dunder Mifflin, Scranton"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"video_conferencing_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://example.com"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <blockquote>
@@ -15858,7 +15870,7 @@ or
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
-<p>Update a Scheduled Interview. Note that only Scheduled Interviews created through Harvest can be updated. Additionally, you can 
+<p>Update a Scheduled Interview. Note that only Scheduled Interviews created through Harvest can be updated. Additionally, you can
 only update Scheduled Interviews in the following statues: Scheduled, Awaiting Feedback.</p>
 
 <p><a href="#the-scheduled-interview-object">See noteworthy response attributes.</a></p>
@@ -15919,6 +15931,12 @@ only update Scheduled Interviews in the following statues: Scheduled, Awaiting F
 <td>string</td>
 <td>A textual description of the location of the interview.</td>
 </tr>
+<tr>
+<td>video_conferencing_url</td>
+<td>No</td>
+<td>string</td>
+<td>The URL used for video interviews, such as Zoom, Google Meets, or Microsoft Teams.</td>
+</tr>
 </tbody></table>
 <h2 id='delete-remove-scheduled-interview'>Delete: Remove Scheduled Interview</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> DELETE <span class="s1">'https://harvest.greenhouse.io/v1/scheduled_interviews/{id}'</span>
 <span class="nt">-H</span> <span class="s2">"On-Behalf-Of: {greenhouse user ID}"</span>
@@ -15931,7 +15949,7 @@ only update Scheduled Interviews in the following statues: Scheduled, Awaiting F
   </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Interview 109170954 has been deleted."</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
-<p>Delete a Scheduled Interview by <code>id</code>. Note that only Scheduled Interviews created through harvest can be deleted. Additionally, you can 
+<p>Delete a Scheduled Interview by <code>id</code>. Note that only Scheduled Interviews created through harvest can be deleted. Additionally, you can
 only delete Scheduled Interviews in the following statues: Scheduled, Awaiting Feedback.</p>
 <h3 id='http-request-6'>HTTP Request</h3>
 <p><code>DELETE https://harvest.greenhouse.io/v1/scheduled_interviews/{id}</code></p>
