@@ -102,6 +102,20 @@ An organization's candidates.
                 "name": "Joel Job Admin",
                 "employee_id": null
             },
+            "recruiter": {
+                "id": 92120,
+                "first_name": "Greenhouse",
+                "last_name": "Admin",
+                "name": "Greenhouse Admin",
+                "employee_id": "67890"
+            },
+            "coordinator": {
+                "id": 453636,
+                "first_name": "Jane",
+                "last_name": "Smith",
+                "name": "Jane Smith",
+                "employee_id": "12345"
+            },
             "rejection_reason": {
                 "id": 9504,
                 "name": "Hired another candidate",
@@ -185,6 +199,8 @@ An organization's candidates.
                 "name": "Bob Smith",
                 "employee_id": null
             },
+            "recruiter": null,
+            "coordinator": null,
             "rejection_reason": null,
             "rejection_details": null,
             "jobs": [
@@ -373,6 +389,14 @@ curl 'https://harvest.greenhouse.io/v1/candidates'
                 "name": "Greenhouse Admin",
                 "employee_id": null
             },
+            "recruiter": {
+                "id": 92120,
+                "first_name": "Greenhouse",
+                "last_name": "Admin",
+                "name": "Greenhouse Admin",
+                "employee_id": "67890"
+            },
+            "coordinator": null,
             "rejection_reason": null,
             "rejection_details": null,
             "jobs": [
@@ -429,6 +453,8 @@ curl 'https://harvest.greenhouse.io/v1/candidates'
                 "name": "Bob Smith",
                 "employee_id": null
             },
+            "recruiter": null,
+            "coordinator": null,
             "rejection_reason": null,
             "rejection_details": null,
             "jobs": [
@@ -633,6 +659,20 @@ curl 'https://harvest.greenhouse.io/v1/candidates/{id}'
                 "name": "Joel Job Admin",
                 "employee_id": null
             },
+            "recruiter": {
+                "id": 92120,
+                "first_name": "Greenhouse",
+                "last_name": "Admin",
+                "name": "Greenhouse Admin",
+                "employee_id": "67890"
+            },
+            "coordinator": {
+                "id": 453636,
+                "first_name": "Jane",
+                "last_name": "Smith",
+                "name": "Jane Smith",
+                "employee_id": "12345"
+            },
             "rejection_reason": {
                 "id": 9504,
                 "name": "Hired another candidate",
@@ -716,6 +756,8 @@ curl 'https://harvest.greenhouse.io/v1/candidates/{id}'
                 "name": "Bob Smith",
                 "employee_id": null
             },
+            "recruiter": null,
+            "coordinator": null,
             "rejection_reason": null,
             "rejection_details": null,
             "jobs": [
@@ -1005,6 +1047,14 @@ curl -X PATCH 'https://harvest.greenhouse.io/v1/candidates/{id}'
                   "name": "Bob Smith",
                   "employee_id": "ABC12345"
               },
+              "recruiter": {
+                  "id": 92120,
+                  "first_name": "Greenhouse",
+                  "last_name": "Admin",
+                  "name": "Greenhouse Admin",
+                  "employee_id": null
+              },
+              "coordinator": null,
               "rejection_reason": null,
               "rejection_details": null,
               "jobs": [
@@ -1333,6 +1383,8 @@ curl -X POST 'https://harvest.greenhouse.io/v1/candidates'
             },
             "source": null,
             "credited_to": null,
+            "recruiter": null,
+            "coordinator": null,
             "rejection_reason": null,
             "rejection_details": null,
             "jobs": [
@@ -1367,6 +1419,8 @@ curl -X POST 'https://harvest.greenhouse.io/v1/candidates'
             "location": null,
             "source": null,
             "credited_to": null,
+            "recruiter": null,
+            "coordinator": null,
             "rejection_reason": null,
             "rejection_details": null,
             "jobs": [
@@ -1943,6 +1997,8 @@ curl -X POST 'https://harvest.greenhouse.io/v1/prospects'
       "source": null,
       "location": null,
       "credited_to": null,
+      "recruiter": null,
+      "coordinator": null,
       "rejection_reason": null,
       "rejection_details": null,
       "jobs": [],
@@ -2154,6 +2210,14 @@ curl -X PUT 'https://harvest.greenhouse.io/v1/candidates/{id}/anonymize?fields={
                 "name": "Jane Smith",
                 "employee_id": null
             },
+            "recruiter": {
+                "id": 92120,
+                "first_name": "Greenhouse",
+                "last_name": "Admin",
+                "name": "Greenhouse Admin",
+                "employee_id": null
+            },
+            "coordinator": null,
             "rejection_reason": null,
             "rejection_details": null,
             "jobs": [
@@ -2331,6 +2395,8 @@ curl -X PUT 'https://harvest.greenhouse.io/v1/candidates/merge'
                 "name": "Jane Smith",
                 "employee_id": "456"
             },
+            "recruiter": null,
+            "coordinator": null,
             "rejection_reason": null,
             "rejection_details": null,
             "jobs": [
