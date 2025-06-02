@@ -1078,6 +1078,14 @@ X-RateLimit-Remaining: 49
 </tr>
 </thead><tbody>
 <tr>
+<td>Jun 2, 2025</td>
+<td>Added <code>recruiter_id</code> and <code>coordinator_id</code> to <a href="#post-add-application-to-candidate-prospect">POST: Add Application to Candidate/Prospect</a> and <a href="#patch-update-application">PATCH: Update Application</a></td>
+</tr>
+<tr>
+<td>Jun 2, 2025</td>
+<td>Added <code>recruiter</code> and <code>coordinator</code> to the <a href="#the-application-object">Application object</a></td>
+</tr>
+<tr>
 <td>Apr 3, 2025</td>
 <td>Added <code>video_conferencing_url</code> parameter description to  <a href="#patch-update-scheduled-interview">PATCH: Update Scheduled Interview</a> and <a href="#post-create-scheduled-interview">POST: Create Scheduled Interview</a></td>
 </tr>
@@ -1604,6 +1612,20 @@ X-RateLimit-Remaining: 49
         </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kate Austen"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"employee_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345"</span><span class="w">
     </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"recruiter"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">92120</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Greenhouse"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Admin"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Greenhouse Admin"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"employee_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"67890"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"coordinator"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">453636</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jane"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Smith"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jane Smith"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"employee_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
     </span><span class="nl">"rejection_reason"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
         </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lacking skill(s)/qualification(s)"</span><span class="p">,</span><span class="w">
@@ -1719,6 +1741,14 @@ X-RateLimit-Remaining: 49
 <td>The ID of the user who will receive credit for this application.</td>
 </tr>
 <tr>
+<td>recruiter</td>
+<td>The <a href="#users">user</a> that is assigned as recruiter for this application.</td>
+</tr>
+<tr>
+<td>coordinator</td>
+<td>The <a href="#users">user</a> that is assigned as coordinator for this application.</td>
+</tr>
+<tr>
 <td>location</td>
 <td>The contents of the location question on a job post.</td>
 </tr>
@@ -1765,6 +1795,20 @@ X-RateLimit-Remaining: 49
       </span><span class="nl">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kate"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Austen"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kate Austen"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"employee_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"recruiter"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">92120</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Greenhouse"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Admin"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Greenhouse Admin"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"employee_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"67890"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"coordinator"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">453636</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jane"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Smith"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jane Smith"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"employee_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="nl">"rejection_reason"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
@@ -1836,6 +1880,8 @@ X-RateLimit-Remaining: 49
         </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bob Smith"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"employee_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ABC12345"</span><span class="w">
     </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"recruiter"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"coordinator"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="nl">"rejection_reason"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="nl">"rejection_details"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="nl">"jobs"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -1981,6 +2027,20 @@ X-RateLimit-Remaining: 49
       </span><span class="nl">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kate"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Austen"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kate Austen"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"employee_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"recruiter"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">92120</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Greenhouse"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Admin"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Greenhouse Admin"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"employee_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"67890"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"coordinator"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">453636</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jane"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Smith"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jane Smith"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"employee_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="nl">"rejection_reason"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
@@ -2149,7 +2209,21 @@ X-RateLimit-Remaining: 49
         </span><span class="nl">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Colorado"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Moon Colorado"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"employee_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
-    </span><span class="p">},</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"recruiter"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">92120</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Greenhouse"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Admin"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Greenhouse Admin"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"employee_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"67890"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"coordinator"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">453636</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jane"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Smith"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jane Smith"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"employee_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
   </span><span class="nl">"rejection_reason"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="nl">"rejection_details"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="nl">"jobs"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -2241,6 +2315,18 @@ X-RateLimit-Remaining: 49
 <td>The id of the user who made the referral (not the referrer id)</td>
 </tr>
 <tr>
+<td>recruiter_id</td>
+<td>No</td>
+<td>integer</td>
+<td>The user ID of the recruiter to assign to this application. Defaults to the job&#39;s primary recruiter.</td>
+</tr>
+<tr>
+<td>coordinator_id</td>
+<td>No</td>
+<td>integer</td>
+<td>The user ID of the coordinator to assign to this application. Defaults to the job&#39;s primary coordinator.</td>
+</tr>
+<tr>
 <td>attachments</td>
 <td>No</td>
 <td>array</td>
@@ -2291,6 +2377,18 @@ X-RateLimit-Remaining: 49
 <td>No</td>
 <td>string</td>
 <td>The id of the user who made the referral (not the referrer id)</td>
+</tr>
+<tr>
+<td>recruiter_id</td>
+<td>No</td>
+<td>integer</td>
+<td>The user ID of the recruiter to assign to this application</td>
+</tr>
+<tr>
+<td>coordinator_id</td>
+<td>No</td>
+<td>integer</td>
+<td>The user ID of the coordinator to assign to this application</td>
 </tr>
 <tr>
 <td>prospect_pool_id</td>
@@ -2361,6 +2459,20 @@ X-RateLimit-Remaining: 49
     </span><span class="nl">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kate"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Austen"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kate Austen"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"employee_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"recruiter"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">92120</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Greenhouse"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Admin"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Greenhouse Admin"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"employee_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"67890"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"coordinator"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">453636</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jane"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Smith"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jane Smith"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"employee_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345"</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="nl">"rejection_reason"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
@@ -2463,6 +2575,18 @@ X-RateLimit-Remaining: 49
 <td>The id of the user who made the referral (not the referrer id)</td>
 </tr>
 <tr>
+<td>recruiter_id</td>
+<td>No</td>
+<td>integer</td>
+<td>The user ID of the recruiter to assign to this application</td>
+</tr>
+<tr>
+<td>coordinator_id</td>
+<td>No</td>
+<td>integer</td>
+<td>The user ID of the coordinator to assign to this application</td>
+</tr>
+<tr>
 <td>custom_fields[]</td>
 <td>No</td>
 <td>custom_field</td>
@@ -2527,6 +2651,20 @@ X-RateLimit-Remaining: 49
     </span><span class="nl">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kate"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Austen"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kate Austen"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"employee_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"recruiter"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">92120</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Greenhouse"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Admin"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Greenhouse Admin"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"employee_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"67890"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"coordinator"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">453636</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jane"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Smith"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jane Smith"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"employee_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345"</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="nl">"rejection_reason"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
@@ -2646,6 +2784,20 @@ X-RateLimit-Remaining: 49
     </span><span class="nl">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kate"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Austen"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kate Austen"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"employee_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"recruiter"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">92120</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Greenhouse"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Admin"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Greenhouse Admin"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"employee_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"67890"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"coordinator"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">453636</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jane"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Smith"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jane Smith"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"employee_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345"</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="nl">"rejection_reason"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
@@ -2771,6 +2923,20 @@ X-RateLimit-Remaining: 49
     </span><span class="nl">"public_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Glassdoor"</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="nl">"credited_to"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"recruiter"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">92120</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Greenhouse"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Admin"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Greenhouse Admin"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"employee_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"67890"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"coordinator"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">453636</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jane"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Smith"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jane Smith"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"employee_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
   </span><span class="nl">"rejection_reason"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="nl">"rejection_details"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="nl">"jobs"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -3049,6 +3215,20 @@ X-RateLimit-Remaining: 49
     </span><span class="nl">"public_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Glassdoor"</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="nl">"credited_to"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"recruiter"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">92120</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Greenhouse"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Admin"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Greenhouse Admin"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"employee_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"67890"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"coordinator"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">453636</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jane"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Smith"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jane Smith"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"employee_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
   </span><span class="nl">"rejection_reason"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="nl">"rejection_details"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="nl">"jobs"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -3195,6 +3375,20 @@ X-RateLimit-Remaining: 49
     </span><span class="nl">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kate"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Austen"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kate Austen"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"employee_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"recruiter"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">92120</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Greenhouse"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Admin"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Greenhouse Admin"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"employee_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"67890"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"coordinator"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">453636</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jane"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Smith"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jane Smith"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"employee_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345"</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="nl">"rejection_reason"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -3423,6 +3617,20 @@ X-RateLimit-Remaining: 49
     </span><span class="nl">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kate"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Austen"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kate Austen"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"employee_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"recruiter"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">92120</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Greenhouse"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Admin"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Greenhouse Admin"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"employee_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"67890"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"coordinator"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">453636</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jane"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Smith"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jane Smith"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"employee_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345"</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="nl">"rejection_reason"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
@@ -4147,6 +4355,20 @@ X-RateLimit-Remaining: 49
                 </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Joel Job Admin"</span><span class="p">,</span><span class="w">
                 </span><span class="nl">"employee_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
             </span><span class="p">},</span><span class="w">
+            </span><span class="nl">"recruiter"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">92120</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Greenhouse"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Admin"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Greenhouse Admin"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"employee_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"67890"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nl">"coordinator"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">453636</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jane"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Smith"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jane Smith"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"employee_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
             </span><span class="nl">"rejection_reason"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
                 </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">9504</span><span class="p">,</span><span class="w">
                 </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hired another candidate"</span><span class="p">,</span><span class="w">
@@ -4230,6 +4452,8 @@ X-RateLimit-Remaining: 49
                 </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bob Smith"</span><span class="p">,</span><span class="w">
                 </span><span class="nl">"employee_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
             </span><span class="p">},</span><span class="w">
+            </span><span class="nl">"recruiter"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"coordinator"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
             </span><span class="nl">"rejection_reason"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
             </span><span class="nl">"rejection_details"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
             </span><span class="nl">"jobs"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -4466,6 +4690,14 @@ X-RateLimit-Remaining: 49
                 </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Greenhouse Admin"</span><span class="p">,</span><span class="w">
                 </span><span class="nl">"employee_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
             </span><span class="p">},</span><span class="w">
+            </span><span class="nl">"recruiter"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">92120</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Greenhouse"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Admin"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Greenhouse Admin"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"employee_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"67890"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nl">"coordinator"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
             </span><span class="nl">"rejection_reason"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
             </span><span class="nl">"rejection_details"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
             </span><span class="nl">"jobs"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -4522,6 +4754,8 @@ X-RateLimit-Remaining: 49
                 </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bob Smith"</span><span class="p">,</span><span class="w">
                 </span><span class="nl">"employee_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
             </span><span class="p">},</span><span class="w">
+            </span><span class="nl">"recruiter"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"coordinator"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
             </span><span class="nl">"rejection_reason"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
             </span><span class="nl">"rejection_details"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
             </span><span class="nl">"jobs"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -4751,6 +4985,20 @@ X-RateLimit-Remaining: 49
                 </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Joel Job Admin"</span><span class="p">,</span><span class="w">
                 </span><span class="nl">"employee_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
             </span><span class="p">},</span><span class="w">
+            </span><span class="nl">"recruiter"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">92120</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Greenhouse"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Admin"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Greenhouse Admin"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"employee_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"67890"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nl">"coordinator"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">453636</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jane"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Smith"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jane Smith"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"employee_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
             </span><span class="nl">"rejection_reason"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
                 </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">9504</span><span class="p">,</span><span class="w">
                 </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hired another candidate"</span><span class="p">,</span><span class="w">
@@ -4834,6 +5082,8 @@ X-RateLimit-Remaining: 49
                 </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bob Smith"</span><span class="p">,</span><span class="w">
                 </span><span class="nl">"employee_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
             </span><span class="p">},</span><span class="w">
+            </span><span class="nl">"recruiter"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"coordinator"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
             </span><span class="nl">"rejection_reason"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
             </span><span class="nl">"rejection_details"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
             </span><span class="nl">"jobs"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -5118,6 +5368,14 @@ X-RateLimit-Remaining: 49
                   </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bob Smith"</span><span class="p">,</span><span class="w">
                   </span><span class="nl">"employee_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ABC12345"</span><span class="w">
               </span><span class="p">},</span><span class="w">
+              </span><span class="nl">"recruiter"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">92120</span><span class="p">,</span><span class="w">
+                  </span><span class="nl">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Greenhouse"</span><span class="p">,</span><span class="w">
+                  </span><span class="nl">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Admin"</span><span class="p">,</span><span class="w">
+                  </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Greenhouse Admin"</span><span class="p">,</span><span class="w">
+                  </span><span class="nl">"employee_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+              </span><span class="p">},</span><span class="w">
+              </span><span class="nl">"coordinator"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
               </span><span class="nl">"rejection_reason"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
               </span><span class="nl">"rejection_details"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
               </span><span class="nl">"jobs"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -5588,6 +5846,8 @@ X-RateLimit-Remaining: 49
             </span><span class="p">},</span><span class="w">
             </span><span class="nl">"source"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
             </span><span class="nl">"credited_to"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"recruiter"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"coordinator"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
             </span><span class="nl">"rejection_reason"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
             </span><span class="nl">"rejection_details"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
             </span><span class="nl">"jobs"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -5622,6 +5882,8 @@ X-RateLimit-Remaining: 49
             </span><span class="nl">"location"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
             </span><span class="nl">"source"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
             </span><span class="nl">"credited_to"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"recruiter"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"coordinator"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
             </span><span class="nl">"rejection_reason"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
             </span><span class="nl">"rejection_details"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
             </span><span class="nl">"jobs"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -6418,6 +6680,8 @@ X-RateLimit-Remaining: 49
       </span><span class="nl">"source"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
       </span><span class="nl">"location"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
       </span><span class="nl">"credited_to"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"recruiter"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"coordinator"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
       </span><span class="nl">"rejection_reason"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
       </span><span class="nl">"rejection_details"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
       </span><span class="nl">"jobs"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
@@ -6737,6 +7001,14 @@ X-RateLimit-Remaining: 49
                 </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jane Smith"</span><span class="p">,</span><span class="w">
                 </span><span class="nl">"employee_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
             </span><span class="p">},</span><span class="w">
+            </span><span class="nl">"recruiter"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">92120</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Greenhouse"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Admin"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Greenhouse Admin"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"employee_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nl">"coordinator"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
             </span><span class="nl">"rejection_reason"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
             </span><span class="nl">"rejection_details"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
             </span><span class="nl">"jobs"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -6919,6 +7191,8 @@ X-RateLimit-Remaining: 49
                 </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jane Smith"</span><span class="p">,</span><span class="w">
                 </span><span class="nl">"employee_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"456"</span><span class="w">
             </span><span class="p">},</span><span class="w">
+            </span><span class="nl">"recruiter"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"coordinator"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
             </span><span class="nl">"rejection_reason"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
             </span><span class="nl">"rejection_details"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
             </span><span class="nl">"jobs"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
