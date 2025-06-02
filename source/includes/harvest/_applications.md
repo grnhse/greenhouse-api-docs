@@ -639,6 +639,8 @@ initial_stage_id | No | integer | The ID of the job stage this application will 
 referrer | No | object | An object representing the referrer
 referrer[type] | No | string | A string representing the type of referrer: 'id', 'email', or 'outside'
 referrer[value] | No | string | The id of the user who made the referral (not the referrer id)
+recruiter_id | No | integer | The user ID of the recruiter to assign to this application. Defaults to the job's primary recruiter.
+coordinator_id | No | integer | The user ID of the coordinator to assign to this application. Defaults to the job's primary coordinator.
 attachments | No | array | An array of attachments to be uploaded to this application. See [Add Attachment] (#post-add-attachment) for parameters.
 
 ### JSON Body Parameters for Prospect application
@@ -651,6 +653,8 @@ source_id | No | integer | The id of the source to be credited for this applicat
 referrer | No | object | An object representing the referrer
 referrer[type] | No | string | A string representing the type of referrer: 'id', 'email', or 'outside'
 referrer[value] | No | string | The id of the user who made the referral (not the referrer id)
+recruiter_id | No | integer | The user ID of the recruiter to assign to this application
+coordinator_id | No | integer | The user ID of the coordinator to assign to this application
 prospect_pool_id | No | integer | Prospect Pool ID.
 prospect_pool_stage_id | No | integer | Prospect Pool Stage ID.  `prospect_pool_id` is required, and the prospect pool stage must belong to the given prospect pool.
 prospect_owner_id | No | integer |User ID of the prospect owner.
@@ -790,6 +794,8 @@ source_id | No | integer | The ID of the application's source
 referrer | No | object | An object representing the referrer
 referrer[type] | No | string | A string representing the type of referrer: 'id', 'email', or 'outside'
 referrer[value] | No | string | The id of the user who made the referral (not the referrer id)
+recruiter_id | No | integer | The user ID of the recruiter to assign to this application
+coordinator_id | No | integer | The user ID of the coordinator to assign to this application
 custom_fields[] | No | custom_field | Array of hashes containing new application custom field values.  Passing an empty array does nothing. [Click here](#custom-field-parameters) for more information on structuring custom field data for edit requests.
 prospect_pool_id | No | integer | The ID of the prospect pool for the application
 prospect_stage_id | No | integer | The ID of the prospect pool stage for the application
