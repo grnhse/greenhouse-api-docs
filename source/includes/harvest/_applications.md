@@ -26,6 +26,20 @@ Applications associate [candidates](#candidates) with [jobs](#jobs). There are 2
         "name": "Kate Austen",
         "employee_id": "12345"
     },
+    "recruiter": {
+        "id": 92120,
+        "first_name": "Greenhouse",
+        "last_name": "Admin",
+        "name": "Greenhouse Admin",
+        "employee_id": "67890"
+    },
+    "coordinator": {
+        "id": 453636,
+        "first_name": "Jane",
+        "last_name": "Smith",
+        "name": "Jane Smith",
+        "employee_id": "12345"
+    },
     "rejection_reason": {
         "id": 8,
         "name": "Lacking skill(s)/qualification(s)",
@@ -115,6 +129,8 @@ Applications associate [candidates](#candidates) with [jobs](#jobs). There are 2
 | candidate_id | The ID of the [candidate](#candidates) who is applying for this job.
 | current_stage | The current [stage](#job-stages) that this application is in.
 | credited_to.id | The ID of the user who will receive credit for this application.
+| recruiter | The [user](#users) that is assigned as recruiter for this application.
+| coordinator | The [user](#users) that is assigned as coordinator for this application.
 | location | The contents of the location question on a job post.
 | answers | The answers provided to the questions in the job post for this application. Array contains the text value of the question and answer. Answers are always plaintext strings. Booleans will return `Yes` or `No`.
 | custom_fields | Contains a hash of the custom fields configured for this resource. The properties in this hash reflect the active custom fields as of the time this method is called.
@@ -151,6 +167,20 @@ curl -X GET 'https://harvest.greenhouse.io/v1/applications'
       "first_name": "Kate",
       "last_name": "Austen",
       "name": "Kate Austen",
+      "employee_id": "12345"
+    },
+    "recruiter": {
+      "id": 92120,
+      "first_name": "Greenhouse",
+      "last_name": "Admin",
+      "name": "Greenhouse Admin",
+      "employee_id": "67890"
+    },
+    "coordinator": {
+      "id": 453636,
+      "first_name": "Jane",
+      "last_name": "Smith",
+      "name": "Jane Smith",
       "employee_id": "12345"
     },
     "rejection_reason": null,
@@ -222,6 +252,8 @@ curl -X GET 'https://harvest.greenhouse.io/v1/applications'
         "name": "Bob Smith",
         "employee_id": "ABC12345"
     },
+    "recruiter": null,
+    "coordinator": null,
     "rejection_reason": null,
     "rejection_details": null,
     "jobs": [
@@ -349,6 +381,20 @@ curl -X GET 'https://harvest.greenhouse.io/v1/applications/{id}'
       "first_name": "Kate",
       "last_name": "Austen",
       "name": "Kate Austen",
+      "employee_id": "12345"
+    },
+    "recruiter": {
+      "id": 92120,
+      "first_name": "Greenhouse",
+      "last_name": "Admin",
+      "name": "Greenhouse Admin",
+      "employee_id": "67890"
+    },
+    "coordinator": {
+      "id": 453636,
+      "first_name": "Jane",
+      "last_name": "Smith",
+      "name": "Jane Smith",
       "employee_id": "12345"
     },
     "rejection_reason": null,
@@ -524,7 +570,21 @@ curl -X POST 'https://harvest.greenhouse.io/v1/candidates/{id}/applications'
         "last_name": "Colorado",
         "name": "Moon Colorado",
         "employee_id": null
-    },
+  },
+  "recruiter": {
+    "id": 92120,
+    "first_name": "Greenhouse",
+    "last_name": "Admin",
+    "name": "Greenhouse Admin",
+    "employee_id": "67890"
+  },
+  "coordinator": {
+    "id": 453636,
+    "first_name": "Jane",
+    "last_name": "Smith",
+    "name": "Jane Smith",
+    "employee_id": "12345"
+  },
   "rejection_reason": null,
   "rejection_details": null,
   "jobs": [
@@ -579,6 +639,8 @@ initial_stage_id | No | integer | The ID of the job stage this application will 
 referrer | No | object | An object representing the referrer
 referrer[type] | No | string | A string representing the type of referrer: 'id', 'email', or 'outside'
 referrer[value] | No | string | The id of the user who made the referral (not the referrer id)
+recruiter_id | No | integer | The user ID of the recruiter to assign to this application. Defaults to the job's primary recruiter.
+coordinator_id | No | integer | The user ID of the coordinator to assign to this application. Defaults to the job's primary coordinator.
 attachments | No | array | An array of attachments to be uploaded to this application. See [Add Attachment] (#post-add-attachment) for parameters.
 
 ### JSON Body Parameters for Prospect application
@@ -591,6 +653,8 @@ source_id | No | integer | The id of the source to be credited for this applicat
 referrer | No | object | An object representing the referrer
 referrer[type] | No | string | A string representing the type of referrer: 'id', 'email', or 'outside'
 referrer[value] | No | string | The id of the user who made the referral (not the referrer id)
+recruiter_id | No | integer | The user ID of the recruiter to assign to this application
+coordinator_id | No | integer | The user ID of the coordinator to assign to this application
 prospect_pool_id | No | integer | Prospect Pool ID.
 prospect_pool_stage_id | No | integer | Prospect Pool Stage ID.  `prospect_pool_id` is required, and the prospect pool stage must belong to the given prospect pool.
 prospect_owner_id | No | integer |User ID of the prospect owner.
@@ -640,6 +704,20 @@ curl -X PATCH 'https://harvest.greenhouse.io/v1/applications/{id}'
     "first_name": "Kate",
     "last_name": "Austen",
     "name": "Kate Austen",
+    "employee_id": "12345"
+  },
+  "recruiter": {
+    "id": 92120,
+    "first_name": "Greenhouse",
+    "last_name": "Admin",
+    "name": "Greenhouse Admin",
+    "employee_id": "67890"
+  },
+  "coordinator": {
+    "id": 453636,
+    "first_name": "Jane",
+    "last_name": "Smith",
+    "name": "Jane Smith",
     "employee_id": "12345"
   },
   "rejection_reason": null,
@@ -716,6 +794,8 @@ source_id | No | integer | The ID of the application's source
 referrer | No | object | An object representing the referrer
 referrer[type] | No | string | A string representing the type of referrer: 'id', 'email', or 'outside'
 referrer[value] | No | string | The id of the user who made the referral (not the referrer id)
+recruiter_id | No | integer | The user ID of the recruiter to assign to this application
+coordinator_id | No | integer | The user ID of the coordinator to assign to this application
 custom_fields[] | No | custom_field | Array of hashes containing new application custom field values.  Passing an empty array does nothing. [Click here](#custom-field-parameters) for more information on structuring custom field data for edit requests.
 prospect_pool_id | No | integer | The ID of the prospect pool for the application
 prospect_stage_id | No | integer | The ID of the prospect pool stage for the application
@@ -760,6 +840,20 @@ curl -X POST 'https://harvest.greenhouse.io/v1/applications/{id}/advance'
     "first_name": "Kate",
     "last_name": "Austen",
     "name": "Kate Austen",
+    "employee_id": "12345"
+  },
+  "recruiter": {
+    "id": 92120,
+    "first_name": "Greenhouse",
+    "last_name": "Admin",
+    "name": "Greenhouse Admin",
+    "employee_id": "67890"
+  },
+  "coordinator": {
+    "id": 453636,
+    "first_name": "Jane",
+    "last_name": "Smith",
+    "name": "Jane Smith",
     "employee_id": "12345"
   },
   "rejection_reason": null,
@@ -877,6 +971,20 @@ curl -X POST 'https://harvest.greenhouse.io/v1/applications/{id}/transfer_to_job
     "name": "Kate Austen",
     "employee_id": "12345"
   },
+  "recruiter": {
+    "id": 92120,
+    "first_name": "Greenhouse",
+    "last_name": "Admin",
+    "name": "Greenhouse Admin",
+    "employee_id": "67890"
+  },
+  "coordinator": {
+    "id": 453636,
+    "first_name": "Jane",
+    "last_name": "Smith",
+    "name": "Jane Smith",
+    "employee_id": "12345"
+  },
   "rejection_reason": null,
   "rejection_details": null,
   "jobs": [
@@ -989,6 +1097,20 @@ curl -X POST 'https://harvest.greenhouse.io/v1/applications/{id}/move'
     "public_name": "Glassdoor"
   },
   "credited_to": null,
+  "recruiter": {
+    "id": 92120,
+    "first_name": "Greenhouse",
+    "last_name": "Admin",
+    "name": "Greenhouse Admin",
+    "employee_id": "67890"
+  },
+  "coordinator": {
+    "id": 453636,
+    "first_name": "Jane",
+    "last_name": "Smith",
+    "name": "Jane Smith",
+    "employee_id": "12345"
+  },
   "rejection_reason": null,
   "rejection_details": null,
   "jobs": [
@@ -1214,6 +1336,20 @@ curl -X POST 'https://harvest.greenhouse.io/v1/applications/{id}/hire'
     "public_name": "Glassdoor"
   },
   "credited_to": null,
+  "recruiter": {
+    "id": 92120,
+    "first_name": "Greenhouse",
+    "last_name": "Admin",
+    "name": "Greenhouse Admin",
+    "employee_id": "67890"
+  },
+  "coordinator": {
+    "id": 453636,
+    "first_name": "Jane",
+    "last_name": "Smith",
+    "name": "Jane Smith",
+    "employee_id": "12345"
+  },
   "rejection_reason": null,
   "rejection_details": null,
   "jobs": [
@@ -1342,6 +1478,20 @@ curl -X POST 'https://harvest.greenhouse.io/v1/applications/{id}/reject'
     "first_name": "Kate",
     "last_name": "Austen",
     "name": "Kate Austen",
+    "employee_id": "12345"
+  },
+  "recruiter": {
+    "id": 92120,
+    "first_name": "Greenhouse",
+    "last_name": "Admin",
+    "name": "Greenhouse Admin",
+    "employee_id": "67890"
+  },
+  "coordinator": {
+    "id": 453636,
+    "first_name": "Jane",
+    "last_name": "Smith",
+    "name": "Jane Smith",
     "employee_id": "12345"
   },
   "rejection_reason": {
@@ -1531,6 +1681,20 @@ curl -X POST 'https://harvest.greenhouse.io/v1/applications/{id}/unreject'
     "first_name": "Kate",
     "last_name": "Austen",
     "name": "Kate Austen",
+    "employee_id": "12345"
+  },
+  "recruiter": {
+    "id": 92120,
+    "first_name": "Greenhouse",
+    "last_name": "Admin",
+    "name": "Greenhouse Admin",
+    "employee_id": "67890"
+  },
+  "coordinator": {
+    "id": 453636,
+    "first_name": "Jane",
+    "last_name": "Smith",
+    "name": "Jane Smith",
     "employee_id": "12345"
   },
   "rejection_reason": null,
