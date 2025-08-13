@@ -1049,7 +1049,7 @@ X-RateLimit-Remaining: 49
 </tr>
 <tr>
 <td>403</td>
-<td>Forbidden -- You don&#39;t have access to that record.</td>
+<td>Forbidden -- You don&#39;t have access to that record. Or, ensure that you’re not supplying body information in your GET calls.</td>
 </tr>
 <tr>
 <td>404</td>
@@ -1077,6 +1077,10 @@ X-RateLimit-Remaining: 49
 <th>Description</th>
 </tr>
 </thead><tbody>
+<tr>
+<td>Aug 13, 2025</td>
+<td>Updated 403 errors text to include details about GET request bodies</td>
+</tr>
 <tr>
 <td>Jun 2, 2025</td>
 <td>Added <code>recruiter_id</code> and <code>coordinator_id</code> to <a href="#post-add-application-to-candidate-prospect">POST: Add Application to Candidate/Prospect</a> and <a href="#patch-update-application">PATCH: Update Application</a></td>
