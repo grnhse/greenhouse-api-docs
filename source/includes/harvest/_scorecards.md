@@ -128,6 +128,7 @@ All submitted scorecards ordered by candidate.
 | interviewer | The [user](#users) who interviewed the candidate.
 | overall_recommendation | One of: `definitely_not`, `no`, `yes`, `strong_yes`, `no_decision`
 | attributes | Array containing the attributes of the Scorecard. Describes each attribute's name, type, rating (can be "no_decision"), and an optional note.
+| questions | An array of custom questions and answers recorded during the interview. Each question can include basic HTML formatting (`<p>`, `<ul>`, `<li>`, `<b>`, `<i>`, `<a>`). Render or sanitize as needed.
 
 ## GET: List Scorecards
 
@@ -360,7 +361,7 @@ curl 'https://harvest.greenhouse.io/v1/scorecards'
         "question": "Where would the candidate be willing to work?",
         "answer": "London, Dubai, San Diego"
       }
-    ]     
+    ]
   }
 ]
 ```
@@ -615,7 +616,7 @@ curl 'https://harvest.greenhouse.io/v1/applications/{id}/scorecards'
         "question": "Where would the candidate be willing to work?",
         "answer": "London, Dubai, San Diego"
       }
-    ]     
+    ]
   }
 ]
 ```
