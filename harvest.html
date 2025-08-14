@@ -1078,6 +1078,10 @@ X-RateLimit-Remaining: 49
 </tr>
 </thead><tbody>
 <tr>
+<td>Aug 14, 2025</td>
+<td>Highlight that <code>questions</code> data can contain HTML on <a href="#the-scorecard-object">the scorecard object</a> and <a href="#the-job-stage-object">the job stage object</a></td>
+</tr>
+<tr>
 <td>Aug 13, 2025</td>
 <td>Updated 403 errors text to include details about GET request bodies</td>
 </tr>
@@ -11731,8 +11735,12 @@ or
 <td>interviews</td>
 <td>An array of interview steps associated with this job stage.<br>Each Step contains:<br><code>id</code> - The step&#39;s unique identifier<br><code>name</code> - The name of this interview step<br><code>schedulable</code> - True / False value for whether this step can be scheduled<br><code>interview_kit</code> - Details about the interview, including unique ID, interview prep content, and custom interview questions</td>
 </tr>
+<tr>
+<td>interviews &gt; interview_kit &gt; questions</td>
+<td>An array of objects of the id and string interview question. Supports basic HTML formatting (<code>&lt;p&gt;</code>, <code>&lt;ul&gt;</code>, <code>&lt;li&gt;</code>, <code>&lt;b&gt;</code>, <code>&lt;i&gt;</code>, <code>&lt;a&gt;</code>). Render or sanitize as needed.</td>
+</tr>
 </tbody></table>
-<h2 id='get-list-job-stages'>GET: List Job Stages</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://harvest.greenhouse.io/v1/job_stages'</span> 
+<h2 id='get-list-job-stages'>GET: List Job Stages</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://harvest.greenhouse.io/v1/job_stages'</span>
 <span class="nt">-H</span> <span class="s2">"Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"</span>
 </code></pre></div>
 <blockquote>
@@ -11769,7 +11777,7 @@ or
                 </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">11052</span><span class="p">,</span><span class="w">
                 </span><span class="nl">"question"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Is this person really a good fit?"</span><span class="w">
               </span><span class="p">}</span><span class="w">
-            </span><span class="p">]</span><span class="w">        
+            </span><span class="p">]</span><span class="w">
           </span><span class="p">}</span><span class="w">
         </span><span class="p">}</span><span class="w">
       </span><span class="p">]</span><span class="w">
@@ -11808,7 +11816,7 @@ or
                 </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">11054</span><span class="p">,</span><span class="w">
                 </span><span class="nl">"question"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Do they really want to work here?"</span><span class="w">
               </span><span class="p">}</span><span class="w">
-            </span><span class="p">]</span><span class="w">        
+            </span><span class="p">]</span><span class="w">
           </span><span class="p">}</span><span class="w">
         </span><span class="p">}</span><span class="w">
       </span><span class="p">]</span><span class="w">
@@ -11857,7 +11865,7 @@ or
 
 <p><br>
 <a href="#the-job-stages-object">See noteworthy response attributes.</a></p>
-<h2 id='get-list-job-stages-for-job'>GET: List Job Stages for Job</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://harvest.greenhouse.io/v1/jobs/{id}/stages'</span> 
+<h2 id='get-list-job-stages-for-job'>GET: List Job Stages for Job</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://harvest.greenhouse.io/v1/jobs/{id}/stages'</span>
 <span class="nt">-H</span> <span class="s2">"Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"</span>
 </code></pre></div>
 <blockquote>
@@ -12004,7 +12012,7 @@ or
 
 <p><br>
 <a href="#the-job-stage-object">See noteworthy response attributes.</a></p>
-<h2 id='get-retrieve-job-stage'>GET: Retrieve Job Stage</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://harvest.greenhouse.io/v1/job_stages/{id}'</span> 
+<h2 id='get-retrieve-job-stage'>GET: Retrieve Job Stage</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://harvest.greenhouse.io/v1/job_stages/{id}'</span>
 <span class="nt">-H</span> <span class="s2">"Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"</span>
 </code></pre></div>
 <blockquote>
@@ -12040,7 +12048,7 @@ or
               </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">11052</span><span class="p">,</span><span class="w">
               </span><span class="nl">"question"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Is this person really a good fit?"</span><span class="w">
             </span><span class="p">}</span><span class="w">
-          </span><span class="p">]</span><span class="w">        
+          </span><span class="p">]</span><span class="w">
         </span><span class="p">}</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
@@ -16389,6 +16397,10 @@ only delete Scheduled Interviews in the following statues: Scheduled, Awaiting F
 <td>attributes</td>
 <td>Array containing the attributes of the Scorecard. Describes each attribute&#39;s name, type, rating (can be &quot;no_decision&quot;), and an optional note.</td>
 </tr>
+<tr>
+<td>questions</td>
+<td>An array of custom questions and answers recorded during the interview. Each question can include basic HTML formatting (<code>&lt;p&gt;</code>, <code>&lt;ul&gt;</code>, <code>&lt;li&gt;</code>, <code>&lt;b&gt;</code>, <code>&lt;i&gt;</code>, <code>&lt;a&gt;</code>). Render or sanitize as needed.</td>
+</tr>
 </tbody></table>
 <h2 id='get-list-scorecards'>GET: List Scorecards</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://harvest.greenhouse.io/v1/scorecards'</span>
 <span class="nt">-H</span> <span class="s2">"Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"</span>
@@ -16617,7 +16629,7 @@ only delete Scheduled Interviews in the following statues: Scheduled, Awaiting F
         </span><span class="nl">"question"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Where would the candidate be willing to work?"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"answer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"London, Dubai, San Diego"</span><span class="w">
       </span><span class="p">}</span><span class="w">
-    </span><span class="p">]</span><span class="w">     
+    </span><span class="p">]</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre></div>
@@ -16886,7 +16898,7 @@ only delete Scheduled Interviews in the following statues: Scheduled, Awaiting F
         </span><span class="nl">"question"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Where would the candidate be willing to work?"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"answer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"London, Dubai, San Diego"</span><span class="w">
       </span><span class="p">}</span><span class="w">
-    </span><span class="p">]</span><span class="w">     
+    </span><span class="p">]</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre></div>
