@@ -82,12 +82,13 @@ An organization's job stages.
 | job_id | The job that this stage belongs to |
 | priority| Numeric field used for ordering, with the lowest values ordered first. For example, priority 0 indicates the first stage on a job
 | interviews | An array of interview steps associated with this job stage.<br>Each Step contains:<br>`id` - The step's unique identifier<br>`name` - The name of this interview step<br>`schedulable` - True / False value for whether this step can be scheduled<br>`interview_kit` - Details about the interview, including unique ID, interview prep content, and custom interview questions |
+| interviews > interview_kit > questions | An array of objects of the id and string interview question. Supports basic HTML formatting (`<p>`, `<ul>`, `<li>`, `<b>`, `<i>`, `<a>`). Render or sanitize as needed. |
 
 
 ## GET: List Job Stages
 
 ```shell
-curl 'https://harvest.greenhouse.io/v1/job_stages' 
+curl 'https://harvest.greenhouse.io/v1/job_stages'
 -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
 
@@ -125,7 +126,7 @@ curl 'https://harvest.greenhouse.io/v1/job_stages'
                 "id": 11052,
                 "question": "Is this person really a good fit?"
               }
-            ]        
+            ]
           }
         }
       ]
@@ -164,7 +165,7 @@ curl 'https://harvest.greenhouse.io/v1/job_stages'
                 "id": 11054,
                 "question": "Do they really want to work here?"
               }
-            ]        
+            ]
           }
         }
       ]
@@ -196,7 +197,7 @@ List all of an organization's job stages.
 ## GET: List Job Stages for Job
 
 ```shell
-curl 'https://harvest.greenhouse.io/v1/jobs/{id}/stages' 
+curl 'https://harvest.greenhouse.io/v1/jobs/{id}/stages'
 -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
 
@@ -330,7 +331,7 @@ Parameter | Description
 ## GET: Retrieve Job Stage
 
 ```shell
-curl 'https://harvest.greenhouse.io/v1/job_stages/{id}' 
+curl 'https://harvest.greenhouse.io/v1/job_stages/{id}'
 -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
 
@@ -367,7 +368,7 @@ curl 'https://harvest.greenhouse.io/v1/job_stages/{id}'
               "id": 11052,
               "question": "Is this person really a good fit?"
             }
-          ]        
+          ]
         }
       }
     ]
