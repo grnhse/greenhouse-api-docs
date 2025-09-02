@@ -2162,6 +2162,7 @@ middleName | [String](#string) |
 otherCriteria | [\[OtherCriterion!\]](#othercriterion) |
 personalEmail | [String](#string) | The employee's personal email.
 phoneNumber | [String](#string) |
+phoneNumbers | [\[PhoneNumber!\]](#phonenumber) | A list of phone numbers for the employee.
 preferredFirstName | [String](#string) | This is the name that your employee prefers to go by. If this value is set, Greenhouse Onboarding will display this name everywhere in the product instead of the employee's legal name.
 preferredLastName | [String](#string) | This is the name that your employee prefers to go by. If this value is set, Greenhouse Onboarding will display this name everywhere in the product instead of the employee's legal name.
 profileImage | [File](#file) | A file containing the employee's profile image. This image is displayed in emails, reports and directory pages.
@@ -2311,6 +2312,14 @@ startDate | [Date](#date) |
 title | [String](#string) |
 updatedAt | [DateTime](#datetime) |
 workCountryCode | [String](#string) |
+
+## PhoneNumber
+A phone number with its associated type
+
+| Field | Type | Description |
+| ----- | ---- | ----------- |
+number | [String](#string) |
+type | [String](#string) | The type of phone number (work, home, mobile, other, skype)
 
 ## RateLimit
 Information about your current API quota
