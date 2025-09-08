@@ -426,6 +426,9 @@ analytics.page()
                     <a href="#pendinghire" class="toc-h2 toc-link" data-title="PendingHire">PendingHire</a>
                   </li>
                   <li>
+                    <a href="#phonenumber" class="toc-h2 toc-link" data-title="PhoneNumber">PhoneNumber</a>
+                  </li>
+                  <li>
                     <a href="#ratelimit" class="toc-h2 toc-link" data-title="RateLimit">RateLimit</a>
                   </li>
                   <li>
@@ -3630,6 +3633,11 @@ us anything. This really comes in handy when paired with other queries.</p>
 <td></td>
 </tr>
 <tr>
+<td>phoneNumbers</td>
+<td><a href="#phonenumber">[PhoneNumber!]</a></td>
+<td>A list of phone numbers for the employee.</td>
+</tr>
+<tr>
 <td>preferredFirstName</td>
 <td><a href="#string">String</a></td>
 <td>This is the name that your employee prefers to go by. If this value is set, Greenhouse Onboarding will display this name everywhere in the product instead of the employee&#39;s legal name.</td>
@@ -4124,6 +4132,27 @@ us anything. This really comes in handy when paired with other queries.</p>
 <td>workCountryCode</td>
 <td><a href="#string">String</a></td>
 <td></td>
+</tr>
+</tbody></table>
+<h2 id='phonenumber'>PhoneNumber</h2>
+<p>A phone number with its associated type</p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>number</td>
+<td><a href="#string">String</a></td>
+<td></td>
+</tr>
+<tr>
+<td>type</td>
+<td><a href="#string">String</a></td>
+<td>The type of phone number (work, home, mobile, other, skype)</td>
 </tr>
 </tbody></table>
 <h2 id='ratelimit'>RateLimit</h2>
