@@ -92,6 +92,7 @@ curl -X POST \
   -F "data_compliance[gdpr_processing_consent_given]=true" \
   -F "data_compliance[gdpr_retention_consent_given]=true" \
   -F "data_compliance[gdpr_demographic_data_consent_given]=true" \
+  -F "applicant_ip=203.0.113.47" \
   "https://boards-api.greenhouse.io/v1/boards/very_awesome_inc/jobs/127817"
 ```
 
@@ -180,7 +181,8 @@ curl -X POST \
     "gdpr_processing_consent_given": true
     "gdpr_retention_consent_given": true
     "gdpr_demographic_data_consent_given": true
-  }' \
+  },
+  "applicant_ip":"203.0.113.47"' \
   "https://boards-api.greenhouse.io/v1/boards/very_awesome_inc/jobs/127817"
 ```
 
@@ -230,6 +232,7 @@ email | Applicant's email address
 *employments | An array of employments objects. Each employment object should have: `company_name`, `title`, `start_date`, and `current` (must be `true` or `false`). If `current` is `false`, must have `end_date`. `start_date` and `end_date` will use a hash of month and year.
 *demographic_answers | An array of demographic answer objects, applicable only if your organization has Greenhouse Inclusion and demographic questions are enabled on the job post. Each object must have a `question_id` field. The `answer_options` field is an array of objects, one for each `answer_option_id` the candidate selected. For answer options which support free-form responses, a `text` field may also be supplied with the candidate's hand-typed answer. Note that these questions are always optional, so the `answer_options` array may be empty, null, or omitted if the candidate did not make any selections.
 *data_compliance | An object representing a candidate’s answers to required data compliance questions. This field is dependent on your organization’s [privacy and compliance configuration](https://support.greenhouse.io/hc/en-us/articles/360061849112-GDPR-features-overview). If your organization doesn't have single-purpose consent configured, use `{"gdpr_consent_given": true}`. Otherwise use separate consent values, like `{"gdpr_processing_consent_given":true}` or `{gdpr_retention_consent_given":false.}`.
+*applicant_ip | Applicant's IP address
 
 ### Submitting Attachments
 
