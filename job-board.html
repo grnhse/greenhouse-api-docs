@@ -1765,6 +1765,7 @@ Please keep in mind that the HTTP Basic Auth API token is a secret key.  Any for
   -F "data_compliance[gdpr_processing_consent_given]=true" \
   -F "data_compliance[gdpr_retention_consent_given]=true" \
   -F "data_compliance[gdpr_demographic_data_consent_given]=true" \
+  -F "applicant_ip=203.0.113.47" \
   "https://boards-api.greenhouse.io/v1/boards/very_awesome_inc/jobs/127817"
 </code></pre></div>
 <blockquote>
@@ -1852,7 +1853,8 @@ Please keep in mind that the HTTP Basic Auth API token is a secret key.  Any for
     "gdpr_processing_consent_given": true
     "gdpr_retention_consent_given": true
     "gdpr_demographic_data_consent_given": true
-  }' \
+  },
+  "applicant_ip":"203.0.113.47"' \
   "https://boards-api.greenhouse.io/v1/boards/very_awesome_inc/jobs/127817"
 </code></pre></div>
 <p>Use this endpoint to submit a new application. This endpoint accepts a multipart form POST representing a job application. Application forms are job-specific and will be constructed via the &quot;questions&quot; array available via the <a href="#retrieve-a-job">Job method</a>. Please see the <a href="#retrieve-a-job">Job method</a> documentation for instructions on submitting location information through the API.</p>
@@ -1962,6 +1964,10 @@ Please keep in mind that the HTTP Basic Auth API token is a secret key.  Any for
 <tr>
 <td>*data_compliance</td>
 <td>An object representing a candidate’s answers to required data compliance questions. This field is dependent on your organization’s <a href="https://support.greenhouse.io/hc/en-us/articles/360061849112-GDPR-features-overview">privacy and compliance configuration</a>. If your organization doesn&#39;t have single-purpose consent configured, use <code>{&quot;gdpr_consent_given&quot;: true}</code>. Otherwise use separate consent values, like <code>{&quot;gdpr_processing_consent_given&quot;:true}</code> or <code>{gdpr_retention_consent_given&quot;:false.}</code>.</td>
+</tr>
+<tr>
+<td>*applicant_ip</td>
+<td>Applicant&#39;s IP address</td>
 </tr>
 </tbody></table>
 <h3 id='submitting-attachments'>Submitting Attachments</h3>
