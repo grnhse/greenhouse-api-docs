@@ -176,6 +176,7 @@ The timestamps below are Eastern Time.
 
 | Date                          | Description                                                                                                                                                                                                                                                                                                                                                                                  |
 |-------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Sep 24, 2025                  | Added `match_score_reasoning` and `identity_verification` as fields which can be anonymized in [PUT Anonymize Candidates](#put-anonymize-candidate)
 | Aug 14, 2025 | Highlight that `questions` data can contain HTML on [the scorecard object](#the-scorecard-object) and [the job stage object](#the-job-stage-object)
 | Aug 13, 2025                   | Updated 403 errors text to include details about GET request bodies
 | Jun 2, 2025                   | Added `recruiter_id` and `coordinator_id` to [POST: Add Application to Candidate/Prospect](#post-add-application-to-candidate-prospect) and [PATCH: Update Application](#patch-update-application) |
