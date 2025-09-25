@@ -1078,6 +1078,10 @@ X-RateLimit-Remaining: 49
 </tr>
 </thead><tbody>
 <tr>
+<td>Sep 24, 2025</td>
+<td>Added <code>match_score_reasoning</code> and <code>identity_verification</code> as fields which can be anonymized in <a href="#put-anonymize-candidate">PUT Anonymize Candidates</a></td>
+</tr>
+<tr>
 <td>Aug 14, 2025</td>
 <td>Highlight that <code>questions</code> data can contain HTML on <a href="#the-scorecard-object">the scorecard object</a> and <a href="#the-job-stage-object">the job stage object</a></td>
 </tr>
@@ -7106,7 +7110,7 @@ X-RateLimit-Remaining: 49
 <td>fields</td>
 <td>Yes</td>
 <td>comma-delimited string</td>
-<td>The set of field names that should be anonymized on the candidate from the following list: full_name, current_company, current_title, tags, phone_numbers, emails, social_media_links, websites, addresses, location, custom_candidate_fields, source, recruiter, coordinator, attachments, application_questions, referral_questions, notes, rejection_notes, email_addresses, activity_items, innotes, inmails, rejection_reason, scorecards_and_interviews, offers, credited_to, headline, all_offer_versions, follow_up_reminders, custom_application_fields, education, employment, candidate_stage_data, prospect_owner, custom_rejection_question_fields, touchpoints, prospect_pool_and_stage, prospect_jobs, prospect_offices, prospect_offices_and_departments, and third_party_integrations</td>
+<td>The set of field names that should be anonymized on the candidate from the following list: full_name, current_company, current_title, tags, phone_numbers, emails, social_media_links, websites, addresses, location, custom_candidate_fields, source, recruiter, coordinator, attachments, application_questions, referral_questions, notes, rejection_notes, email_addresses, activity_items, innotes, inmails, rejection_reason, scorecards_and_interviews, offers, credited_to, headline, all_offer_versions, follow_up_reminders, custom_application_fields, education, employment, candidate_stage_data, prospect_owner, custom_rejection_question_fields, touchpoints, prospect_pool_and_stage, prospect_jobs, prospect_offices, prospect_offices_and_departments, match_score_reasoning, identity_verification and third_party_integrations</td>
 </tr>
 </tbody></table>
 <h2 id='put-merge-candidates'>PUT: Merge Candidates</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> PUT <span class="s1">'https://harvest.greenhouse.io/v1/candidates/merge'</span>
