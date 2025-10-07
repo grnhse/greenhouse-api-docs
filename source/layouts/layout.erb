@@ -126,6 +126,11 @@ under the License.
       <% end %>
     </div>
     <div class="page-wrapper">
+      <% if current_page.data.slug == 'harvest' %>
+      <div class="service-banner harvest-banner">
+        <span>Visit the latest version of Harvest API at <a href="https://harvestdocs.greenhouse.io" target="_blank" rel="noopener">harvestdocs.greenhouse.io</a>.</span>
+      </div>
+      <% end %>
       <div class="dark-box"></div>
       <div class="content">
         <%= page_content %>
