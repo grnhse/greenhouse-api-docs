@@ -4,4 +4,58 @@
 $nav-subitem-bg: $harvest-base;
 $nav-active-parent-bg: $harvest-hover;
 
+// Top banner specific to Harvest
+$harvest-banner-height: 44px;
+
+.service-banner.harvest-banner {
+  background: $harvest-base;
+  color: $birch-white;
+  position: sticky;
+  top: 0;
+  z-index: 60; // above toc (30) and lang selector (50)
+  height: $harvest-banner-height;
+  line-height: $harvest-banner-height;
+  padding: 0 15px;
+  font-weight: bold;
+
+  a:link,
+  a:visited,
+  a:active {
+    color: $birch-white;
+    text-decoration: underline;
+  }
+}
+
+// Ensure the language selector sits below the sticky banner
+.page-wrapper .lang-selector {
+  top: $harvest-banner-height;
+}
+
+@media (max-width: $tablet-width) {}
+
+@media (max-width: $phone-width) {
+
+  // Lang selector is hidden on phone width; give extra space for the banner just in case
+  // no extra padding needed; sticky banner does not overlap content
+}
+
+// Ensure anchor jumps don’t hide headings under fixed banner
+.content {
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    scroll-margin-top: $harvest-banner-height + 10px;
+  }
+}
+
+// Legacy fallback for browsers without scroll-margin-top
+// Adds temporary spacing when a heading is targeted
+:target {
+  scroll-margin-top: $harvest-banner-height + 10px;
+}
+
 @import "screen";
