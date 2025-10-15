@@ -12,6 +12,7 @@ toc_footers:
   - <a href="/job-board.html" title="Job Board API">Job Board API</a>
   - <a href='/gho.html' title="Onboarding API">Onboarding API</a>
   - <a href='/webhooks.html' title="Recruiting Webhooks">Recruiting Webhooks</a>
+  - <a href='/onboarding_webhooks.html' title="Onboarding Webhooks">Onboarding Webhooks</a>
 
 includes:
   - audit-log/introduction
