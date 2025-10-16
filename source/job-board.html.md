@@ -10,7 +10,8 @@ toc_footers:
   - <a href="/harvest.html" title="Harvest API">Harvest API</a>
   - <a href='/candidate-ingestion.html' title="Ingestion API">Ingestion API</a>
   - <a href='/gho.html' title="Onboarding API">Onboarding API</a>
-  - <a href='/webhooks.html' title="Webhooks">Webhooks</a>
+  - <a href='/webhooks.html' title="Recruiting Webhooks">Recruiting Webhooks</a>
+  - <a href='/onboarding_webhooks.html' title="Onboarding Webhooks">Onboarding Webhooks</a>
 
 includes:
   - job-board/introduction

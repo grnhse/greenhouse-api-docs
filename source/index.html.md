@@ -12,9 +12,13 @@ layout: home
     <h3>Job Board API</h3>
     <p class="block-description">Build careers pages with a unique look and feel, construct department-level pages and more!</p>
   </a>
-  <a href="/webhooks.html" title="Webhook Docs" class="block block-webhooks">
-    <h3>Webhooks</h3>
-    <p class="block-description">Be notified when particular events happen on Greenhouse.</p>
+  <a href="/webhooks.html" title="Recruiting Webhook Docs" class="block block-recruiting-webhooks">
+    <h3>Recruiting Webhooks</h3>
+    <p class="block-description">Be notified when particular events happen on Greenhouse Recruiting.</p>
+  </a>
+  <a href="/onboarding_webhooks.html" title="Onboarding Webhook Docs" class="block block-onboarding-webhooks">
+    <h3>Onboarding Webhooks</h3>
+    <p class="block-description">Be notified when particular events happen on Greenhouse Onboarding.</p>
   </a>
   <a href="/gho.html" title="Greenhouse Onboarding API Docs" class="block block-gho">
     <h3>Onboarding API</h3>
