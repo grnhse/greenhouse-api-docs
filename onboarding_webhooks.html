@@ -1,0 +1,398 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="manifest" href="/images/favicons/manifest.json">
+
+<link rel="icon" href="images/favicons/favicon.ico" sizes="32x32">
+<link rel="icon" href="images/favicons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="images/favicons/apple-touch-icon.png">
+
+<meta name="theme-color" content="#047957"><!-- Birch Green 700 -->
+
+    <title>Onboarding Webhooks | Greenhouse</title>
+
+    <style media="screen">
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight, .highlight .w {
+  color: #f8f8f2;
+  background-color: #272822;
+}
+.highlight .err {
+  color: #272822;
+  background-color: #f92672;
+}
+.highlight .c, .highlight .ch, .highlight .cd, .highlight .cm, .highlight .cpf, .highlight .c1, .highlight .cs {
+  color: #75715e;
+}
+.highlight .cp {
+  color: #f4bf75;
+}
+.highlight .nt {
+  color: #f4bf75;
+}
+.highlight .o, .highlight .ow {
+  color: #f8f8f2;
+}
+.highlight .p, .highlight .pi {
+  color: #f8f8f2;
+}
+.highlight .gi {
+  color: #a6e22e;
+}
+.highlight .gd {
+  color: #f92672;
+}
+.highlight .gh {
+  color: #66d9ef;
+  background-color: #272822;
+  font-weight: bold;
+}
+.highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
+  color: #ae81ff;
+}
+.highlight .kc {
+  color: #fd971f;
+}
+.highlight .kt {
+  color: #fd971f;
+}
+.highlight .kd {
+  color: #fd971f;
+}
+.highlight .s, .highlight .sb, .highlight .sc, .highlight .dl, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
+  color: #a6e22e;
+}
+.highlight .sa {
+  color: #ae81ff;
+}
+.highlight .sr {
+  color: #a1efe4;
+}
+.highlight .si {
+  color: #cc6633;
+}
+.highlight .se {
+  color: #cc6633;
+}
+.highlight .nn {
+  color: #f4bf75;
+}
+.highlight .nc {
+  color: #f4bf75;
+}
+.highlight .no {
+  color: #f4bf75;
+}
+.highlight .na {
+  color: #66d9ef;
+}
+.highlight .m, .highlight .mb, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mx {
+  color: #a6e22e;
+}
+.highlight .ss {
+  color: #a6e22e;
+}
+    </style>
+    <style media="print">
+      * {
+        -webkit-transition:none!important;
+        transition:none!important;
+      }
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight, .highlight .w {
+  color: #586e75;
+}
+.highlight .err {
+  color: #002b36;
+  background-color: #dc322f;
+}
+.highlight .c, .highlight .ch, .highlight .cd, .highlight .cm, .highlight .cpf, .highlight .c1, .highlight .cs {
+  color: #657b83;
+}
+.highlight .cp {
+  color: #b58900;
+}
+.highlight .nt {
+  color: #b58900;
+}
+.highlight .o, .highlight .ow {
+  color: #93a1a1;
+}
+.highlight .p, .highlight .pi {
+  color: #93a1a1;
+}
+.highlight .gi {
+  color: #859900;
+}
+.highlight .gd {
+  color: #dc322f;
+}
+.highlight .gh {
+  color: #268bd2;
+  background-color: #002b36;
+  font-weight: bold;
+}
+.highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
+  color: #6c71c4;
+}
+.highlight .kc {
+  color: #cb4b16;
+}
+.highlight .kt {
+  color: #cb4b16;
+}
+.highlight .kd {
+  color: #cb4b16;
+}
+.highlight .s, .highlight .sb, .highlight .sc, .highlight .dl, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
+  color: #859900;
+}
+.highlight .sa {
+  color: #6c71c4;
+}
+.highlight .sr {
+  color: #2aa198;
+}
+.highlight .si {
+  color: #d33682;
+}
+.highlight .se {
+  color: #d33682;
+}
+.highlight .nn {
+  color: #b58900;
+}
+.highlight .nc {
+  color: #b58900;
+}
+.highlight .no {
+  color: #b58900;
+}
+.highlight .na {
+  color: #268bd2;
+}
+.highlight .m, .highlight .mb, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mx {
+  color: #859900;
+}
+.highlight .ss {
+  color: #859900;
+}
+    </style>
+    <link href="stylesheets/screen_onboarding-webhooks.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/print.css" rel="stylesheet" media="print" />
+      <script src="javascripts/all.js"></script>
+
+    <script type="text/javascript">
+!function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","page","once","off","on"];analytics.factory=function(t){return function(){var e=Array.prototype.slice.call(arguments);e.unshift(t);analytics.push(e);return analytics}};for(var t=0;t<analytics.methods.length;t++){var e=analytics.methods[t];analytics[e]=analytics.factory(e)}analytics.load=function(t){var e=document.createElement("script");e.type="text/javascript";e.async=!0;e.src=("https:"===document.location.protocol?"https://":"http://")+"cdn.segment.com/analytics.js/v1/"+t+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(e,n)};analytics.SNIPPET_VERSION="3.1.0";
+analytics.load("2q7wwCrJormvWKrplqZYR2gXyxLK5Uhx");
+analytics.page()
+}}();
+</script>
+  </head>
+
+  <body class="onboarding_webhooks" data-languages="[&quot;json&quot;]">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="images/navbar.png" alt="" />
+      </span>
+    </a>
+    <div class="toc-wrapper">
+      <a href="/" class="nav-home-link">
+        <div class="nav-home">
+          <img src="images/logo.png" class="logo" alt="" />
+          <span>Developers Home</span>
+        </div>
+      </a>
+        <div class="lang-selector">
+              <a href="#" data-language-name="json">json</a>
+        </div>
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <ul id="toc" class="toc-list-h1">
+          <li>
+            <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#what-is-a-webhook" class="toc-h2 toc-link" data-title="What is a webhook?">What is a webhook?</a>
+                  </li>
+                  <li>
+                    <a href="#creating-a-webhook" class="toc-h2 toc-link" data-title="Creating a webhook">Creating a webhook</a>
+                  </li>
+                  <li>
+                    <a href="#authentication" class="toc-h2 toc-link" data-title="Authentication">Authentication</a>
+                  </li>
+                  <li>
+                    <a href="#request-body" class="toc-h2 toc-link" data-title="Request Body">Request Body</a>
+                  </li>
+                  <li>
+                    <a href="#retry-policy" class="toc-h2 toc-link" data-title="Retry policy">Retry policy</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#employee-events" class="toc-h1 toc-link" data-title="Employee Events">Employee Events</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#employee-updated-employee-updated" class="toc-h2 toc-link" data-title="Employee updated (employee:updated)">Employee updated (employee:updated)</a>
+                  </li>
+              </ul>
+          </li>
+      </ul>
+      <ul class="toc-appendage">
+        <li id="github_link"><a href="https://github.com/grnhse/greenhouse-api-docs/tree/master/source/includes/onboarding_webhooks" title="View on Github" target="_blank">View on GitHub</a></li>
+      </ul>
+        <ul class="toc-footer">
+            <li><a href='/assessment.html' title="Assessment API">Assessment API</a></li>
+            <li><a href='/audit-log.html' title="Audit Log API">Audit Log API</a></li>
+            <li><a href="/harvest.html" title="Harvest API">Harvest API</a></li>
+            <li><a href='/candidate-ingestion.html' title="Ingestion API">Ingestion API</a></li>
+            <li><a href="/job-board.html" title="Job Board API">Job Board API</a></li>
+            <li><a href='/gho.html' title="Onboarding API">Onboarding API</a></li>
+            <li><a href='/webhooks.html' title="Recruiting Webhooks">Recruiting Webhooks</a></li>
+        </ul>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h1 id='introduction'>Introduction</h1>
+<aside class="notice">
+Onboarding webhooks are currently in beta and only available to customers that request access. If you would like to try them out, please contact <a href="https://support.greenhouse.io">support</a>.
+</aside>
+<h2 id='what-is-a-webhook'>What is a webhook?</h2>
+<p>A webhook is a simple event-notification system. When an event occurs in Greenhouse Onboarding, a payload of JSON data containing information about the event is sent via POST to a specified endpoint URL over HTTPS.</p>
+<h2 id='creating-a-webhook'>Creating a webhook</h2>
+<p>Webhooks have three components. A name, an endpoint URL, and a secret key.</p>
+
+<ul>
+<li><strong>Name</strong>: The name is simply a reference for you. It can contain any string value.</li>
+<li><strong>Endpoint URL</strong>: This is the URL to which we will send the POST data when the event occurs. This must be a fully qualified and valid URL and must be https. Redirects will not be followed.</li>
+<li><strong>Secret Key</strong>: After you create a webhook, a secret key will be generated and presented to you once. This secret key will be used to generate a signature header that you may use to verify the hook data was sent from Greenhouse and not a malicious third party. The secret key will be used in conjunction with the webhook&#39;s payload to generate a digital signature.</li>
+</ul>
+<h2 id='authentication'>Authentication</h2><div class="highlight"><pre class="highlight plaintext"><code>Signature: sha256 37d2725109df92747ffcee59833a1d1262d74b9703fa1234c789407218b4a4ef
+</code></pre></div>
+<blockquote>
+<p>To compute the HMAC digest in Ruby:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="n">digest</span> <span class="o">=</span> <span class="no">OpenSSL</span><span class="o">::</span><span class="no">Digest</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="s1">'sha256'</span><span class="p">)</span>
+<span class="n">signature</span> <span class="o">=</span> <span class="no">OpenSSL</span><span class="o">::</span><span class="no">HMAC</span><span class="p">.</span><span class="nf">hexdigest</span><span class="p">(</span><span class="n">digest</span><span class="p">,</span> <span class="n">secret_key</span><span class="p">,</span> <span class="n">body</span><span class="p">)</span>
+</code></pre></div>
+<blockquote>
+<p>To compute the HMAC digest in PHP:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+  <span class="c1">// Requires PHP &gt;= 5.1.2 and PECL hash &gt;= 1.1</span>
+  <span class="nv">$signature</span> <span class="o">=</span> <span class="nb">hash_hmac</span><span class="p">(</span><span class="s1">'sha256'</span><span class="p">,</span> <span class="nv">$body</span><span class="p">,</span> <span class="nv">$secret_key</span><span class="p">);</span>
+<span class="cp">?&gt;</span>
+</code></pre></div>
+<blockquote>
+<p>The <code>body</code> variable in the above code samples refers to the entire content of the JSON response. Not just the <code>payload</code> attribute.</p>
+</blockquote>
+
+<p>Greenhouse uses a digital signature which is generated using the secret key of a webhook and the body of the webhook&#39;s request. This data is contained within the Signature header.</p>
+
+<p>The header contains: the SHA algorithm used to generate the signature, a space, and the signature. To verify the request came from Greenhouse, compute the HMAC digest using your secret key and the body and compare it to the signature portion (after the space) contained in the header. If they match, you can be sure the webhook was sent from Greenhouse.</p>
+<h2 id='request-body'>Request Body</h2><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"event_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"payload"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>Webhooks have a json request body with <code>event_type</code>, <code>id</code>, and <code>payload</code>.</p>
+
+<p>The <code>payload</code> will be a json object that varies based on the event type.</p>
+<h2 id='retry-policy'>Retry policy</h2>
+<p>In the event of a failed webhook request (due to timeout, a non HTTP 200 response, or network issues), Greenhouse will make up to 7 attempts over the course of 15 hours.</p>
+
+<p>The table below outlines the estimated wait time for each attempt.</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Approx. Total waiting time</th>
+<th style="text-align: center">Attempt number</th>
+<th style="text-align: left">Next Attempt in</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">0h  0m</td>
+<td style="text-align: center">1</td>
+<td style="text-align: left">1m</td>
+</tr>
+<tr>
+<td style="text-align: left">0h  1m</td>
+<td style="text-align: center">2</td>
+<td style="text-align: left">15m</td>
+</tr>
+<tr>
+<td style="text-align: left">0h 16m</td>
+<td style="text-align: center">3</td>
+<td style="text-align: left">60m</td>
+</tr>
+<tr>
+<td style="text-align: left">1h 16m</td>
+<td style="text-align: center">4</td>
+<td style="text-align: left">120m</td>
+</tr>
+<tr>
+<td style="text-align: left">3h 16m</td>
+<td style="text-align: center">5</td>
+<td style="text-align: left">240m</td>
+</tr>
+<tr>
+<td style="text-align: left">7h 16m</td>
+<td style="text-align: center">6</td>
+<td style="text-align: left">480m</td>
+</tr>
+<tr>
+<td style="text-align: left">15h 16m</td>
+<td style="text-align: center">7</td>
+<td style="text-align: left">--</td>
+</tr>
+</tbody></table>
+<h1 id='employee-events'>Employee Events</h1><h2 id='employee-updated-employee-updated'>Employee updated (employee:updated)</h2>
+<p>The <code>employee:updated</code> event occurs when an employee is updated.</p>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"event_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"employee:updated"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"692df651-4558-453b-8745-1e75d4543efb"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"payload"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"updated_employee_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1234567</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"acting_employee_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1234567</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-10-15T16:37:17-07:00"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"updated_fields"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"personal_email"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Personal Email"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"phone_number"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Phone Number"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"food_allergies"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Food Allergies"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"desk_location"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Desk Location"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+      </div>
+      <div class="dark-box">
+          <div class="lang-selector">
+                <a href="#" data-language-name="json">json</a>
+          </div>
+      </div>
+    </div>
+  </body>
+</html>
