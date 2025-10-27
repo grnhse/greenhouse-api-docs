@@ -1,7 +1,7 @@
 # Introduction
 
 <aside class="notice">
-Onboarding webhooks are currently in beta and only available to customers that request access. If you would like to try them out, please reach out to support.
+Onboarding webhooks are currently in beta and only available to customers that request access. If you would like to try them out, please contact <a href="https://support.greenhouse.io">support</a>.
 </aside>
 
 ## What is a webhook?
