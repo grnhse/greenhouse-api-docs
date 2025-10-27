@@ -123,11 +123,19 @@ html, body {
   }
 }
 
-.block-webhooks {
-  background-color: $webhooks-base;
+.block-recruiting-webhooks {
+  background-color: $recruiting-webhooks-base;
 
   &:hover {
-    background-color: $webhooks-hover;
+    background-color: $recruiting-webhooks-hover;
+  }
+}
+
+.block-onboarding-webhooks {
+  background-color: $onboarding-webhooks-base;
+
+  &:hover {
+    background-color: $onboarding-webhooks-hover;
   }
 }
 
