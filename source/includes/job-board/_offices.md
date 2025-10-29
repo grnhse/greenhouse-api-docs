@@ -31,7 +31,8 @@
                 "name":"San Francisco, CA"
               },
               "updated_at":"2013-07-02T19:39:23Z",
-              "absolute_url":"http://your.co/careers?gh_jid=444444"
+              "absolute_url":"http://your.co/careers?gh_jid=444444",
+              "language":"en"
             },
             {
               "id":55555,
@@ -40,7 +41,8 @@
                 "name":"San Francisco, CA"
               },
               "updated_at":"2013-07-02T19:39:23Z",
-              "absolute_url":"http://your.co/careers?gh_jid=55555"
+              "absolute_url":"http://your.co/careers?gh_jid=55555",
+              "language":"en"
             }
           ],
           "parent_id":null,
@@ -91,7 +93,8 @@
                     "name":"San Francisco, CA"
                   },
                   "updated_at":"2013-07-02T19:39:23Z",
-                  "absolute_url":"http://your.co/careers?gh_jid=444444"
+                  "absolute_url":"http://your.co/careers?gh_jid=444444",
+                  "language":"en"
                 },
                 {
                   "id":55555,
@@ -100,7 +103,8 @@
                     "name":"San Francisco, CA"
                   },
                   "updated_at":"2013-07-02T19:39:23Z",
-                  "absolute_url":"http://your.co/careers?gh_jid=55555"
+                  "absolute_url":"http://your.co/careers?gh_jid=55555",
+                  "language":"en"
                 }
               ],
               "children":[
@@ -170,7 +174,8 @@ Allowed `render_as` values:
             "name":"San Francisco, CA"
           },
           "updated_at":"2013-07-02T19:39:23Z",
-          "absolute_url":"http://your.co/careers?gh_jid=444444"
+          "absolute_url":"http://your.co/careers?gh_jid=444444",
+          "language":"en"
         },
         {
           "id":55555,
@@ -179,7 +184,8 @@ Allowed `render_as` values:
             "name":"San Francisco, CA"
           },
           "updated_at":"2013-07-02T19:39:23Z",
-          "absolute_url":"http://your.co/careers?gh_jid=55555"
+          "absolute_url":"http://your.co/careers?gh_jid=55555",
+          "language":"en"
         }
       ]
     },
@@ -213,7 +219,8 @@ Allowed `render_as` values:
             "name":"San Francisco, CA"
           },
           "updated_at":"2013-07-02T19:39:23Z",
-          "absolute_url":"http://your.co/careers?gh_jid=444444"
+          "absolute_url":"http://your.co/careers?gh_jid=444444",
+          "language":"en"
         },
         {
           "id":55555,
@@ -222,7 +229,8 @@ Allowed `render_as` values:
             "name":"San Francisco, CA"
           },
           "updated_at":"2013-07-02T19:39:23Z",
-          "absolute_url":"http://your.co/careers?gh_jid=55555"
+          "absolute_url":"http://your.co/careers?gh_jid=55555",
+          "language":"en"
         }
       ]
     },

@@ -15,6 +15,7 @@
         "name":"NYC"
       },
       "absolute_url":"https://boards.greenhouse.io/vaulttec/jobs/127817",
+      "language":"en",
       "metadata":null
     }
   ],
@@ -39,6 +40,7 @@
         "name":"NYC"
       },
       "absolute_url":"https://boards.greenhouse.io/vaulttec/jobs/127817",
+      "language":"en",
       "metadata":null,
       "content":"This is the job description. &amp;lt;p&amp;gt;Any HTML included through the hosted job application editor will be automatically converted into corresponding HTML entities.&amp;lt;/p&amp;gt;",
       "departments":[
@@ -115,6 +117,7 @@ content | If set to `true`, include the full post description, department, and o
   },
   "content":"This is the job description. &amp;lt;p&amp;gt;Any HTML included through the hosted job application editor will be automatically converted into corresponding HTML entities.&amp;lt;/p&amp;gt;",
   "absolute_url":"http://your.co/careers?gh_jid=444444",
+  "language":"en",
   "internal_job_id":55555,
   "location_questions": [
     {
