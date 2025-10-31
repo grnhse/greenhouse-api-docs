@@ -1,6 +1,11 @@
 ruby '>= 2.6'
 source 'https://rubygems.org'
 
+# Gems no longer included in newer ruby versions by default (and not listed as dependencies by older gem versions)
+gem 'base64'
+gem 'bigdecimal'
+gem 'mutex_m'
+
 # Middleman
 gem 'middleman', '~> 4.4'
 gem 'middleman-gh-pages', '~> 0.0.3'
