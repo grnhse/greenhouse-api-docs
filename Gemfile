@@ -19,5 +19,6 @@ gem 'sass'
 gem 'webrick'
 
 group :test do
+  gem "capybara"
   gem "rspec"
 end
