@@ -21,4 +21,5 @@ gem 'webrick'
 group :test do
   gem "capybara"
   gem "rspec"
+  gem "rspec_junit_formatter"
 end

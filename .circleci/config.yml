@@ -1,0 +1,45 @@
+version: 2.1
+orbs:
+  ruby: circleci/ruby@2.5.4
+
+jobs:
+  build:
+    parallelism: 1
+    resource_class: small
+    docker:
+      - image: cimg/ruby:3.4.7-node
+        environment:
+          RAILS_ENV: test
+    steps:
+      - checkout
+      - ruby/install-deps
+      - run:
+          name: Slate build
+          command: |
+            ./slate.sh build
+
+  rspec:
+    parallelism: 1
+    resource_class: small
+    docker:
+      - image: cimg/ruby:3.4.7-node
+        environment:
+          RAILS_ENV: test
+    steps:
+      - checkout
+      - ruby/install-deps
+      - run:
+          name: Run tests
+          command: |
+            bundle exec rspec --format RspecJunitFormatter -o test-results/rspec/results.xml
+      - store_test_results:
+          name: Store test results (rspec.xml) generated above
+          path: test-results
+
+workflows:
+  version: 2.1
+  build-run-tests:
+    jobs:
+      - build
+      - rspec
+
