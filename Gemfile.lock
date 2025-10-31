@@ -20,6 +20,7 @@ GEM
     coffee-script-source (1.12.2)
     concurrent-ruby (1.2.0)
     contracts (0.16.1)
+    diff-lcs (1.6.2)
     dotenv (2.8.1)
     erubis (2.7.0)
     execjs (2.7.0)
@@ -107,6 +108,19 @@ GEM
     redcarpet (3.6.0)
     rexml (3.2.5)
     rouge (3.30.0)
+    rspec (3.13.2)
+      rspec-core (~> 3.13.0)
+      rspec-expectations (~> 3.13.0)
+      rspec-mocks (~> 3.13.0)
+    rspec-core (3.13.6)
+      rspec-support (~> 3.13.0)
+    rspec-expectations (3.13.5)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.13.0)
+    rspec-mocks (3.13.7)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.13.0)
+    rspec-support (3.13.6)
     sass (3.7.4)
       sass-listen (~> 4.0.0)
     sass-listen (4.0.0)
@@ -145,6 +159,7 @@ DEPENDENCIES
   nokogiri (~> 1.13.3)
   redcarpet (~> 3.6.0)
   rouge (~> 3.21)
+  rspec
   sass
   webrick
 

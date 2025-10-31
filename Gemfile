@@ -17,3 +17,7 @@ gem 'redcarpet', '~> 3.6.0'
 gem 'nokogiri', '~> 1.13.3'
 gem 'sass'
 gem 'webrick'
+
+group :test do
+  gem "rspec"
+end
