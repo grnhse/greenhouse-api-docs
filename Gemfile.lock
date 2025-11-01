@@ -12,12 +12,24 @@ GEM
     autoprefixer-rails (10.2.5.0)
       execjs (< 2.8.0)
     backports (3.23.0)
+    base64 (0.3.0)
+    bigdecimal (3.3.1)
+    capybara (3.40.0)
+      addressable
+      matrix
+      mini_mime (>= 0.1.3)
+      nokogiri (~> 1.11)
+      rack (>= 1.6.0)
+      rack-test (>= 0.6.3)
+      regexp_parser (>= 1.5, < 3.0)
+      xpath (~> 3.2)
     coffee-script (2.4.1)
       coffee-script-source
       execjs
     coffee-script-source (1.12.2)
     concurrent-ruby (1.2.0)
     contracts (0.16.1)
+    diff-lcs (1.6.2)
     dotenv (2.8.1)
     erubis (2.7.0)
     execjs (2.7.0)
@@ -37,6 +49,7 @@ GEM
     listen (3.8.0)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
+    matrix (0.4.3)
     memoist (0.16.2)
     middleman (4.4.3)
       coffee-script (~> 2.2)
@@ -82,8 +95,10 @@ GEM
     middleman-syntax (3.3.0)
       middleman-core (>= 3.2)
       rouge (~> 3.2)
+    mini_mime (1.1.5)
     mini_portile2 (2.8.0)
     minitest (5.17.0)
+    mutex_m (0.3.0)
     nokogiri (1.13.9)
       mini_portile2 (~> 2.8.0)
       racc (~> 1.4)
@@ -97,13 +112,31 @@ GEM
     public_suffix (5.0.1)
     racc (1.6.0)
     rack (2.2.6.2)
+    rack-test (2.2.0)
+      rack (>= 1.3)
     rake (13.2.1)
     rb-fsevent (0.11.2)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
     redcarpet (3.6.0)
+    regexp_parser (2.11.3)
     rexml (3.2.5)
     rouge (3.30.0)
+    rspec (3.13.2)
+      rspec-core (~> 3.13.0)
+      rspec-expectations (~> 3.13.0)
+      rspec-mocks (~> 3.13.0)
+    rspec-core (3.13.6)
+      rspec-support (~> 3.13.0)
+    rspec-expectations (3.13.5)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.13.0)
+    rspec-mocks (3.13.7)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.13.0)
+    rspec-support (3.13.6)
+    rspec_junit_formatter (0.6.0)
+      rspec-core (>= 2, < 4, != 2.12.0)
     sass (3.7.4)
       sass-listen (~> 4.0.0)
     sass-listen (4.0.0)
@@ -125,20 +158,28 @@ GEM
     uglifier (3.2.0)
       execjs (>= 0.3.0, < 3)
     webrick (1.8.1)
+    xpath (3.2.0)
+      nokogiri (~> 1.8)
     zeitwerk (2.6.0)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
+  base64
+  bigdecimal
+  capybara
   middleman (~> 4.4)
   middleman-autoprefixer (~> 3.0)
   middleman-gh-pages (~> 0.0.3)
   middleman-sprockets (~> 4.1)
   middleman-syntax (~> 3.2)
+  mutex_m
   nokogiri (~> 1.13.3)
   redcarpet (~> 3.6.0)
   rouge (~> 3.21)
+  rspec
+  rspec_junit_formatter
   sass
   webrick
 
@@ -146,4 +187,4 @@ RUBY VERSION
    ruby 2.7.2p137
 
 BUNDLED WITH
-   2.2.22
+   2.7.2
