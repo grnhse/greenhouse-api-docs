@@ -929,11 +929,13 @@ curl -X PATCH 'https://harvest.greenhouse.io/v1/jobs/{id}'
 | department_id\*           | No       | number       | Replace the current department for this job with a different department.                                                                                        |
 | external_department_id\*  | No       | string       | This may be used instead of department_id and represents the ID of the department in an external system. If used, department_id must be blank and vice versa.   |
 
-- - Updates to these fields may re-trigger approvals. For approvals to start recruiting, this will reset approvals only if the job is in draft mode. If the job is open for hiring, these approvals will not reset. For official job approvals, this will reset approvals only if the job is open.
+- Updates to these fields may re-trigger approvals. For approvals to start recruiting, this will reset approvals only if the job is in draft mode. If the job is open for hiring, these approvals will not reset. For official job approvals, this will reset approvals only if the job is open.
 
 ### Custom Field Parameters
 
 The custom field parameter structure is different in the PATCH method than in GET methods and responses. Certain type of custom fields require different elements to be included, while deleting a field requires a specific argument. What follows is the description of each item in a custom field element and what is required depending on the type.
+
+*Modifying dependent custom fields may produce inconsistent results, please upgrade to [Harvest V3](https://harvestdocs.greenhouse.io/) for full support.
 
 | Parameter    | Required for                 | Description                                                                                                                                                                                                                                                                                                        |
 | ------------ | ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |

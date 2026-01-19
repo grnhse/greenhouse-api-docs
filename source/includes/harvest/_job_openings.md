@@ -322,6 +322,8 @@ custom_fields | no | array | Array of custom field objects containing updated va
 
 The custom field parameter structure is different in the PATCH method than in GET methods and responses. Certain types of custom fields require different elements to be included. See below for the description of each item in a custom field element and what is required depending on the type.
 
+*Modifying dependent custom fields may produce inconsistent results, please upgrade to [Harvest V3](https://harvestdocs.greenhouse.io/) for full support.
+
 Parameter | Required for | Description
 ---------- | -------------- | ----------------
 id | all | The custom field ID for this particular custom field.  One of this or `name_key` is required.
@@ -389,6 +391,8 @@ openings.custom_fields[] | No | Array | Array of custom field objects containing
 ### Custom Field Object Parameters
 
 The custom field parameter structure is different in the POST method than in GET methods and responses. Certain types of custom fields require different elements to be included. See below for the description of each item in a custom field element and what is required depending on the type.
+
+*Modifying dependent custom fields may produce inconsistent results, please upgrade to [Harvest V3](https://harvestdocs.greenhouse.io/) for full support.
 
 Parameter | Required for | Description
 ---------- | -------------- | ----------------
