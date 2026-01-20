@@ -690,6 +690,8 @@ custom_fields[] | No | Array of hashes containing new custom field values. Passi
 
 The custom field parameter structure is different in the PATCH method then in GET methods and responses. Certain types of custom fields require different elements to be included, while deleting a field requires a specific argument. What follows is the description of each item in a custom field element and what is required depending on the type.
 
+*Modifying dependent custom fields may produce inconsistent results, please upgrade to [Harvest V3](https://harvestdocs.greenhouse.io/) for full support.
+
 Parameter | Required for | Description
 ---------- | -------------- | ----------------
 id | all | The custom field id for this particular custom field.  One of this or name_key is required.
