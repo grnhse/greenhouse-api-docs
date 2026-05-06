@@ -1750,7 +1750,7 @@ Please keep in mind that the HTTP Basic Auth API token is a secret key.  Any for
 <blockquote>
 <p>cURL equivalent:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight plaintext"><code>curl -X POST \ 
+<div class="highlight"><pre class="highlight plaintext"><code>curl -X POST \
   -H "Content-Type: multipart/form-data" \
   -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6" \
   -F "first_name=Sammy" \
@@ -1760,6 +1760,7 @@ Please keep in mind that the HTTP Basic Auth API token is a secret key.  Any for
   -F "location=110 5th Ave New York, NY, 10011" \
   -F "latitude=40.7376671" \
   -F "longitude=-73.9929196" \
+  -F "country_short_name=US" \
   -F "resume=@/path/to/resume/ADA084551.pdf" \
   -F "cover_letter=@/path/to/coverletter/blah.pdf" \
   -F "educations[][school_name_id]=5417077" \
@@ -1807,6 +1808,7 @@ Please keep in mind that the HTTP Basic Auth API token is a secret key.  Any for
     "location": "110 5th Ave New York, NY, 10011",
     "latitude": "40.7376671",
     "longitude": "-73.9929196",
+    "country_short_name": "US",
     "resume_text": "I have many years of experience as an expert basket weaver...",
     "cover_letter_text": "I have a very particular set of skills, skills I have acquired over a very long career. Skills that make me...",
     "gender": 2,
@@ -1967,6 +1969,10 @@ Please keep in mind that the HTTP Basic Auth API token is a secret key.  Any for
 <td>Applicant&#39;s home longitude. This is a <em>hidden</em> field and should not be exposed directly to the applicant.</td>
 </tr>
 <tr>
+<td>*country_short_name</td>
+<td>Applicant&#39;s home country.  This is a <em>hidden</em> field and should not be exposed directly to the applicant.</td>
+</tr>
+<tr>
 <td>*resume</td>
 <td><em>Please see below for details.</em></td>
 </tr>
@@ -2000,7 +2006,7 @@ Please keep in mind that the HTTP Basic Auth API token is a secret key.  Any for
 
 <ol>
 <li>Submit the attachment via direct upload using multipart/form-data.</li>
-<li>Submit the attachment via direct upload using application/json. </li>
+<li>Submit the attachment via direct upload using application/json.</li>
 <li>Submit a path to the attachment on an external server.</li>
 <li>Submit the plaintext file contents.</li>
 </ol>
@@ -2113,7 +2119,7 @@ Please keep in mind that the HTTP Basic Auth API token is a secret key.  Any for
 </tr>
 </tbody></table>
 <h3 id='collecting-applicant-location'>Collecting Applicant Location</h3>
-<p>Here is the suggested workflow for populating <code>location</code>, <code>latitude</code> and <code>longitude</code>:</p>
+<p>Here is the suggested workflow for populating <code>location</code>, <code>latitude</code>, <code>longitude</code>, and <code>country_short_name</code>:</p>
 
 <ol>
 <li>The applicant begins typing a location in your <code>location</code> text box.</li>
@@ -2122,13 +2128,18 @@ to retrieve suggested location names (e.g. New York, NY, United States)
 and the <code>place_id</code> associated with each location (e.g. <code>ChIJOwg_06VPwokRYv534QaPC8g</code>).</li>
 <li>Your app displays the suggested location names to the applicant.</li>
 <li>The applicant selects a suggested location.</li>
-<li>Your app uses the <code>place_id</code> from the previous API call to retrieve the latitude and
-longitude for the selected location using the <a href="https://developers.google.com/maps/documentation/javascript/places#place_details">Google Place Details API</a>.</li>
+<li>Your app uses the <code>place_id</code> from the previous API call to retrieve the latitude,
+longitude, and address components for the selected location using the <a href="https://developers.google.com/maps/documentation/javascript/places#place_details">Google Place Details API</a>.</li>
 <li>Your app populates the hidden <code>latitude</code> and <code>longitude</code> fields with the result of
 this API call.</li>
+<li>Your app finds the address component where <code>types</code> includes <code>&quot;country&quot;</code> and populates the
+hidden <code>country_short_name</code> field with that component&#39;s <code>short_name</code> (e.g. <code>&quot;US&quot;</code>, <code>&quot;FR&quot;</code>)</li>
 </ol>
 
-<p>Note that all 3 fields must be included. If only <code>location</code> is sent and <code>latitude</code> and <code>longitude</code> are omitted, <code>location</code> will be ignored entirely.</p>
+<p>Note that <code>location</code>, <code>latitude</code>, and <code>longitude</code> must all be included. If only <code>location</code> is
+sent and <code>latitude</code> and <code>longitude</code> are omitted, <code>location</code> will be ignored entirely.
+Including <code>country_short_name</code> is strongly recommended - it enables fraud detection
+location checks for submitted applications.</p>
 <h3 id='validations-on-post-requests'>Validations on POST Requests</h3>
 <p><strong>Job validations:</strong></p>
 
@@ -2138,10 +2149,10 @@ this API call.</li>
 <li>The job post ID must exist on the job board with the supplied board_token</li>
 </ul>
 
-<p><strong>Field validations:</strong> </p>
+<p><strong>Field validations:</strong></p>
 
 <ul>
-<li><code>first_name</code>, <code>last_name</code>, and <code>email</code> fields are required </li>
+<li><code>first_name</code>, <code>last_name</code>, and <code>email</code> fields are required</li>
 <li><code>first_name</code>, <code>last_name</code>, and <code>email</code> fields cannot be greater than 255 characters long</li>
 <li><code>first_name</code>, <code>last_name</code>, and <code>phone</code> fields must not contain a URL</li>
 <li><code>email</code> field must contain a valid email address</li>
