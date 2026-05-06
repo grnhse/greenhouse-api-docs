@@ -52,7 +52,7 @@ Please keep in mind that the HTTP Basic Auth API token is a secret key.  Any for
 > cURL equivalent:
 
 ```
-curl -X POST \ 
+curl -X POST \
   -H "Content-Type: multipart/form-data" \
   -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6" \
   -F "first_name=Sammy" \
@@ -62,6 +62,7 @@ curl -X POST \
   -F "location=110 5th Ave New York, NY, 10011" \
   -F "latitude=40.7376671" \
   -F "longitude=-73.9929196" \
+  -F "country_short_name=US" \
   -F "resume=@/path/to/resume/ADA084551.pdf" \
   -F "cover_letter=@/path/to/coverletter/blah.pdf" \
   -F "educations[][school_name_id]=5417077" \
@@ -110,6 +111,7 @@ curl -X POST \
     "location": "110 5th Ave New York, NY, 10011",
     "latitude": "40.7376671",
     "longitude": "-73.9929196",
+    "country_short_name": "US",
     "resume_text": "I have many years of experience as an expert basket weaver...",
     "cover_letter_text": "I have a very particular set of skills, skills I have acquired over a very long career. Skills that make me...",
     "gender": 2,
@@ -226,6 +228,7 @@ email | Applicant's email address
 *location | Applicant's street address
 *latitude | Applicant's home latitude. This is a *hidden* field and should not be exposed directly to the applicant.
 *longitude | Applicant's home longitude. This is a *hidden* field and should not be exposed directly to the applicant.
+*country_short_name | Applicant's home country.  This is a *hidden* field and should not be exposed directly to the applicant.
 *resume | *Please see below for details.*
 *cover_letter | *Please see below for details.*
 *educations | An array of education objects. Each education object should have five fields: `school_name_id`, `degree_id`, `discipline_id`, `start_date`, and `end_date`. You can get the `school_name_id`, `degree_id`, `discipline_id` from our [List Schools](#list-schools), [List Degrees](#list-degrees), and [List Disciplines](#list-disciplines) endpoints. `start_date` and `end_date` will use a hash of month and year.
@@ -239,7 +242,7 @@ email | Applicant's email address
 We support 4 methods of uploading attachments when submitting a candidate application:
 
 1. Submit the attachment via direct upload using multipart/form-data.
-2. Submit the attachment via direct upload using application/json. 
+2. Submit the attachment via direct upload using application/json.
 3. Submit a path to the attachment on an external server.
 4. Submit the plaintext file contents.
 
@@ -247,7 +250,7 @@ We support 4 methods of uploading attachments when submitting a candidate applic
 
 **Resume Attachments**
 
-Method | Content-Type | Required Fields | Example 
+Method | Content-Type | Required Fields | Example
 --------- | ----------- | ----------- | -----------
 Direct upload | multipart/form-data  | "resume" | "resume": "@/Users/UserName/Documents/resume.pdf" *(this example is specific to cURL)*
 Direct upload | application/json | "resume_content", "resume_content_filename" | "resume_content": "SGVsbG8sIHdvcmxkIQo=", "resume_content_filename": "resume.pdf"
@@ -277,7 +280,7 @@ Path to file on external server  | multipart/form-data *or* application/json | "
 
 ### Collecting Applicant Location
 
-Here is the suggested workflow for populating `location`, `latitude` and `longitude`:
+Here is the suggested workflow for populating `location`, `latitude`, `longitude`, and `country_short_name`:
 
 1. The applicant begins typing a location in your `location` text box.
 2. As the applicant types, your app makes a call to the [Google Places Autocomplete API](https://developers.google.com/maps/documentation/javascript/places-autocomplete)
@@ -285,12 +288,17 @@ to retrieve suggested location names (e.g. New York, NY, United States)
 and the `place_id` associated with each location (e.g. `ChIJOwg_06VPwokRYv534QaPC8g`).
 3. Your app displays the suggested location names to the applicant.
 4. The applicant selects a suggested location.
-5. Your app uses the `place_id` from the previous API call to retrieve the latitude and
-longitude for the selected location using the [Google Place Details API](https://developers.google.com/maps/documentation/javascript/places#place_details).
+5. Your app uses the `place_id` from the previous API call to retrieve the latitude,
+longitude, and address components for the selected location using the [Google Place Details API](https://developers.google.com/maps/documentation/javascript/places#place_details).
 6. Your app populates the hidden `latitude` and `longitude` fields with the result of
 this API call.
+7. Your app finds the address component where `types` includes `"country"` and populates the
+hidden `country_short_name` field with that component's `short_name` (e.g. `"US"`, `"FR"`)
 
-Note that all 3 fields must be included. If only `location` is sent and `latitude` and `longitude` are omitted, `location` will be ignored entirely.
+Note that `location`, `latitude`, and `longitude` must all be included. If only `location` is
+sent and `latitude` and `longitude` are omitted, `location` will be ignored entirely.
+Including `country_short_name` is strongly recommended - it enables fraud detection
+location checks for submitted applications.
 
 ### Validations on POST Requests
 
@@ -300,9 +308,9 @@ Note that all 3 fields must be included. If only `location` is sent and `latitud
 * The job board must be live and published
 * The job post ID must exist on the job board with the supplied board_token
 
-**Field validations:** 
+**Field validations:**
 
-* `first_name`, `last_name`, and `email` fields are required 
+* `first_name`, `last_name`, and `email` fields are required
 * `first_name`, `last_name`, and `email` fields cannot be greater than 255 characters long
 * `first_name`, `last_name`, and `phone` fields must not contain a URL
 * `email` field must contain a valid email address
