@@ -110,7 +110,10 @@ content | If set to `true`, include the full post description, department, and o
 {
   "id":44444,
   "title":"Product Engineer",
+  "company_name":"Greenhouse",
+  "first_published":"2013-08-01T20:00:00Z",
   "updated_at":"2013-07-02T19:39:23Z",
+  "application_deadline":"2026-08-01T20:00:00Z",
   "requisition_id": "50",
   "location":{
     "name":"San Francisco, CA"
@@ -119,6 +122,9 @@ content | If set to `true`, include the full post description, department, and o
   "absolute_url":"http://your.co/careers?gh_jid=444444",
   "language":"en",
   "internal_job_id":55555,
+  "include_ai_disclaimer": true,
+  "ai_disclaimer":"<p>We use Greenhouse’s AI-powered Talent Matching tool to compare your application against our job requirements.</p>",
+  "ai_opt_out_request_url":"https://app.greenhouse.io/job_post/55555/ai_opt_out",
   "location_questions": [
     {
       "label": "Location",
