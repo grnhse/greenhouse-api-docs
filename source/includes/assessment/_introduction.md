@@ -77,7 +77,8 @@ The timestamps below are Eastern Time.
 
 | Date                    | Description                                                                                                                     |
 | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------- | --- |
-| Jan 10, 2025            | Updated send test response to include preferred name column                                                                     |
+| Jul 30, 2025            | Added candidate and application id to [Send Test](#send-test)                                                                     |
+| Jan 10, 2025            | Updated send test request body to include preferred name column                                                                     |
 | Oct 7, 2024             | Updated favicon, github mark, and color palette. Fixed typos and formatting errors.                                             |
 | Oct 4, 2024 3:30:00PM   | Updated guidelines around API key character length in [Introduction](#introduction)                                             |
 | Sep 18, 2024 10:45:00AM | Added `sent_by` to the [Send Test](#send-test) request example                                                                  |     |
