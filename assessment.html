@@ -394,8 +394,12 @@ analytics.page()
 </tr>
 </thead><tbody>
 <tr>
+<td>Jul 30, 2025</td>
+<td>Added candidate and application id to <a href="#send-test">Send Test</a></td>
+</tr>
+<tr>
 <td>Jan 10, 2025</td>
-<td>Updated send test response to include preferred name column</td>
+<td>Updated send test request body to include preferred name column</td>
 </tr>
 <tr>
 <td>Oct 7, 2024</td>
@@ -489,7 +493,11 @@ analytics.page()
     </span><span class="nl">"resume_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://hogwarts.com/resume"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123-456-7890"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"hpotter@hogwarts.edu"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"greenhouse_profile_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.greenhouse.io/people/17681532?application_id=26234709"</span><span class="w">
+    </span><span class="nl">"greenhouse_profile_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.greenhouse.io/people/17681532?application_id=26234709"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4000024002</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"application"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4000027002</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="nl">"sent_by"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test_sender@example.org"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.greenhouse.io/integrations/testing_partners/take_home_tests/12345"</span><span class="w">
@@ -512,46 +520,58 @@ analytics.page()
 <td>Identifies a test available to an organization. Initially provided as a response to the <a href="#list-tests">List Tests request</a>.</td>
 </tr>
 <tr>
-<td>first_name</td>
+<td>candidate.first_name</td>
 <td>String</td>
 <td>Yes</td>
 <td>The first name of the candidate.</td>
 </tr>
 <tr>
-<td>last_name</td>
+<td>candidate.last_name</td>
 <td>String</td>
 <td>Yes</td>
 <td>The last name of the candidate.</td>
 </tr>
 <tr>
-<td>preferred_name</td>
+<td>candidate.preferred_name</td>
 <td>String</td>
 <td>Yes</td>
 <td>The preferred name of the candidate.</td>
 </tr>
 <tr>
-<td>resume_url</td>
+<td>candidate.resume_url</td>
 <td>String</td>
 <td>No</td>
 <td>A URL to the candidate’s resume. This URL will expire 7 days after the request.</td>
 </tr>
 <tr>
-<td>phone_number</td>
+<td>candidate.phone_number</td>
 <td>String</td>
 <td>No</td>
 <td>The candidate’s phone number.</td>
 </tr>
 <tr>
-<td>email</td>
+<td>candidate.email</td>
 <td>String</td>
 <td>Yes</td>
 <td>The candidate’s email address. The test should be sent to this address.</td>
 </tr>
 <tr>
-<td>greenhouse_profile_url</td>
+<td>candidate.greenhouse_profile_url</td>
 <td>String</td>
 <td>Yes</td>
 <td>URL to the candidate’s Greenhouse application. Allows the partner to link back to Greenhouse.</td>
+</tr>
+<tr>
+<td>candidate.id</td>
+<td>Number</td>
+<td>Yes</td>
+<td>Id of the candidate</td>
+</tr>
+<tr>
+<td>application.id</td>
+<td>String</td>
+<td>Yes</td>
+<td>Id of the application</td>
 </tr>
 <tr>
 <td>sent_by</td>
