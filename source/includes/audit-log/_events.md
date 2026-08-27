@@ -10,15 +10,15 @@ Attribute | Definition
 organization_id | Your organization’s unique Greenhouse Recruiting ID
 event_time | The exact time of the event, represented in `ISO-8601` format like `2024-02-03T16:38:46.985Z`
 request.id | The ID of the request
-request.type | The name of the action taken in Greenhouse Recruiting, or the request URL if from Harvest API
-performer.id | The Greenhouse Recruiting user ID of the person who performed the change or the API key if performed via [Greenhouse API](http://developers.greenhouse.io)
-performer.type | One of the following values: `user`, `api_key`, or `greenhouse_internal`
-performer.meta | The Greenhouse Recruiting email address of the person who performed the change or the exact type of API key that performed the change
+request.type | The name of the action taken in Greenhouse Recruiting, the request URL if from Harvest API, or the tool name if from the Greenhouse MCP server
+performer.id | The Greenhouse Recruiting user ID of the person who performed the change, the API key if performed via [Greenhouse API](http://developers.greenhouse.io), or the OAuth client application key if performed via the Greenhouse MCP server
+performer.type | One of the following values: `user`, `api_key`, `oauth`, or `greenhouse_internal`
+performer.meta | The Greenhouse Recruiting email address of the person who performed the change or the exact type of API key that performed the change. For MCP events, the authorizing user's ID (`on_behalf_of`), the client application name, and the granted scopes
 performer.ip_address | The IP address of the person or integration that performed the change
-event.type | One of the following values: `data_change_update`, `data_change_create`, `data_change_destroy`, `harvest_access`, or `action`
+event.type | One of the following values: `data_change_update`, `data_change_create`, `data_change_destroy`, `harvest_access`, `mcp_access`, `mcp_tool_call`, or `action`
 event.target_id | The ID of the element that was edited or accessed; this may be blank if the action does not target one particular ID
 event.target_type | The resource name for data changes, Harvest access, or the event action type for other actions
-event.meta | The before and after values from data change events, or other relevant data for the event such as the title of a report
+event.meta | The before and after values from data change events, or other relevant data for the event such as the title of a report. For `mcp_tool_call` events: the tool name, operation (`create`, `update`, `delete`, `read`, or `action`), response status, and the tool call's arguments with PII and free-text values redacted
 
 ## GET: Retrieve events
 ```shell
@@ -35,7 +35,7 @@ curl -X GET 'https://auditlog.us.greenhouse.io/events'
         "size": "100",
         "next_search_after": "1685989175"
     },
-    "hits": 2,
+    "hits": 3,
     "results": [
         {
             "request": {
@@ -90,6 +90,40 @@ curl -X GET 'https://auditlog.us.greenhouse.io/events'
                 "type": "data_change_create"
             },
             "event_time": "2023-06-02T16:06:19.137Z"
+        },
+        {
+            "request": {
+                "id": "5678zID",
+                "type": "list_offices"
+            },
+            "performer": {
+                "meta": {
+                    "client_name": "Claude",
+                    "on_behalf_of": {
+                        "id": 12345
+                    },
+                    "scopes": [
+                        "harvest:offices:list"
+                    ]
+                },
+                "id": "AbCdEfG123ClientKey",
+                "ip_address": "192.168.0.1",
+                "type": "oauth"
+            },
+            "organization_id": 123,
+            "event": {
+                "meta": {
+                    "tool": "list_offices",
+                    "operation": "read",
+                    "status": "ok",
+                    "arguments": {
+                        "per_page": 100
+                    }
+                },
+                "target_type": "Office",
+                "type": "mcp_tool_call"
+            },
+            "event_time": "2023-06-02T16:07:02.451Z"
         }
     ]
 }
@@ -107,9 +141,9 @@ after_time (optional) | Use this parameter to retrieve audit log after a certain
 date (optional) | Use this parameter to retrieve audit log from a specific date, represented in `ISO-8601` format like `2024-02-03`.
 magic_time (optional) | Use this parameter to retrieve audit log results from a trailing range in time. This parameter takes a value in `last{#x}` where `#` is a number and `x` is seconds, minutes, hours, days, or weeks, like `last7days` or `last15minutes`.
 performer_ids (optional) | Use this parameter to retrieve audit log results matching one or more [performer IDs](https://support.greenhouse.io/hc/en-us/articles/15075283790107), which are Greenhouse Recruiting user IDs. Separate multiple IDs by a comma.
-performer_types (optional) | Use this parameter to retrieve audit log results matching one or more [performer types](https://support.greenhouse.io/hc/en-us/articles/15075283790107): `user`, `api_key`, or `greenhouse_internal`. Separate multiple performer types by a comma.
+performer_types (optional) | Use this parameter to retrieve audit log results matching one or more [performer types](https://support.greenhouse.io/hc/en-us/articles/15075283790107): `user`, `api_key`, `oauth`, or `greenhouse_internal`. Separate multiple performer types by a comma.
 performer_ip_addresses (optional) | Use this parameter to retrieve audit log results matching one or more [performer IP addresses](https://support.greenhouse.io/hc/en-us/articles/15075283790107). Separate multiple IP addresses by a comma.
-event_types (optional) | Use this parameter to retrieve audit log results matching one or more [event types](https://support.greenhouse.io/hc/en-us/articles/15075283790107): `data_change_update`, `data_change_create`, `data_change_destroy`, `harvest_access`, or `action`. Separate multiple event types by a comma.
+event_types (optional) | Use this parameter to retrieve audit log results matching one or more [event types](https://support.greenhouse.io/hc/en-us/articles/15075283790107): `data_change_update`, `data_change_create`, `data_change_destroy`, `harvest_access`, `mcp_access`, `mcp_tool_call`, or `action`. Separate multiple event types by a comma.
 event_target_ids (optional) | Use this parameter to retrieve audit log results matching one or more [event target IDs](https://support.greenhouse.io/hc/en-us/articles/15075283790107), which reflect the element that was created, edited or accessed. Separate multiple event target IDs by a comma.
 event_target_types (optional) | Use this parameter to retrieve audit log results matching one or more [event target types](https://support.greenhouse.io/hc/en-us/articles/15075283790107). Separate multiple event target types by a comma.
 request_ids (optional) | Use this parameter to retrieve audit log results matching one or more [request IDs](https://support.greenhouse.io/hc/en-us/articles/15075283790107). A single event in audit log may return multiple results. An event and its resulting changes will return individual results that can be linked by request ID. Separate multiple request IDs by a comma.
