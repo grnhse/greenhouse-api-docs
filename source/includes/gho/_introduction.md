@@ -10,14 +10,16 @@ This documentation is open source! Feel free to leave feedback as issues in the
 
 ## GraphQL
 
-Greenhouse Onboarding only supports [GraphQL](http://graphql.org/); we do not have a traditional REST API.  
-We made the decision to use GraphQL because it allows you to:
+Greenhouse Onboarding supports both [GraphQL](http://graphql.org/) and REST. Here's why we initially built GraphQL support:
 
 * Increase throughput by requesting only the data you are interested in.
 * Use introspection to know precisely what our schema looks like.  Tools like 
 [GraphiQL](https://github.com/skevy/graphiql-app) will allow you to quickly and easily explore our entire API.  It even
 supports autocomplete!
 * Program against an industry-wide standard supported by a variety of tools and organizations.
+
+If your integration is already built around REST, or that's just what your team knows best, we've got you covered there too.
+Check out the [REST API docs](https://onboarding-api.greenhouse.io/api-docs/index.html) to get started.
 
 ## General Concepts
 Term | Meaning
