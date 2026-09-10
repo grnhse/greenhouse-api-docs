@@ -451,19 +451,19 @@ X-RateLimit-Remaining: 49
 </tr>
 <tr>
 <td>request.type</td>
-<td>The name of the action taken in Greenhouse Recruiting, or the request URL if from Harvest API</td>
+<td>The name of the action taken in Greenhouse Recruiting, the request URL if from Harvest API, or the tool name if from the Greenhouse MCP server</td>
 </tr>
 <tr>
 <td>performer.id</td>
-<td>The Greenhouse Recruiting user ID of the person who performed the change or the API key if performed via <a href="http://developers.greenhouse.io">Greenhouse API</a></td>
+<td>The Greenhouse Recruiting user ID of the person who performed the change, the API key if performed via <a href="http://developers.greenhouse.io">Greenhouse API</a>, or the OAuth client application key if performed via the Greenhouse MCP server</td>
 </tr>
 <tr>
 <td>performer.type</td>
-<td>One of the following values: <code>user</code>, <code>api_key</code>, or <code>greenhouse_internal</code></td>
+<td>One of the following values: <code>user</code>, <code>api_key</code>, <code>oauth</code>, or <code>greenhouse_internal</code></td>
 </tr>
 <tr>
 <td>performer.meta</td>
-<td>The Greenhouse Recruiting email address of the person who performed the change or the exact type of API key that performed the change</td>
+<td>The Greenhouse Recruiting email address of the person who performed the change or the exact type of API key that performed the change. For MCP events, the authorizing user&#39;s ID (<code>on_behalf_of</code>), the client application name, and the granted scopes</td>
 </tr>
 <tr>
 <td>performer.ip_address</td>
@@ -471,7 +471,7 @@ X-RateLimit-Remaining: 49
 </tr>
 <tr>
 <td>event.type</td>
-<td>One of the following values: <code>data_change_update</code>, <code>data_change_create</code>, <code>data_change_destroy</code>, <code>harvest_access</code>, or <code>action</code></td>
+<td>One of the following values: <code>data_change_update</code>, <code>data_change_create</code>, <code>data_change_destroy</code>, <code>harvest_access</code>, <code>mcp_access</code>, <code>mcp_tool_call</code>, or <code>action</code></td>
 </tr>
 <tr>
 <td>event.target_id</td>
@@ -483,7 +483,7 @@ X-RateLimit-Remaining: 49
 </tr>
 <tr>
 <td>event.meta</td>
-<td>The before and after values from data change events, or other relevant data for the event such as the title of a report</td>
+<td>The before and after values from data change events, or other relevant data for the event such as the title of a report. For <code>mcp_tool_call</code> events: the tool name, operation (<code>create</code>, <code>update</code>, <code>delete</code>, <code>read</code>, or <code>action</code>), response status, and the tool call&#39;s arguments with PII and free-text values redacted</td>
 </tr>
 </tbody></table>
 <h2 id='get-retrieve-events'>GET: Retrieve events</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>HTTP request
@@ -499,7 +499,7 @@ curl <span class="nt">-X</span> GET <span class="s1">'https://auditlog.us.greenh
         <span class="s2">"size"</span>: <span class="s2">"100"</span>,
         <span class="s2">"next_search_after"</span>: <span class="s2">"1685989175"</span>
     <span class="o">}</span>,
-    <span class="s2">"hits"</span>: 2,
+    <span class="s2">"hits"</span>: 3,
     <span class="s2">"results"</span>: <span class="o">[</span>
         <span class="o">{</span>
             <span class="s2">"request"</span>: <span class="o">{</span>
@@ -554,6 +554,40 @@ curl <span class="nt">-X</span> GET <span class="s1">'https://auditlog.us.greenh
                 <span class="s2">"type"</span>: <span class="s2">"data_change_create"</span>
             <span class="o">}</span>,
             <span class="s2">"event_time"</span>: <span class="s2">"2023-06-02T16:06:19.137Z"</span>
+        <span class="o">}</span>,
+        <span class="o">{</span>
+            <span class="s2">"request"</span>: <span class="o">{</span>
+                <span class="s2">"id"</span>: <span class="s2">"5678zID"</span>,
+                <span class="s2">"type"</span>: <span class="s2">"list_offices"</span>
+            <span class="o">}</span>,
+            <span class="s2">"performer"</span>: <span class="o">{</span>
+                <span class="s2">"meta"</span>: <span class="o">{</span>
+                    <span class="s2">"client_name"</span>: <span class="s2">"Claude"</span>,
+                    <span class="s2">"on_behalf_of"</span>: <span class="o">{</span>
+                        <span class="s2">"id"</span>: 12345
+                    <span class="o">}</span>,
+                    <span class="s2">"scopes"</span>: <span class="o">[</span>
+                        <span class="s2">"harvest:offices:list"</span>
+                    <span class="o">]</span>
+                <span class="o">}</span>,
+                <span class="s2">"id"</span>: <span class="s2">"AbCdEfG123ClientKey"</span>,
+                <span class="s2">"ip_address"</span>: <span class="s2">"192.168.0.1"</span>,
+                <span class="s2">"type"</span>: <span class="s2">"oauth"</span>
+            <span class="o">}</span>,
+            <span class="s2">"organization_id"</span>: 123,
+            <span class="s2">"event"</span>: <span class="o">{</span>
+                <span class="s2">"meta"</span>: <span class="o">{</span>
+                    <span class="s2">"tool"</span>: <span class="s2">"list_offices"</span>,
+                    <span class="s2">"operation"</span>: <span class="s2">"read"</span>,
+                    <span class="s2">"status"</span>: <span class="s2">"ok"</span>,
+                    <span class="s2">"arguments"</span>: <span class="o">{</span>
+                        <span class="s2">"per_page"</span>: 100
+                    <span class="o">}</span>
+                <span class="o">}</span>,
+                <span class="s2">"target_type"</span>: <span class="s2">"Office"</span>,
+                <span class="s2">"type"</span>: <span class="s2">"mcp_tool_call"</span>
+            <span class="o">}</span>,
+            <span class="s2">"event_time"</span>: <span class="s2">"2023-06-02T16:07:02.451Z"</span>
         <span class="o">}</span>
     <span class="o">]</span>
 <span class="o">}</span>
@@ -588,7 +622,7 @@ curl <span class="nt">-X</span> GET <span class="s1">'https://auditlog.us.greenh
 </tr>
 <tr>
 <td>performer_types (optional)</td>
-<td>Use this parameter to retrieve audit log results matching one or more <a href="https://support.greenhouse.io/hc/en-us/articles/15075283790107">performer types</a>: <code>user</code>, <code>api_key</code>, or <code>greenhouse_internal</code>. Separate multiple performer types by a comma.</td>
+<td>Use this parameter to retrieve audit log results matching one or more <a href="https://support.greenhouse.io/hc/en-us/articles/15075283790107">performer types</a>: <code>user</code>, <code>api_key</code>, <code>oauth</code>, or <code>greenhouse_internal</code>. Separate multiple performer types by a comma.</td>
 </tr>
 <tr>
 <td>performer_ip_addresses (optional)</td>
@@ -596,7 +630,7 @@ curl <span class="nt">-X</span> GET <span class="s1">'https://auditlog.us.greenh
 </tr>
 <tr>
 <td>event_types (optional)</td>
-<td>Use this parameter to retrieve audit log results matching one or more <a href="https://support.greenhouse.io/hc/en-us/articles/15075283790107">event types</a>: <code>data_change_update</code>, <code>data_change_create</code>, <code>data_change_destroy</code>, <code>harvest_access</code>, or <code>action</code>. Separate multiple event types by a comma.</td>
+<td>Use this parameter to retrieve audit log results matching one or more <a href="https://support.greenhouse.io/hc/en-us/articles/15075283790107">event types</a>: <code>data_change_update</code>, <code>data_change_create</code>, <code>data_change_destroy</code>, <code>harvest_access</code>, <code>mcp_access</code>, <code>mcp_tool_call</code>, or <code>action</code>. Separate multiple event types by a comma.</td>
 </tr>
 <tr>
 <td>event_target_ids (optional)</td>
