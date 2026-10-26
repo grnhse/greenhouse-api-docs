@@ -63,12 +63,23 @@
         {
           "id": 1234,
           "opening_id": "abc-1",
-          "custom_fields": []
+          "open": true,
+          "opened_at": "2016-10-20T18:16:32Z",
+          "closed_at": null,
+          "close_reason": null,
+          "custom_fields": {}
         },
         {
           "id": 1235,
           "opening_id": "abc-2",
-          "custom_fields": []
+          "open": false,
+          "opened_at": "2016-10-20T18:16:32Z",
+          "closed_at": "2016-11-02T14:05:11Z",
+          "close_reason": {
+            "id": 678,
+            "name": "Hire - Backfill"
+          },
+          "custom_fields": {}
         }
       ],
       "custom_fields": {
@@ -102,7 +113,7 @@ The Job Created event is triggered when a new job is created from scratch or cop
 | Attribute | Note |
 |-----------|------|
 | `hiring_team` | Field contains the Greenhouse users responsible for this job.  Each field contains the user's Greenhouse user id and the user's external employee id from the customer's system.  The employee id will be null if it has not been set in Greenhouse.
-| `openings` | Field contains all the openings in this job. The custom field element on each opening may be omitted if the organization does not have custom fields on openings enabled.
+| `openings` | Field contains all the openings in this job, including closed openings. `open` is `true` while the opening has no close date. `opened_at` and `closed_at` are the opening's open and close dates; `closed_at` is `null` while the opening is open. `close_reason` contains the `id` and `name` of the reason the opening was closed, or `null` if no reason was recorded. The custom field element on each opening may be omitted if the organization does not have custom fields on openings enabled.
 
 ## Job deleted
 
@@ -184,12 +195,23 @@ This webhook only fires when jobs are deleted from the Greenhouse system. This o
         {
           "id": 1234,
           "opening_id": "abc-1",
-          "custom_fields": []
+          "open": true,
+          "opened_at": "2016-10-20T18:16:32Z",
+          "closed_at": null,
+          "close_reason": null,
+          "custom_fields": {}
         },
         {
           "id": 1235,
           "opening_id": "abc-2",
-          "custom_fields": []
+          "open": false,
+          "opened_at": "2016-10-20T18:16:32Z",
+          "closed_at": "2016-11-02T14:05:11Z",
+          "close_reason": {
+            "id": 678,
+            "name": "Hire - Backfill"
+          },
+          "custom_fields": {}
         }
       ],
       "custom_fields": {
@@ -225,7 +247,7 @@ The Job Updated event is triggered any time one or more of the following fields 
 | Attribute | Note |
 |-----------|------|
 | `hiring_team` | Field contains the Greenhouse users responsible for this job.  Each field contains the user's Greenhouse user id and the user's external employee id from the customer's system.  The employee id will be null if it has not been set in Greenhouse.
-| `openings` | Field contains all the openings in this job. The custom field element on each opening may be omitted if the organization does not have custom fields on openings enabled.
+| `openings` | Field contains all the openings in this job, including closed openings. `open` is `true` while the opening has no close date. `opened_at` and `closed_at` are the opening's open and close dates; `closed_at` is `null` while the opening is open. `close_reason` contains the `id` and `name` of the reason the opening was closed, or `null` if no reason was recorded. The custom field element on each opening may be omitted if the organization does not have custom fields on openings enabled.
 
 ## Job Approved
 
@@ -287,12 +309,23 @@ The Job Updated event is triggered any time one or more of the following fields 
         {
           "id": 1234,
           "opening_id": "abc-1",
-          "custom_fields": []
+          "open": true,
+          "opened_at": "2016-10-20T18:16:32Z",
+          "closed_at": null,
+          "close_reason": null,
+          "custom_fields": {}
         },
         {
           "id": 1235,
           "opening_id": "abc-2",
-          "custom_fields": []
+          "open": false,
+          "opened_at": "2016-10-20T18:16:32Z",
+          "closed_at": "2016-11-02T14:05:11Z",
+          "close_reason": {
+            "id": 678,
+            "name": "Hire - Backfill"
+          },
+          "custom_fields": {}
         }
       ],
       "custom_fields": {
