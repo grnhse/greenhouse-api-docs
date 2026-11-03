@@ -442,21 +442,25 @@ This webhook fires when creating a new offer in Greenhouse. This may also fire w
 {
     "action": "offer_created",
     "payload": {
-        "id": 12345,
-        "application_id": 234556,
-        "job_id": 45678,
-        "user_id": 67890,
-        "version": 1,
-        "sent_on": "2013-03-22",
-        "resolved_at": "2013-03-25T00:00:00Z",
-        "start_date": "04/15/2013",
-        "notes": "Vacation scheduled 4/20 - 4/23",
-        "offer_status": "Accepted",
-        "custom_fields": {
-            "custom_application_field": {
-                "name": "Custom Application Field",
-                "type": "short_text",
-                "value": "Example"
+        "offer": {
+            "id": 12345,
+            "application_id": 234556,
+            "job_id": 45678,
+            "user_id": 67890,
+            "version": 1,
+            "sent_on": "2013-03-22",
+            "resolved_at": "2013-03-25T00:00:00Z",
+            "start_date": "04/15/2013",
+            "notes": "Vacation scheduled 4/20 - 4/23",
+            "created_at": "2013-03-21T14:02:11Z",
+            "updated_at": "2013-03-25T00:00:00Z",
+            "offer_status": "Accepted",
+            "custom_fields": {
+                "custom_application_field": {
+                    "name": "Custom Application Field",
+                    "type": "short_text",
+                    "value": "Example"
+                }
             }
         }
     }
@@ -471,21 +475,25 @@ This webhook fires when an offer requires approval and the approval is received.
 {
     "action": "offer_approved",
     "payload": {
-        "id": 12345,
-        "application_id": 234556,
-        "job_id": 45678,
-        "user_id": 67890,
-        "version": 1,
-        "sent_on": "2013-03-22",
-        "resolved_at": "2013-03-25T00:00:00Z",
-        "start_date": "04/15/2013",
-        "notes": "Vacation scheduled 4/20 - 4/23",
-        "offer_status": "Accepted",
-        "custom_fields": {
-            "custom_application_field": {
-                "name": "Custom Application Field",
-                "type": "short_text",
-                "value": "Example"
+        "offer": {
+            "id": 12345,
+            "application_id": 234556,
+            "job_id": 45678,
+            "user_id": 67890,
+            "version": 1,
+            "sent_on": "2013-03-22",
+            "resolved_at": "2013-03-25T00:00:00Z",
+            "start_date": "04/15/2013",
+            "notes": "Vacation scheduled 4/20 - 4/23",
+            "created_at": "2013-03-21T14:02:11Z",
+            "updated_at": "2013-03-25T00:00:00Z",
+            "offer_status": "Accepted",
+            "custom_fields": {
+                "custom_application_field": {
+                    "name": "Custom Application Field",
+                    "type": "short_text",
+                    "value": "Example"
+                }
             }
         }
     }
@@ -500,21 +508,25 @@ This webhook fires when an offer is updated. In some cases, an offer may be chan
 {
     "action": "offer_updated",
     "payload": {
-        "id": 12345,
-        "application_id": 234556,
-        "job_id": 45678,
-        "user_id": 67890,
-        "version": 2,
-        "sent_on": "2013-03-22",
-        "resolved_at": "2013-03-25T00:00:00Z",
-        "start_date": "04/15/2013",
-        "notes": "Vacation scheduled 4/20 - 4/23",
-        "offer_status": "Deprecated",
-        "custom_fields": {
-            "custom_application_field": {
-                "name": "Custom Application Field",
-                "type": "short_text",
-                "value": "Example"
+        "offer": {
+            "id": 12345,
+            "application_id": 234556,
+            "job_id": 45678,
+            "user_id": 67890,
+            "version": 2,
+            "sent_on": "2013-03-22",
+            "resolved_at": "2013-03-25T00:00:00Z",
+            "start_date": "04/15/2013",
+            "notes": "Vacation scheduled 4/20 - 4/23",
+            "created_at": "2013-03-21T14:02:11Z",
+            "updated_at": "2013-03-25T00:00:00Z",
+            "offer_status": "Deprecated",
+            "custom_fields": {
+                "custom_application_field": {
+                    "name": "Custom Application Field",
+                    "type": "short_text",
+                    "value": "Example"
+                }
             }
         }
     }
@@ -552,6 +564,8 @@ This webhook only fires when offers are deleted from the Greenhouse system.  Thi
 | `version` | This is the version of the offer in Greenhouse.  New versions are triggered when certain fields are updated. |
 | `sent_on` | When the offer was sent to the candidate |
 | `resolved_at` | When this version was either accepted, rejected, or deprecated (a new version was made) |
+| `created_at` | When this version of the offer was created. A change that creates a new version creates a new offer, so this is not necessarily when the first offer on the application was made. Included in Offer created, Offer approved, and Offer updated webhooks. |
+| `updated_at` | When this version of the offer was last updated. This is read when the webhook is sent, not when the event occurred, so after a delivery delay or a retry it may be later than the change that triggered the webhook. Included in Offer created, Offer approved, and Offer updated webhooks. |
 
 
 ## Prospect created
