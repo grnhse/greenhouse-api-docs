@@ -5,7 +5,7 @@ orbs:
 jobs:
   build:
     parallelism: 1
-    resource_class: medium
+    resource_class: small
     docker:
       - image: cimg/ruby:3.4.12-node
         environment:
@@ -20,7 +20,7 @@ jobs:
 
   rspec:
     parallelism: 1
-    resource_class: medium
+    resource_class: small
     docker:
       - image: cimg/ruby:3.4.12-node
         environment:
