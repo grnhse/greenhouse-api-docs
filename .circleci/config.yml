@@ -10,6 +10,7 @@ jobs:
       - image: cimg/ruby:3.4.12-node
         environment:
           RAILS_ENV: test
+          MAKEFLAGS: "-j2"
     steps:
       - checkout
       - ruby/install-deps
@@ -25,6 +26,7 @@ jobs:
       - image: cimg/ruby:3.4.12-node
         environment:
           RAILS_ENV: test
+          MAKEFLAGS: "-j2"
     steps:
       - checkout
       - ruby/install-deps
