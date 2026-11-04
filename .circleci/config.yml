@@ -7,9 +7,10 @@ jobs:
     parallelism: 1
     resource_class: small
     docker:
-      - image: cimg/ruby:3.4.7-node
+      - image: cimg/ruby:3.4.12-node
         environment:
           RAILS_ENV: test
+          MAKEFLAGS: "-j2"
     steps:
       - checkout
       - ruby/install-deps
@@ -22,9 +23,10 @@ jobs:
     parallelism: 1
     resource_class: small
     docker:
-      - image: cimg/ruby:3.4.7-node
+      - image: cimg/ruby:3.4.12-node
         environment:
           RAILS_ENV: test
+          MAKEFLAGS: "-j2"
     steps:
       - checkout
       - ruby/install-deps
