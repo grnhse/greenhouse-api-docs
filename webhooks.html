@@ -1084,21 +1084,25 @@ analytics.page()
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"offer_created"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"payload"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">12345</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"application_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">234556</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"job_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">45678</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">67890</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"version"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"sent_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2013-03-22"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"resolved_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2013-03-25T00:00:00Z"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"04/15/2013"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Vacation scheduled 4/20 - 4/23"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"offer_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Accepted"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"custom_fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"custom_application_field"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Custom Application Field"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"short_text"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Example"</span><span class="w">
+        </span><span class="nl">"offer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">12345</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"application_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">234556</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"job_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">45678</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">67890</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"version"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"sent_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2013-03-22"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"resolved_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2013-03-25T00:00:00Z"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"04/15/2013"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Vacation scheduled 4/20 - 4/23"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2013-03-21T14:02:11Z"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2013-03-25T00:00:00Z"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"offer_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Accepted"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"custom_fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"custom_application_field"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Custom Application Field"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"short_text"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Example"</span><span class="w">
+                </span><span class="p">}</span><span class="w">
             </span><span class="p">}</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
@@ -1108,21 +1112,25 @@ analytics.page()
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"offer_approved"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"payload"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">12345</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"application_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">234556</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"job_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">45678</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">67890</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"version"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"sent_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2013-03-22"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"resolved_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2013-03-25T00:00:00Z"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"04/15/2013"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Vacation scheduled 4/20 - 4/23"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"offer_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Accepted"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"custom_fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"custom_application_field"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Custom Application Field"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"short_text"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Example"</span><span class="w">
+        </span><span class="nl">"offer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">12345</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"application_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">234556</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"job_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">45678</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">67890</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"version"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"sent_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2013-03-22"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"resolved_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2013-03-25T00:00:00Z"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"04/15/2013"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Vacation scheduled 4/20 - 4/23"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2013-03-21T14:02:11Z"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2013-03-25T00:00:00Z"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"offer_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Accepted"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"custom_fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"custom_application_field"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Custom Application Field"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"short_text"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Example"</span><span class="w">
+                </span><span class="p">}</span><span class="w">
             </span><span class="p">}</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
@@ -1132,21 +1140,25 @@ analytics.page()
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"offer_updated"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"payload"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">12345</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"application_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">234556</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"job_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">45678</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">67890</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"version"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"sent_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2013-03-22"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"resolved_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2013-03-25T00:00:00Z"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"04/15/2013"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Vacation scheduled 4/20 - 4/23"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"offer_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Deprecated"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"custom_fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"custom_application_field"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Custom Application Field"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"short_text"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Example"</span><span class="w">
+        </span><span class="nl">"offer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">12345</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"application_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">234556</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"job_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">45678</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">67890</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"version"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"sent_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2013-03-22"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"resolved_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2013-03-25T00:00:00Z"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"04/15/2013"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Vacation scheduled 4/20 - 4/23"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2013-03-21T14:02:11Z"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2013-03-25T00:00:00Z"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"offer_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Deprecated"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"custom_fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"custom_application_field"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Custom Application Field"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"short_text"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Example"</span><span class="w">
+                </span><span class="p">}</span><span class="w">
             </span><span class="p">}</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
@@ -1191,6 +1203,14 @@ analytics.page()
 <tr>
 <td><code>resolved_at</code></td>
 <td>When this version was either accepted, rejected, or deprecated (a new version was made)</td>
+</tr>
+<tr>
+<td><code>created_at</code></td>
+<td>When this version of the offer was created. A change that creates a new version creates a new offer, so this is not necessarily when the first offer on the application was made. Included in Offer created, Offer approved, and Offer updated webhooks.</td>
+</tr>
+<tr>
+<td><code>updated_at</code></td>
+<td>When this version of the offer was last updated. This is read when the webhook is sent, not when the event occurred, so after a delivery delay or a retry it may be later than the change that triggered the webhook. Included in Offer created, Offer approved, and Offer updated webhooks.</td>
 </tr>
 </tbody></table>
 <h2 id='prospect-created'>Prospect created</h2><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
