@@ -4,10 +4,6 @@ layout: home
 
 <div class="center-big">Developer Resources</div>
 <div class="blocks">
-  <a href="/harvest.html" title="Harvest API Docs" class="block block-harvest">
-    <h3>Harvest API</h3>
-    <p class="block-description">Programmatically access your jobs, candidates, interviews, and other data from Greenhouse.</p>
-  </a>
   <a href="/job-board.html" title="Job Board API Docs" class="block block-job-board">
     <h3>Job Board API</h3>
     <p class="block-description">Build careers pages with a unique look and feel, construct department-level pages and more!</p>
