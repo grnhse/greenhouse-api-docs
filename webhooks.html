@@ -2760,12 +2760,23 @@ analytics.page()
         </span><span class="p">{</span><span class="w">
           </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1234</span><span class="p">,</span><span class="w">
           </span><span class="nl">"opening_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc-1"</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"custom_fields"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+          </span><span class="nl">"open"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"opened_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-10-20T18:16:32Z"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"closed_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"close_reason"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"custom_fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
           </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1235</span><span class="p">,</span><span class="w">
           </span><span class="nl">"opening_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc-2"</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"custom_fields"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+          </span><span class="nl">"open"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"opened_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-10-20T18:16:32Z"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"closed_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-11-02T14:05:11Z"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"close_reason"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">678</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hire - Backfill"</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="nl">"custom_fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
         </span><span class="p">}</span><span class="w">
       </span><span class="p">],</span><span class="w">
       </span><span class="nl">"custom_fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -2807,7 +2818,7 @@ analytics.page()
 </tr>
 <tr>
 <td><code>openings</code></td>
-<td>Field contains all the openings in this job. The custom field element on each opening may be omitted if the organization does not have custom fields on openings enabled.</td>
+<td>Field contains all the openings in this job, including closed openings. <code>open</code> is <code>true</code> while the opening has no close date. <code>opened_at</code> and <code>closed_at</code> are the opening&#39;s open and close dates; <code>closed_at</code> is <code>null</code> while the opening is open. <code>close_reason</code> contains the <code>id</code> and <code>name</code> of the reason the opening was closed, or <code>null</code> if no reason was recorded. The custom field element on each opening may be omitted if the organization does not have custom fields on openings enabled.</td>
 </tr>
 </tbody></table>
 <h2 id='job-deleted'>Job deleted</h2>
@@ -2891,12 +2902,23 @@ analytics.page()
         </span><span class="p">{</span><span class="w">
           </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1234</span><span class="p">,</span><span class="w">
           </span><span class="nl">"opening_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc-1"</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"custom_fields"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+          </span><span class="nl">"open"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"opened_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-10-20T18:16:32Z"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"closed_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"close_reason"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"custom_fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
           </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1235</span><span class="p">,</span><span class="w">
           </span><span class="nl">"opening_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc-2"</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"custom_fields"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+          </span><span class="nl">"open"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"opened_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-10-20T18:16:32Z"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"closed_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-11-02T14:05:11Z"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"close_reason"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">678</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hire - Backfill"</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="nl">"custom_fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
         </span><span class="p">}</span><span class="w">
       </span><span class="p">],</span><span class="w">
       </span><span class="nl">"custom_fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -2939,7 +2961,7 @@ analytics.page()
 </tr>
 <tr>
 <td><code>openings</code></td>
-<td>Field contains all the openings in this job. The custom field element on each opening may be omitted if the organization does not have custom fields on openings enabled.</td>
+<td>Field contains all the openings in this job, including closed openings. <code>open</code> is <code>true</code> while the opening has no close date. <code>opened_at</code> and <code>closed_at</code> are the opening&#39;s open and close dates; <code>closed_at</code> is <code>null</code> while the opening is open. <code>close_reason</code> contains the <code>id</code> and <code>name</code> of the reason the opening was closed, or <code>null</code> if no reason was recorded. The custom field element on each opening may be omitted if the organization does not have custom fields on openings enabled.</td>
 </tr>
 </tbody></table>
 <h2 id='job-approved'>Job Approved</h2><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
@@ -2999,12 +3021,23 @@ analytics.page()
         </span><span class="p">{</span><span class="w">
           </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1234</span><span class="p">,</span><span class="w">
           </span><span class="nl">"opening_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc-1"</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"custom_fields"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+          </span><span class="nl">"open"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"opened_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-10-20T18:16:32Z"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"closed_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"close_reason"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"custom_fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
           </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1235</span><span class="p">,</span><span class="w">
           </span><span class="nl">"opening_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc-2"</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"custom_fields"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+          </span><span class="nl">"open"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"opened_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-10-20T18:16:32Z"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"closed_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-11-02T14:05:11Z"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"close_reason"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">678</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hire - Backfill"</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="nl">"custom_fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
         </span><span class="p">}</span><span class="w">
       </span><span class="p">],</span><span class="w">
       </span><span class="nl">"custom_fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
