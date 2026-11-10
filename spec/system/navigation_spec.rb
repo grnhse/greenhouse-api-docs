@@ -8,6 +8,7 @@ RSpec.describe "Navigation", type: :system do
 
     click_on "Job Board API Docs"
     expect(page).to have_content("With our Job Board API, you will have easy access to a simple JSON representation of your company's offices, departments, and published jobs.")
+    expect(page).to have_css("a.nav-home-link[href=\"https://developers.greenhouse.io/\"]")
 
     click_on "Onboarding API"
     expect(page).to have_content("Our Greenhouse Onboarding API allows you to query and modify your employee, and query company information.")
