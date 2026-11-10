@@ -219,14 +219,16 @@
             ],
             "recruiters":  [
               {
-                  "user_id": 92427,
-                "employee_id": null
+                "user_id": 92427,
+                "employee_id": null,
+                "responsible": true
               }
             ],
             "coordinators": [
               {
                 "user_id": 92427,
-                "employee_id": "DEFG123"
+                "employee_id": "DEFG123",
+                "responsible": true
               }
             ]
           },

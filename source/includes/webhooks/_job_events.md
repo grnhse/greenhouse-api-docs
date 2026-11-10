@@ -50,14 +50,22 @@
         "recruiters": [
           {
             "user_id": 2345,
-            "employee_id": null
+            "employee_id": null,
+            "responsible": false
           },
           {
             "user_id": 3456,
-            "employee_id": "abc-234"
+            "employee_id": "abc-234",
+            "responsible": true
           }
         ],
-        "coordinators": []
+        "coordinators": [
+          {
+            "user_id": 4567,
+            "employee_id": "abc-345",
+            "responsible": true
+          }
+        ]
       },
       "openings": [
         {
@@ -112,7 +120,7 @@ The Job Created event is triggered when a new job is created from scratch or cop
 
 | Attribute | Note |
 |-----------|------|
-| `hiring_team` | Field contains the Greenhouse users responsible for this job.  Each field contains the user's Greenhouse user id and the user's external employee id from the customer's system.  The employee id will be null if it has not been set in Greenhouse.
+| `hiring_team` | Field contains the Greenhouse users responsible for this job.  Each field contains the user's Greenhouse user id and the user's external employee id from the customer's system.  The employee id will be null if it has not been set in Greenhouse.  Recruiters and coordinators also contain a `responsible` boolean, which is `true` for the job's responsible recruiter or coordinator. Sourcers and hiring managers have no responsible flag, so `responsible` is omitted for them.
 | `openings` | Field contains all the openings in this job, including closed openings. `open` is `true` while the opening has no close date. `opened_at` and `closed_at` are the opening's open and close dates; `closed_at` is `null` while the opening is open. `close_reason` contains the `id` and `name` of the reason the opening was closed, or `null` if no reason was recorded. The custom field element on each opening may be omitted if the organization does not have custom fields on openings enabled.
 
 ## Job deleted
@@ -182,14 +190,22 @@ This webhook only fires when jobs are deleted from the Greenhouse system. This o
         "recruiters": [
           {
             "user_id": 2345,
-            "employee_id": null
+            "employee_id": null,
+            "responsible": false
           },
           {
             "user_id": 3456,
-            "employee_id": "abc-234"
+            "employee_id": "abc-234",
+            "responsible": true
           }
         ],
-        "coordinators": []
+        "coordinators": [
+          {
+            "user_id": 4567,
+            "employee_id": "abc-345",
+            "responsible": true
+          }
+        ]
       },
       "openings": [
         {
@@ -246,7 +262,7 @@ The Job Updated event is triggered any time one or more of the following fields 
 
 | Attribute | Note |
 |-----------|------|
-| `hiring_team` | Field contains the Greenhouse users responsible for this job.  Each field contains the user's Greenhouse user id and the user's external employee id from the customer's system.  The employee id will be null if it has not been set in Greenhouse.
+| `hiring_team` | Field contains the Greenhouse users responsible for this job.  Each field contains the user's Greenhouse user id and the user's external employee id from the customer's system.  The employee id will be null if it has not been set in Greenhouse.  Recruiters and coordinators also contain a `responsible` boolean, which is `true` for the job's responsible recruiter or coordinator. Sourcers and hiring managers have no responsible flag, so `responsible` is omitted for them.
 | `openings` | Field contains all the openings in this job, including closed openings. `open` is `true` while the opening has no close date. `opened_at` and `closed_at` are the opening's open and close dates; `closed_at` is `null` while the opening is open. `close_reason` contains the `id` and `name` of the reason the opening was closed, or `null` if no reason was recorded. The custom field element on each opening may be omitted if the organization does not have custom fields on openings enabled.
 
 ## Job Approved
@@ -296,14 +312,22 @@ The Job Updated event is triggered any time one or more of the following fields 
         "recruiters": [
           {
             "user_id": 2345,
-            "employee_id": null
+            "employee_id": null,
+            "responsible": false
           },
           {
             "user_id": 3456,
-            "employee_id": "abc-234"
+            "employee_id": "abc-234",
+            "responsible": true
           }
         ],
-        "coordinators": []
+        "coordinators": [
+          {
+            "user_id": 4567,
+            "employee_id": "abc-345",
+            "responsible": true
+          }
+        ]
       },
       "openings": [
         {
