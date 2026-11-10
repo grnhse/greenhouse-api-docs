@@ -67,11 +67,13 @@ Pagination on audit log API allows for retrieving the next page from your query 
     - Set the `Search-After` header to the `paging.next_search_after` value from each response progressively
 3. The last page of results will return `null` for the `paging.next_search_after` attribute, and an empty list of `results`
 
+A `Pit-Id` expires 1 minute after it was last used. A request with an expired `Pit-Id` returns `HTTP 410`. Pages you already received are complete. To resume, start a new search without the `Pit-Id` and `Search-After` headers, and set `before_time` to the `event_time` of the last event you received.
+
 
 Audit log API requests are rate limited. Paginated requests are limited to 3 per 30 seconds, and overall requests are limited to 50 per 10 seconds. Exceeding the limit will result in [throttling](https://developers.greenhouse.io/audit-log.html#throttling).
 
 ## Validation
-Any methods that take input will validate all parameters. Any parameter that fails validation will trigger an error response with status `HTTP 422`. The response body will be a JSON object that includes a message as well as a list of fields that failed validation.
+Any methods that take input will validate all parameters. Any parameter that fails validation will trigger an error response with status `HTTP 400`. The response body will be a JSON object with a `code` and an `error` message that describes every parameter that failed validation.
 
 ## General considerations
 
@@ -86,19 +88,37 @@ Unless otherwise specified, audit log API methods generally conform to the follo
 
 ## Errors
 
-| Error Code | Meaning                                                                                                                                                                                                 |
-|------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 401        | Unauthorized -- Your access token is invalid or has expired. Access tokens expire 24 hours after generation. Ensure you’re sharing a [valid access token](#authentication) in the authorization header. |
-| 403        | Forbidden -- You do not have access to that record.                                                                                                                                                     |
-| 404        | Not Found -- Resource not found                                                                                                                                                                         |
-| 422        | Not processed -- We’re not able to process your request. Validate your parameters.                                                                                                                      |
-| 429        | Rate limit exceeded -- You’re being [throttled](#throttling) for exceeding our rate limit.                                                                                                              |
-| 500        | Server Error -- We’re having a problem with our server. Give us a few minutes and try again, or check [our status page](https://status.greenhouse.io/).                                                 |
+> Example error response:
+
+```json
+{
+  "code": "pit_id_expired",
+  "error": "The Pit-Id has expired, so this page can't be returned. ..."
+}
+```
+
+Error responses have a JSON body with an `error` message, and most also include a `code`.
+
+| Status | Code | Meaning |
+|--------|------|---------|
+| 400 | `invalid_request` | Bad Request -- One or more parameters failed [validation](#validation). The `error` message lists each one. |
+| 400 | | Bad Request -- The request couldn't be parsed, for example because the query string is malformed. |
+| 400 | `invalid_search_after` | Bad Request -- The `Search-After` header is malformed, or was sent without a `Pit-Id` header. Send the unchanged `paging.next_search_after` value from the previous response. |
+| 401 | `unauthorized` | Unauthorized -- Your access token is invalid or has expired. Access tokens expire 24 hours after generation. Ensure you’re sharing a [valid access token](#authentication) in the authorization header. |
+| 403 | | Forbidden -- You do not have access to that record. |
+| 404 | `not_found` | Not Found -- Resource not found |
+| 405 | | Method Not Allowed -- Only `GET` requests are supported. |
+| 400 | `pit_id_expired` | Gone -- The `Pit-Id` has expired. See [Pagination](#pagination) for how to resume. |
+| 429 | `rate_limited` | Rate limit exceeded -- You’re being [throttled](#rate-limiting) for exceeding our rate limit. |
+| 500 | `internal_error` | Server Error -- We’re having a problem with our server, or couldn't return complete results for your search. Give us a few minutes and try again, or check [our status page](https://status.greenhouse.io/). |
+| 503 | `service_busy` | Service Unavailable -- The audit log is busy and can't start your search. Retry after the number of seconds in the `Retry-After` header. |
+| 503 | `search_timeout` | Service Unavailable -- Your search took too long and was stopped. Retry, or narrow the search with a shorter time range or more filters. |
 
 ## Audit Log Change Log
 
 | Date               | Description                                                                                                                                                                                                                |
 |--------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Nov 6, 2026        | Error responses now include a `code`. Documented `HTTP 400`, `410` and `503` responses and `Pit-Id` expiry. An expired PIT now returns `410` instead of `400`.|
 | Oct 7, 2024        | Updated favicon, github mark, and color palette. Fixed typos and formatting errors.                                                                                                                                        |
 | September 10, 2023 | Fixed pagination docs to reflect proper use of headers/query params.                                                                                                                                                       |
 | Dec 12, 2023       | Fix bug with missing GET events in nav menu                                                                                                                                                                                |
