@@ -69,6 +69,7 @@
           "value": null
         }
       },
+      "job_post_id": 263611,
       "candidate": {
         "id": 60304594,
         "first_name": "Jane",
@@ -281,6 +282,13 @@
 The New Candidate Application event occurs when a new application is created for a candidate.
 
 See webhook [common attributes](#common-attributes).
+
+### Noteworthy response attributes
+
+| Attribute | Note |
+|-----------|------|
+| `application.job_post_id` | The job post the candidate applied through, or `null` if the application wasn't submitted through a job post (for example, a candidate added manually).
+| `application.jobs[].job_post_id` | The job's first external job post. This is not necessarily the post the candidate applied through: when a job has more than one post, use `application.job_post_id` instead.
 
 ## Application deleted
 
