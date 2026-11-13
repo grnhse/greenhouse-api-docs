@@ -68,6 +68,10 @@ Currently, Webhooks for all event types include these common attributes:
 | `application.candidate.email_addresses[].type` | One of: `personal`, `work`, `other`
 | `application.candidate.attachments[].type` | One of: `cover_letter`, `offer_packet`, `resume`, `take_home_test`, `offer_letter`, `signed_offer_letter` <br/><br/> Note: Attachments expire in 7 days.
 | `application.candidate.external_id` | An arbitrary ID provided by an external source; does not map to another entity in Greenhouse.
+| `application.candidate.educations[].id` | Unique Greenhouse identifier of the candidate's education entry.
+| `application.candidate.educations[].start_date_iso`, `application.candidate.educations[].end_date_iso` | The education's `start_date` and `end_date` as ISO 8601 dates (`YYYY-MM-DD`), or `null` when the date is not set. `start_date` and `end_date` keep their `MM/DD/YYYY` format and are `""` when the date is not set.
+| `application.candidate.employments[].id` | Unique Greenhouse identifier of the candidate's employment entry.
+| `application.candidate.employments[].start_date_iso`, `application.candidate.employments[].end_date_iso` | The employment's `start_date` and `end_date` as ISO 8601 dates (`YYYY-MM-DD`). `end_date_iso` is `null` for a current employment. `start_date` and `end_date` keep their `MM/DD/YYYY` format.
 | `application.prospect` | If true, this is a prospect application which means that the associated person is a prospect and has not yet applied for this job. (Only prospects will have non-null values for `prospect_owner`, `prospect_pool`, or `prospect_stage` under `prospect_detail`)  |
 | `application.prospect_detail.prospect_owner` | The user responsible for keeping track of the prospect. Either null or a user's `id` and `name` |
 | `application.prospect_detail.prospect_pool` | The current prospect pool of a prospect. Either null or a pool's `id` and `name` |

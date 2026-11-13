@@ -116,11 +116,14 @@
         ],
         "educations": [
           {
+            "id": 4011876,
             "school_name": "Stanford University",
             "degree": "Bachelor's Degree",
             "discipline": "Computer Science",
             "start_date": "09/15/2007",
-            "end_date": "05/15/2011"
+            "end_date": "05/15/2011",
+            "start_date_iso": "2007-09-15",
+            "end_date_iso": "2011-05-15"
           }
         ],
         "employments": [],
@@ -632,19 +635,25 @@ This webhook only fires when offers are deleted from the Greenhouse system.  Thi
         "social_media_addresses": [],
         "educations": [
           {
+            "id": 4011875,
             "school_name": "Harvard University",
             "degree": "Bachelor's Degree",
             "discipline": "Information Systems",
             "start_date": "01/01/2012",
-            "end_date": "01/01/2016"
+            "end_date": "01/01/2016",
+            "start_date_iso": "2012-01-01",
+            "end_date_iso": "2016-01-01"
           }
         ],
         "employments": [
           {
+            "id": 3825519,
             "company_name": "Greenhouse",
             "title": "Engineer",
             "start_date": "01/01/2012",
-            "end_date": "01/01/2016"
+            "end_date": "01/01/2016",
+            "start_date_iso": "2012-01-01",
+            "end_date_iso": "2016-01-01"
           }
         ],
         "recruiter": {
