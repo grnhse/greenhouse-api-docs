@@ -48,6 +48,7 @@ This webhook will fire when a candidate or prospect is deleted from Greenhouse. 
   "payload": {
     "application": {
       "id": 46194062,
+      "status": "hired",
       "opening": {
         "opening_id": "1234-56",
         "custom_fields": []
@@ -202,6 +203,7 @@ This webhook will fire when a candidate or prospect is deleted from Greenhouse. 
           "name": "Developer",
           "requisition_id": null,
           "confidential": false,
+          "status": "closed",
           "opened_at": "2014-11-20T22:49:14Z",
           "closed_at": "2014-11-25T22:49:14Z",
           "departments": [
@@ -299,6 +301,8 @@ See webhook [common attributes](#common-attributes).
 | `application.offer.sent_on` | Date when this offer was sent to the candidate.
 | `application.offer.resolved_at` | Date the offer was accepted.
 | `application.offer.starts_at` | The candidate's start date. Expected format is YYYY-MM-DD
+| `application.status` | The application's status when the webhook is sent. Normally `hired`.
+| `application.jobs[].status` | One of: `open`, `closed`, `draft`. Reflects the job after the hire, so it is `closed` when this hire filled the job's last opening and closed the job.
 | `application.job` | Deprecated. Use `application.jobs[]` instead
 | `application.job.close_date` | Deprecated. Use `application.jobs[].closed_at` instead.
 | `application.job.open_date` | Deprecated. Use `application.jobs[].opened_at` instead.
