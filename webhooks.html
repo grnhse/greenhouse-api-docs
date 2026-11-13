@@ -870,14 +870,16 @@ analytics.page()
             </span><span class="p">],</span><span class="w">
             </span><span class="nl">"recruiters"</span><span class="p">:</span><span class="w">  </span><span class="p">[</span><span class="w">
               </span><span class="p">{</span><span class="w">
-                  </span><span class="nl">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">92427</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"employee_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+                </span><span class="nl">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">92427</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"employee_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"responsible"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
               </span><span class="p">}</span><span class="w">
             </span><span class="p">],</span><span class="w">
             </span><span class="nl">"coordinators"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
               </span><span class="p">{</span><span class="w">
                 </span><span class="nl">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">92427</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"employee_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DEFG123"</span><span class="w">
+                </span><span class="nl">"employee_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DEFG123"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"responsible"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
               </span><span class="p">}</span><span class="w">
             </span><span class="p">]</span><span class="w">
           </span><span class="p">},</span><span class="w">
@@ -2747,14 +2749,22 @@ analytics.page()
         </span><span class="nl">"recruiters"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
           </span><span class="p">{</span><span class="w">
             </span><span class="nl">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2345</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"employee_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+            </span><span class="nl">"employee_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"responsible"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
           </span><span class="p">},</span><span class="w">
           </span><span class="p">{</span><span class="w">
             </span><span class="nl">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3456</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"employee_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc-234"</span><span class="w">
+            </span><span class="nl">"employee_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc-234"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"responsible"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
           </span><span class="p">}</span><span class="w">
         </span><span class="p">],</span><span class="w">
-        </span><span class="nl">"coordinators"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+        </span><span class="nl">"coordinators"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4567</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"employee_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc-345"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"responsible"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="nl">"openings"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
@@ -2814,7 +2824,7 @@ analytics.page()
 </thead><tbody>
 <tr>
 <td><code>hiring_team</code></td>
-<td>Field contains the Greenhouse users responsible for this job.  Each field contains the user&#39;s Greenhouse user id and the user&#39;s external employee id from the customer&#39;s system.  The employee id will be null if it has not been set in Greenhouse.</td>
+<td>Field contains the Greenhouse users responsible for this job.  Each field contains the user&#39;s Greenhouse user id and the user&#39;s external employee id from the customer&#39;s system.  The employee id will be null if it has not been set in Greenhouse.  Recruiters and coordinators also contain a <code>responsible</code> boolean, which is <code>true</code> for the job&#39;s responsible recruiter or coordinator. Sourcers and hiring managers have no responsible flag, so <code>responsible</code> is omitted for them.</td>
 </tr>
 <tr>
 <td><code>openings</code></td>
@@ -2889,14 +2899,22 @@ analytics.page()
         </span><span class="nl">"recruiters"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
           </span><span class="p">{</span><span class="w">
             </span><span class="nl">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2345</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"employee_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+            </span><span class="nl">"employee_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"responsible"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
           </span><span class="p">},</span><span class="w">
           </span><span class="p">{</span><span class="w">
             </span><span class="nl">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3456</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"employee_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc-234"</span><span class="w">
+            </span><span class="nl">"employee_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc-234"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"responsible"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
           </span><span class="p">}</span><span class="w">
         </span><span class="p">],</span><span class="w">
-        </span><span class="nl">"coordinators"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+        </span><span class="nl">"coordinators"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4567</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"employee_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc-345"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"responsible"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="nl">"openings"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
@@ -2957,7 +2975,7 @@ analytics.page()
 </thead><tbody>
 <tr>
 <td><code>hiring_team</code></td>
-<td>Field contains the Greenhouse users responsible for this job.  Each field contains the user&#39;s Greenhouse user id and the user&#39;s external employee id from the customer&#39;s system.  The employee id will be null if it has not been set in Greenhouse.</td>
+<td>Field contains the Greenhouse users responsible for this job.  Each field contains the user&#39;s Greenhouse user id and the user&#39;s external employee id from the customer&#39;s system.  The employee id will be null if it has not been set in Greenhouse.  Recruiters and coordinators also contain a <code>responsible</code> boolean, which is <code>true</code> for the job&#39;s responsible recruiter or coordinator. Sourcers and hiring managers have no responsible flag, so <code>responsible</code> is omitted for them.</td>
 </tr>
 <tr>
 <td><code>openings</code></td>
@@ -3008,14 +3026,22 @@ analytics.page()
         </span><span class="nl">"recruiters"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
           </span><span class="p">{</span><span class="w">
             </span><span class="nl">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2345</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"employee_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+            </span><span class="nl">"employee_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"responsible"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
           </span><span class="p">},</span><span class="w">
           </span><span class="p">{</span><span class="w">
             </span><span class="nl">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3456</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"employee_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc-234"</span><span class="w">
+            </span><span class="nl">"employee_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc-234"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"responsible"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
           </span><span class="p">}</span><span class="w">
         </span><span class="p">],</span><span class="w">
-        </span><span class="nl">"coordinators"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+        </span><span class="nl">"coordinators"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4567</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"employee_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc-345"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"responsible"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="nl">"openings"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
