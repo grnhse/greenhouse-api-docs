@@ -2,7 +2,7 @@
 
 ## Candidate deleted
 
-This webhook will fire when a candidate or prospect is deleted from Greenhouse.  This occurs when the Harvest delete candidate methods are used, when a candidate is merged into another candidate, when a candidate is deleted in the application, and once for each candidate in a bulk delete operation.  Deleting a candidate will cause other deletes within Greenhouse but we will not fire an individual webhook for those deletions.  In the case of the applications that this delete causes, we will include an array of those Application IDs that will be removed from Greenhouse.
+This webhook will fire when a candidate or prospect is deleted from Greenhouse.  This occurs when the Harvest delete candidate methods are used, when a candidate is merged into another candidate, when a candidate is deleted in the application, and once for each candidate in a bulk delete operation.  A merge also fires the [Candidate merged](#candidate-merged) webhook.  Deleting a candidate will cause other deletes within Greenhouse but we will not fire an individual webhook for those deletions.  In the case of the applications that this delete causes, we will include an array of those Application IDs that will be removed from Greenhouse.
 
 ```json
 {
@@ -310,7 +310,7 @@ See webhook [common attributes](#common-attributes).
 
 ## Candidate merged
 
-This webhook will fire when a candidate or prospect is merged with another candidate.  This process should fire for regular manual merges and auto-merges.  It will also fire per candidate for a bulk merge.  This webhook supersedes the candidate deleted webhook.  If both candidate deleted and candidate merged are configured on your site, only the candidate merged webhook will fire when candidate records are removed via merge.  If a candidate deleted webhook is configured but candidate merged is not, then the candidate deleted webhook will fire when a candidate record is deleted via merge.  The payload for a candidate merged webhook matches the payload for candidate deleted except it contains the ID of the winning candidate record.
+This webhook will fire when a candidate or prospect is merged with another candidate.  This process should fire for regular manual merges and auto-merges.  It will also fire per candidate for a bulk merge.  Both the candidate merged and candidate deleted webhooks fire for every merge, and each endpoint receives the events it is subscribed to.  The payload for a candidate merged webhook matches the payload for candidate deleted except it contains the ID of the winning candidate record.
 
 ```json
 {
