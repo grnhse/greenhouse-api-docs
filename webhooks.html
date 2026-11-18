@@ -720,6 +720,7 @@ analytics.page()
           </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
         </span><span class="p">}</span><span class="w">
       </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"job_post_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">263611</span><span class="p">,</span><span class="w">
       </span><span class="nl">"candidate"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">60304594</span><span class="p">,</span><span class="w">
         </span><span class="nl">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jane"</span><span class="p">,</span><span class="w">
@@ -933,6 +934,22 @@ analytics.page()
 <p>The New Candidate Application event occurs when a new application is created for a candidate.</p>
 
 <p>See webhook <a href="#common-attributes">common attributes</a>.</p>
+<h3 id='noteworthy-response-attributes'>Noteworthy response attributes</h3>
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Note</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>application.job_post_id</code></td>
+<td>The job post the candidate applied through, or <code>null</code> if the application wasn&#39;t submitted through a job post (for example, a candidate added manually). If the application is automatically merged into the candidate&#39;s existing application on the same job, this webhook describes that existing application, so <code>job_post_id</code> is the post on the existing application rather than the post the candidate just applied through.</td>
+</tr>
+<tr>
+<td><code>application.jobs[].job_post_id</code></td>
+<td>The job&#39;s first external job post. This is not necessarily the post the candidate applied through: when a job has more than one post, use <code>application.job_post_id</code> instead.</td>
+</tr>
+</tbody></table>
 <h2 id='application-deleted'>Application deleted</h2>
 <p>This webhook only fires when individual applications are destroyed.  This occurs when the Harvest API delete endpoint is used, when a candidate is removed from a specific job, or when two duplicate candidates on the same job are merged together.  This will not fire when a candidate is deleted.  A candidate being deleted implies all their applications have been deleted with them.</p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
@@ -953,7 +970,7 @@ analytics.page()
         </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='noteworthy-response-attributes'>Noteworthy response attributes</h3>
+</span></code></pre></div><h3 id='noteworthy-response-attributes-2'>Noteworthy response attributes</h3>
 <table><thead>
 <tr>
 <th>Attribute</th>
@@ -1183,7 +1200,7 @@ analytics.page()
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='noteworthy-response-attributes-2'>Noteworthy response attributes</h3>
+</span></code></pre></div><h3 id='noteworthy-response-attributes-3'>Noteworthy response attributes</h3>
 <table><thead>
 <tr>
 <th>Attribute</th>
@@ -1419,6 +1436,7 @@ analytics.page()
   </span><span class="nl">"payload"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nl">"application"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">46194062</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"hired"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"opening"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nl">"opening_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234-56"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"custom_fields"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
@@ -1573,6 +1591,7 @@ analytics.page()
           </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Developer"</span><span class="p">,</span><span class="w">
           </span><span class="nl">"requisition_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
           </span><span class="nl">"confidential"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"closed"</span><span class="p">,</span><span class="w">
           </span><span class="nl">"opened_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-11-20T22:49:14Z"</span><span class="p">,</span><span class="w">
           </span><span class="nl">"closed_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-11-25T22:49:14Z"</span><span class="p">,</span><span class="w">
           </span><span class="nl">"departments"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -1685,6 +1704,14 @@ analytics.page()
 <tr>
 <td><code>application.offer.starts_at</code></td>
 <td>The candidate&#39;s start date. Expected format is YYYY-MM-DD</td>
+</tr>
+<tr>
+<td><code>application.status</code></td>
+<td>The application&#39;s status when the webhook is sent. Normally <code>hired</code>.</td>
+</tr>
+<tr>
+<td><code>application.jobs[].status</code></td>
+<td>One of: <code>open</code>, <code>closed</code>, <code>draft</code>. Reflects the job after the hire, so it is <code>closed</code> when this hire filled the job&#39;s last opening and closed the job.</td>
 </tr>
 <tr>
 <td><code>application.job</code></td>
