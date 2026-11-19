@@ -101,19 +101,25 @@ This webhook will fire when a candidate or prospect is deleted from Greenhouse. 
         ],
         "educations": [
           {
+            "id": 4011875,
             "school_name": "Harvard University",
             "degree": "Bachelor's Degree",
             "discipline": "Information Systems",
             "start_date": "01/01/2012",
-            "end_date": "01/01/2016"
+            "end_date": "01/01/2016",
+            "start_date_iso": "2012-01-01",
+            "end_date_iso": "2016-01-01"
           }
         ],
         "employments": [
           {
+            "id": 3825519,
             "company_name": "Greenhouse",
             "title": "Engineer",
             "start_date": "01/01/2012",
-            "end_date": "01/01/2016"
+            "end_date": "01/01/2016",
+            "start_date_iso": "2012-01-01",
+            "end_date_iso": "2016-01-01"
           }
         ],
         "recruiter": {
@@ -439,19 +445,25 @@ This webhook will fire when a candidate or prospect is merged with another candi
         ],
         "educations": [
           {
+            "id": 4011875,
             "school_name": "Harvard University",
             "degree": "Bachelor's Degree",
             "discipline": "Information Systems",
             "start_date": "01/01/2012",
-            "end_date": "01/01/2016"
+            "end_date": "01/01/2016",
+            "start_date_iso": "2012-01-01",
+            "end_date_iso": "2016-01-01"
           }
         ],
         "employments": [
           {
+            "id": 3825519,
             "company_name": "Greenhouse",
             "title": "Engineer",
             "start_date": "01/01/2012",
-            "end_date": "01/01/2016"
+            "end_date": "01/01/2016",
+            "start_date_iso": "2012-01-01",
+            "end_date_iso": "2016-01-01"
           }
         ],
         "recruiter": {
@@ -619,19 +631,25 @@ See webhook [common attributes](#common-attributes).
         "social_media_addresses": [],
         "educations": [
           {
+            "id": 4011875,
             "school_name": "Harvard University",
             "degree": "Bachelor's Degree",
             "discipline": "Information Systems",
             "start_date": "01/01/2012",
-            "end_date": "01/01/2016"
+            "end_date": "01/01/2016",
+            "start_date_iso": "2012-01-01",
+            "end_date_iso": "2016-01-01"
           }
         ],
         "employments": [
           {
+            "id": 3825519,
             "company_name": "Greenhouse",
             "title": "Engineer",
             "start_date": "01/01/2012",
-            "end_date": "01/01/2016"
+            "end_date": "01/01/2016",
+            "start_date_iso": "2012-01-01",
+            "end_date_iso": "2016-01-01"
           }
         ],
         "recruiter": null,
@@ -776,19 +794,25 @@ See webhook [common attributes](#common-attributes).
         "social_media_addresses": [],
         "educations": [
           {
+            "id": 4011875,
             "school_name": "Harvard University",
             "degree": "Bachelor's Degree",
             "discipline": "Information Systems",
             "start_date": "01/01/2012",
-            "end_date": "01/01/2016"
+            "end_date": "01/01/2016",
+            "start_date_iso": "2012-01-01",
+            "end_date_iso": "2016-01-01"
           }
         ],
         "employments": [
           {
+            "id": 3825519,
             "company_name": "Greenhouse",
             "title": "Engineer",
             "start_date": "01/01/2012",
-            "end_date": "01/01/2016"
+            "end_date": "01/01/2016",
+            "start_date_iso": "2012-01-01",
+            "end_date_iso": "2016-01-01"
           }
         ],
         "recruiter": null,
@@ -918,19 +942,25 @@ See webhook [common attributes](#common-attributes).
         "social_media_addresses": [],
         "educations": [
           {
+            "id": 4011875,
             "school_name": "Harvard University",
             "degree": "Bachelor's Degree",
             "discipline": "Information Systems",
             "start_date": "01/01/2012",
-            "end_date": "01/01/2016"
+            "end_date": "01/01/2016",
+            "start_date_iso": "2012-01-01",
+            "end_date_iso": "2016-01-01"
           }
         ],
         "employments": [
           {
+            "id": 3825519,
             "company_name": "Greenhouse",
             "title": "Engineer",
             "start_date": "01/01/2012",
-            "end_date": "01/01/2016"
+            "end_date": "01/01/2016",
+            "start_date_iso": "2012-01-01",
+            "end_date_iso": "2016-01-01"
           }
         ],
         "recruiter": null,
@@ -1046,19 +1076,25 @@ See webhook [common attributes](#common-attributes).
       ],
       "educations": [
         {
+          "id": 4011875,
           "school_name": "Harvard University",
           "degree": "Bachelor's Degree",
           "discipline": "Information Systems",
           "start_date": "01/01/2012",
-          "end_date": "01/01/2016"
+          "end_date": "01/01/2016",
+          "start_date_iso": "2012-01-01",
+          "end_date_iso": "2016-01-01"
         }
       ],
       "employments": [
         {
+          "id": 3825519,
           "company_name": "Greenhouse",
           "title": "Engineer",
           "start_date": "01/01/2012",
-          "end_date": "01/01/2016"
+          "end_date": "01/01/2016",
+          "start_date_iso": "2012-01-01",
+          "end_date_iso": "2016-01-01"
         }
       ],
       "recruiter": {
