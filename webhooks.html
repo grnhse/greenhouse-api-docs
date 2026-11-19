@@ -466,6 +466,22 @@ analytics.page()
 <td>An arbitrary ID provided by an external source; does not map to another entity in Greenhouse.</td>
 </tr>
 <tr>
+<td><code>application.candidate.educations[].id</code></td>
+<td>Unique Greenhouse identifier of the candidate&#39;s education entry.</td>
+</tr>
+<tr>
+<td><code>application.candidate.educations[].start_date_iso</code>, <code>application.candidate.educations[].end_date_iso</code></td>
+<td>The education&#39;s <code>start_date</code> and <code>end_date</code> as ISO 8601 dates (<code>YYYY-MM-DD</code>), or <code>null</code> when the date is not set. <code>start_date</code> and <code>end_date</code> keep their <code>MM/DD/YYYY</code> format and are <code>&quot;&quot;</code> when the date is not set.</td>
+</tr>
+<tr>
+<td><code>application.candidate.employments[].id</code></td>
+<td>Unique Greenhouse identifier of the candidate&#39;s employment entry.</td>
+</tr>
+<tr>
+<td><code>application.candidate.employments[].start_date_iso</code>, <code>application.candidate.employments[].end_date_iso</code></td>
+<td>The employment&#39;s <code>start_date</code> and <code>end_date</code> as ISO 8601 dates (<code>YYYY-MM-DD</code>). <code>end_date_iso</code> is <code>null</code> for a current employment. <code>start_date</code> and <code>end_date</code> keep their <code>MM/DD/YYYY</code> format.</td>
+</tr>
+<tr>
 <td><code>application.prospect</code></td>
 <td>If true, this is a prospect application which means that the associated person is a prospect and has not yet applied for this job. (Only prospects will have non-null values for <code>prospect_owner</code>, <code>prospect_pool</code>, or <code>prospect_stage</code> under <code>prospect_detail</code>)</td>
 </tr>
@@ -768,11 +784,14 @@ analytics.page()
         </span><span class="p">],</span><span class="w">
         </span><span class="nl">"educations"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
           </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4011876</span><span class="p">,</span><span class="w">
             </span><span class="nl">"school_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Stanford University"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"degree"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bachelor's Degree"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"discipline"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Computer Science"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"09/15/2007"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"05/15/2011"</span><span class="w">
+            </span><span class="nl">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"05/15/2011"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"start_date_iso"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2007-09-15"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"end_date_iso"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2011-05-15"</span><span class="w">
           </span><span class="p">}</span><span class="w">
         </span><span class="p">],</span><span class="w">
         </span><span class="nl">"employments"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
@@ -1291,19 +1310,25 @@ analytics.page()
         </span><span class="nl">"social_media_addresses"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
         </span><span class="nl">"educations"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
           </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4011875</span><span class="p">,</span><span class="w">
             </span><span class="nl">"school_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Harvard University"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"degree"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bachelor's Degree"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"discipline"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Information Systems"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01/01/2012"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01/01/2016"</span><span class="w">
+            </span><span class="nl">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01/01/2016"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"start_date_iso"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2012-01-01"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"end_date_iso"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-01-01"</span><span class="w">
           </span><span class="p">}</span><span class="w">
         </span><span class="p">],</span><span class="w">
         </span><span class="nl">"employments"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
           </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3825519</span><span class="p">,</span><span class="w">
             </span><span class="nl">"company_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Greenhouse"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Engineer"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01/01/2012"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01/01/2016"</span><span class="w">
+            </span><span class="nl">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01/01/2016"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"start_date_iso"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2012-01-01"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"end_date_iso"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-01-01"</span><span class="w">
           </span><span class="p">}</span><span class="w">
         </span><span class="p">],</span><span class="w">
         </span><span class="nl">"recruiter"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -1489,19 +1514,25 @@ analytics.page()
         </span><span class="p">],</span><span class="w">
         </span><span class="nl">"educations"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
           </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4011875</span><span class="p">,</span><span class="w">
             </span><span class="nl">"school_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Harvard University"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"degree"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bachelor's Degree"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"discipline"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Information Systems"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01/01/2012"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01/01/2016"</span><span class="w">
+            </span><span class="nl">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01/01/2016"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"start_date_iso"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2012-01-01"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"end_date_iso"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-01-01"</span><span class="w">
           </span><span class="p">}</span><span class="w">
         </span><span class="p">],</span><span class="w">
         </span><span class="nl">"employments"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
           </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3825519</span><span class="p">,</span><span class="w">
             </span><span class="nl">"company_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Greenhouse"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Engineer"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01/01/2012"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01/01/2016"</span><span class="w">
+            </span><span class="nl">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01/01/2016"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"start_date_iso"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2012-01-01"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"end_date_iso"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-01-01"</span><span class="w">
           </span><span class="p">}</span><span class="w">
         </span><span class="p">],</span><span class="w">
         </span><span class="nl">"recruiter"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -1859,19 +1890,25 @@ analytics.page()
         </span><span class="p">],</span><span class="w">
         </span><span class="nl">"educations"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
           </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4011875</span><span class="p">,</span><span class="w">
             </span><span class="nl">"school_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Harvard University"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"degree"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bachelor's Degree"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"discipline"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Information Systems"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01/01/2012"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01/01/2016"</span><span class="w">
+            </span><span class="nl">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01/01/2016"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"start_date_iso"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2012-01-01"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"end_date_iso"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-01-01"</span><span class="w">
           </span><span class="p">}</span><span class="w">
         </span><span class="p">],</span><span class="w">
         </span><span class="nl">"employments"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
           </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3825519</span><span class="p">,</span><span class="w">
             </span><span class="nl">"company_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Greenhouse"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Engineer"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01/01/2012"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01/01/2016"</span><span class="w">
+            </span><span class="nl">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01/01/2016"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"start_date_iso"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2012-01-01"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"end_date_iso"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-01-01"</span><span class="w">
           </span><span class="p">}</span><span class="w">
         </span><span class="p">],</span><span class="w">
         </span><span class="nl">"recruiter"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -2043,19 +2080,25 @@ analytics.page()
         </span><span class="nl">"social_media_addresses"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
         </span><span class="nl">"educations"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
           </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4011875</span><span class="p">,</span><span class="w">
             </span><span class="nl">"school_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Harvard University"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"degree"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bachelor's Degree"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"discipline"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Information Systems"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01/01/2012"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01/01/2016"</span><span class="w">
+            </span><span class="nl">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01/01/2016"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"start_date_iso"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2012-01-01"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"end_date_iso"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-01-01"</span><span class="w">
           </span><span class="p">}</span><span class="w">
         </span><span class="p">],</span><span class="w">
         </span><span class="nl">"employments"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
           </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3825519</span><span class="p">,</span><span class="w">
             </span><span class="nl">"company_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Greenhouse"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Engineer"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01/01/2012"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01/01/2016"</span><span class="w">
+            </span><span class="nl">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01/01/2016"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"start_date_iso"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2012-01-01"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"end_date_iso"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-01-01"</span><span class="w">
           </span><span class="p">}</span><span class="w">
         </span><span class="p">],</span><span class="w">
         </span><span class="nl">"recruiter"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
@@ -2195,19 +2238,25 @@ analytics.page()
         </span><span class="nl">"social_media_addresses"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
         </span><span class="nl">"educations"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
           </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4011875</span><span class="p">,</span><span class="w">
             </span><span class="nl">"school_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Harvard University"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"degree"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bachelor's Degree"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"discipline"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Information Systems"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01/01/2012"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01/01/2016"</span><span class="w">
+            </span><span class="nl">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01/01/2016"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"start_date_iso"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2012-01-01"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"end_date_iso"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-01-01"</span><span class="w">
           </span><span class="p">}</span><span class="w">
         </span><span class="p">],</span><span class="w">
         </span><span class="nl">"employments"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
           </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3825519</span><span class="p">,</span><span class="w">
             </span><span class="nl">"company_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Greenhouse"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Engineer"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01/01/2012"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01/01/2016"</span><span class="w">
+            </span><span class="nl">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01/01/2016"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"start_date_iso"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2012-01-01"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"end_date_iso"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-01-01"</span><span class="w">
           </span><span class="p">}</span><span class="w">
         </span><span class="p">],</span><span class="w">
         </span><span class="nl">"recruiter"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
@@ -2332,19 +2381,25 @@ analytics.page()
         </span><span class="nl">"social_media_addresses"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
         </span><span class="nl">"educations"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
           </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4011875</span><span class="p">,</span><span class="w">
             </span><span class="nl">"school_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Harvard University"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"degree"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bachelor's Degree"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"discipline"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Information Systems"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01/01/2012"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01/01/2016"</span><span class="w">
+            </span><span class="nl">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01/01/2016"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"start_date_iso"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2012-01-01"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"end_date_iso"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-01-01"</span><span class="w">
           </span><span class="p">}</span><span class="w">
         </span><span class="p">],</span><span class="w">
         </span><span class="nl">"employments"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
           </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3825519</span><span class="p">,</span><span class="w">
             </span><span class="nl">"company_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Greenhouse"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Engineer"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01/01/2012"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01/01/2016"</span><span class="w">
+            </span><span class="nl">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01/01/2016"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"start_date_iso"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2012-01-01"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"end_date_iso"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-01-01"</span><span class="w">
           </span><span class="p">}</span><span class="w">
         </span><span class="p">],</span><span class="w">
         </span><span class="nl">"recruiter"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
@@ -2455,19 +2510,25 @@ analytics.page()
       </span><span class="p">],</span><span class="w">
       </span><span class="nl">"educations"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4011875</span><span class="p">,</span><span class="w">
           </span><span class="nl">"school_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Harvard University"</span><span class="p">,</span><span class="w">
           </span><span class="nl">"degree"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bachelor's Degree"</span><span class="p">,</span><span class="w">
           </span><span class="nl">"discipline"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Information Systems"</span><span class="p">,</span><span class="w">
           </span><span class="nl">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01/01/2012"</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01/01/2016"</span><span class="w">
+          </span><span class="nl">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01/01/2016"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"start_date_iso"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2012-01-01"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"end_date_iso"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-01-01"</span><span class="w">
         </span><span class="p">}</span><span class="w">
       </span><span class="p">],</span><span class="w">
       </span><span class="nl">"employments"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3825519</span><span class="p">,</span><span class="w">
           </span><span class="nl">"company_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Greenhouse"</span><span class="p">,</span><span class="w">
           </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Engineer"</span><span class="p">,</span><span class="w">
           </span><span class="nl">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01/01/2012"</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01/01/2016"</span><span class="w">
+          </span><span class="nl">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01/01/2016"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"start_date_iso"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2012-01-01"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"end_date_iso"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-01-01"</span><span class="w">
         </span><span class="p">}</span><span class="w">
       </span><span class="p">],</span><span class="w">
       </span><span class="nl">"recruiter"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
