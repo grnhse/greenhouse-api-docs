@@ -315,6 +315,9 @@ analytics.page()
                     <a href="#interview-deleted" class="toc-h2 toc-link" data-title="Interview deleted">Interview deleted</a>
                   </li>
                   <li>
+                    <a href="#interview-scheduled-or-updated" class="toc-h2 toc-link" data-title="Interview scheduled or updated">Interview scheduled or updated</a>
+                  </li>
+                  <li>
                     <a href="#scorecard-deleted" class="toc-h2 toc-link" data-title="Scorecard deleted">Scorecard deleted</a>
                   </li>
               </ul>
@@ -2775,7 +2778,95 @@ analytics.page()
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h2 id='scorecard-deleted'>Scorecard deleted</h2>
+</span></code></pre></div><h2 id='interview-scheduled-or-updated'>Interview scheduled or updated</h2>
+<p>This webhook fires when an interview is scheduled. It also fires when a scheduled interview is updated, such as a new time or location. In both cases, <code>action</code> is <code>interview_scheduled</code>.</p>
+
+<p>An update fires the webhook only when it changes a value in the <code>interview</code> object. A change to <code>updated_at</code> alone does not fire it. Interviewers are not in the payload. A change to interviewers fires the webhook only when it also changes another value, such as <code>status</code>.</p>
+
+<p>This webhook does not fire for changes made outside scheduling. For example, it does not fire when <code>status</code> changes after a scorecard is submitted. It also does not fire when an interview is cancelled or deleted. Use the <a href="#interview-deleted">Interview deleted</a> webhook for those cases.</p>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"organization_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">123456</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"organization_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Example Company"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"interview_scheduled"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"payload"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"interview"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">31087450</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"application_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">71980812</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"external_event_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0bfskb5cd3ddrp9ihj4gg7k1a4"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"starts_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2026-11-02T15:00:00.000Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ends_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2026-11-02T16:00:00.000Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Conference Room 4"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2026-10-27T09:15:00.000Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2026-10-28T12:30:00.000Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"organizer_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">92120</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"scheduled_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2026-10-28T12:30:00.000Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"availability_received_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"job_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2944102</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"job_interview_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4368004</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"all_day_start_on"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"all_day_end_on"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"video_conferencing_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.zoom.us/j/1234567890"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"scheduled"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h3 id='noteworthy-response-attributes'>Noteworthy response attributes</h3>
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Note</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>interview.application_id</code></td>
+<td>The application the interview is for. Use this ID with the <a href="https://harvestdocs.greenhouse.io/">Harvest API</a> to get the application and its candidate.</td>
+</tr>
+<tr>
+<td><code>interview.job_id</code></td>
+<td>The job the interview is for.</td>
+</tr>
+<tr>
+<td><code>interview.job_interview_id</code></td>
+<td>The interview step set up on the job. This is not the same as <code>interview.id</code>.</td>
+</tr>
+<tr>
+<td><code>interview.status</code></td>
+<td>One of <code>to_be_scheduled</code>, <code>scheduled</code>, <code>awaiting_feedback</code>, <code>complete</code>, <code>skipped</code>, <code>collect_feedback</code>, <code>to_be_sent</code>, <code>sent</code>, or <code>received</code>. <code>to_be_sent</code>, <code>sent</code>, and <code>received</code> apply to take-home tests.</td>
+</tr>
+<tr>
+<td><code>interview.starts_at</code>, <code>interview.ends_at</code></td>
+<td>The start and end time, in UTC. For an all-day interview, use <code>interview.all_day_start_on</code> and <code>interview.all_day_end_on</code> instead.</td>
+</tr>
+<tr>
+<td><code>interview.all_day_start_on</code>, <code>interview.all_day_end_on</code></td>
+<td>The start and end date of an all-day interview, as <code>YYYY-MM-DD</code>. Both are <code>null</code> for an interview that is not all-day.</td>
+</tr>
+<tr>
+<td><code>interview.location</code></td>
+<td>The location text from the calendar event. This can be <code>null</code>.</td>
+</tr>
+<tr>
+<td><code>interview.external_event_id</code></td>
+<td>The ID of the calendar event, such as a Google Calendar or Outlook event ID.</td>
+</tr>
+<tr>
+<td><code>interview.video_conferencing_url</code></td>
+<td>The video join link for the interview. This is <code>null</code> if the interview has no link.</td>
+</tr>
+<tr>
+<td><code>interview.organizer_id</code></td>
+<td>The ID of the Greenhouse user who scheduled the interview.</td>
+</tr>
+<tr>
+<td><code>interview.scheduled_at</code></td>
+<td>The date and time the interview was first scheduled.</td>
+</tr>
+<tr>
+<td><code>interview.availability_received_at</code></td>
+<td>The date and time Greenhouse first received the candidate&#39;s availability for the interview&#39;s stage. This is <code>null</code> if no availability was received.</td>
+</tr>
+</tbody></table>
+<h2 id='scorecard-deleted'>Scorecard deleted</h2>
 <p>This webhook only fires when individual scorecards are destroyed.  This occurs when the Harvest API delete endpoint is used, or when the delete scorecard link is used in the application. This will not fire when a candidate or application is deleted. A candidate being deleted implies all their scorecards have been deleted with them. An application being deleted does not cause scorecards to be deleted.</p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"scorecard_deleted"</span><span class="p">,</span><span class="w">
