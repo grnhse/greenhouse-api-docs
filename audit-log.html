@@ -321,12 +321,57 @@ curl <span class="nt">-X</span> POST <span class="s1">'https://harvest.greenhous
 <h2 id='rate-limiting'>Rate limiting</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>Status: 200 OK
 X-RateLimit-Limit: 50
 X-RateLimit-Remaining: 49
+X-RateLimit-Reset: 1793548810
 </code></pre></div>
-<p>Audit log API requests are limited to 50 per 10 seconds, as specified in the returned <code>X-RateLimit-Limit</code> header. Paginated requests are limited to 3 per 30 seconds. Check the <code>X-RateLimit-Limit</code> and <code>X-RateLimit-Remaining</code> headers to see how many more requests are permitted until throttling kicks in. Exceeding the limit will return an <code>HTTP 429</code> response.</p>
+<blockquote>
+<p>Example throttled response:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>Status: 429 Too Many Requests
+Retry-After: 4
+X-RateLimit-Limit: 3
+X-RateLimit-Remaining: 0
+X-RateLimit-Reset: 1793548830
 
-<aside class="success">
-<b>Note</b>: An <code>HTTP 429</code> response will exclude the <code>X-RateLimit-Limit</code> and <code>X-RateLimit-Remaining</code> headers.
-</aside>
+<span class="o">{</span>
+  <span class="s2">"code"</span>: <span class="s2">"rate_limited"</span>,
+  <span class="s2">"rate_limit"</span>: <span class="s2">"paging_sessions"</span>,
+  <span class="s2">"error"</span>: <span class="s2">"Rate limit exceeded: started more than 3 paging sessions in 30 seconds. Retry after the number of seconds in the Retry-After header."</span>
+<span class="o">}</span>
+</code></pre></div>
+<p>Audit log API requests are limited per organization. All access tokens for an organization share the same limits:</p>
+
+<ul>
+<li><strong>Requests</strong>: 50 requests per 10 seconds.</li>
+<li><strong>Paging sessions</strong>: 3 new paging sessions per 30 seconds. A new paging session is a request with the <code>paging</code> query parameter set to <code>true</code> and no <code>Pit-Id</code> header. Requests for later pages, which send a <code>Pit-Id</code> header, only count toward the requests limit.</li>
+</ul>
+
+<p>Limits are counted in fixed windows. For example, a 10 second window ends at the next Unix time that is a multiple of 10, not 10 seconds after your first request.</p>
+
+<p>Successful responses, and error responses from a search, include these headers:</p>
+
+<table><thead>
+<tr>
+<th>Header</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>X-RateLimit-Limit</td>
+<td>The number of requests allowed in the current window.</td>
+</tr>
+<tr>
+<td>X-RateLimit-Remaining</td>
+<td>The number of requests left in the current window.</td>
+</tr>
+<tr>
+<td>X-RateLimit-Reset</td>
+<td>The time the current window ends, in seconds since the Unix epoch.</td>
+</tr>
+</tbody></table>
+
+<p>The headers describe whichever limit has the fewest requests remaining, so while you start paging sessions, <code>X-RateLimit-Limit</code> may be <code>3</code> instead of <code>50</code>.</p>
+
+<p>Exceeding a limit returns an <code>HTTP 429</code> response with a <code>Retry-After</code> header, the number of seconds until you can retry. The response body includes a <code>rate_limit</code> attribute naming the limit you exceeded: <code>requests</code> or <code>paging_sessions</code>.</p>
 <h2 id='pagination'>Pagination</h2>
 <p>Pagination on audit log API allows for retrieving the next page from your query results.</p>
 
@@ -347,9 +392,11 @@ X-RateLimit-Remaining: 49
 <li>The last page of results will return <code>null</code> for the <code>paging.next_search_after</code> attribute, and an empty list of <code>results</code></li>
 </ol>
 
-<p>Audit log API requests are rate limited. Paginated requests are limited to 3 per 30 seconds, and overall requests are limited to 50 per 10 seconds. Exceeding the limit will result in <a href="https://developers.greenhouse.io/audit-log.html#throttling">throttling</a>.</p>
+<p>A <code>Pit-Id</code> expires 1 minute after it was last used. A request with an expired <code>Pit-Id</code> returns <code>HTTP 400</code> with the code <code>pit_id_expired</code>. Pages you already received are complete. To resume, start a new search without the <code>Pit-Id</code> and <code>Search-After</code> headers, and set <code>before_time</code> to the <code>event_time</code> of the last event you received.</p>
+
+<p>Starting a new paging session counts toward a separate <a href="#rate-limiting">rate limit</a> of 3 per 30 seconds.</p>
 <h2 id='validation'>Validation</h2>
-<p>Any methods that take input will validate all parameters. Any parameter that fails validation will trigger an error response with status <code>HTTP 422</code>. The response body will be a JSON object that includes a message as well as a list of fields that failed validation.</p>
+<p>Any methods that take input will validate all parameters. Any parameter that fails validation will trigger an error response with status <code>HTTP 400</code>. The response body will be a JSON object with a <code>code</code> and an <code>error</code> message that describes every parameter that failed validation.</p>
 <h2 id='general-considerations'>General considerations</h2>
 <p>Unless otherwise specified, audit log API methods generally conform to the following standards:</p>
 
@@ -361,35 +408,77 @@ X-RateLimit-Remaining: 49
 <li>Resumes, cover letters, and other document attachments are hosted on Amazon Web Services and are provided via signed, temporary URLs. Due to the temporary nature of these resources, you should download the documents immediately after your request is made. You shouldn’t rely on these URLs to be available in future requests. In the event AWS is experiencing issues, document attachments won’t be available in audit log.</li>
 </ul>
 <h2 id='errors'>Errors</h2>
+<blockquote>
+<p>Example error response:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pit_id_expired"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The Pit-Id has expired, so this page can't be returned. ..."</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>Error responses have a JSON body with an <code>error</code> message, and most also include a <code>code</code>.</p>
+
 <table><thead>
 <tr>
-<th>Error Code</th>
+<th>Status</th>
+<th>Code</th>
 <th>Meaning</th>
 </tr>
 </thead><tbody>
 <tr>
+<td>400</td>
+<td><code>invalid_request</code></td>
+<td>Bad Request -- One or more parameters failed <a href="#validation">validation</a>. The <code>error</code> message lists each one.</td>
+</tr>
+<tr>
+<td>400</td>
+<td></td>
+<td>Bad Request -- The request couldn&#39;t be parsed, for example because the query string is malformed.</td>
+</tr>
+<tr>
+<td>400</td>
+<td><code>invalid_search_after</code></td>
+<td>Bad Request -- The <code>Search-After</code> header is malformed, or was sent without a <code>Pit-Id</code> header. Send the unchanged <code>paging.next_search_after</code> value from the previous response.</td>
+</tr>
+<tr>
+<td>400</td>
+<td><code>pit_id_expired</code></td>
+<td>Bad Request -- The <code>Pit-Id</code> has expired. See <a href="#pagination">Pagination</a> for how to resume.</td>
+</tr>
+<tr>
 <td>401</td>
+<td><code>unauthorized</code></td>
 <td>Unauthorized -- Your access token is invalid or has expired. Access tokens expire 24 hours after generation. Ensure you’re sharing a <a href="#authentication">valid access token</a> in the authorization header.</td>
 </tr>
 <tr>
-<td>403</td>
-<td>Forbidden -- You do not have access to that record.</td>
-</tr>
-<tr>
 <td>404</td>
+<td><code>not_found</code></td>
 <td>Not Found -- Resource not found</td>
 </tr>
 <tr>
-<td>422</td>
-<td>Not processed -- We’re not able to process your request. Validate your parameters.</td>
+<td>405</td>
+<td></td>
+<td>Method Not Allowed -- Only <code>GET</code> requests are supported.</td>
 </tr>
 <tr>
 <td>429</td>
-<td>Rate limit exceeded -- You’re being <a href="#throttling">throttled</a> for exceeding our rate limit.</td>
+<td><code>rate_limited</code></td>
+<td>Rate limit exceeded -- You’re being <a href="#rate-limiting">throttled</a> for exceeding our rate limit. The <code>rate_limit</code> attribute names the limit you exceeded. Retry after the number of seconds in the <code>Retry-After</code> header.</td>
 </tr>
 <tr>
 <td>500</td>
-<td>Server Error -- We’re having a problem with our server. Give us a few minutes and try again, or check <a href="https://status.greenhouse.io/">our status page</a>.</td>
+<td><code>internal_error</code></td>
+<td>Server Error -- We’re having a problem with our server, or couldn&#39;t return complete results for your search. Give us a few minutes and try again, or check <a href="https://status.greenhouse.io/">our status page</a>.</td>
+</tr>
+<tr>
+<td>503</td>
+<td><code>service_busy</code></td>
+<td>Service Unavailable -- The audit log is busy and can&#39;t start your search. Retry after the number of seconds in the <code>Retry-After</code> header.</td>
+</tr>
+<tr>
+<td>503</td>
+<td><code>search_timeout</code></td>
+<td>Service Unavailable -- Your search took too long and was stopped. Retry, or narrow the search with a shorter time range or more filters.</td>
 </tr>
 </tbody></table>
 <h2 id='audit-log-change-log'>Audit Log Change Log</h2>
@@ -399,6 +488,10 @@ X-RateLimit-Remaining: 49
 <th>Description</th>
 </tr>
 </thead><tbody>
+<tr>
+<td>Nov 6, 2026</td>
+<td>Error responses now include a <code>code</code>. Documented <code>HTTP 400</code> and <code>503</code> responses and <code>Pit-Id</code> expiry. Removed the <code>HTTP 403</code> response, which the audit log API doesn&#39;t return. <code>HTTP 429</code> responses now include a <code>Retry-After</code> header and a <code>rate_limit</code> attribute. Documented the <code>X-RateLimit-Reset</code> header and clarified that limits apply per organization and that the paging limit counts new paging sessions.</td>
+</tr>
 <tr>
 <td>Oct 7, 2024</td>
 <td>Updated favicon, github mark, and color palette. Fixed typos and formatting errors.</td>
