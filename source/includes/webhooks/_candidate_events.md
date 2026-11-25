@@ -61,7 +61,7 @@ This webhook will fire when a candidate or prospect is deleted from Greenhouse. 
       },
       "source": {
         "id": 25,
-        "public_name": "Monster"
+        "name": "Monster"
       },
       "url": "https://app.greenhouse.io/people/35897443?application_id=46194062",
       "candidate": {
@@ -573,7 +573,7 @@ See webhook [common attributes](#common-attributes).
       "url": "https://app.greenhouse.io/people/265788?application_id=265293",
       "source": {
         "id": 27,
-        "public_name": "LinkedIn"
+        "name": "LinkedIn"
       },
       "credited_to": null,
       "rejection_reason": null,
@@ -734,7 +734,7 @@ See webhook [common attributes](#common-attributes).
       "url": "https://app.greenhouse.io/people/265788?application_id=265293",
       "source": {
         "id": 27,
-        "public_name": "LinkedIn"
+        "name": "LinkedIn"
       },
       "credited_to": null,
       "rejection_reason": {
@@ -897,7 +897,7 @@ See webhook [common attributes](#common-attributes).
       "url": "https://app.greenhouse.io/people/265788?application_id=265293",
       "source": {
         "id": 27,
-        "public_name": "LinkedIn"
+        "name": "LinkedIn"
       },
       "credited_to": null,
       "rejection_reason": null,
