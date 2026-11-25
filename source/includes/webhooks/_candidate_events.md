@@ -61,7 +61,7 @@ This webhook will fire when a candidate or prospect is deleted from Greenhouse. 
       },
       "source": {
         "id": 25,
-        "public_name": "Monster"
+        "name": "Monster"
       },
       "url": "https://app.greenhouse.io/people/35897443?application_id=46194062",
       "candidate": {
@@ -304,7 +304,7 @@ See webhook [common attributes](#common-attributes).
 |-----------|------|
 | `application.offer.id` | Unique Greenhouse identifier of the offer. Information not included in the webhook can be retrieved via [Harvest API - GET Offers](/harvest.html#offers)
 | `application.offer.created_at` | Date when this offer was drafted.
-| `application.offer.sent_on` | Date when this offer was sent to the candidate.
+| `application.offer.sent_at` | Date when this offer was sent to the candidate.
 | `application.offer.resolved_at` | Date the offer was accepted.
 | `application.offer.starts_at` | The candidate's start date. Expected format is YYYY-MM-DD
 | `application.status` | The application's status when the webhook is sent. Normally `hired`.
@@ -573,7 +573,7 @@ See webhook [common attributes](#common-attributes).
       "url": "https://app.greenhouse.io/people/265788?application_id=265293",
       "source": {
         "id": 27,
-        "public_name": "LinkedIn"
+        "name": "LinkedIn"
       },
       "credited_to": null,
       "rejection_reason": null,
@@ -734,7 +734,7 @@ See webhook [common attributes](#common-attributes).
       "url": "https://app.greenhouse.io/people/265788?application_id=265293",
       "source": {
         "id": 27,
-        "public_name": "LinkedIn"
+        "name": "LinkedIn"
       },
       "credited_to": null,
       "rejection_reason": {
@@ -897,7 +897,7 @@ See webhook [common attributes](#common-attributes).
       "url": "https://app.greenhouse.io/people/265788?application_id=265293",
       "source": {
         "id": 27,
-        "public_name": "LinkedIn"
+        "name": "LinkedIn"
       },
       "credited_to": null,
       "rejection_reason": null,

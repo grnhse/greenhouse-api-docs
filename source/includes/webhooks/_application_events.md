@@ -597,7 +597,7 @@ This webhook only fires when offers are deleted from the Greenhouse system.  Thi
       "url": "https://app.greenhouse.io/people/968190?application_id=979554",
       "source": {
         "id": 13,
-        "public_name": "Referral"
+        "name": "Referral"
       },
       "credited_to": {
         "id": 2622,
